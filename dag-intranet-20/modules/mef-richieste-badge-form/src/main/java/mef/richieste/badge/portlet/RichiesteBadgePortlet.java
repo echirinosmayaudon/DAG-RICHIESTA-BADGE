@@ -447,8 +447,6 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	}
 
 	private void getListGestionePosizione(PortletRequest request) {
-		
-		
 		long id = CounterLocalServiceUtil.increment(Sede.class.getName());
 		Sede sede = SedeLocalServiceUtil.createSede(-1);
 		sede.setId_pk_sede(id);
@@ -480,7 +478,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		fuoriPorta.setCod_fuoriPorta("fuori porta numero "+idFP);
 		FuoriPortaLocalServiceUtil.addFuoriPorta(fuoriPorta);
 		
-		
+		/*
 		List<Sede> listaSedi = SedeLocalServiceUtil.getSedes(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 		List<Piano> listaPiani = PianoLocalServiceUtil.getPianos(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 		List<Corridoio> listaCorridoi = CorridoioLocalServiceUtil.getCorridoios(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
@@ -496,6 +494,18 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		request.setAttribute("listaCorridoi", jsonArrayCorridoi);
 		request.setAttribute("listaFuoriPorta", jsonArrayFuoriPorta);
 		
+		*/
+		
+		
+		List<Sede> listaSedi = SedeLocalServiceUtil.getSedes(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		
+		for (Sede sede : listaSedi) {
+			//SedeLocalServiceUtil
+		}
+		
+		List<Piano> listaPiani = PianoLocalServiceUtil.getPianos(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		List<Corridoio> listaCorridoi = CorridoioLocalServiceUtil.getCorridoios(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		List<FuoriPorta> listaFuoriPorta = FuoriPortaLocalServiceUtil.getFuoriPortas(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 		
 	}
 	
