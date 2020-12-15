@@ -330,6 +330,10 @@ if(request.getParameter("richiestaId")!=null || (request.getAttribute("richiesta
                                 <p class="info"><%=moduloRichiedente.getSocieta()%></p>
                             </div>
                             
+                            
+                            
+                            
+                            
                             <c:if test="<%="DIREZIONE CENTRALE DEI SISTEMI INFORMATIVI E DELL'INNOVAZIONE".equalsIgnoreCase(HtmlUtil.unescape(moduloRichiedente.getDirezione()))%>">
                             
                             <div class="ama-col-md-3 ama-col-sm-6">
@@ -389,23 +393,7 @@ if(request.getParameter("richiestaId")!=null || (request.getAttribute("richiesta
                                 <p class="info"><%=moduloRichiedente.getPostazione()%></p>
                             </div>
                             
-                            <!-- modifica 2021 -->
-                            <div class="ama-col-md-3 ama-col-sm-6">
-                                <span class="section-information"><liferay-ui:message key="badge-recap-postazione-lavoro"/>:</span>
-                                <p class="info"><%=moduloRichiedente.getSedePostazione()%></p>
-                            </div>
-                            <div class="ama-col-md-3 ama-col-sm-6">
-                                <span class="section-information"><liferay-ui:message key="badge-recap-postazione-lavoro"/>:</span>
-                                <p class="info"><%=moduloRichiedente.getPianoPostazione()%></p>
-                            </div>
-                            <div class="ama-col-md-3 ama-col-sm-6">
-                                <span class="section-information"><liferay-ui:message key="badge-recap-postazione-lavoro"/>:</span>
-                                <p class="info"><%=moduloRichiedente.getCorridoioPostazione()%></p>
-                            </div>
-                            <div class="ama-col-md-3 ama-col-sm-6">
-                                <span class="section-information"><liferay-ui:message key="badge-recap-postazione-lavoro"/>:</span>
-                                <p class="info"><%=moduloRichiedente.%></p>
-                            </div>
+                            
                             
                             
                             
@@ -440,6 +428,29 @@ if(request.getParameter("richiestaId")!=null || (request.getAttribute("richiesta
                               	<p class="info"><%=moduloRichiedente.getMotivazione()%></p>
                          	</div>
                        
+                       
+                       
+                       <!-- modifica 2021 -->
+                            <div class="ama-col-md-3 ama-col-sm-6">
+                                <span class="section-information"><liferay-ui:message key="badge-recap-sede"/>:</span>
+                                <p class="info"><%=moduloRichiedente.getSedePostazione()%></p>
+                            </div>
+                            <div class="ama-col-md-3 ama-col-sm-6">
+                                <span class="section-information"><liferay-ui:message key="badge-recap-piano"/>:</span>
+                                <p class="info"><%=moduloRichiedente.getPianoPostazione()%></p>
+                            </div>
+                            <div class="ama-col-md-3 ama-col-sm-6">
+                                <span class="section-information"><liferay-ui:message key="badge-recap-corridoio"/>:</span>
+                                <p class="info"><%=moduloRichiedente.getCorridoioPostazione()%></p>
+                            </div>
+                            <div class="ama-col-md-3 ama-col-sm-6">
+                                <span class="section-information"><liferay-ui:message key="badge-recap-fuori-porta"/>:</span>
+                                <p class="info"><%=moduloRichiedente.getFuoriPortaPostazione()%></p>
+                            </div>
+                       
+                       
+                       
+                       
                         </c:if>  
                         </div>
                         
@@ -470,7 +481,7 @@ if(request.getParameter("richiestaId")!=null || (request.getAttribute("richiesta
 									</c:otherwise>
 							   </c:choose>
 		    			   </div>
-                           <!-- modifica 2021 -->   
+               
                            
                            
                            
