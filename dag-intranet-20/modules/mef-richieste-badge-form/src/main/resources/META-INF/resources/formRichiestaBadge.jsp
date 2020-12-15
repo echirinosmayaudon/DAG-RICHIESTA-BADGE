@@ -211,37 +211,7 @@
     <!-- TIPO RICHIESTA -->	
     <div class="ama-row">
     
-     <!-- modifica 2021 -->
-     
-     
-     
-				                                                <div class="ama-col-md-6 ama-col-xs-12 mb-15-md mb-10-xs">
-				                                                    <label for="sede" class="label-form margin-top"><liferay-ui:message key="badge-inserimento-sede"/>*</label>
-							                                       <select id="<portlet:namespace/>sede" name="<portlet:namespace/>sede" class="option-select data-parsley-validated"
-				                                                    	data-parsley-required="true" data-parsley-error-message="<liferay-ui:message key="error-mandatory"/>">
-							                                          
-							                                        </select>
-							                                       
-				                                                </div>
-				                                                <div class="ama-col-md-6 ama-col-xs-12 mb-15-md mb-10-xs">
-				                                                    <label for="piano" class="label-form margin-top"><liferay-ui:message key="badge-inserimento-piano"/></label>
-							                                        <select id="<portlet:namespace/>piano" name="<portlet:namespace/>piano">
-							                                          
-							                                        </select>
-				                                                </div>
-				                                                <div class="ama-col-md-6 ama-col-xs-12 mb-15-md mb-10-xs">
-				                                                    <label for="corridoio" class="label-form margin-top"><liferay-ui:message key="badge-inserimento-corridoio"/></label>
-							                                        <select id="<portlet:namespace/>corridoio" name="<portlet:namespace/>corridoio">
-							                                           
-							                                        </select>
-				                                                </div>
-				                                                <div class="ama-col-md-6 ama-col-xs-12 mb-15-md mb-10-xs">
-				                                                    <label for="fuoriPorta" class="label-form margin-top"><liferay-ui:message key="badge-inserimento-fuori-porta"/></label>
-							                                        <select id="<portlet:namespace/>fuoriPorta" name="<portlet:namespace/>fuoriPorta">
-							                                          
-							                                        </select>
-				                                                </div>
-				                                                <!--  fine 2021 -->	
+    
     
         <div class="ama-col-xs-12">
 
@@ -399,14 +369,7 @@
 				                                <div class="ama-col-xs-12">
 				                                    <form id="<portlet:namespace/>formStruttura<%=esternaTxt%>" data-parsley-validate="true" method="post" enctype="multipart/form-data">
 				                                        <div class="ama-row">
-				                                        
-				                                        
-				                                        
-				                                          
-				                                        
-				                                        
-				                                        
-				                                        
+
 				                                                <div class="ama-col-md-12 ama-col-xs-12">
 					                                        		<div class="heading-title-box">
 													                    <h2 class="heading-title"><liferay-ui:message key="badge-inserimento-struttura-richiedente"/></h2>
@@ -490,7 +453,37 @@
 						                                            </c:choose>
 				                                                </div>
 				                                                
-				                                               
+				                                                <!-- modifica 2021 -->
+     
+     
+     
+				                                                <div class="ama-col-md-6 ama-col-xs-12 mb-15-md mb-10-xs">
+				                                                    <label for="sede" class="label-form margin-top"><liferay-ui:message key="badge-inserimento-sede"/>*</label>
+							                                       <select id="<portlet:namespace/>sede" name="<portlet:namespace/>sede" class="option-select data-parsley-validated"
+				                                                    	data-parsley-required="true" data-parsley-error-message="<liferay-ui:message key="error-mandatory"/>">
+							                                          
+							                                        </select>
+							                                       
+				                                                </div>
+				                                                <div class="ama-col-md-6 ama-col-xs-12 mb-15-md mb-10-xs">
+				                                                    <label for="piano" class="label-form margin-top"><liferay-ui:message key="badge-inserimento-piano"/></label>
+							                                        <select id="<portlet:namespace/>piano" name="<portlet:namespace/>piano">
+							                                          
+							                                        </select>
+				                                                </div>
+				                                                <div class="ama-col-md-6 ama-col-xs-12 mb-15-md mb-10-xs">
+				                                                    <label for="corridoio" class="label-form margin-top"><liferay-ui:message key="badge-inserimento-corridoio"/></label>
+							                                        <select id="<portlet:namespace/>corridoio" name="<portlet:namespace/>corridoio">
+							                                           
+							                                        </select>
+				                                                </div>
+				                                                <div class="ama-col-md-6 ama-col-xs-12 mb-15-md mb-10-xs">
+				                                                    <label for="fuoriPorta" class="label-form margin-top"><liferay-ui:message key="badge-inserimento-fuori-porta"/></label>
+							                                        <select id="<portlet:namespace/>fuoriPorta" name="<portlet:namespace/>fuoriPorta">
+							                                          
+							                                        </select>
+				                                                </div>
+				                                                <!--  fine 2021 -->	
 				                                                	        
 				                                        </div>
 				                                    </form>
