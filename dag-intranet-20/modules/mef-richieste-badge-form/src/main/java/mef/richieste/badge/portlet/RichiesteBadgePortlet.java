@@ -309,7 +309,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 					Integer.toString(_configuration.itemsPerPage()));
 
 			if (renderRequest.getAttribute("daRicerca") != null) {
-
+				
 				session.setAttribute("listaRichiesteGestoreIntTot", null, PortletSession.APPLICATION_SCOPE);
 				session.setAttribute("listaRichiesteGestoreExtTot", null, PortletSession.APPLICATION_SCOPE);
 
@@ -448,6 +448,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 	private void getListGestionePosizione(PortletRequest request) {
 		
+		/* Creazione dati di test
+		
 		List<Sede> listaSedi = SedeLocalServiceUtil.getSedes(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 		for (Sede sede : listaSedi) {
 			SedeLocalServiceUtil.deleteSede(sede);
@@ -468,10 +470,6 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			FuoriPortaLocalServiceUtil.deleteFuoriPorta(fuoriPorta);
 		}
 		
-		
-		
-		
-		
 		long id = CounterLocalServiceUtil.increment(Sede.class.getName());
 		Sede sede = SedeLocalServiceUtil.createSede(-1);
 		sede.setId_pk_sede(id);
@@ -479,15 +477,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		sede.setCod_sede("sede_001");
 		sede.setDesc("XX Settembre");
 		SedeLocalServiceUtil.addSede(sede);
-		
-		long id2 = CounterLocalServiceUtil.increment(Sede.class.getName());
-		Sede sede2 = SedeLocalServiceUtil.createSede(-1);
-		sede2.setId_pk_sede(id2);
-		sede2.setId_sede(id2);
-		sede2.setCod_sede("sede_002");
-		sede2.setDesc("Dalmazia");
-		SedeLocalServiceUtil.addSede(sede2);
-		
+	
 		long idP = CounterLocalServiceUtil.increment(Piano.class.getName());
 		Piano piano = PianoLocalServiceUtil.createPiano(-1);
 		piano.setId_pk_piano(idP);
@@ -496,28 +486,12 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		piano.setDesc("PTE");
 		PianoLocalServiceUtil.addPiano(piano);
 		
-		long idP2 = CounterLocalServiceUtil.increment(Piano.class.getName());
-		Piano piano2 = PianoLocalServiceUtil.createPiano(-1);
-		piano2.setId_pk_piano(idP2);
-		piano2.setId_piano(idP2);
-		piano2.setId_sede(id);
-		piano2.setDesc("P01");
-		PianoLocalServiceUtil.addPiano(piano2);
-		
-		long idP3 = CounterLocalServiceUtil.increment(Piano.class.getName());
-		Piano piano3 = PianoLocalServiceUtil.createPiano(-1);
-		piano3.setId_pk_piano(idP3);
-		piano3.setId_piano(idP3);
-		piano3.setId_sede(id);
-		piano3.setDesc("P02");
-		PianoLocalServiceUtil.addPiano(piano3);
-		
 		long idC = CounterLocalServiceUtil.increment(Corridoio.class.getName());
 		Corridoio corridoio = CorridoioLocalServiceUtil.createCorridoio(-1);
 		corridoio.setId_pk_corridoio(idC);
 		corridoio.setId_corridoio(idC);
 		corridoio.setId_piano(idP);
-		corridoio.setCod_corridoio("1");
+		corridoio.setDesc("1");
 		CorridoioLocalServiceUtil.addCorridoio(corridoio);
 		
 		long idC2 = CounterLocalServiceUtil.increment(Corridoio.class.getName());
@@ -525,7 +499,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		corridoio2.setId_pk_corridoio(idC2);
 		corridoio2.setId_corridoio(idC2);
 		corridoio2.setId_piano(idP);
-		corridoio2.setCod_corridoio("2");
+		corridoio2.setDesc("2");
 		CorridoioLocalServiceUtil.addCorridoio(corridoio2);
 		
 		long idFP = CounterLocalServiceUtil.increment(Sede.class.getName());
@@ -533,7 +507,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		fuoriPorta.setId_pk_fuoriPorta(idFP);
 		fuoriPorta.setId_fuoriPorta(idFP);
 		fuoriPorta.setId_corridoio(idC);
-		fuoriPorta.setCod_fuoriPorta("01.01");
+		fuoriPorta.setDesc("01.01");
 		FuoriPortaLocalServiceUtil.addFuoriPorta(fuoriPorta);
 		
 		long idFP2 = CounterLocalServiceUtil.increment(Sede.class.getName());
@@ -541,7 +515,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		fuoriPorta2.setId_pk_fuoriPorta(idFP2);
 		fuoriPorta2.setId_fuoriPorta(idFP2);
 		fuoriPorta2.setId_corridoio(idC);
-		fuoriPorta2.setCod_fuoriPorta("01.15");
+		fuoriPorta2.setDesc("01.15");
 		FuoriPortaLocalServiceUtil.addFuoriPorta(fuoriPorta2);
 		
 		long idFP3 = CounterLocalServiceUtil.increment(Sede.class.getName());
@@ -549,10 +523,10 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		fuoriPorta3.setId_pk_fuoriPorta(idFP3);
 		fuoriPorta3.setId_fuoriPorta(idFP3);
 		fuoriPorta3.setId_corridoio(idC2);
-		fuoriPorta3.setCod_fuoriPorta("0201");
+		fuoriPorta3.setDesc("0201");
 		FuoriPortaLocalServiceUtil.addFuoriPorta(fuoriPorta3);
 		
-		
+	*/
 		List<Sede> _listaSedi = SedeLocalServiceUtil.getSedes(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 		List<Piano> _listaPiani = PianoLocalServiceUtil.getPianos(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 		List<Corridoio> _listaCorridoi = CorridoioLocalServiceUtil.getCorridoios(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
@@ -567,15 +541,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		request.setAttribute("listaPiani", jsonArrayPiani);
 		request.setAttribute("listaCorridoi", jsonArrayCorridoi);
 		request.setAttribute("listaFuoriPorta", jsonArrayFuoriPorta);
-		
-		
-		
-		
-	
-		
-		
-		
-		
+
 	}
 	
 	// getRoles from user
