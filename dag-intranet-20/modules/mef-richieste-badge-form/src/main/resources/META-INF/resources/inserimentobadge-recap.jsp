@@ -404,6 +404,30 @@ if(request.getParameter("richiestaId")!=null || (request.getAttribute("richiesta
                                 <span class="section-information"><liferay-ui:message key="badge-recap-abilitato-per-sedi"/>:</span>
                                 <p class="info"><%=moduloRichiedente.getSediAbilitate()%></p>
                             </div>
+                            
+                                  <!-- modifica 2021 -->
+                            <div class="ama-col-md-3 ama-col-sm-6">
+                                <span class="section-information"><liferay-ui:message key="badge-recap-sede"/>:</span>
+                                <p class="info"><%=moduloRichiedente.getSedePostazione()%></p>
+                            </div>
+                            <div class="ama-col-md-3 ama-col-sm-6">
+                                <span class="section-information"><liferay-ui:message key="badge-recap-piano"/>:</span>
+                                <p class="info"><%=moduloRichiedente.getPianoPostazione()%></p>
+                            </div>
+                            <div class="ama-col-md-3 ama-col-sm-6">
+                                <span class="section-information"><liferay-ui:message key="badge-recap-corridoio"/>:</span>
+                                <p class="info"><%=moduloRichiedente.getCorridoioPostazione()%></p>
+                            </div>
+                            <div class="ama-col-md-3 ama-col-sm-6">
+                                <span class="section-information"><liferay-ui:message key="badge-recap-fuori-porta"/>:</span>
+                                <p class="info"><%=moduloRichiedente.getFuoriPortaPostazione()%></p>
+                            </div>
+                       
+                            
+                            
+                            
+                            
+                            
                             <div class="ama-col-md-3 ama-col-sm-6">
                                	<span class="section-information"><liferay-ui:message key="badge-recap-data-scadenza"/>:</span>
                              	<c:choose>
@@ -430,24 +454,7 @@ if(request.getParameter("richiestaId")!=null || (request.getAttribute("richiesta
                        
                        
                        
-                       <!-- modifica 2021 -->
-                            <div class="ama-col-md-3 ama-col-sm-6">
-                                <span class="section-information"><liferay-ui:message key="badge-recap-sede"/>:</span>
-                                <p class="info"><%=moduloRichiedente.getSedePostazione()%></p>
-                            </div>
-                            <div class="ama-col-md-3 ama-col-sm-6">
-                                <span class="section-information"><liferay-ui:message key="badge-recap-piano"/>:</span>
-                                <p class="info"><%=moduloRichiedente.getPianoPostazione()%></p>
-                            </div>
-                            <div class="ama-col-md-3 ama-col-sm-6">
-                                <span class="section-information"><liferay-ui:message key="badge-recap-corridoio"/>:</span>
-                                <p class="info"><%=moduloRichiedente.getCorridoioPostazione()%></p>
-                            </div>
-                            <div class="ama-col-md-3 ama-col-sm-6">
-                                <span class="section-information"><liferay-ui:message key="badge-recap-fuori-porta"/>:</span>
-                                <p class="info"><%=moduloRichiedente.getFuoriPortaPostazione()%></p>
-                            </div>
-                       
+                 
                        
                        
                        
