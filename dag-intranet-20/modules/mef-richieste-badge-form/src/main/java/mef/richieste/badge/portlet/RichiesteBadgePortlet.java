@@ -174,6 +174,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	public void doView(RenderRequest renderRequest, RenderResponse renderResponse)
 			throws IOException, PortletException {
 
+		_log.info("Dentro del doview");
+		
 		ThemeDisplay themeDisplay = (ThemeDisplay) renderRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		User user = themeDisplay.getUser();
 		//String idOrgChart = (String) user.getExpandoBridge().getAttribute("idOrgChart");
@@ -217,6 +219,25 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 		if (navigation == null || (navigation != null && ("inserimentobadge").equalsIgnoreCase(navigation))) {
 			Richiedente richiedente = createRichiedenteByTheme(themeDisplay);
+			
+			
+			
+			/*Mod comboz temp per test in collaudo */
+			richiedente.setCognome("Chirinos");
+			richiedente.setNome("Edgar");
+			richiedente.setDipartimento("Informatica");
+			richiedente.setDirezione("Informatica");
+			richiedente.setUfficioRichiedente("Casal boccone");
+			
+			/**/
+			
+			
+			
+			
+			
+			
+			
+			
 			renderRequest.setAttribute("richiedente", richiedente);
 		}
 
@@ -418,6 +439,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		renderRequest.setAttribute("oggettoRichiestaList", oggettoRichiestaList);
 		renderRequest.setAttribute("sediEsterneList", sediEsterneList);
 		
+		/*Mod comboz*/
 		getListGestionePosizione(renderRequest);
 		
 		super.doView(renderRequest, renderResponse);
@@ -995,6 +1017,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	@ProcessAction(name = "eventoRichiestaBadge")
 	public void eventoRichiestaBadge(ActionRequest actionRequest, ActionResponse actionResponse)
 			throws ParseException, IOException, RichiesteBadgeException, PortalException {
+		
+		_log.info("Dentro evento richiesta badge");
 
 		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		User user = themeDisplay.getUser();
@@ -1070,6 +1094,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			moduloRichiedente.setDataNascita(jsonRichiestaSubmit.getString("datanascitaint"));
 
 		} else {
+			_log.info("Dentro evento richiesta badge esterno");
+			
 			moduloRichiedente.setTipo("esterna");
 			moduloRichiedente.setDipartimento(jsonRichiestaSubmit.getString("dipartimento"));
 			moduloRichiedente.setDirezione(jsonRichiestaSubmit.getString("direzione"));
@@ -1519,6 +1545,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	public void richiestaBadge(ActionRequest request, ActionResponse response)
 			throws NumberFormatException, PortalException {
 
+		_log.info("Dentro richiesta badge metodo");
+		
 		ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(WebKeys.THEME_DISPLAY);
 
 		Richiedente richiedente = createRichiedenteByTheme(themeDisplay);
@@ -1705,6 +1733,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	public void modificaRichiestaBadge(ActionRequest actionRequest, ActionResponse actionResponse)
 			throws ParseException, IOException, RichiesteBadgeException, PortalException {
 
+		_log.info("Dentro modifica richiesta badge");
+		
 		Richiedente richiedente = new Richiedente();
 
 		JSONObject jsonRichiedenteSubmit = JSONFactoryUtil
@@ -1796,6 +1826,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	@ProcessAction(name = "modificaRichiestaBadgePostSubmit")
 	public void modificaRichiestaBadgePostSubmit(ActionRequest actionRequest, ActionResponse actionResponse)
 			throws JSONException {
+		
+		_log.info("Dentro richiesta badge post submit");
 
 		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		long id_richiesta_pk = 0L;

@@ -378,7 +378,7 @@
 				                                                <div class="ama-col-md-12 ama-col-xs-12 mb-15-md mb-10-xs">
 				                                                    <label for="dipartimento" class="label-form margin-top"><liferay-ui:message key="badge-inserimento-dipartimento"/>*</label>
 							                                        <select id="<portlet:namespace/>dipartimento" name="<portlet:namespace/>dipartimento" class="option-select data-parsley-validated"
-				                                                    	data-parsley-required="true" data-parsley-error-message="<liferay-ui:message key="error-mandatory"/>"
+				                                                    	 data-parsley-error-message="<liferay-ui:message key="error-mandatory"/>"
 							                                        	onchange="getStruttureInterne(this.value, '<portlet:namespace/>direzione');
 							                                        			  clearStrutturaInterna('<portlet:namespace/>ufficio')">
 							                                            <option value=""><liferay-ui:message key="badge-inserimento-tutte"/></option>
