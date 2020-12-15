@@ -193,7 +193,9 @@ if(request.getParameter("richiestaId")!=null || (request.getAttribute("richiesta
                                  <div class="ama-col-md-3 ama-col-sm-6">
                                     <span class="section-information mt-30-md mt-30-xs"><liferay-ui:message key="badge-recap-email-richiedente"/>:</span>
                                     <p class="info"><%=richiedente.getEmail()%></p>
-                                </div>                                                  
+                                </div>
+                                
+                                                                               
                         	</div>                           	       
                         </div>                                              
                     </div>
@@ -387,6 +389,27 @@ if(request.getParameter("richiestaId")!=null || (request.getAttribute("richiesta
                                 <p class="info"><%=moduloRichiedente.getPostazione()%></p>
                             </div>
                             
+                            <!-- modifica 2021 -->
+                            <div class="ama-col-md-3 ama-col-sm-6">
+                                <span class="section-information"><liferay-ui:message key="badge-recap-postazione-lavoro"/>:</span>
+                                <p class="info"><%=moduloRichiedente.getSedePostazione()%></p>
+                            </div>
+                            <div class="ama-col-md-3 ama-col-sm-6">
+                                <span class="section-information"><liferay-ui:message key="badge-recap-postazione-lavoro"/>:</span>
+                                <p class="info"><%=moduloRichiedente.getPianoPostazione()%></p>
+                            </div>
+                            <div class="ama-col-md-3 ama-col-sm-6">
+                                <span class="section-information"><liferay-ui:message key="badge-recap-postazione-lavoro"/>:</span>
+                                <p class="info"><%=moduloRichiedente.getCorridoioPostazione()%></p>
+                            </div>
+                            <div class="ama-col-md-3 ama-col-sm-6">
+                                <span class="section-information"><liferay-ui:message key="badge-recap-postazione-lavoro"/>:</span>
+                                <p class="info"><%=moduloRichiedente.%></p>
+                            </div>
+                            
+                            
+                            
+                            
                             </c:if>
                             
                             <div class="ama-col-md-3 ama-col-sm-6">
@@ -447,7 +470,16 @@ if(request.getParameter("richiestaId")!=null || (request.getAttribute("richiesta
 									</c:otherwise>
 							   </c:choose>
 		    			   </div>
-                           <!--  -->   
+                           <!-- modifica 2021 -->   
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
+                           
                         </div>
                     </div>
                 </div>

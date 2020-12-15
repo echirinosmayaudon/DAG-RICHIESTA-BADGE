@@ -1847,7 +1847,7 @@ console.log("load combo sede 2");
         $.each(listaSedi, function(i, item) {  
         console.log("id pk = "+item.id_pk_sede);  
          console.log("id = "+item.id_sede); 
-        	$option = $("<option/>").attr("value", item.id_pk_sede).text(item.cod_sede);
+        	$option = $("<option/>").attr("value", item.id_pk_sede).text(item.desc);
         	comboz.append($option);
         });
         
@@ -1887,7 +1887,7 @@ function loadComboPiano(){
         data = filterPiano();
         
         $.each(data, function(i, item) {
-        	$option = $("<option/>").attr("value", item.id_pk_piano).text(item.cod_piano);
+        	$option = $("<option/>").attr("value", item.id_pk_piano).text(item.desc);
         	comboz.append($option);
         });	
         if(data.length==1){
@@ -1925,7 +1925,7 @@ function loadComboCorridoio(){
         data = filterCorridoio();
         
         $.each(data, function(i, item) {
-        	$option = $("<option/>").attr("value", item.id_pk_corridoio).text(item.cod_corridoio);
+        	$option = $("<option/>").attr("value", item.id_pk_corridoio).text(item.desc);
         	comboz.append($option);
         });	
         if(data.length==1){
@@ -1963,7 +1963,7 @@ function loadComboFuoriPorta(){
         comboz.append("<option/>");
         data = filterFuoriPorta();
         $.each(data, function(i, item) {
-        	$option = $("<option/>").attr("value", item.id_pk_fuoriPorta).text(item.cod_fuoriPorta);
+        	$option = $("<option/>").attr("value", item.id_pk_fuoriPorta).text(item.desc);
         	comboz.append($option);
         });	
         if(data.length==1){

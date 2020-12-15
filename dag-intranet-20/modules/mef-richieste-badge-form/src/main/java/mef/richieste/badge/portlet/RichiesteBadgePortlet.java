@@ -447,65 +447,134 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	}
 
 	private void getListGestionePosizione(PortletRequest request) {
+		
+		List<Sede> listaSedi = SedeLocalServiceUtil.getSedes(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		for (Sede sede : listaSedi) {
+			SedeLocalServiceUtil.deleteSede(sede);
+		}
+		
+		List<Piano> listaPiani = PianoLocalServiceUtil.getPianos(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		for (Piano piano : listaPiani) {
+			PianoLocalServiceUtil.deletePiano(piano);
+		}
+		
+		List<Corridoio> listaCorridoi = CorridoioLocalServiceUtil.getCorridoios(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		for (Corridoio corridoio : listaCorridoi) {
+			CorridoioLocalServiceUtil.deleteCorridoio(corridoio);
+		}
+		
+		List<FuoriPorta> listaFuoriPorta = FuoriPortaLocalServiceUtil.getFuoriPortas(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		for (FuoriPorta fuoriPorta : listaFuoriPorta) {
+			FuoriPortaLocalServiceUtil.deleteFuoriPorta(fuoriPorta);
+		}
+		
+		
+		
+		
+		
 		long id = CounterLocalServiceUtil.increment(Sede.class.getName());
 		Sede sede = SedeLocalServiceUtil.createSede(-1);
 		sede.setId_pk_sede(id);
 		sede.setId_sede(id);
-		sede.setCod_sede("sede numero "+id);
+		sede.setCod_sede("sede_001");
+		sede.setDesc("XX Settembre");
 		SedeLocalServiceUtil.addSede(sede);
+		
+		long id2 = CounterLocalServiceUtil.increment(Sede.class.getName());
+		Sede sede2 = SedeLocalServiceUtil.createSede(-1);
+		sede2.setId_pk_sede(id2);
+		sede2.setId_sede(id2);
+		sede2.setCod_sede("sede_002");
+		sede2.setDesc("Dalmazia");
+		SedeLocalServiceUtil.addSede(sede2);
 		
 		long idP = CounterLocalServiceUtil.increment(Piano.class.getName());
 		Piano piano = PianoLocalServiceUtil.createPiano(-1);
 		piano.setId_pk_piano(idP);
 		piano.setId_piano(idP);
 		piano.setId_sede(id);
-		piano.setCod_piano("piano numero "+idP);
+		piano.setDesc("PTE");
 		PianoLocalServiceUtil.addPiano(piano);
+		
+		long idP2 = CounterLocalServiceUtil.increment(Piano.class.getName());
+		Piano piano2 = PianoLocalServiceUtil.createPiano(-1);
+		piano2.setId_pk_piano(idP2);
+		piano2.setId_piano(idP2);
+		piano2.setId_sede(id);
+		piano2.setDesc("P01");
+		PianoLocalServiceUtil.addPiano(piano2);
+		
+		long idP3 = CounterLocalServiceUtil.increment(Piano.class.getName());
+		Piano piano3 = PianoLocalServiceUtil.createPiano(-1);
+		piano3.setId_pk_piano(idP3);
+		piano3.setId_piano(idP3);
+		piano3.setId_sede(id);
+		piano3.setDesc("P02");
+		PianoLocalServiceUtil.addPiano(piano3);
 		
 		long idC = CounterLocalServiceUtil.increment(Corridoio.class.getName());
 		Corridoio corridoio = CorridoioLocalServiceUtil.createCorridoio(-1);
 		corridoio.setId_pk_corridoio(idC);
 		corridoio.setId_corridoio(idC);
 		corridoio.setId_piano(idP);
-		corridoio.setCod_corridoio("corridoio numero "+idC);
+		corridoio.setCod_corridoio("1");
 		CorridoioLocalServiceUtil.addCorridoio(corridoio);
+		
+		long idC2 = CounterLocalServiceUtil.increment(Corridoio.class.getName());
+		Corridoio corridoio2 = CorridoioLocalServiceUtil.createCorridoio(-1);
+		corridoio2.setId_pk_corridoio(idC2);
+		corridoio2.setId_corridoio(idC2);
+		corridoio2.setId_piano(idP);
+		corridoio2.setCod_corridoio("2");
+		CorridoioLocalServiceUtil.addCorridoio(corridoio2);
 		
 		long idFP = CounterLocalServiceUtil.increment(Sede.class.getName());
 		FuoriPorta fuoriPorta = FuoriPortaLocalServiceUtil.createFuoriPorta(-1);
 		fuoriPorta.setId_pk_fuoriPorta(idFP);
 		fuoriPorta.setId_fuoriPorta(idFP);
 		fuoriPorta.setId_corridoio(idC);
-		fuoriPorta.setCod_fuoriPorta("fuori porta numero "+idFP);
+		fuoriPorta.setCod_fuoriPorta("01.01");
 		FuoriPortaLocalServiceUtil.addFuoriPorta(fuoriPorta);
 		
-		/*
-		List<Sede> listaSedi = SedeLocalServiceUtil.getSedes(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
-		List<Piano> listaPiani = PianoLocalServiceUtil.getPianos(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
-		List<Corridoio> listaCorridoi = CorridoioLocalServiceUtil.getCorridoios(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
-		List<FuoriPorta> listaFuoriPorta = FuoriPortaLocalServiceUtil.getFuoriPortas(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		long idFP2 = CounterLocalServiceUtil.increment(Sede.class.getName());
+		FuoriPorta fuoriPorta2 = FuoriPortaLocalServiceUtil.createFuoriPorta(-1);
+		fuoriPorta2.setId_pk_fuoriPorta(idFP2);
+		fuoriPorta2.setId_fuoriPorta(idFP2);
+		fuoriPorta2.setId_corridoio(idC);
+		fuoriPorta2.setCod_fuoriPorta("01.15");
+		FuoriPortaLocalServiceUtil.addFuoriPorta(fuoriPorta2);
+		
+		long idFP3 = CounterLocalServiceUtil.increment(Sede.class.getName());
+		FuoriPorta fuoriPorta3 = FuoriPortaLocalServiceUtil.createFuoriPorta(-1);
+		fuoriPorta3.setId_pk_fuoriPorta(idFP3);
+		fuoriPorta3.setId_fuoriPorta(idFP3);
+		fuoriPorta3.setId_corridoio(idC2);
+		fuoriPorta3.setCod_fuoriPorta("0201");
+		FuoriPortaLocalServiceUtil.addFuoriPorta(fuoriPorta3);
+		
+		
+		List<Sede> _listaSedi = SedeLocalServiceUtil.getSedes(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		List<Piano> _listaPiani = PianoLocalServiceUtil.getPianos(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		List<Corridoio> _listaCorridoi = CorridoioLocalServiceUtil.getCorridoios(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		List<FuoriPorta> _listaFuoriPorta = FuoriPortaLocalServiceUtil.getFuoriPortas(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 
-		String jsonArraySedi = JSONFactoryUtil.looseSerialize(listaSedi);
-		String jsonArrayPiani = JSONFactoryUtil.looseSerialize(listaPiani);
-		String jsonArrayCorridoi = JSONFactoryUtil.looseSerialize(listaCorridoi);
-		String jsonArrayFuoriPorta = JSONFactoryUtil.looseSerialize(listaFuoriPorta);
+		String jsonArraySedi = JSONFactoryUtil.looseSerialize(_listaSedi);
+		String jsonArrayPiani = JSONFactoryUtil.looseSerialize(_listaPiani);
+		String jsonArrayCorridoi = JSONFactoryUtil.looseSerialize(_listaCorridoi);
+		String jsonArrayFuoriPorta = JSONFactoryUtil.looseSerialize(_listaFuoriPorta);
 		
 		request.setAttribute("listaSedi", jsonArraySedi);
 		request.setAttribute("listaPiani", jsonArrayPiani);
 		request.setAttribute("listaCorridoi", jsonArrayCorridoi);
 		request.setAttribute("listaFuoriPorta", jsonArrayFuoriPorta);
 		
-		*/
 		
 		
-		List<Sede> listaSedi = SedeLocalServiceUtil.getSedes(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 		
-		for (Sede sede : listaSedi) {
-			//SedeLocalServiceUtil
-		}
+	
 		
-		List<Piano> listaPiani = PianoLocalServiceUtil.getPianos(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
-		List<Corridoio> listaCorridoi = CorridoioLocalServiceUtil.getCorridoios(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
-		List<FuoriPorta> listaFuoriPorta = FuoriPortaLocalServiceUtil.getFuoriPortas(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		
+		
 		
 	}
 	
