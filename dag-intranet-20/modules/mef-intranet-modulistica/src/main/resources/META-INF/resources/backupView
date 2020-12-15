@@ -1,0 +1,15 @@
+<%@ include file="/init.jsp" %>
+
+<p>
+	<b><liferay-ui:message key="modulistica-mef.caption"/></b>
+	
+	
+</p>
+
+<c:if test='${page.equals("/home")}'>
+	<%@ include file="/home.jsp" %>
+</c:if>
+
+<c:if test='${!page.equals("/home")}'>
+	<%@ include file="/category.jsp" %>
+</c:if>

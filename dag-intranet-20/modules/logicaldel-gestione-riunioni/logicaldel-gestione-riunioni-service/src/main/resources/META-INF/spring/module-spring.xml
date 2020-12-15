@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="com.intranet.mef.logicaldel.gestione.riunioni.service.impl.CancelAmmConvLocalServiceImpl" id="com.intranet.mef.logicaldel.gestione.riunioni.service.CancelAmmConvLocalService" />
+	<bean class="com.intranet.mef.logicaldel.gestione.riunioni.service.impl.CancelAmmConvServiceImpl" id="com.intranet.mef.logicaldel.gestione.riunioni.service.CancelAmmConvService" />
+	<bean class="com.intranet.mef.logicaldel.gestione.riunioni.service.persistence.impl.CancelAmmConvPersistenceImpl" id="com.intranet.mef.logicaldel.gestione.riunioni.service.persistence.CancelAmmConvPersistence" parent="basePersistence" />
+	<bean class="com.intranet.mef.logicaldel.gestione.riunioni.service.impl.CancelLuogoLocalServiceImpl" id="com.intranet.mef.logicaldel.gestione.riunioni.service.CancelLuogoLocalService" />
+	<bean class="com.intranet.mef.logicaldel.gestione.riunioni.service.impl.CancelLuogoServiceImpl" id="com.intranet.mef.logicaldel.gestione.riunioni.service.CancelLuogoService" />
+	<bean class="com.intranet.mef.logicaldel.gestione.riunioni.service.persistence.impl.CancelLuogoPersistenceImpl" id="com.intranet.mef.logicaldel.gestione.riunioni.service.persistence.CancelLuogoPersistence" parent="basePersistence" />
+</beans>

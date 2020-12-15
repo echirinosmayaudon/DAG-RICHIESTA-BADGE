@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="servizio.richiesta.trasporti.model.Mobilita">
+		<field name="custom_key" type="String" />
+		<field name="person_id" type="long" />
+		<field name="tipo_mobilita" type="String" />
+	</model>
+</model-hints>

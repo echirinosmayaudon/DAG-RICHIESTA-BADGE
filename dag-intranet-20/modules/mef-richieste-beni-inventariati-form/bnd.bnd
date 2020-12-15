@@ -1,0 +1,5 @@
+Bundle-SymbolicName: mef.richieste.beni.inventariati.form
+Bundle-Version: 1.0.4
+-includeresource:\
+        @poi-[0-9]*.jar;lib=true,\
+        @commons-collections4-[0-9]*.jar;lib=true 

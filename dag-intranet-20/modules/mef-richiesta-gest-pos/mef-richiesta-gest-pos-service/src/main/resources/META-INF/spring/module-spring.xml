@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+
+<beans
+	default-destroy-method="destroy"
+	default-init-method="afterPropertiesSet"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+	<bean class="mef.richiesta.gest.pos.service.impl.CorridoioLocalServiceImpl" id="mef.richiesta.gest.pos.service.CorridoioLocalService" />
+	<bean class="mef.richiesta.gest.pos.service.persistence.impl.CorridoioPersistenceImpl" id="mef.richiesta.gest.pos.service.persistence.CorridoioPersistence" parent="basePersistence" />
+	<bean class="mef.richiesta.gest.pos.service.impl.FuoriPortaLocalServiceImpl" id="mef.richiesta.gest.pos.service.FuoriPortaLocalService" />
+	<bean class="mef.richiesta.gest.pos.service.persistence.impl.FuoriPortaPersistenceImpl" id="mef.richiesta.gest.pos.service.persistence.FuoriPortaPersistence" parent="basePersistence" />
+	<bean class="mef.richiesta.gest.pos.service.impl.PianoLocalServiceImpl" id="mef.richiesta.gest.pos.service.PianoLocalService" />
+	<bean class="mef.richiesta.gest.pos.service.persistence.impl.PianoPersistenceImpl" id="mef.richiesta.gest.pos.service.persistence.PianoPersistence" parent="basePersistence" />
+	<bean class="mef.richiesta.gest.pos.service.impl.SedeLocalServiceImpl" id="mef.richiesta.gest.pos.service.SedeLocalService" />
+	<bean class="mef.richiesta.gest.pos.service.persistence.impl.SedePersistenceImpl" id="mef.richiesta.gest.pos.service.persistence.SedePersistence" parent="basePersistence" />
+</beans>

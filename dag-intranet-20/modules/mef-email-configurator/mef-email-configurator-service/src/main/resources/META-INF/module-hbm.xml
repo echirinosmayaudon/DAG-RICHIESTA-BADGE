@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="mef.email.configurator.model.AppNames" />
+	<import class="mef.email.configurator.model.EmailApp" />
+	<class name="mef.email.configurator.model.impl.AppNamesImpl" table="MEFEMAILC_AppNames">
+		<id column="id_" name="id" type="long">
+			<generator class="sequence">
+				<param name="sequence">appnames_seq</param>
+			</generator>
+		</id>
+		<property name="appname" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="appid" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="mef.email.configurator.model.impl.EmailAppImpl" table="MEFEMAILC_EmailApp">
+		<id column="id_" name="id" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="appid" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="struttura" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="email" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

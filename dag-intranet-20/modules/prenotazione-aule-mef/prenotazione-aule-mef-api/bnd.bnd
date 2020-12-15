@@ -1,0 +1,7 @@
+Bundle-SymbolicName: prenotazione.aule.mef-api
+Bundle-Version: 1.0.1
+Export-Package:\
+	servizio.prenotazione.aule.mef.exception,\
+	servizio.prenotazione.aule.mef.model,\
+	servizio.prenotazione.aule.mef.service,\
+	servizio.prenotazione.aule.mef.service.persistence

@@ -1,0 +1,1 @@
+create index IX_D27CF28F on CentralInvoker_CentralInvoker (uuid_[$COLUMN_LENGTH:75$]);

@@ -1,0 +1,7 @@
+Bundle-SymbolicName: gestione.riunioni.form
+Import-Package: \
+				 !org.apache.pdfbox.pdmodel,\
+				 !org.apache.pdfbox.pdmodel.common,\
+				 !org.apache.pdfbox.pdmodel.font,\
+				 * 
+Bundle-Version: 1.1.6

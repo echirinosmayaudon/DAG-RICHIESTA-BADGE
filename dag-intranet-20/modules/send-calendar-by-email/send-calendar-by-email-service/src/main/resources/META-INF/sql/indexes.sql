@@ -1,0 +1,1 @@
+create index IX_EFDA0EEC on SENDCALENDAR_LogMail (uuid_[$COLUMN_LENGTH:75$]);

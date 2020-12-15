@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="com.intranet.mef.job.siap.service.impl.CityLocalServiceImpl" id="com.intranet.mef.job.siap.service.CityLocalService" />
+	<bean class="com.intranet.mef.job.siap.service.impl.CityServiceImpl" id="com.intranet.mef.job.siap.service.CityService" />
+	<bean class="com.intranet.mef.job.siap.service.persistence.impl.CityPersistenceImpl" id="com.intranet.mef.job.siap.service.persistence.CityPersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="com.intranet.mef.job.siap.service.impl.ClassificationLevelLocalServiceImpl" id="com.intranet.mef.job.siap.service.ClassificationLevelLocalService" />
+	<bean class="com.intranet.mef.job.siap.service.impl.ClassificationLevelServiceImpl" id="com.intranet.mef.job.siap.service.ClassificationLevelService" />
+	<bean class="com.intranet.mef.job.siap.service.persistence.impl.ClassificationLevelPersistenceImpl" id="com.intranet.mef.job.siap.service.persistence.ClassificationLevelPersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="com.intranet.mef.job.siap.service.impl.CurrentBalanceHoursLocalServiceImpl" id="com.intranet.mef.job.siap.service.CurrentBalanceHoursLocalService" />
+	<bean class="com.intranet.mef.job.siap.service.impl.CurrentBalanceHoursServiceImpl" id="com.intranet.mef.job.siap.service.CurrentBalanceHoursService" />
+	<bean class="com.intranet.mef.job.siap.service.persistence.impl.CurrentBalanceHoursPersistenceImpl" id="com.intranet.mef.job.siap.service.persistence.CurrentBalanceHoursPersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="com.intranet.mef.job.siap.service.impl.FestivityLocalServiceImpl" id="com.intranet.mef.job.siap.service.FestivityLocalService" />
+	<bean class="com.intranet.mef.job.siap.service.impl.FestivityServiceImpl" id="com.intranet.mef.job.siap.service.FestivityService" />
+	<bean class="com.intranet.mef.job.siap.service.persistence.impl.FestivityPersistenceImpl" id="com.intranet.mef.job.siap.service.persistence.FestivityPersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="com.intranet.mef.job.siap.service.impl.LocationLocalServiceImpl" id="com.intranet.mef.job.siap.service.LocationLocalService" />
+	<bean class="com.intranet.mef.job.siap.service.impl.LocationServiceImpl" id="com.intranet.mef.job.siap.service.LocationService" />
+	<bean class="com.intranet.mef.job.siap.service.persistence.impl.LocationPersistenceImpl" id="com.intranet.mef.job.siap.service.persistence.LocationPersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="com.intranet.mef.job.siap.service.impl.ManagerOfficesBindLocalServiceImpl" id="com.intranet.mef.job.siap.service.ManagerOfficesBindLocalService" />
+	<bean class="com.intranet.mef.job.siap.service.impl.ManagerOfficesBindServiceImpl" id="com.intranet.mef.job.siap.service.ManagerOfficesBindService" />
+	<bean class="com.intranet.mef.job.siap.service.persistence.impl.ManagerOfficesBindPersistenceImpl" id="com.intranet.mef.job.siap.service.persistence.ManagerOfficesBindPersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="com.intranet.mef.job.siap.service.impl.MealTicketLocalServiceImpl" id="com.intranet.mef.job.siap.service.MealTicketLocalService" />
+	<bean class="com.intranet.mef.job.siap.service.impl.MealTicketServiceImpl" id="com.intranet.mef.job.siap.service.MealTicketService" />
+	<bean class="com.intranet.mef.job.siap.service.persistence.impl.MealTicketPersistenceImpl" id="com.intranet.mef.job.siap.service.persistence.MealTicketPersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="com.intranet.mef.job.siap.service.impl.OrganizationChartLocalServiceImpl" id="com.intranet.mef.job.siap.service.OrganizationChartLocalService" />
+	<bean class="com.intranet.mef.job.siap.service.impl.OrganizationChartServiceImpl" id="com.intranet.mef.job.siap.service.OrganizationChartService" />
+	<bean class="com.intranet.mef.job.siap.service.persistence.impl.OrganizationChartPersistenceImpl" id="com.intranet.mef.job.siap.service.persistence.OrganizationChartPersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="com.intranet.mef.job.siap.service.impl.OvertimeBalacePrevMonthLocalServiceImpl" id="com.intranet.mef.job.siap.service.OvertimeBalacePrevMonthLocalService" />
+	<bean class="com.intranet.mef.job.siap.service.impl.OvertimeBalacePrevMonthServiceImpl" id="com.intranet.mef.job.siap.service.OvertimeBalacePrevMonthService" />
+	<bean class="com.intranet.mef.job.siap.service.persistence.impl.OvertimeBalacePrevMonthPersistenceImpl" id="com.intranet.mef.job.siap.service.persistence.OvertimeBalacePrevMonthPersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="com.intranet.mef.job.siap.service.impl.OvertimeBalanceLocalServiceImpl" id="com.intranet.mef.job.siap.service.OvertimeBalanceLocalService" />
+	<bean class="com.intranet.mef.job.siap.service.impl.OvertimeBalanceServiceImpl" id="com.intranet.mef.job.siap.service.OvertimeBalanceService" />
+	<bean class="com.intranet.mef.job.siap.service.persistence.impl.OvertimeBalancePersistenceImpl" id="com.intranet.mef.job.siap.service.persistence.OvertimeBalancePersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="com.intranet.mef.job.siap.service.impl.OvertimePrevMonthPayOffLocalServiceImpl" id="com.intranet.mef.job.siap.service.OvertimePrevMonthPayOffLocalService" />
+	<bean class="com.intranet.mef.job.siap.service.impl.OvertimePrevMonthPayOffServiceImpl" id="com.intranet.mef.job.siap.service.OvertimePrevMonthPayOffService" />
+	<bean class="com.intranet.mef.job.siap.service.persistence.impl.OvertimePrevMonthPayOffPersistenceImpl" id="com.intranet.mef.job.siap.service.persistence.OvertimePrevMonthPayOffPersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="com.intranet.mef.job.siap.service.impl.PersonalAbsenceLocalServiceImpl" id="com.intranet.mef.job.siap.service.PersonalAbsenceLocalService" />
+	<bean class="com.intranet.mef.job.siap.service.impl.PersonalAbsenceServiceImpl" id="com.intranet.mef.job.siap.service.PersonalAbsenceService" />
+	<bean class="com.intranet.mef.job.siap.service.persistence.impl.PersonalAbsencePersistenceImpl" id="com.intranet.mef.job.siap.service.persistence.PersonalAbsencePersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="com.intranet.mef.job.siap.service.impl.ProfilePictureLocalServiceImpl" id="com.intranet.mef.job.siap.service.ProfilePictureLocalService" />
+	<bean class="com.intranet.mef.job.siap.service.impl.ProfilePictureServiceImpl" id="com.intranet.mef.job.siap.service.ProfilePictureService" />
+	<bean class="com.intranet.mef.job.siap.service.persistence.impl.ProfilePicturePersistenceImpl" id="com.intranet.mef.job.siap.service.persistence.ProfilePicturePersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="com.intranet.mef.job.siap.service.impl.PunchingLocalServiceImpl" id="com.intranet.mef.job.siap.service.PunchingLocalService" />
+	<bean class="com.intranet.mef.job.siap.service.impl.PunchingServiceImpl" id="com.intranet.mef.job.siap.service.PunchingService" />
+	<bean class="com.intranet.mef.job.siap.service.persistence.impl.PunchingPersistenceImpl" id="com.intranet.mef.job.siap.service.persistence.PunchingPersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="com.intranet.mef.job.siap.service.impl.UserFrontierBindLocalServiceImpl" id="com.intranet.mef.job.siap.service.UserFrontierBindLocalService" />
+	<bean class="com.intranet.mef.job.siap.service.impl.UserFrontierBindServiceImpl" id="com.intranet.mef.job.siap.service.UserFrontierBindService" />
+	<bean class="com.intranet.mef.job.siap.service.persistence.impl.UserFrontierBindPersistenceImpl" id="com.intranet.mef.job.siap.service.persistence.UserFrontierBindPersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="com.intranet.mef.job.siap.service.persistence.impl.UserFrontierBindFinderImpl" id="com.intranet.mef.job.siap.service.persistence.UserFrontierBindFinder" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="com.intranet.mef.job.siap.service.impl.UserPositionLocalServiceImpl" id="com.intranet.mef.job.siap.service.UserPositionLocalService" />
+	<bean class="com.intranet.mef.job.siap.service.impl.UserPositionServiceImpl" id="com.intranet.mef.job.siap.service.UserPositionService" />
+	<bean class="com.intranet.mef.job.siap.service.persistence.impl.UserPositionPersistenceImpl" id="com.intranet.mef.job.siap.service.persistence.UserPositionPersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="com.intranet.mef.job.siap.service.impl.VacationLocalServiceImpl" id="com.intranet.mef.job.siap.service.VacationLocalService" />
+	<bean class="com.intranet.mef.job.siap.service.impl.VacationServiceImpl" id="com.intranet.mef.job.siap.service.VacationService" />
+	<bean class="com.intranet.mef.job.siap.service.persistence.impl.VacationPersistenceImpl" id="com.intranet.mef.job.siap.service.persistence.VacationPersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+</beans>

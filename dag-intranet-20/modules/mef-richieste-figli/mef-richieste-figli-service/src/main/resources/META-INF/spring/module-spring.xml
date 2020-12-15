@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<beans
+	default-destroy-method="destroy"
+	default-init-method="afterPropertiesSet"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+	<bean class="mef.richieste.figli.service.impl.RICHIESTA_RIMBORSOLocalServiceImpl" id="mef.richieste.figli.service.RICHIESTA_RIMBORSOLocalService" />
+	<bean class="mef.richieste.figli.service.impl.RICHIESTA_RIMBORSOServiceImpl" id="mef.richieste.figli.service.RICHIESTA_RIMBORSOService" />
+	<bean class="mef.richieste.figli.service.persistence.impl.RICHIESTA_RIMBORSOPersistenceImpl" id="mef.richieste.figli.service.persistence.RICHIESTA_RIMBORSOPersistence" parent="basePersistence" />
+</beans>

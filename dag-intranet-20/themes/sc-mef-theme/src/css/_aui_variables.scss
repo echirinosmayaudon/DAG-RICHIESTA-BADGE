@@ -1,0 +1,139 @@
+// Variables
+// =========
+
+// Grays
+// -------------------------
+$black:                 #000 !default;
+$grayDarker:            #222 !default;
+$grayDark:              #333 !default;
+$gray:                  #555 !default;
+$grayLight:             #999 !default;
+$grayLighter:           #EEE !default;
+$white:                 #FFF !default;
+
+// Accent colors
+// -------------------------
+$blue:                  #235C87; //#09F !default;
+$blueDark:              #1F272D; //#0774BD !default;
+$green:                 #32C653 !default;
+$red:                   #F03 !default;
+$yellow:                #FFC40D !default;
+$orange:                #F89406 !default;
+$pink:                  #C3325F !default;
+$purple:                #7A43B6 !default;
+
+// Global
+$brand-primary: $blue;
+
+//Link color
+$link-hover-decoration: none;
+
+// Icon paths
+$FontAwesomePath: "aui/lexicon/fonts/alloy-font-awesome/font";
+$font-awesome-path: "aui/lexicon/fonts/alloy-font-awesome/font";
+$icon-font-path: "aui/lexicon/fonts/";
+
+//Dockbar background override
+$navbar-inverse-bg: $blueDark;
+
+// Documents and Media colors
+$management-bar-default-btn-default-bg: transparent; //background color button
+$management-bar-default-btn-default-border: transparent; // border color button
+$management-bar-default-btn-default-color: $black; //color inside button
+
+$management-bar-default-bg: $white; //background color bar
+$management-bar-default-link-color: $black; //default link color
+$management-bar-default-link-hover-bg: $grayLighter; //hover link background
+$management-bar-default-link-hover-color: $black; //default hover link color
+$management-bar-default-link-active-color: $black; //default active link color
+
+//Forms  colors
+$input-color-focus: $black;
+$input-border: $black;
+$input-label-color: $black;
+$input-label-focus-color: $black;
+
+// Buttons colors
+// -------------
+
+// btn-bottom-right
+$btn-fixed-spacer-y: 40px;
+// btn-default
+$btn-default-color: $black;
+$btn-default-bg: transparent;
+$btn-default-border: $black;
+$btn-default-hover-color: $btn-default-color;
+$btn-default-hover-bg: $btn-default-bg;
+$btn-default-hover-border: $grayLight;
+$btn-default-active-color: $btn-default-color;
+$btn-default-active-bg: $btn-default-bg;
+$btn-default-active-border: darken($btn-default-hover-border, 8%);
+
+// btn-primary
+$btn-primary-color: $white;
+$btn-primary-bg: $blue;
+$btn-primary-border: $blue;
+$btn-primary-hover-color: $white;
+$btn-primary-hover-bg: darken($btn-primary-bg, 8%);
+$btn-primary-hover-border: $btn-primary-hover-bg;
+$btn-primary-active-color: $btn-primary-color;
+$btn-primary-active-bg: darken($btn-primary-hover-bg, 12%);
+$btn-primary-active-border: $btn-primary-active-bg;
+
+// Notifications
+$notifications-font-size: 12px;
+$notificationsDropdownMenuWidth: 350px;
+
+
+
+
+
+/*********************00f8bb
+CUSTOM
+*********************/
+
+$main-font: 'Segoe UI';
+
+//== Colors custom
+$main-color: #000;
+$white: #fff;
+$light-grey:#d8d8d8; // rgb(216,216,216)
+$dark-grey-blue: #2c354f; // rgb(44,53,79)
+$bright-aqua: #00F8BB; // rgb(88,226,194)
+$bright-sky-blue: #00b4ff; // rgb(0,180,255)
+$azure: #0099ff; // rgb(0,153,255)
+$cerulean: #007cbc; // rgb(0,124,128)
+$prussian-blue: #004579; // rgb(0,69,121)
+$navy-blue: #00264d; // rgb(0,38,77)
+$blue:#003896;
+$slate: #414960; // rgb(75,73,96)
+$azure-new: #4990E2;
+$focus:#ffaa4d;
+$violet:#800080;
+$violet-light: #8f00c8;
+$yellow:#ebc028;
+$gray-box-shadow: #e2e3e5;
+$color-label-radio:#445555;
+$color-tooltip: #c6c6c6;
+$color-grey: #979797;
+
+//== Colors custom input-textarea
+$input-light-border: rgba(255, 255, 255, 0.55);
+$input-light-bkg: rgba(216, 216, 216, 0.4);
+$input-help: #E10909;
+
+//== Colors icon file
+$icon-file-doc: #4ca5ff;
+$icon-file-xls: #6cb228;
+$icon-file-ppt: #f49c20;
+$icon-file-jpg: #9855df;
+$icon-file-pdf: #E14045;
+
+//== Colors footer
+$footer-color:        #2c354f;
+$footer-title-color:  #ebc028;
+
+//== Colors LINKS
+$hover-light:#57ca85;
+$hover-dark:#187C37;
+

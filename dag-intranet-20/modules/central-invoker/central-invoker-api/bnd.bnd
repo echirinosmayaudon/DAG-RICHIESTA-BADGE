@@ -1,0 +1,9 @@
+Bundle-SymbolicName: central.invoker-api
+Bundle-Version: 1.0.3
+Export-Package:\
+	com.intranet.mef.central.exception,\
+	com.intranet.mef.central.model,\
+	com.intranet.mef.central.service,\
+	com.intranet.mef.central.service.persistence,\
+	com.intranet.mef.central.constants,\
+	com.intranet.mef.central.util

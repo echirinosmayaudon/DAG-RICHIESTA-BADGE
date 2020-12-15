@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="servizio.richieste.badge.mef.model.AnaDipExt" />
+	<import class="servizio.richieste.badge.mef.model.GestioneUtenti" />
+	<import class="servizio.richieste.badge.mef.model.OggettoRichiesta" />
+	<import class="servizio.richieste.badge.mef.model.RichiestaBadge" />
+	<import class="servizio.richieste.badge.mef.model.SediEsterne" />
+	<import class="servizio.richieste.badge.mef.model.StatoRichiesta" />
+	<class name="servizio.richieste.badge.mef.model.impl.AnaDipExtImpl" table="MBADGE_AnaDipExt">
+		<id name="id_dip_ext" type="long">
+			<generator class="sequence">
+				<param name="sequence">anadipext_seq</param>
+			</generator>
+		</id>
+		<property name="nome_dip_ext" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="cognome_dip_ext" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="cf_dip_ext" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="luogonascita_dip_ext" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="datanascita_dip_ext" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="servizio.richieste.badge.mef.model.impl.GestioneUtentiImpl" table="MBADGE_GestioneUtenti">
+		<id name="id_gest_utenti" type="long">
+			<generator class="sequence">
+				<param name="sequence">gestutentibadge_seq</param>
+			</generator>
+		</id>
+		<property column="data_" name="data" type="org.hibernate.type.TimestampType" />
+		<property name="screename_dirigente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="screename_utente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="id_ufficio" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="abilitazione" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="delega" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+	<class name="servizio.richieste.badge.mef.model.impl.OggettoRichiestaImpl" table="MBADGE_OggettoRichiesta">
+		<id name="id_oggetto" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="descrizione_oggetto" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="servizio.richieste.badge.mef.model.impl.RichiestaBadgeImpl" table="MBADGE_RichiestaBadge">
+		<id name="id_pk" type="long">
+			<generator class="sequence">
+				<param name="sequence">richbadge_seq</param>
+			</generator>
+		</id>
+		<property name="id_richiesta" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="screename_richiedente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="id_ufficio" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="id_sedesiap" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="json_richiedente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="is_internal" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="nome_intestatario" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="cognome_intestatario" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="cf_intestatario" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="luogonascita_intestatario" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="datanascita_intestatario" type="org.hibernate.type.TimestampType" />
+		<property name="id_oggetto" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="numero_badge" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="uuid_foto" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="uuid_modulosostituzione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="societa" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="referente_societa" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="progetto" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="json_richiesta_external" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="array_sedi_abilitate" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="motivazione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_scadenza" type="org.hibernate.type.TimestampType" />
+		<property name="uuid_modulopdf" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_richiesta" type="org.hibernate.type.TimestampType" />
+		<property name="data_modifica" type="org.hibernate.type.TimestampType" />
+		<property name="id_stato" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="utente_cambio_stato" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="note" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="is_last" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+	<class name="servizio.richieste.badge.mef.model.impl.SediEsterneImpl" table="MBADGE_SediEsterne">
+		<id name="id_sede_esterna" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="nome_sede_esterna" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="id_sedesiap" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="acronimo_sede" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="servizio.richieste.badge.mef.model.impl.StatoRichiestaImpl" table="MBADGE_StatoRichiesta">
+		<id name="id_stato" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="descrizione_stato" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

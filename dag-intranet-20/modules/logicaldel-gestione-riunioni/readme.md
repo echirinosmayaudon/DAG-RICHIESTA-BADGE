@@ -1,0 +1,1 @@
+servizio per l'implementazione della cancellazione logica sui luoghi e le amministrazioni convocanti di gestione riunioni

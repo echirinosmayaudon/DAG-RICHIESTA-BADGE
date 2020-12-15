@@ -1,0 +1,17 @@
+Bundle-SymbolicName: send.calendar.by.email-service
+Bundle-Version: 1.1.2
+Liferay-Require-SchemaVersion: 1.0.0
+Liferay-Service: true
+
+Import-Package:\
+	!groovy.lang,\
+	!groovy.util,\
+	!net.fortuna.ical4j,\
+	!net.fortuna.ical4j.factory,\
+	!net.fortuna.ical4j.timezone,\
+	!org.codehaus.groovy.*,\
+	*
+
+-includeresource:\
+	@ical4j-[0-9]*.jar;lib=true,\
+	@backport-util-concurrent-[0-9]*.jar;lib=true

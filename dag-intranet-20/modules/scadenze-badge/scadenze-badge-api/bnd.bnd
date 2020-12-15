@@ -1,0 +1,9 @@
+Bundle-SymbolicName: scadenze.badge-api
+Bundle-SymbolicName: com.intranet.mef.scadenze.badge.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.intranet.mef.scadenze.badge.exception,\
+	com.intranet.mef.scadenze.badge.model,\
+	com.intranet.mef.scadenze.badge.service,\
+	com.intranet.mef.scadenze.badge.service.persistence
+-includeresource: META-INF/service.xml=../scadenze-badge-service/service.xml

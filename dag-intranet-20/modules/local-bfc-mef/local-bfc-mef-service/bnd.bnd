@@ -1,0 +1,8 @@
+Bundle-SymbolicName: local.bfc.mef-service
+Bundle-Version: 1.0.1
+Liferay-Require-SchemaVersion: 1.0.0
+Liferay-Service: true
+Export-Package: servizio.local.bfc.exception, \
+servizio.local.bfc.model, \
+servizio.local.bfc.service, \
+servizio.local.bfc.service.persistence

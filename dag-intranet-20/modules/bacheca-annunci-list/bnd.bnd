@@ -1,0 +1,8 @@
+Bundle-Name: bacheca-annunci-list
+Bundle-SymbolicName: bacheca.annunci.list
+Bundle-Version: 1.0.4
+Export-Package: com.liferay.journal.web.portlet.action, \
+com.liferay.journal.web.configuration, \
+com.liferay.journal.web.display.context.util, \
+com.liferay.journal.web.upload, \
+com.liferay.document.library.web.internal.settings

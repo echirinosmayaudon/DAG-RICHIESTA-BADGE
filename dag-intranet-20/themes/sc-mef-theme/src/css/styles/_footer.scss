@@ -1,0 +1,299 @@
+.footer-mef {
+  background-color: $footer-color;
+
+  .buttom-up {
+    margin-top: -30px;
+  }
+
+  .title-footer {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+    color: $footer-title-color;
+    padding-bottom: 13px;
+    margin: 0;
+  }
+
+  & ul {
+    font-size: 16px;
+    line-height: 1.88;
+    text-align: left;
+    color: white;
+    margin: 0;
+  }
+
+  .link-top-footer {
+    ul {
+      list-style: disc;
+      padding-left: 20px;
+
+      li {
+        list-style: disc;
+
+        a {
+          line-height: 1;
+          display: inline-block;
+          color:white;
+          text-decoration: underline;
+
+          &:hover, &:focus {
+            color: $hover-light;
+            text-decoration: none!important;
+          }
+        }
+      }
+
+      &.list-a-footer {
+        color: $footer-title-color;
+        a {
+          color: $footer-title-color;
+          &:hover, &:focus {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  .a-footer {
+    color: $footer-title-color;
+    text-decoration: underline;
+
+    &:hover, &:focus {
+      color: $hover-light;
+      text-decoration: underline !important;
+    }
+  }
+
+  .a-footer-white {
+    color: white;
+    text-decoration: Underline;
+    font-size: 14px;
+    line-height: 2.14;
+    text-align: center;
+  }
+
+  .contact {
+    font-size: 14px;
+    line-height: 1.11;
+    padding-top: 10px;
+    text-align: left;
+    color: white;
+  }
+
+  .icomoon-footer {
+    font-size: 27px;
+    color: $footer-title-color;
+    position: absolute;
+    margin-top: 3px;
+  }
+
+  .rectangle-footer {
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: solid 1px rgba(238, 241, 244, 0.5);
+  }
+
+  & hr {
+    height: 0;
+    opacity: 0.8;
+    border: 3px dashed #ffffff;
+  }
+
+  .title-footer-white {
+    padding-top: 10px;
+    font-size: 18px;
+    line-height: 1.13;
+    text-align: left;
+    color: white;
+  }
+
+  .font-white {
+    padding-top: 10px;
+    font-size: 12px;
+    line-height: 1.13;
+    text-align: center;
+    color: white;
+    a{
+      color: white;
+      text-decoration: underline;
+      &:hover, &:focus {
+        color: $hover-light;
+        text-decoration: none !important;
+      }
+    }
+    text-decoration: underline;
+    &:hover, &:focus {
+      color: $hover-light;
+      text-decoration: none !important;
+    }
+  }
+
+  .pl-s-mobile {
+    a {
+      display: inline-block;
+      &:hover, &:focus {
+        p {
+          color: $hover-light;
+        }
+      }
+    }
+  }
+
+  .icomoon-social {
+    font-size: 30px;
+    color: #ffffff;
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    text-align: center;
+    line-height: 60px;
+    padding: 0;
+  }
+
+  .button {
+    border-radius: 3px;
+    background-color: $footer-title-color;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    color: $blue;
+    padding: 8px;
+    max-width: 200px;
+    max-height: 40px;
+    margin: 0 auto;
+    letter-spacing: 1.6px;
+
+    &:hover, &:focus {
+      background-color: $hover-light;
+    }
+  }
+
+  .p-footer {
+    position: relative;
+    padding-left: 40px;
+    display: inline-grid;
+
+    a {
+      color:white;
+      text-decoration: underline;
+      &:hover, &:focus {
+        color: $hover-light;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .list-icone {
+    padding-top: 20px;
+    padding-bottom: 5px;
+  }
+
+  .credit-note {
+    color: white;
+    text-align: center;
+    margin: 0px auto;
+
+    .a-footer-white {
+      &:hover, &:focus {
+        color: $hover-light;
+        text-decoration: none !important;
+      }
+    }
+  }
+
+  @media(max-width: $screen-sm-max) {
+
+    .title-footer {
+      min-height: inherit;
+      width: 220px;
+      margin: 0 auto;
+    }
+
+    & ul {
+      min-height: inherit;
+      width: 220px;
+      margin: 0 auto;
+      padding-bottom: 30px;
+    }
+
+    & .logo {
+      display: block;
+      margin: 0 auto;
+    }
+
+    .list-icone {
+      min-height: inherit;
+      //width: 220px;
+      margin: 0 auto;
+    }
+
+    .title-footer-white {
+      text-align: left;
+    }
+
+    .style-tab-title {
+
+      width: 100%;
+      text-align: center;
+
+    }
+
+    .font-white {
+      margin-bottom: 10px;
+      width: 60px;
+      text-align: center;
+    }
+
+    .buttom-up {
+      margin-top: 0px;
+    }
+
+  }
+
+  @media(max-width: $screen-xs-max) {
+
+    .pl-s-mobile {
+      text-align: center;
+    }
+
+    & hr {
+      display: none;
+    }
+
+    & .logo {
+      margin-bottom: 30px;
+    }
+
+    .buttom-up {
+      margin: 0;
+      margin-bottom: 20px;
+    }
+
+    .list-icone {
+      min-height: inherit;
+      width: 220px;
+      margin: 0 auto;
+    }
+    & p {
+      width: 220px;
+      margin: 0 auto;
+    }
+
+    .p-footer {
+      position: relative;
+      padding-left: 40px;
+      display: inline-grid;
+    }
+
+    .title-footer-white {
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+  }
+  .container-fluid{
+    max-width: 1170px;
+  }
+}

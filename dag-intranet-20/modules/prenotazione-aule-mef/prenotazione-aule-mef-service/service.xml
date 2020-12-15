@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="servizio.prenotazione.aule.mef">
+	
+	<namespace>MEFAULE</namespace>
+	
+	<entity name="StatoAula" local-service="true" remote-service="true">
+		<column name="id_stato_aula" type="long" primary="true"></column>
+	    <column name="desc_stato" type="String"></column>   
+	</entity>
+	
+	<entity name="TipoEvento" local-service="true" remote-service="true">
+		<column name="id_evento" type="long" primary="true"></column>
+	    <column name="desc_evento" type="String"></column>   
+	</entity>
+	
+	<entity name="StrumentoTec" local-service="true" remote-service="true">
+		<column name="id_strumento" type="long" primary="true"></column>
+	    <column name="desc_strumento" type="String"></column>  
+	    <column name="email_ref" type="String"></column>   
+	    
+	    <finder name="DescStrumento" return-type="Collection" db-index="false">
+        	<finder-column name="desc_strumento"></finder-column>
+        </finder>
+	</entity>
+	
+	<entity name="StrumentoEvento" local-service="true" remote-service="true">
+		<column name="id_strumento" type="long" primary="true"></column>
+	    <column name="desc_strumento" type="String"></column>   
+	    <column name="email_ref" type="String"></column>   
+	    
+	    <finder name="DescStrumento" return-type="Collection" db-index="false">
+        	<finder-column name="desc_strumento"></finder-column>
+        </finder>
+	</entity>
+	
+	<entity name="ServizioLog" local-service="true" remote-service="true">
+		<column name="id_servizio" type="long" primary="true"></column>
+	    <column name="desc_servizio" type="String"></column>   
+	    <column name="email_ref" type="String"></column> 
+	    
+	    <finder name="DescServizio" return-type="Collection" db-index="false">
+        	<finder-column name="desc_servizio"></finder-column>
+        </finder>  
+	</entity>
+	
+	<entity name="Orario" local-service="true" remote-service="true">
+		<column name="id_ora" type="long" primary="true"></column>
+	    <column name="ore" type="String"></column>  
+	</entity>
+	
+	<entity name="Sala" local-service="true" remote-service="true">
+		<column name="id_sala" type="long" primary="true"></column>
+	    <column name="desc_sala" type="String"></column>  
+	    <column name="indirizzo" type="String"></column>  
+	    <column name="citta" type="String"></column>  
+	    <column name="cap" type="String"></column>  
+	    <column name="cod_prov" type="String"></column>  
+	    <column name="piano" type="String"></column>  
+	    <column name="stanza" type="String"></column>  
+	    <column name="posti" type="int"></column>  
+	    <column name="video_conferenza" type="boolean"></column>  
+	    <column name="proiettore" type="boolean"></column>  
+	    <column name="postazione_rete" type="boolean"></column> 
+	    <column name="autorizzazione" type="boolean"></column>
+	    <column name="email_ref" type="String"></column>
+	</entity>
+	
+	<entity name="Approvatore" local-service="true" remote-service="true">
+		<column name="id_approvatore" type="long" primary="true"></column>
+	    <column name="id_sala" type="long"></column>  
+	    <column name="email_approvatore" type="String"></column>  
+	    
+	    <finder name="IdSala" return-type="Collection" db-index="false">
+        	<finder-column name="id_sala"></finder-column>
+        </finder>
+	</entity>
+	
+	<entity name="SalaStruttura" local-service="true" remote-service="true">
+		<column name="id" type="long" primary="true"></column>
+	    <column name="id_sala" type="long"></column>  
+	    <column name="id_struttura" type="long"></column>
+	    
+	    <finder name="IdStruttura" return-type="Collection" db-index="false">
+        	<finder-column name="id_struttura"></finder-column>
+        </finder>
+	</entity>
+	
+	<entity name="Prenotazione" local-service="true" remote-service="true">
+		<column name="id_prenota" type="long" primary="true" id-type="sequence" id-param="prenotazione_seq"></column>
+	    <column name="id_sala" type="long"></column>
+	    <column name="cod_fiscale" type="String"></column>  
+	    <column name="data_prenota" type="Date"></column>    
+	    <column name="data_inizio" type="Date"></column>    
+	    <column name="data_fine" type="Date"></column>
+	    <column name="partecipanti" type="int"></column>
+	    <column name="id_evento" type="long"></column>
+	    <column name="attivita" type="String"></column>     
+	    <column name="note" type="String"></column>  
+	    <column name="id_stato" type="long"></column>
+	    <column name="dati_rich" type="String"></column>
+	    <column name="servizi" type="String"></column> 
+	    
+	    <finder name="CodFiscale" return-type="Collection" db-index="false">
+        	<finder-column name="cod_fiscale"></finder-column>
+        </finder>    
+	</entity>
+	
+</service-builder>

@@ -1,0 +1,7 @@
+Bundle-SymbolicName: mef.rubrica.form
+Bundle-Version: 1.0.6
+-includeresource:\
+        @jsoup-[0-9]*.jar;lib=true,\
+        @jackson-databind-[0-9]*.jar;lib=true,\
+        @jackson-annotations-[0-9]*.jar;lib=true,\
+        @jackson-core-[0-9]*.jar;lib=true

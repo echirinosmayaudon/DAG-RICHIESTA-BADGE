@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://geco-bfc.tesoro.it/geco-webservice/services/SottogruppoService" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://geco-bfc.tesoro.it/geco-webservice/services/SottogruppoService" xmlns:intf="http://geco-bfc.tesoro.it/geco-webservice/services/SottogruppoService" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="urn:it.mef.geco" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+  <wsdl:types>
+    <schema targetNamespace="urn:it.mef.geco" xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="getSottogruppiResponse">
+    <wsdl:part name="getSottogruppiReturn" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:message name="getSottogruppiRequest">
+    <wsdl:part name="in0" type="xsd:string"/>
+  </wsdl:message>
+  <wsdl:portType name="SottogruppoService">
+    <wsdl:operation name="getSottogruppi" parameterOrder="in0">
+      <wsdl:input message="impl:getSottogruppiRequest" name="getSottogruppiRequest"/>
+      <wsdl:output message="impl:getSottogruppiResponse" name="getSottogruppiResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SottogruppoServiceSoapBinding" type="impl:SottogruppoService">
+    <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getSottogruppi">
+      <wsdlsoap:operation soapAction=""/>
+      <wsdl:input name="getSottogruppiRequest">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://geco-bfc.tesoro.it/geco-webservice/services/SottogruppoService"/>
+      </wsdl:input>
+      <wsdl:output name="getSottogruppiResponse">
+        <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://geco-bfc.tesoro.it/geco-webservice/services/SottogruppoService"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SottogruppoServiceService">
+    <wsdl:port binding="impl:SottogruppoServiceSoapBinding" name="SottogruppoService">
+      <wsdlsoap:address location="http://geco.tesoro.it/geco-webservice/services/SottogruppoService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

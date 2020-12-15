@@ -1,0 +1,4 @@
+Bundle-Name: SMC Mef Intranet - Assistance Intranet WEB
+Bundle-SymbolicName: com.intranet.mef.assistance.web
+Bundle-Version: 1.0.3
+Export-Package: assistanceIntranet.web.constants

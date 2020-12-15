@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="com.intranet.mef.assistance" auto-namespace-tables="true">
+	<namespace>Assistance</namespace>
+	
+	<entity local-service="true" name="Ambito" remote-service="false" uuid="true">
+
+		<!-- PK fields -->
+		<column name="assScopeId" primary="true" type="String" />
+		<column name="scopeName" type="String" />
+ 
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="assScopeId" />
+		</order>
+ 
+	</entity>
+	
+	<entity local-service="true" name="Servizio" remote-service="false" uuid="true">
+
+		<!-- PK fields -->
+		<column name="assServiceId" primary="true" type="String" />
+		<column name="serviceName" type="String" />
+		
+		<!-- Other fields -->
+		<column name="assScopeId" type="String" /> 
+		<column name="levelAssistance" type="String" />
+		
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="assServiceId" />
+		</order>
+		
+		<!-- Finder methods -->
+		<finder name="ScopesId" return-type="Collection">
+			<finder-column name="assScopeId" />
+		</finder>
+ 
+	</entity>
+	
+	<entity local-service="true" name="Area" remote-service="false" uuid="true">
+
+		<!-- PK fields -->
+		<column name="areaId" primary="true" type="String" />
+		
+		<column name="areaName" type="String" />
+		
+		<!-- Other fields -->
+		<column name="assServiceId" type="String" />
+		
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="areaId" />
+		</order>
+		
+		<!-- Finder methods -->
+		<finder name="ServicesId" return-type="Collection">
+			<finder-column name="assServiceId" />
+		</finder>
+ 
+	</entity>
+	
+	<entity local-service="true" name="Topic" remote-service="false" uuid="true">
+
+		<!-- PK fields -->
+		<column name="topicId" primary="true" type="String" />
+		
+		<column name="topicName" type="String" />
+		
+		<!-- Other fields -->
+		<column name="areaId" type="String" />
+		
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="topicId" />
+		</order>
+		
+		<!-- Finder methods -->
+		<finder name="AreasId" return-type="Collection">
+			<finder-column name="areaId" />
+		</finder>
+ 
+	</entity>
+	
+	<entity local-service="true" name="Problem" remote-service="false" uuid="true">
+
+		<!-- PK fields -->
+		<column name="problemId" primary="true" type="String" />
+		
+		<column name="problemName" type="String" />
+		
+		<!-- Other fields -->
+		<column name="topicId" type="String" />
+		
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="problemId" />
+		</order>
+		
+		<!-- Finder methods -->
+		<finder name="TopicsId" return-type="Collection">
+			<finder-column name="topicId" />
+		</finder>
+ 
+	</entity>
+	
+	<entity local-service="true" name="Faq" remote-service="false" uuid="true">
+
+		<!-- PK fields -->
+		<column name="faqId" primary="true" type="String" /> <!-- join on problemId table Problem -->
+		<column name="siebelId"  primary="true" type="String" />
+ 
+ 	 	<!-- Other fields -->
+		<column name="questions" type="String" />
+		<column name="response" type="String" />
+		
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="faqId" />
+		</order>
+		
+		<!-- Finder methods -->
+		<finder name="FaqId" return-type="Collection">
+			<finder-column name="faqId" />
+		</finder>
+ 
+	</entity>
+	
+	<entity local-service="true" remote-service="false" name="AssistanceHelper" >
+		
+	</entity>
+</service-builder>

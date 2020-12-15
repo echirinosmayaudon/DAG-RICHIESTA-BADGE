@@ -1,0 +1,7 @@
+Bundle-SymbolicName: richieste.mef-api
+Bundle-Version: 1.0.1
+Export-Package:\
+	service.intranet.mef.exception,\
+	service.intranet.mef.model,\
+	service.intranet.mef.service,\
+	service.intranet.mef.service.persistence

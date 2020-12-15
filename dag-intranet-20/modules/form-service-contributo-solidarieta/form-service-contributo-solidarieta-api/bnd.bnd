@@ -1,0 +1,10 @@
+Bundle-Name: form-service-contributo-solidarieta-api
+Bundle-SymbolicName: form.service.contributo.solidarieta.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	form.service.contributo.solidarieta.exception,\
+	form.service.contributo.solidarieta.model,\
+	form.service.contributo.solidarieta.service,\
+	form.service.contributo.solidarieta.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../form-service-contributo-solidarieta-service/service.xml

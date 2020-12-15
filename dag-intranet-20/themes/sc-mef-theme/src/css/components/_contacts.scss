@@ -1,0 +1,239 @@
+.portlet-layout {
+  .contacts-portlet {
+    
+    .input-checkbox-wrapper{
+      display: none;
+    }
+      .contacts-result-container{
+        .contacts-container{
+          .lfr-button-column{
+            display: none;
+          }
+          border-left: 0;
+          @media (max-width: $screen-xs-max) {
+            padding-top: 60px;
+          }
+        }
+      }
+
+
+    .toolbar {
+      border-bottom: 0;
+    }
+
+    .taglib-header {
+      .header-title {
+        span {
+          font-size: 26px;
+          text-align: left;
+          color: $blueDark;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    .contacts-search {
+
+      .form-control {
+        border-radius: 100px;
+        background-color: rgba(65, 72, 97, 0.7);
+        border: solid 1px $white;
+        padding: 0 45px 0 20px;
+      }
+    }
+
+    .last-name-anchor{
+      padding: 20px 0 10px;
+    }
+
+    .lfr-contact {
+      border-bottom: 0;
+      padding: 10px 0;
+
+    }
+
+    .section {
+
+      .property-list {
+        margin: 30px 0 0 0;
+      }
+
+      h3 {
+
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-align: left;
+        color: $black;
+        text-transform: uppercase;
+        width: inherit;
+
+      }
+    }
+
+    .lfr-detail-info {
+      .lfr-contact-info {
+        .lfr-contact-extra {
+          a {
+            color: $dark-grey-blue;
+          }
+        }
+
+      }
+    
+    }
+
+    .user-information{
+
+      .user-information-title{
+        font-size: 26px;
+        color: $dark-grey-blue;
+        text-transform: uppercase;
+        padding: 10px 50px;
+        background: url(../images/icons/ico-info-dark.svg) 15px center no-repeat;
+
+      }
+    }
+    
+    
+
+    .contacts-profile {
+
+      .lfr-contact-thumb {
+        img {
+          border-radius: 50px;
+
+          @media (max-width: $screen-xs-max) {
+            width: 75px;
+          }
+        }
+      }
+
+      .lfr-contact-name {
+        font-size: 32px;
+        line-height: 32px;
+        a {
+          font-size: 32px;
+          color: $dark-grey-blue;
+
+          @media (max-width: $screen-xs-max) {
+            font-size: 17px;
+          }
+        }
+      }
+
+    }
+
+
+
+    .contacts-result-container {
+      padding-left: 330px;
+
+      @media (max-width: $screen-sm-max) {
+        padding-left: 0;
+      }
+
+      .contacts-list {
+        width: 330px;
+
+        .lfr-contact-checkbox{
+          display: none;
+        }
+
+        @media (max-width: $screen-sm-max) {
+          position: inherit;
+          min-height: 200px;
+          max-height: 800px;
+          width: 500px;
+          margin-left: 5px;
+          margin-bottom: 20px;
+        }
+
+        @media (max-width: $screen-xs-max) {
+          width: 289px;
+          margin-left: 5px!important;
+        }
+
+        .contacts-search {
+          .icon-search {
+            color: $white;
+            right: 30px;
+          }
+
+        }
+      }
+
+      .contacts-result {
+
+        @media (max-width: $screen-xs-max) {
+          margin-top: 25px;
+        }
+
+        .lfr-contact-grid-item {
+
+          &:hover {
+            background-color: $white;
+          }
+
+        }
+
+        .lfr-contact-grid-item {
+
+          .lfr-contact-info {
+
+            .lfr-contact-extra {
+              color: $black;
+            }
+
+            .lfr-contact-name {
+
+              text-align: left;
+
+              a {
+                text-decoration: underline;
+                color: $azure-new;
+                font-size: 16px;
+                letter-spacing: 1px;
+
+                &:hover {
+                  color: $green;
+                }
+
+              }
+
+            }
+
+          }
+
+
+          .lfr-contact-thumb {
+            border-radius: 20px;
+            border: 1px solid $black;
+          }
+
+        }
+
+        .last-name-anchor {
+          a {
+            background: $white;
+            color: #4a4a4a;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1.3px;
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+#portlet_com_liferay_contacts_web_portlet_MembersPortlet{
+  .toolbar{
+    min-height: 20px;
+  }
+  .contact-group-filter{
+    display: none;
+  }
+}

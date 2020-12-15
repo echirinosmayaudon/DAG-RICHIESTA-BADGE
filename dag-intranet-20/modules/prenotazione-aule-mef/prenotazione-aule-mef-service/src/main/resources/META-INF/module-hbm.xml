@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="servizio.prenotazione.aule.mef.model.Approvatore" />
+	<import class="servizio.prenotazione.aule.mef.model.Orario" />
+	<import class="servizio.prenotazione.aule.mef.model.Prenotazione" />
+	<import class="servizio.prenotazione.aule.mef.model.Sala" />
+	<import class="servizio.prenotazione.aule.mef.model.SalaStruttura" />
+	<import class="servizio.prenotazione.aule.mef.model.ServizioLog" />
+	<import class="servizio.prenotazione.aule.mef.model.StatoAula" />
+	<import class="servizio.prenotazione.aule.mef.model.StrumentoEvento" />
+	<import class="servizio.prenotazione.aule.mef.model.StrumentoTec" />
+	<import class="servizio.prenotazione.aule.mef.model.TipoEvento" />
+	<class name="servizio.prenotazione.aule.mef.model.impl.ApprovatoreImpl" table="MEFAULE_Approvatore">
+		<id name="id_approvatore" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="id_sala" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="email_approvatore" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="servizio.prenotazione.aule.mef.model.impl.OrarioImpl" table="MEFAULE_Orario">
+		<id name="id_ora" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="ore" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="servizio.prenotazione.aule.mef.model.impl.PrenotazioneImpl" table="MEFAULE_Prenotazione">
+		<id name="id_prenota" type="long">
+			<generator class="sequence">
+				<param name="sequence">prenotazione_seq</param>
+			</generator>
+		</id>
+		<property name="id_sala" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="cod_fiscale" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_prenota" type="org.hibernate.type.TimestampType" />
+		<property name="data_inizio" type="org.hibernate.type.TimestampType" />
+		<property name="data_fine" type="org.hibernate.type.TimestampType" />
+		<property name="partecipanti" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="id_evento" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="attivita" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="note" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="id_stato" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="dati_rich" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="servizi" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="servizio.prenotazione.aule.mef.model.impl.SalaImpl" table="MEFAULE_Sala">
+		<id name="id_sala" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="desc_sala" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="indirizzo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="citta" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="cap" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="cod_prov" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="piano" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="stanza" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="posti" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="video_conferenza" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="proiettore" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="postazione_rete" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="autorizzazione" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="email_ref" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="servizio.prenotazione.aule.mef.model.impl.SalaStrutturaImpl" table="MEFAULE_SalaStruttura">
+		<id column="id_" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="id_sala" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="id_struttura" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="servizio.prenotazione.aule.mef.model.impl.ServizioLogImpl" table="MEFAULE_ServizioLog">
+		<id name="id_servizio" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="desc_servizio" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="email_ref" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="servizio.prenotazione.aule.mef.model.impl.StatoAulaImpl" table="MEFAULE_StatoAula">
+		<id name="id_stato_aula" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="desc_stato" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="servizio.prenotazione.aule.mef.model.impl.StrumentoEventoImpl" table="MEFAULE_StrumentoEvento">
+		<id name="id_strumento" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="desc_strumento" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="email_ref" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="servizio.prenotazione.aule.mef.model.impl.StrumentoTecImpl" table="MEFAULE_StrumentoTec">
+		<id name="id_strumento" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="desc_strumento" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="email_ref" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="servizio.prenotazione.aule.mef.model.impl.TipoEventoImpl" table="MEFAULE_TipoEvento">
+		<id name="id_evento" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="desc_evento" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

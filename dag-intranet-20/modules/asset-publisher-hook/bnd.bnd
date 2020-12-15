@@ -1,0 +1,7 @@
+Bundle-Version: 1.0.0
+Bundle-SymbolicName: intranet.asset.publisher.hook
+Fragment-Host: com.liferay.asset.publisher.web;bundle-version="1.4.1"
+-sources: true
+
+-jsp: *.jsp,*.jspf
+-plugin.jsp: com.liferay.ant.bnd.jsp.JspAnalyzerPlugin

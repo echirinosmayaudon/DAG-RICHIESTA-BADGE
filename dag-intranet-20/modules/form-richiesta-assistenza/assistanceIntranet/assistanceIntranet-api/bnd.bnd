@@ -1,0 +1,9 @@
+Bundle-Name: SMC Mef Intranet - Assistance Intranet Api
+Bundle-SymbolicName: com.intranet.mef.assistance.api
+Bundle-Version: 1.0.0
+Export-Package: \
+	com.intranet.mef.assistance.exception,\
+	com.intranet.mef.assistance.model,\
+	com.intranet.mef.assistance.service.persistence,\
+	com.intranet.mef.assistance.service
+-includeresource: META-INF/service.xml=../assistanceIntranet-service/service.xml

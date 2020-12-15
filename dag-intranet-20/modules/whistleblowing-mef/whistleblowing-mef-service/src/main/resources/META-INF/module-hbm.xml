@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="servizio.whistleblowing.mef.model.Segnalazione" />
+	<class name="servizio.whistleblowing.mef.model.impl.SegnalazioneImpl" table="MEFWHISTLE_Segnalazione">
+		<id name="id_segnalazione" type="long">
+			<generator class="sequence">
+				<param name="sequence">whistle_seq</param>
+			</generator>
+		</id>
+		<property name="json_dati_personali" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="luogo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="azioni_omissioni" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="descrizione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="autore" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="altri_testimoni" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

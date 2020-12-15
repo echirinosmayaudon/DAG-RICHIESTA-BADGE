@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="external.bfc.intranet.mef.model.Richieste">
+		<field name="idStatoAttuale" type="long" />
+		<field name="id" type="long" />
+		<field name="dataRichiesta" type="Date" />
+		<field name="idPeriodicita" type="long" />
+		<field name="email" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="riferimentoStanza" type="String">
+			<hint name="max-length">50</hint>
+		</field>
+		<field name="ispettorato" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="noteRichiedente" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="ufficio" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="note" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="uidIns" type="long" />
+		<field name="dataIns" type="Date" />
+		<field name="uidUpd" type="long" />
+		<field name="dataUpd" type="Date" />
+		<field name="oggetto" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="idSede" type="String">
+			<hint name="max-length">50</hint>
+		</field>
+		<field name="strutIsp" type="String">
+			<hint name="max-length">10</hint>
+		</field>
+		<field name="strutUff" type="String">
+			<hint name="max-length">10</hint>
+		</field>
+		<field name="strutIsp2" type="String">
+			<hint name="max-length">10</hint>
+		</field>
+		<field name="telRichiedente" type="String">
+			<hint name="max-length">20</hint>
+		</field>
+		<field name="costoReale" type="float" />
+		<field name="preventivo" type="int" />
+		<field name="flagInvio" type="int" />
+	</model>
+	<model name="external.bfc.intranet.mef.model.RichiesteInfo">
+		<field name="idStatoAttuale" type="long" />
+		<field name="id" type="long" />
+		<field name="dataRichiesta" type="Date" />
+		<field name="email" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="riferimentoStanza" type="String">
+			<hint name="max-length">50</hint>
+		</field>
+		<field name="ispettorato" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="nomeReferente" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="telefonoReferente" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="nMacchina" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="noteRichiedente" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="ufficio" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="note" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="uidIns" type="long" />
+		<field name="dataIns" type="Date" />
+		<field name="uidUpd" type="long" />
+		<field name="dataUpd" type="Date" />
+		<field name="oggetto" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="idSede" type="String">
+			<hint name="max-length">50</hint>
+		</field>
+		<field name="telRichiedente" type="String">
+			<hint name="max-length">20</hint>
+		</field>
+		<field name="strutUff" type="String">
+			<hint name="max-length">10</hint>
+		</field>
+		<field name="strutIsp" type="String">
+			<hint name="max-length">10</hint>
+		</field>
+		<field name="costoReale" type="float" />
+		<field name="preventivo" type="int" />
+		<field name="flagInvio" type="int" />
+	</model>
+	<model name="external.bfc.intranet.mef.model.RichiesteSequence">
+		<field name="idSeq" type="long" />
+	</model>
+	<model name="external.bfc.intranet.mef.model.RigheRichieste">
+		<field name="id" type="long" />
+		<field name="idMateriale" type="long" />
+		<field name="numeroRiga" type="long" />
+		<field name="quantitaRichiesta" type="long" />
+		<field name="quantitaDisponibile" type="long" />
+		<field name="uidIns" type="long" />
+		<field name="dataIns" type="Date" />
+		<field name="uidUpd" type="long" />
+		<field name="dataUpd" type="Date" />
+		<field name="importo" type="float" />
+		<field name="sottogruppo" type="String">
+			<hint name="max-length">30</hint>
+		</field>
+		<field name="gruppo" type="String">
+			<hint name="max-length">30</hint>
+		</field>
+		<field name="descrizione" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+	</model>
+	<model name="external.bfc.intranet.mef.model.RigheRichiesteInfo">
+		<field name="id" type="long" />
+		<field name="idMateriale" type="long" />
+		<field name="numeroRiga" type="long" />
+		<field name="quantitaRichiesta" type="long" />
+		<field name="quantitaDisponibile" type="long" />
+		<field name="uidIns" type="long" />
+		<field name="dataIns" type="Date" />
+		<field name="uidUpd" type="long" />
+		<field name="dataUpd" type="Date" />
+		<field name="importo" type="float" />
+		<field name="sottogruppo" type="String">
+			<hint name="max-length">30</hint>
+		</field>
+		<field name="gruppo" type="String">
+			<hint name="max-length">30</hint>
+		</field>
+		<field name="descrizione" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+	</model>
+	<model name="external.bfc.intranet.mef.model.SediBfc">
+		<field name="id" type="long" />
+		<field name="codice_geco" type="String" />
+		<field name="id_sede_geco" type="String" />
+		<field name="id_sede_siap" type="long" />
+		<field name="id_org_liv2" type="long" />
+		<field name="id_org_liv3" type="long" />
+		<field name="nomeLoc" type="String" />
+		<field name="flag_app" type="boolean" />
+	</model>
+</model-hints>

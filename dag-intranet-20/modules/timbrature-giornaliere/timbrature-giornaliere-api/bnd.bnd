@@ -1,0 +1,7 @@
+Bundle-SymbolicName: timbrature.giornaliere-api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.intranet.mef.daily.punching.exception,\
+	com.intranet.mef.daily.punching.model,\
+	com.intranet.mef.daily.punching.service,\
+	com.intranet.mef.daily.punching.service.persistence

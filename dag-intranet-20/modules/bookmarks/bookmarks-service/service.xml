@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="bookmarks">
+
+	<namespace>MEFINTRANET</namespace>
+	
+    <entity name="Favourites" local-service="true" remote-service="true">
+        <column name="favourite_id" primary="true" type="long" id-type="sequence" id-param="bookmarks_seq"></column>
+        <column name="user_id" type="long"></column>
+        <column name="title_favourite" type="String"></column>
+        <column name="description_favourite" type="String"></column>
+        <column name="tag_favourite" type="String"></column>
+        <column name="url_favourite" type="String"></column>
+        <column name="save_date" type="String"></column>
+        <finder return-type="Collection" name="Favourites">
+        <finder-column name="user_id"></finder-column></finder>
+    </entity>
+    
+</service-builder>

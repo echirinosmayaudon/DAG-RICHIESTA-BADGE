@@ -1,0 +1,10 @@
+Bundle-SymbolicName: forecast
+Bundle-Version: 1.0.5
+
+-metatype: *
+
+Export-package: \
+    it.accenture.forecast.model,\
+    it.accenture.forecast.service.api
+
+Include-Resource: @jackson-databind-2.8.4.jar,@jackson-annotations-2.8.4.jar,@jackson-core-2.8.4.jar

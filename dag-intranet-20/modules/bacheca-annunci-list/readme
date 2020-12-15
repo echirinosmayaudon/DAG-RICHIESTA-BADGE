@@ -1,0 +1,37 @@
+Progetto per la ricerca annunci, modifica ed elimina annunci.
+
+PREREQUISITI:
+
+1)	Impostare la lingua di default: italiano
+    Impostazioni del sito -> Lingue -> definisci lingua personalizzata.
+	
+	Tenere in considerazione che nei successivi passi di creazione,
+	deve essere necessariamente impostata la lingua italiana. 
+
+2) Nel workspace dev'essere presente:
+	
+	- il progetto localization-mef : 
+		http://ec2-35-157-6-6.eu-central-1.compute.amazonaws.com/devel_mef_intranet/localization-mef.git
+
+3) La portlet ha la seguente dipendenza per l'utilizzo del motore di ricerca:		
+	- il progetto mef-commons-utilities:
+		http://ec2-35-157-6-6.eu-central-1.compute.amazonaws.com/devel_mef_intranet/mef-common-utilities.git	
+4)
+
+	Nel portale dev'essere presente :
+		- la struttura "Annunci" -> copiare il contenuto presente nel file strutturaAnnuncio.json presente all'interno di doc per creare la struttura;
+		- un template associato alla struttura "Annunci";
+		- la categoria "annunci" con almeno una sottocategoria
+		- la categoria "area tematica" con almeno una sottocategoria
+	
+	Dopo aver inserito la portlet su Liferay:
+    	- configurazione delle zone da configuration della portlet bacheca annunci ad esempio: Cagliari,Napoli,Roma
+    	- aggiunta delle sottocategorie (ad esempio animali, case, sport) su una categoria liferay di nome annunci: nella descrizione specificare il nome della classe che contiene l'icona della sottocategoria.
+   		- creazione di un ruolo di nome Moderatore annunci e associazione all'utente che si vuole designare come moderatore
+   		
+	
+
+	
+
+
+

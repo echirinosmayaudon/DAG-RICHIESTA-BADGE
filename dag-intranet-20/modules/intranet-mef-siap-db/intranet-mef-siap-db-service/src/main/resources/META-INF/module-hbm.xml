@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="com.intranet.mef.job.siap.model.City" />
+	<import class="com.intranet.mef.job.siap.model.ClassificationLevel" />
+	<import class="com.intranet.mef.job.siap.model.CurrentBalanceHours" />
+	<import class="com.intranet.mef.job.siap.model.Festivity" />
+	<import class="com.intranet.mef.job.siap.model.Location" />
+	<import class="com.intranet.mef.job.siap.model.ManagerOfficesBind" />
+	<import class="com.intranet.mef.job.siap.model.MealTicket" />
+	<import class="com.intranet.mef.job.siap.model.OrganizationChart" />
+	<import class="com.intranet.mef.job.siap.model.OvertimeBalacePrevMonth" />
+	<import class="com.intranet.mef.job.siap.model.OvertimeBalance" />
+	<import class="com.intranet.mef.job.siap.model.OvertimePrevMonthPayOff" />
+	<import class="com.intranet.mef.job.siap.model.PersonalAbsence" />
+	<import class="com.intranet.mef.job.siap.model.ProfilePicture" />
+	<import class="com.intranet.mef.job.siap.model.Punching" />
+	<import class="com.intranet.mef.job.siap.model.UserFrontierBind" />
+	<import class="com.intranet.mef.job.siap.model.UserPosition" />
+	<import class="com.intranet.mef.job.siap.model.Vacation" />
+	<class name="com.intranet.mef.job.siap.model.impl.CityImpl" table="LF_COMUNI">
+		<id column="COD_ISTAT" name="istatCode" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property column="NOME_COM" name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="SIGLA_PROV" name="province" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="NOME_PROV" name="provinceName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="REGIONE" name="district" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.intranet.mef.job.siap.model.impl.ClassificationLevelImpl" table="LF_LIVELLO_INQ">
+		<id column="LEVEL_ID" name="levelID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="COD_POS_GIUR" name="codLegalPos" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="DESC_POS_GIUR" name="descLegalPos" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="COD_POS_ECON" name="codEconomicPos" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="DESC_POS_ECON" name="descEconomicPos" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="AREA" name="area" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.intranet.mef.job.siap.model.impl.CurrentBalanceHoursImpl" table="LF_VIEW_SALDO_ORE_COR">
+		<id column="PERSON_ID" name="personId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="SALDO_ORE_CORRENTE_DATA" name="balanceHoursCurDate" type="org.hibernate.type.TimestampType" />
+		<property column="SALDO_ORE_CORRENTE_DATA_ORE" name="balanceHours" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.intranet.mef.job.siap.model.impl.FestivityImpl" table="LF_VIEW_FESTIVITA">
+		<id column="PERSON_ID" name="personId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="FESTIVITA_SPETT_ANNO_CORR" name="festivityDueCurrYear" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property column="FESTIVITA_USUFRUITE_ANNO_CORR" name="festivitySpentCurrYear" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property column="FESTIVITA_RESIDUE_ANNO_CORR" name="festivityRemainCurrYear" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.intranet.mef.job.siap.model.impl.LocationImpl" table="LF_SEDE">
+		<id column="LOCATION_ID" name="locationID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="NAME" name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="STREET" name="street" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="CITY" name="city" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="POSTAL_CODE" name="postalCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="TIPOLOGIA_SEDE" name="locationType" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.intranet.mef.job.siap.model.impl.ManagerOfficesBindImpl" table="LF_DIRIGENTI">
+		<composite-id class="com.intranet.mef.job.siap.service.persistence.ManagerOfficesBindPK" name="primaryKey">
+			<key-property column="PERSON_ID" name="personalId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property column="ORGANIZATION_ID" name="idOrgChart" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+		<property column="FLAG_PRIMARIO" name="primary" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="FLAG_REGGENZA" name="regency" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.intranet.mef.job.siap.model.impl.MealTicketImpl" table="LF_BUONI_PASTO">
+		<id column="CUSTOM_KEY" name="custom_key" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property column="PERSON_ID" name="personID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="MESE" name="month" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="BUONI_MATURATI" name="dueMeal" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.intranet.mef.job.siap.model.impl.OrganizationChartImpl" table="LF_ORGANIGRAMMA">
+		<id column="ID_ORGANIGRAMMA" name="idOrgChart" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="NAME" name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="LIVELLO" name="level" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property column="ID_ORGANIGRAMMA_PADRE" name="idParent" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="TIPO_UO" name="type" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="LOCATION_ID" name="locationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="EMAIL_UFFICIO" name="emailOffice" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="FAX_UFFICIO" name="faxOffice" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="LEVEL_1" name="level1" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="LEVEL_2" name="level2" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="LEVEL_3" name="level3" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="LEVEL_4" name="level4" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="LEVEL_5" name="level5" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="ACRONIMO" name="acronimo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.intranet.mef.job.siap.model.impl.OvertimeBalacePrevMonthImpl" table="LF_VIEW_ORE_MATURATE_PREC">
+		<id column="PERSON_ID" name="personId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="STR_ORE_MATURATE_MESE" name="overtimeDueCurrMonth" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property column="STR_MESE_RIF_PREC" name="overtimeMonthPrevRif" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.intranet.mef.job.siap.model.impl.OvertimeBalanceImpl" table="LF_VIEW_SALDO">
+		<id column="PERSON_ID" name="personId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="STR_MESE_RIF_CORR" name="overtimeMonthCurrRif" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="STR_SALDO_ORE_MESE_CORR" name="overtimeBalHourCurMonth" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property column="STR_SALDO_ORE_MESE_PREC" name="overtimeBalacePrevMonth" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.intranet.mef.job.siap.model.impl.OvertimePrevMonthPayOffImpl" table="LF_VIEW_LIQUIDATO_MESE_PREC">
+		<id column="PERSON_ID" name="personId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="STR_ORE_DA_LIQUIDARE_MESE_CORR" name="overtimeHoursCurrPayOff" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="com.intranet.mef.job.siap.model.impl.PersonalAbsenceImpl" table="LF_ASS_PERSONALE">
+		<id column="CUSTOM_KEY" name="custom_key" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property column="PERSON_ID" name="personId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="DATA_ASSENZA" name="absenceDate" type="org.hibernate.type.TimestampType" />
+		<property column="MESE_RIFERIMENTO" name="refMonth" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="CODICE_ASSENZA" name="absenceCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="INTERA_GIORNATA" name="completeDay" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="DALLE" name="from" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property column="ALLE" name="to" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property column="ORE_ASSENZA" name="hours" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property column="DESCRIZIONE" name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.intranet.mef.job.siap.model.impl.ProfilePictureImpl" table="LF_PHOTO">
+		<id column="PERSON_ID" name="personID" type="long">
+			<generator class="assigned" />
+		</id>
+		<one-to-one access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" cascade="save-update" class="com.intranet.mef.job.siap.model.ProfilePictureFileBlobModel" constrained="true" name="fileBlobModel" outer-join="false" />
+	</class>
+	<class lazy="true" name="com.intranet.mef.job.siap.model.ProfilePictureFileBlobModel" table="LF_PHOTO">
+		<id column="PERSON_ID" name="personID">
+			<generator class="foreign">
+				<param name="property">com.intranet.mef.job.siap.model.impl.ProfilePictureImpl</param>
+			</generator>
+		</id>
+		<property column="IMAGE" name="fileBlob" type="blob" />
+	</class>
+	<class name="com.intranet.mef.job.siap.model.impl.PunchingImpl" table="LF_TIMBRATURE">
+		<id column="CUSTOM_KEY" name="custom_key" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property column="CODICE" name="personId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="TIMBRATURA" name="punchingId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property column="VERSO_TIMBRATURA" name="direction" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="ORE" name="hours" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property column="MINUTI" name="minute" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="GIUSTIFICATIVO" name="voucher" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="TERMINALE" name="terminal" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="DATA_QUADRATURA" name="accountingDate" type="org.hibernate.type.TimestampType" />
+		<property column="DATA_TIMBRATURA" name="punchingDate" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.intranet.mef.job.siap.model.impl.UserFrontierBindImpl" table="LF_FRONTIERA">
+		<composite-id class="com.intranet.mef.job.siap.service.persistence.UserFrontierBindPK" name="primaryKey">
+			<key-property column="PERSON_ID" name="personalId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property column="CODICE_FISCALE" name="screenName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property column="ORGANIZATION_ID" name="idOrgChart" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="ID_DIRIGENTE" name="idDirector" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="DATA_ULTIMA_ASSUNZIONE" name="dateRecruitment" type="org.hibernate.type.TimestampType" />
+		<property column="DATA_START" name="dateStartAssignOffice" type="org.hibernate.type.TimestampType" />
+		<property column="DATA_INIZIO_INQ" name="dateStartInquadramento" type="org.hibernate.type.TimestampType" />
+		<property column="DATA_IMM_FUNZIONE" name="dateStartFunction" type="org.hibernate.type.TimestampType" />
+		<property column="LEVEL_ID" name="levelId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="NOME" name="name" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="COGNOME" name="surName" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="SESSO" name="gender" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="EMAIL" name="email" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="COMUNE_STATO_ESTERO_NASCITA" name="codIstatBirth" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="DATA_NASCITA" name="dateBirth" type="org.hibernate.type.TimestampType" />
+		<property column="PHONE_MOBILE" name="personalPhone" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="PHONE_WORK" name="workPhone" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="PHONE_FAX" name="workFax" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="INDIRIZZO" name="personalStreet" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="POSTAL_CODE" name="personalPostalCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="TOWN_OR_CITY" name="personalCity" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="PIANO_ID" name="officeStreet1" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="STANZA_ID" name="officeStreet2" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="SCALA_CORPO_ID" name="officeStreet3" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="CORRIDOIO_ID" name="officePostalCode" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="SETTORE_ID" name="officeCity" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="POS_GIU" name="giuridicPos" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="POS_ECO" name="economicPos" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.intranet.mef.job.siap.model.impl.UserPositionImpl" table="LF_POS_USER_CONFIGURATION">
+		<id column="INQUADRAMENTO" name="pos" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property column="RUOLO_POS_GIU" name="ruoloGiuridico" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="RUOLO_POS_ECO" name="ruoloEconomico" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.intranet.mef.job.siap.model.impl.VacationImpl" table="LF_VIEW_FERIE">
+		<id column="PERSON_ID" name="personId" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="FERIE_ANNO_CORR" name="vacationCurrYear" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property column="FERIE_ANNO_PREC" name="vacationPrevYear" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property column="FERIE_USUFRUITE" name="vacationSpent" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property column="FERIE_RESIDUE" name="vacationRemaining" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+</hibernate-mapping>

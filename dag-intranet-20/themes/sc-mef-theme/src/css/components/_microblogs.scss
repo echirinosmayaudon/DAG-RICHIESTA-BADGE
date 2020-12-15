@@ -1,0 +1,207 @@
+/*.microblogs-portlet{
+	.portlet-content{
+		padding: 0;
+	}
+}*/
+
+.microblogs-portlet {
+  .autocomplete {
+    margin-bottom: 25px;
+    height:auto!important;
+
+    .field-text textarea{
+      position: relative!important;
+    }
+  }
+
+
+
+  .microblogs-container {
+
+    .autocomplete {
+      background-color: $input-light-bkg;
+      padding: 14px;
+      height: 52px;
+      border-radius: 8px !important;
+
+      .placeholder-text {
+        font-size: 16px;
+        letter-spacing: 0.8px;
+        text-align: left;
+        color: #4a4a4a;
+        text-transform: uppercase;
+      }
+    }
+
+    > .lfr-nav {
+      border: none;
+      overflow: hidden;
+      margin-left: -10px;
+      margin-right: -10px;
+      li {
+        margin-top: 3px;
+        a {
+          color: $dark-grey-blue;
+          font-size: 32px;
+          text-transform: uppercase;
+          padding-left: 65px;
+
+          &:hover {
+            border-color: transparent;
+          }
+        }
+
+        &.active {
+          border-bottom: 0;
+          border-bottom: 0;
+          position: relative;
+          z-index: 1;
+          margin-top: 5px;
+          background: $white;
+
+          a {
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.4);
+            border: none;
+          }
+        }
+
+        &:nth-child(2), &:last-child{
+          display: none!important;
+        }
+      }
+
+      .timeline {
+        a {
+          background: url(../images/icons/ico-newsfeed.svg) 15px center no-repeat;
+          background-size: 35px;
+        }
+      }
+      .activities {
+        a {
+          background: url(../images/icons/ico-attivita-recenti.svg) 15px center no-repeat;
+          background-size: 35px;
+        }
+
+      }
+      .mentions {
+        a {
+          background: url(../images/icons/citazioni.svg) 15px center no-repeat;
+          background-size: 35px;
+        }
+
+      }
+
+      &:after {
+        width: 100%;
+        height: 1px;
+        background: #DDDDDD;
+        bottom: 1px;
+        left: 0;
+      }
+    }
+
+    .microblogs-entry {
+      clear: both;
+      .thumbnail {
+        padding: 0;
+        border-radius: 24px;
+        .user-icon {
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+      .entry-bubble {
+        .user-name {
+          margin-bottom: 10px;
+          .icon-flag {
+            color: $red;
+          }
+        }
+        .content {
+          word-break: normal;
+          .attachments {
+            img {
+              max-width: 100%;
+              width: auto;
+            }
+            .lfr-preview-file {
+              .lfr-preview-file-content {
+                height: 100%;
+                width: auto;
+                border-bottom: none;
+                .lfr-preview-file-video-current-column {
+                  padding: 0 0 30px 0;
+                  background: transparent;
+                  .component {
+                    div {
+                      height: 100%;
+                      width: 100%;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .footer{
+          margin-top: 20px;
+        }
+      }
+      .comments-container {
+        .comments-container-content {
+          form {
+            .thumbnail {
+              margin: 3px 0;
+              .user-icon {
+                font-size: 10px;
+                height: 100%;
+                line-height: 20px;
+                width: auto;
+              }
+            }
+            .autocomplete {
+              margin-left: 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .microblogs-entry-form {
+    padding: 10px 20px;
+
+    .microblogs-countdown-holder {
+
+    .microblogs-countdown {
+      right: 26px;
+      top: 18px;
+    }
+  }
+
+      .panel-default {
+        box-shadow: none;
+
+        &.lfr-panel {
+          .panel-heading {
+            border: 1px solid $dark-grey-blue;
+            width: 150px;
+            border-radius: 20px;
+            background-color: $white;
+            background: url(../images/icons/ico-clip-dark.svg) 15px center no-repeat;
+            border-bottom-width: thin;
+
+            .title-text {
+              text-transform: uppercase;
+              padding-left: 35px;
+              font-weight: bold;
+              color: $dark-grey-blue;
+            }
+          }
+        }
+      }
+    }
+  }

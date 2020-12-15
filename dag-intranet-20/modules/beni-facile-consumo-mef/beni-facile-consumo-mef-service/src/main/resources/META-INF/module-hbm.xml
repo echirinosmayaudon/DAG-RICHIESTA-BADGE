@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="servizio.beni.facile.consumo.model.CambioStatoDirigente" />
+	<import class="servizio.beni.facile.consumo.model.GestioneUtenti" />
+	<import class="servizio.beni.facile.consumo.model.Periodicita" />
+	<import class="servizio.beni.facile.consumo.model.RigheRichiestaBFC" />
+	<import class="servizio.beni.facile.consumo.model.ServizioMateriale" />
+	<import class="servizio.beni.facile.consumo.model.Stato" />
+	<class name="servizio.beni.facile.consumo.model.impl.CambioStatoDirigenteImpl" table="MEFBFC_CambioStatoDirigente">
+		<id column="id_" name="id" type="long">
+			<generator class="sequence">
+				<param name="sequence">cambiostatodir_seq</param>
+			</generator>
+		</id>
+		<property name="id_rich" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="data_" name="data" type="org.hibernate.type.TimestampType" />
+		<property name="utente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="id_stato" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="note" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="servizio.beni.facile.consumo.model.impl.GestioneUtentiImpl" table="MEFBFC_GestioneUtenti">
+		<id column="id_" name="id" type="long">
+			<generator class="sequence">
+				<param name="sequence">gestioneutenti_seq</param>
+			</generator>
+		</id>
+		<property column="data_" name="data" type="org.hibernate.type.TimestampType" />
+		<property name="cod_fiscale" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="nome" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="cognome" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ufficio" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="abilitazione" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="delega" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+	<class name="servizio.beni.facile.consumo.model.impl.PeriodicitaImpl" table="MEFBFC_Periodicita">
+		<id column="id_" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="descrizione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="servizio.beni.facile.consumo.model.impl.RigheRichiestaBFCImpl" table="MEFBFC_RigheRichiestaBFC">
+		<id column="id_" name="id" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="id_richiesta" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="dipartimento" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dati" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="servizio.beni.facile.consumo.model.impl.ServizioMaterialeImpl" table="MEFBFC_ServizioMateriale">
+		<id name="gruppo" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property name="descrizione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="categoria" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="servizio.beni.facile.consumo.model.impl.StatoImpl" table="MEFBFC_Stato">
+		<id column="id_" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="descrizione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

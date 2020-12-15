@@ -1,0 +1,125 @@
+targetCompatibility = 1.8
+
+repositories {
+    maven { url "http://webo.mef.gov.it/nexus/content/groups/public" }
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+	compileOnly group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "2.0.0"
+	compileOnly group: "com.liferay.portal", name: "com.liferay.util.taglib", version: "2.5.0"
+
+	compileOnly group: "javax.portlet", name: "portlet-api", version: "2.0"
+	compileOnly group: "javax.servlet", name: "servlet-api", version: "2.5"
+	compileOnly group: "jstl", name: "jstl", version: "1.2"
+	compileOnly group: "org.osgi", name: "org.osgi.compendium", version: "5.0.0"
+
+	compileOnly group: 'com.liferay', name: 'com.liferay.dynamic.data.mapping.taglib', version: '2.0.3'
+	compileOnly group: 'com.liferay', name: 'com.liferay.portal.configuration.metatype', version: '2.0.3'
+	compileOnly group: "biz.aQute.bnd", name: "biz.aQute.bndlib", version: "3.1.0"
+
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.8.4'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.8.4'
+	compile group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.8.4'
+	
+	compile project(':modules:mef-cache-portlet:mef-cache-portlet-api')
+}
+
+task copyPackagesToTarget(type: Copy) {
+
+    group 'twitter'
+    description 'Task copia prodotti della compilazione nella directory /target.'
+
+    from "${buildDir}/libs/"
+    into "${rootDir}/target"
+}
+
+
+task copyZipToTarget(type: Copy) {
+
+    group 'twitter'
+    description 'Task copia Zip ETL nella directory /target.'
+
+    from "${buildDir}/distributions/"
+
+    into "${rootDir}/target"
+}
+
+task buildMain {
+
+    group 'twitter'
+    description 'Task principale richiesto dal template di compilazione impostato su Jenkins.'
+
+    def cleanMain = project.tasks.findByName('clean')
+    if (cleanMain) {
+        println "**************************************************************"
+        println " >>> DELETE /target DIRECTORY AND ALL ITS CONTENTS IF EXIST!"
+        dependsOn(cleanMain)
+    }
+
+    subprojects.each {
+
+        it.afterEvaluate {
+            println "**************************************************************"
+            println ">>>>> build ${it.name} module"
+
+            def cleanTask = it.tasks.findByName('clean')
+            if (cleanTask) {
+                println "    - dependsOn ${cleanTask}"
+                dependsOn(cleanTask)
+            }
+            
+			def buildTask = it.tasks.findByName('build')
+            if (jarTask) {
+                buildTask "    - dependsOn ${buildTask}"
+                dependsOn(buildTask)
+            }
+            
+            /*
+            def jarTask = it.tasks.findByName('jar')
+            if (jarTask) {
+                println "    - dependsOn ${jarTask}"
+                dependsOn(jarTask)
+            }
+          
+            def warTask = it.tasks.findByName('war')
+            if (warTask) {
+                println "    - dependsOn ${warTask}"
+                dependsOn(warTask)
+            }
+			*/
+            def zipTask = it.tasks.findByName('customZip')
+            if (zipTask) {
+                println "    - dependsOn ${zipTask}"
+                dependsOn(zipTask)
+                def copyZipTask =it.tasks.findByName('copyZipToTarget')
+                println "    - dependsOn ${copyZipTask}"
+                dependsOn(copyZipTask)
+                copyZipTask.mustRunAfter zipTask
+            }
+
+            def copyTask = it.tasks.findByName('copyPackagesToTarget')
+            if (copyTask) {
+                println "    - dependsOn ${copyTask}"
+                dependsOn(copyTask)
+
+                if (warTask) {
+                    copyTask.mustRunAfter warTask
+                }
+            }
+
+
+
+        }
+    }
+
+
+}
+
+clean {
+
+    description 'Elimina la cartella /target dalla directory radice del modulo main.'
+
+    delete += "${rootDir}/target"
+}

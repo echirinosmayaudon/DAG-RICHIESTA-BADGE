@@ -1,0 +1,242 @@
+.portlet-decorate.spaces-admin{
+
+  .spaces-wrapper{
+    > .row.well{
+      margin-bottom: 0;
+      form, .col-md-7{
+        display: none!important;
+      }
+    }
+  }
+  .portlet-content{
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  .portlet-body{
+    > form.form{
+      display: none;
+    }
+  }
+
+  .spaces-admin-edit{
+    background: $white;
+    border-color: #e7e7e7;
+    border-width: 1px 1px 1px 1px;
+    word-wrap: break-word;
+    border: none;
+    box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 30px 20px;
+
+    .button-holder {
+      .btn-link{
+        background: #fff;
+        border: 1px solid #2c354f;
+        border-radius: 25px;
+        padding: 15px 30px;
+        color: $navy-blue;
+        text-transform: uppercase;
+      }
+
+      .btn-primary {
+        text-transform: uppercase;
+        width: 155px;
+        height: 50px;
+        padding: 14px;
+        line-height: 23px;
+        letter-spacing: 1.6px;
+        font-size: 14px;
+        text-align: center;
+        color: $blue;
+        border-radius: 3px;
+        box-shadow: 0 2px 5px 2px rgba(31, 31, 31, 0.04);
+        display: inline-block;
+        min-width: 200px;
+        border: none;
+        background-color: #ebc028;
+
+        &:hover {
+          background-color: $hover-light;
+        }
+
+        &:active, &.active {
+          background-color: $hover-light;
+        }
+
+        &:disabled, &.disabled {
+          cursor: default;
+          background-color: $hover-light;
+        }
+      }
+
+      }
+
+  }
+
+  .no-space-created {
+    .text-center {
+      color: $white;
+      text-align: left !important;
+    }
+  }
+
+
+  /*.page-header{
+    border: none;
+    margin: 0;
+    padding-top: 50px;
+
+    &:first-child{
+      padding-top: 0;
+    }
+
+    h1{
+      font-size: 22px;
+      font-weight: bold;
+      color: white;
+      text-transform: uppercase;
+      margin: 0;
+    }
+  }*/
+
+  .page-header {
+    background: #f0f0f0;
+    padding: 13px 20px;
+    margin: 0;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #4a4a4a;
+      margin: 0;
+    }
+  }
+
+  .well{
+    .page-header{
+      margin-top: 20px;
+    }
+  }
+
+
+  .spaces-row{
+    .space-box {
+      width: 350px;
+      height: 200px;
+
+      .card-group.spaces-summary {
+        &.create-space{
+          .card{
+            background: $azure;
+            color: white;
+            font-size: 22px;
+            text-transform: uppercase;
+
+            .text-center span{
+              color: $navy-blue;
+            }
+
+            &:after{
+              display: none;
+            }
+          }
+
+          &:hover{
+            .card{
+              background: $bright-aqua;
+
+              .text-center span{
+                color: $navy-blue;
+              }
+            }
+          }
+        }
+        .card {
+          background: white;
+          box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2);
+          border-radius: 8px;
+
+          &:after {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: url(../images/icons/placeholder-gruppi.svg) center center no-repeat;
+            background-size: contain;
+            width: 60px;
+            height: 60px;
+          }
+
+          .card-block {
+            > a {
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              border-bottom-left-radius: 8px;
+              border-bottom-right-radius: 8px;
+              background-color: rgba(216, 216, 216, 0.6);
+
+              &:hover{
+                background: $bright-aqua;
+              }
+
+              .card-title {
+                p {
+                  font-size: 20px;
+                  font-weight: bold;
+                  text-align: left;
+                  color: #2c354f;
+                  text-transform: uppercase;
+                  margin: 0;
+                  padding: 10px 15px;
+                }
+              }
+            }
+
+            .star-wrapper {
+              position: absolute;
+              right: 20px;
+              top: 10px;
+
+              a {
+                color: #0099ff;
+                font-size: 22px;
+
+                i.icon-star {
+                  color: $azure;
+                }
+              }
+            }
+          }
+
+          .card-footer {
+            .icons-wrapper {
+              display: none;
+            }
+
+            .card-collaborators {
+              position: absolute;
+              bottom: 70px;
+              left: 15px;
+              background: url(../images/icons/ico-members.svg) left center no-repeat;
+              padding-left: 35px;
+              line-height: 18px;
+
+              p {
+                font-size: 16px;
+                text-align: left;
+                color: #007cbc;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

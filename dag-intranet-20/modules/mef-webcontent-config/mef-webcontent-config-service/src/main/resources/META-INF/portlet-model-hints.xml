@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="mef.webcontent.config.model.WebContentConfig">
+		<field name="contentid" type="long" />
+		<field name="html" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+	</model>
+</model-hints>

@@ -1,0 +1,393 @@
+<%--
+/**
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+--%>
+
+<%@ page import="com.liferay.document.library.kernel.model.DLFileEntry" %>
+<%@ page import="com.liferay.document.library.kernel.service.DLFileEntryLocalServiceUtil" %>
+<%@ page import="com.liferay.journal.model.JournalArticle" %>
+<%@ page import="com.liferay.journal.service.JournalArticleLocalServiceUtil" %>
+<%@ page import="com.liferay.portal.kernel.model.Layout" %>
+<%@ page import="com.liferay.portal.kernel.model.LayoutTypePortlet" %>
+<%@ page import="com.liferay.portal.kernel.model.PortletPreferences" %>
+<%@ page import="com.liferay.portal.kernel.portlet.PortletURLFactoryUtil" %>
+<%@ page import="com.liferay.portal.kernel.service.LayoutLocalServiceUtil" %>
+<%@ page import="com.liferay.portal.kernel.service.PortletPreferencesLocalServiceUtil" %>
+<%@ page import="com.liferay.portal.kernel.util.LayoutTypePortletFactoryUtil" %>
+<%@ page import="com.liferay.portal.kernel.util.PrefsParamUtil" %>
+<%@ page import="com.liferay.dynamic.data.mapping.service.DDMStructureLocalServiceUtil" %>
+<%@ page import="com.liferay.dynamic.data.mapping.model.DDMStructure" %>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix = "fmt" %>
+<%@page import="com.liferay.portal.kernel.log.Log" %>
+<%@page import="com.liferay.portal.kernel.log.LogFactoryUtil" %>
+
+<%
+final Log _logResult_mef = LogFactoryUtil.getLog("main_search_result_form_mef_jsp");
+
+viewURL = searchDisplayContext.checkViewURL(viewURL, currentURL);
+
+summary.setHighlight(searchDisplayContext.isHighlightEnabled());
+summary.setQueryTerms(searchDisplayContext.getQueryTerms());
+
+AssetEntry assetEntry = AssetEntryLocalServiceUtil.fetchEntry(className, classPK);
+
+Date data_pubblicazione = assetEntry.getModifiedDate();
+
+long structureId = 0;
+long dlFileEntryId = 0;
+if(document!=null ){
+	if(document.get(Field.CLASS_TYPE_ID)!=null && document.get(Field.CLASS_TYPE_ID)!="" && !("").equalsIgnoreCase(document.get(Field.CLASS_TYPE_ID))){
+		structureId = Long.parseLong(document.get(Field.CLASS_TYPE_ID)); 	
+	}
+	if(document.get(Field.ENTRY_CLASS_PK)!=null && document.get(Field.ENTRY_CLASS_PK)!="" && !("").equalsIgnoreCase(document.get(Field.ENTRY_CLASS_PK))){
+		dlFileEntryId = Long.parseLong(document.get(Field.ENTRY_CLASS_PK));	
+	}
+	
+}
+	
+String contentType = null;
+
+if(document.get(Field.ENTRY_CLASS_NAME).equalsIgnoreCase("com.liferay.journal.model.JournalArticle") && structureId!=0) {
+	contentType = DDMStructureLocalServiceUtil.getDDMStructure(structureId).getNameCurrentValue();
+	
+	JournalArticle jArticle = JournalArticleLocalServiceUtil.getLatestArticle(classPK);
+		if (jArticle!=null) {
+			data_pubblicazione = jArticle.getModifiedDate();
+		}
+		
+} else if (document.get(Field.ENTRY_CLASS_NAME).equalsIgnoreCase("com.liferay.document.library.kernel.model.DLFileEntry") && dlFileEntryId!=0){
+	
+	DLFileEntry dlFileEntry = DLFileEntryLocalServiceUtil.getDLFileEntry(dlFileEntryId);
+	
+	contentType = dlFileEntry.getExtension();
+	
+	if (dlFileEntry!=null) {
+		data_pubblicazione = dlFileEntry.getModifiedDate();
+	}
+}
+%>
+
+
+<liferay-ui:search-container-column-text>
+	<div class="wrapper-list-group-item">
+		<div class="list-group-item-field">
+	<c:if test="<%=document.get(Field.ENTRY_CLASS_NAME).equalsIgnoreCase("com.liferay.journal.model.JournalArticle")%>">
+	<span class=" icomoon-web icon-risultati"></span>
+	</c:if>
+	<c:if test="<%=document.get(Field.ENTRY_CLASS_NAME).equalsIgnoreCase("com.liferay.document.library.kernel.model.DLFileEntry")%>">
+	<%
+		long fileEntryId=Long.parseLong(document.get(Field.ENTRY_CLASS_PK));
+		DLFileEntry doc = DLFileEntryLocalServiceUtil.getDLFileEntry(fileEntryId);
+		String extension=doc.getExtension();
+	%>
+	<c:choose>
+	<c:when test="<%=extension.equalsIgnoreCase("doc")||extension.equalsIgnoreCase("docx")%>">
+	<span class=" icomoon-word icon-risultati"></span>
+	</c:when>
+	<c:when test="<%=extension.equalsIgnoreCase("pdf")%>">
+	<span class=" icomoon-pdf icon-risultati"></span>
+	</c:when>
+	<c:when test="<%=extension.equalsIgnoreCase("xls")%>">
+	<span class="icomoon-document-excel icon-risultati"></span>
+	</c:when>
+	<c:when test="<%=extension.equalsIgnoreCase("ppt")%>">
+	<span class="icomoon-document-ppt icon-risultati"></span>
+	</c:when>
+</c:choose>
+
+	</c:if>
+</div>
+<div class="list-group-item-content">
+	<h5>
+
+	<c:choose>
+	<c:when test="<%=document.get(Field.ENTRY_CLASS_NAME).equalsIgnoreCase("com.liferay.journal.model.JournalArticle")%>">
+
+	<%
+	    String DDM_STRUCTURE_NAME = "Annunci";
+		DDMStructure _ddmStructure = null;
+		List<DDMStructure> ddmStructures = DDMStructureLocalServiceUtil.getStructures(themeDisplay.getCompanyGroupId());
+		for (DDMStructure ddmStructure : ddmStructures) {
+			if (DDM_STRUCTURE_NAME.equalsIgnoreCase(ddmStructure.getName(Locale.getDefault(), true))) {
+				_ddmStructure = ddmStructure;
+			}
+		}
+	%>
+	<c:choose>
+	<c:when test="<%=_ddmStructure!=null && document.get(Field.CLASS_TYPE_ID).equalsIgnoreCase(Long.toString(_ddmStructure.getStructureId()))%>">
+
+	<%
+
+
+
+	String PORTLET_NAME = "bacheca_annunci_list_portlet_BachecaAnnunciListPortlet";
+	String PAGE_NAME = "bachecaPage";
+	PortletURL linkLayoutmyUrl = null;
+	String porletId_Bacheca = "";
+	long linkLayout =0;
+// 	for (Layout l : LayoutLocalServiceUtil.getLayouts(themeDisplay.getSiteGroupId(), true)) {
+// 		if (l.isRootLayout()) {
+// 			linkLayout = l.getLayoutId();
+// 			break;
+// 		}
+// 	}
+	Layout firstLayout = LayoutLocalServiceUtil.fetchFirstLayout(
+		themeDisplay.getSiteGroupId(), true, LayoutConstants.DEFAULT_PARENT_LAYOUT_ID);
+
+	if (firstLayout != null) {
+		StringBuilder datastr= new StringBuilder();
+
+		try {
+			LayoutTypePortlet layoutTypePortletCustom = LayoutTypePortletFactoryUtil.create(firstLayout);
+
+			List<String> portletIdList = layoutTypePortletCustom.getPortletIds();
+
+			for (String pid : portletIdList) {
+				if (pid.indexOf(PORTLET_NAME) != -1) {
+					porletId_Bacheca = pid;
+					break;
+				}
+			}
+
+			long s = firstLayout.getPlid();
+			List<PortletPreferences> ppref = PortletPreferencesLocalServiceUtil.getPortletPreferences(s, porletId_Bacheca);
+			if(ppref!=null && ppref.size()>0){
+
+				StringBuilder bachecaPreference = new StringBuilder();
+				bachecaPreference.append(PAGE_NAME+ "</name><value>");
+				String subString = ppref.get(0).getPreferences().substring(ppref.get(0).getPreferences().indexOf(bachecaPreference.toString())+bachecaPreference.toString().length());
+				String linkLayoutTxt = subString.substring(0,subString.indexOf("</value>"));
+
+				Layout l = LayoutLocalServiceUtil.getLayout(themeDisplay.getSiteGroupId(),
+						themeDisplay.getLayout().isPrivateLayout(), GetterUtil.getLong(linkLayoutTxt));
+
+				layoutTypePortletCustom = LayoutTypePortletFactoryUtil.create(l);
+				portletIdList = layoutTypePortletCustom.getPortletIds();
+				for (String pid : portletIdList) {
+					if (pid.indexOf(PORTLET_NAME) != -1) {
+						porletId_Bacheca = pid;
+						break;
+					}
+				}
+
+
+				linkLayoutmyUrl = PortletURLFactoryUtil.create(renderRequest, porletId_Bacheca, l,
+						PortletRequest.RENDER_PHASE);
+				long fileEntryIds=Long.parseLong(document.get(Field.ENTRY_CLASS_PK));
+				List<JournalArticle>  journals=JournalArticleLocalServiceUtil.getArticlesByResourcePrimKey(fileEntryIds);
+				JournalArticle journal = null;
+				for (JournalArticle journalTmp : journals) {
+					if (journal== null ||  journalTmp.getVersion() > journal.getVersion()) {
+						journal = journalTmp;
+					}
+				}
+				datastr.append(linkLayoutmyUrl);
+				datastr.append("&_");
+				datastr.append(porletId_Bacheca);
+				datastr.append("_annuncioId=");
+				datastr.append(journal.getId());
+				datastr.append("&_");
+				datastr.append(porletId_Bacheca);
+				datastr.append("_navigation=advdetail");
+
+
+			}
+			%>
+			<a href="<%= datastr.toString() %>" class="title-ricerca-risultati dot-point dot-30">
+				<%= summary.getHighlightedTitle() %>
+
+				</a>
+
+			<%
+		} catch (Exception e) {
+			System.out.println(e);
+			%>
+			<a class="title-ricerca-risultati dot-point dot-30">
+				<%= summary.getHighlightedTitle() %>
+
+			</a>
+
+			<%
+		}
+	}
+	%>
+
+
+
+	</c:when>
+		<c:otherwise>
+			<a href="<%= viewURL %>" class="title-ricerca-risultati dot-point dot-30">
+			<%= summary.getHighlightedTitle() %>
+
+			</a>
+		</c:otherwise>
+	</c:choose>
+	</c:when>
+	<c:otherwise>
+			<a href="<%= viewURL %>" class="title-ricerca-risultati dot-point dot-30">
+			<%= summary.getHighlightedTitle() %>
+
+			</a>
+		</c:otherwise>
+
+
+</c:choose>
+		<c:if test="<%= (assetRenderer != null) && Validator.isNotNull(assetRenderer.getURLDownload(themeDisplay)) %>">
+			<aui:a href="<%= assetRenderer.getURLDownload(themeDisplay) %>">
+				<liferay-ui:message arguments="<%= HtmlUtil.escape(summary.getTitle()) %>" key="download-x" />
+			</aui:a>
+		</c:if>
+	</h5>
+	
+	<c:if test="<%= Validator.isNotNull(summary.getContent()) %>">
+		<h6 class="text-default dot-point dot-30">
+				<%= summary.getHighlightedContent() %>
+		</h6>
+	</c:if>
+
+	<c:if test="<%= (assetEntry != null) && (ArrayUtil.isNotEmpty(assetEntry.getCategoryIds()) || ArrayUtil.isNotEmpty(assetEntry.getTagNames())) %>">
+		<h6 class="text-default">
+			<liferay-ui:asset-tags-summary
+				className="<%= className %>"
+				classPK="<%= classPK %>"
+				paramName="<%= Field.ASSET_TAG_NAMES %>"
+				portletURL="<%= searchDisplayContext.getPortletURL() %>"
+			/>
+
+
+		</h6>
+	</c:if>
+
+	<c:if test="<%= searchDisplayContext.isDisplayResultsInDocumentForm() %>">
+		<h6 class="expand-details text-default"><a href="javascript:;"><liferay-ui:message key="details" />...</a></h6>
+
+		<div class="hide table-details table-responsive">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>
+							<liferay-ui:message key="key" />
+						</th>
+						<th>
+							<liferay-ui:message key="value" />
+						</th>
+					</tr>
+				</thead>
+
+				<tbody>
+
+					<%
+					List<Map.Entry<String, Field>> fields = new LinkedList(document.getFields().entrySet());
+
+					Collections.sort(
+						fields,
+						new Comparator<Map.Entry<String, Field>>() {
+
+							public int compare(Map.Entry<String, Field> entry1, Map.Entry<String, Field> entry2) {
+								return entry1.getKey().compareTo(entry2.getKey());
+							}
+
+						}
+					);
+
+					for (Map.Entry<String, Field> entry : fields) {
+						Field field = entry.getValue();
+
+						String fieldName = field.getName();
+
+						if (fieldName.equals(Field.UID)) {
+							continue;
+						}
+
+						String[] values = field.getValues();
+					%>
+
+						<tr>
+							<td>
+								<strong><%= HtmlUtil.escape(field.getName()) %></strong>
+
+								<br />
+
+								<em>
+									<liferay-ui:message key="array" /> = <%= values.length > 1 %>, <liferay-ui:message key="boost" /> = <%= field.getBoost() %>,<br />
+
+									<liferay-ui:message key="numeric" /> = <%= field.isNumeric() %>, <liferay-ui:message key="tokenized" /> = <%= field.isTokenized() %>
+								</em>
+							</td>
+							<td>
+								<code>
+
+									<%
+									StringBundler sb = new StringBundler(4 * values.length);
+
+									for (int i = 0; i < values.length; i++) {
+										if (field.isNumeric()) {
+											sb.append(HtmlUtil.escape(values[i]));
+										}
+										else {
+											sb.append(StringPool.QUOTE);
+											sb.append(HtmlUtil.escape(values[i]));
+											sb.append(StringPool.QUOTE);
+										}
+
+										sb.append(StringPool.COMMA_AND_SPACE);
+									}
+
+									sb.setIndex(sb.index() - 1);
+
+									if (values.length > 1) {
+										sb.setStringAt(StringPool.OPEN_BRACKET, 0);
+
+										sb.append(StringPool.CLOSE_BRACKET);
+									}
+									%>
+
+									<%= sb.toString() %>
+								</code>
+							</td>
+						</tr>
+
+					<%
+					}
+					%>
+
+				</tbody>
+			</table>
+		</div>
+	</c:if>
+
+	<div class="ama-row pt-10-xs">
+	
+	<c:if test="<%= Validator.isNotNull(contentType) %>">
+	<div class="ama-col-xs-12 ama-col-md-6 dot-point dot-30">
+		<h6 class="text-default">
+			<span class="search-item-text">Tipo di contenuto: </span><%=contentType%>
+		</h6>
+	</div>
+	</c:if>
+
+    <c:if test="<%= Validator.isNotNull(data_pubblicazione) %>">
+    <div class="ama-col-xs-12 ama-col-md-6 pt-10-xs pt-0-md dot-point dot-30">
+		<h6 class="text-default">
+			<span class="search-item-text">Data di pubblicazione: </span><fmt:formatDate pattern = "dd/MM/yyyy"  value ="<%=data_pubblicazione%>"/> <fmt:formatDate type="time" pattern = "HH:mm"  value ="<%=data_pubblicazione%>"/>
+		</h6>
+	</div>
+	</c:if>
+	
+	</div>
+
+	</div>
+	
+	</div>
+</liferay-ui:search-container-column-text>

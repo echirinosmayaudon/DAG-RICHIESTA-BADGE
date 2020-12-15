@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="servizio.richieste.badge.mef.model.AnaDipExt">
+		<field name="id_dip_ext" type="long" />
+		<field name="nome_dip_ext" type="String" />
+		<field name="cognome_dip_ext" type="String" />
+		<field name="cf_dip_ext" type="String">
+			<hint name="max-length">16</hint>
+		</field>
+		<field name="luogonascita_dip_ext" type="String">
+			<hint name="max-length">255</hint>
+		</field>
+		<field name="datanascita_dip_ext" type="Date" />
+	</model>
+	<model name="servizio.richieste.badge.mef.model.GestioneUtenti">
+		<field name="id_gest_utenti" type="long" />
+		<field name="data" type="Date" />
+		<field name="screename_dirigente" type="String">
+			<hint name="max-length">16</hint>
+		</field>
+		<field name="screename_utente" type="String">
+			<hint name="max-length">16</hint>
+		</field>
+		<field name="id_ufficio" type="long" />
+		<field name="abilitazione" type="boolean" />
+		<field name="delega" type="boolean" />
+	</model>
+	<model name="servizio.richieste.badge.mef.model.OggettoRichiesta">
+		<field name="id_oggetto" type="long" />
+		<field name="descrizione_oggetto" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+	</model>
+	<model name="servizio.richieste.badge.mef.model.RichiestaBadge">
+		<field name="id_pk" type="long" />
+		<field name="id_richiesta" type="long" />
+		<field name="screename_richiedente" type="String">
+			<hint name="max-length">16</hint>
+		</field>
+		<field name="id_ufficio" type="long" />
+		<field name="id_sedesiap" type="long" />
+		<field name="json_richiedente" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="is_internal" type="boolean" />
+		<field name="nome_intestatario" type="String" />
+		<field name="cognome_intestatario" type="String" />
+		<field name="cf_intestatario" type="String">
+			<hint name="max-length">16</hint>
+		</field>
+		<field name="luogonascita_intestatario" type="String">
+			<hint name="max-length">255</hint>
+		</field>
+		<field name="datanascita_intestatario" type="Date" />
+		<field name="id_oggetto" type="long" />
+		<field name="numero_badge" type="String" />
+		<field name="uuid_foto" type="String" />
+		<field name="uuid_modulosostituzione" type="String" />
+		<field name="societa" type="String">
+			<hint name="max-length">150</hint>
+		</field>
+		<field name="referente_societa" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="progetto" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="json_richiesta_external" type="String">
+			<hint name="max-length">1500</hint>
+		</field>
+		<field name="array_sedi_abilitate" type="String">
+			<hint name="max-length">255</hint>
+		</field>
+		<field name="motivazione" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="data_scadenza" type="Date" />
+		<field name="uuid_modulopdf" type="String" />
+		<field name="data_richiesta" type="Date" />
+		<field name="data_modifica" type="Date" />
+		<field name="id_stato" type="long" />
+		<field name="utente_cambio_stato" type="String">
+			<hint name="max-length">16</hint>
+		</field>
+		<field name="note" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="is_last" type="boolean" />
+	</model>
+	<model name="servizio.richieste.badge.mef.model.SediEsterne">
+		<field name="id_sede_esterna" type="long" />
+		<field name="nome_sede_esterna" type="String" />
+		<field name="id_sedesiap" type="long" />
+		<field name="acronimo_sede" type="String" />
+	</model>
+	<model name="servizio.richieste.badge.mef.model.StatoRichiesta">
+		<field name="id_stato" type="long" />
+		<field name="descrizione_stato" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+	</model>
+</model-hints>

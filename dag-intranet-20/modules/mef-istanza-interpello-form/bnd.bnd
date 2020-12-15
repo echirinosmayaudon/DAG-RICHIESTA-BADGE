@@ -1,0 +1,8 @@
+Bundle-SymbolicName: mef.istanza.interpello.form
+Bundle-Version: 1.0.0
+Import-Package:\
+				!com.accenture.istanza.interpello.model.TextRichModel,\
+				!com.accenture.istanza.interpello.*,\
+				*
+				 
+				

@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="external.bfc.intranet.mef.model.Richieste" />
+	<import class="external.bfc.intranet.mef.model.RichiesteInfo" />
+	<import class="external.bfc.intranet.mef.model.RichiesteSequence" />
+	<import class="external.bfc.intranet.mef.model.RigheRichieste" />
+	<import class="external.bfc.intranet.mef.model.RigheRichiesteInfo" />
+	<import class="external.bfc.intranet.mef.model.SediBfc" />
+	<class name="external.bfc.intranet.mef.model.impl.RichiesteImpl" table="NEW_RGS_RICHIESTE_BFC">
+		<id column="ID" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="ID_STATO_ATTUALE" name="idStatoAttuale" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="DATA_RICHIESTA" name="dataRichiesta" type="org.hibernate.type.TimestampType" />
+		<property column="ID_PERIODICITA" name="idPeriodicita" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="EMAIL" name="email" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="RIFERIMENTO_STANZA" name="riferimentoStanza" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="ISPETTORATO" name="ispettorato" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="NOTE_RICHIEDENTE" name="noteRichiedente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="UFFICIO" name="ufficio" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="NOTE" name="note" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="UID_INS" name="uidIns" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="DATA_INS" name="dataIns" type="org.hibernate.type.TimestampType" />
+		<property column="UID_UPD" name="uidUpd" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="DATA_UPD" name="dataUpd" type="org.hibernate.type.TimestampType" />
+		<property column="OGGETTO" name="oggetto" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="ID_SEDE" name="idSede" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="KCSTRUT_ISP" name="strutIsp" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="KCSTRUT_UFF" name="strutUff" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="KCSTRUT_ISP2" name="strutIsp2" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="TEL_RICHIEDENTE" name="telRichiedente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="COSTO_REALE" name="costoReale" type="com.liferay.portal.dao.orm.hibernate.FloatType" />
+		<property column="PREVENTIVO" name="preventivo" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property column="FLAG_INVO" name="flagInvio" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="external.bfc.intranet.mef.model.impl.RichiesteInfoImpl" table="NEW_RGS_RICHIESTE_BFC_INFO">
+		<id column="ID" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="ID_STATO_ATTUALE" name="idStatoAttuale" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="DATA_RICHIESTA" name="dataRichiesta" type="org.hibernate.type.TimestampType" />
+		<property column="EMAIL" name="email" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="RIFERIMENTO_STANZA" name="riferimentoStanza" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="ISPETTORATO" name="ispettorato" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="NOME_REFERENTE" name="nomeReferente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="TELEFONO_REFERENTE" name="telefonoReferente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.CamelCasePropertyAccessor" column="N_MACCHINA" name="nMacchina" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="NOTE_RICHIEDENTE" name="noteRichiedente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="UFFICIO" name="ufficio" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="NOTE" name="note" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="UID_INS" name="uidIns" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="DATA_INS" name="dataIns" type="org.hibernate.type.TimestampType" />
+		<property column="UID_UPD" name="uidUpd" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="DATA_UPD" name="dataUpd" type="org.hibernate.type.TimestampType" />
+		<property column="OGGETTO" name="oggetto" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="ID_SEDE" name="idSede" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="TEL_RICHIEDENTE" name="telRichiedente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="KCSTRUT_UFF" name="strutUff" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="KCSTRUT_ISP" name="strutIsp" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="COSTO_REALE" name="costoReale" type="com.liferay.portal.dao.orm.hibernate.FloatType" />
+		<property column="PREVENTIVO" name="preventivo" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property column="FLAG_INVIO" name="flagInvio" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+	<class name="external.bfc.intranet.mef.model.impl.RichiesteSequenceImpl" table="LF_SEQ_BFC_READ">
+		<id column="READ_SEQ_BFC" name="idSeq" type="long">
+			<generator class="assigned" />
+		</id>
+	</class>
+	<class name="external.bfc.intranet.mef.model.impl.RigheRichiesteImpl" table="NEW_RGS_RIGHE_RICHIESTA_BFC">
+		<composite-id class="external.bfc.intranet.mef.service.persistence.RigheRichiestePK" name="primaryKey">
+			<key-property column="ID" name="id" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property column="ID_MATERIALE" name="idMateriale" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property column="SOTTOGRUPPO" name="sottogruppo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property column="GRUPPO" name="gruppo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property column="NUMERO_RIGA" name="numeroRiga" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="QUANTITA_RICHIESTA" name="quantitaRichiesta" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="QUANTITA_DISPONIBILE" name="quantitaDisponibile" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="UID_INS" name="uidIns" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="DATA_INS" name="dataIns" type="org.hibernate.type.TimestampType" />
+		<property column="UID_UPD" name="uidUpd" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="DATA_UPD" name="dataUpd" type="org.hibernate.type.TimestampType" />
+		<property column="IMPORTO" name="importo" type="com.liferay.portal.dao.orm.hibernate.FloatType" />
+		<property column="DESCRIZIONE" name="descrizione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="external.bfc.intranet.mef.model.impl.RigheRichiesteInfoImpl" table="NEW_RIGHE_RICHIESTA_BFC_INFO">
+		<composite-id class="external.bfc.intranet.mef.service.persistence.RigheRichiesteInfoPK" name="primaryKey">
+			<key-property column="ID" name="id" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property column="ID_MATERIALE" name="idMateriale" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property column="SOTTOGRUPPO" name="sottogruppo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property column="GRUPPO" name="gruppo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property column="NUMERO_RIGA" name="numeroRiga" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="QUANTITA_RICHIESTA" name="quantitaRichiesta" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="QUANTITA_DISPONIBILE" name="quantitaDisponibile" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="UID_INS" name="uidIns" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="DATA_INS" name="dataIns" type="org.hibernate.type.TimestampType" />
+		<property column="UID_UPD" name="uidUpd" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="DATA_UPD" name="dataUpd" type="org.hibernate.type.TimestampType" />
+		<property column="IMPORTO" name="importo" type="com.liferay.portal.dao.orm.hibernate.FloatType" />
+		<property column="DESCRIZIONE" name="descrizione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="external.bfc.intranet.mef.model.impl.SediBfcImpl" table="LF_SEDI_BFC">
+		<id column="ID" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property column="CODICE_GECO" name="codice_geco" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="ID_SEDE_GECO" name="id_sede_geco" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="ID_SEDE_SIAP" name="id_sede_siap" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="ID_ORGANIGRAMMA_LIV2" name="id_org_liv2" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="ID_ORGANIGRAMMA_LIV3" name="id_org_liv3" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="NAME" name="nomeLoc" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="FLAG_APP" name="flag_app" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+</hibernate-mapping>

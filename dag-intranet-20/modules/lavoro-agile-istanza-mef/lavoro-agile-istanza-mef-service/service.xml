@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="com.accenture.lavoro.agile.istanza.mef">
+	<namespace>MEFISTAGILE</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+	
+	
+	<entity name="RichLavAgile" local-service="true" remote-service="true">
+	<column name="id" type="long" primary="true" id-type="sequence" id-param="mefistagile_seq"></column>
+	<column name="id_richiesta" type="long"></column>
+	<column name="cognome" type="String"></column>
+	<column name="nome" type="String"></column>
+	<column name="dipartimento" type="long"></column>
+	<column name="direzione" type="long"></column>
+	<column name="ufficio" type="long"></column>
+	<column name="screename" type="String"></column>
+	<column name="json_richiedente" type="String"></column>
+	<column name="json_richiesta" type="String"></column>
+	<column name="peso_tot" type="int"></column>
+	<column name="peso_plus" type="String"></column>
+	<column name="bando" type="String"></column>
+	<column name="data_richiesta" type="Date"></column>
+	<column name="allegato" type="String"></column>
+	<column name="pdf" type="String"></column>
+	
+	<order by="desc">
+		<order-column name="data_richiesta"></order-column>
+	</order>
+	
+	<finder name="screename" return-type="Collection" db-index="false">
+     	<finder-column name="screename"></finder-column>
+     </finder>
+	
+	</entity>
+	
+	
+	<entity name="OpzioneRich" local-service="true" remote-service="true" cache-enabled="false">
+	<column name="id_opt" type="long" primary="true"></column>
+	<column name="label_opt" type="String"></column>
+	<column name="testo_opt" type="String"></column>
+	<column name="peso_opt" type="int"></column>
+	<column name="data_in" type="Date"></column>
+
+	<order by="desc">
+		<order-column name="data_in"></order-column>
+	</order>
+	
+	<finder name="label_opt" return-type="Collection" db-index="false">
+     	<finder-column name="label_opt"></finder-column>
+     </finder>
+	
+	</entity>
+	
+	<entity name="Email" local-service="true" remote-service="true" cache-enabled="false">
+	<column name="id" type="long" primary="true"></column>
+	<column name="idStruttura" type="long"></column>
+	<column name="mailCC" type="String"></column>
+	
+	 <finder name="IdStruttura" return-type="Collection" db-index="false">
+     	<finder-column name="idStruttura"></finder-column>
+     </finder>
+	</entity>
+	
+</service-builder>

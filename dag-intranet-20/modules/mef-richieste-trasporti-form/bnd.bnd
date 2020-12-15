@@ -1,0 +1,5 @@
+Bundle-SymbolicName: mef.richieste.trasporti.form
+Bundle-Version: 1.0.6
+Import-Package:\
+				 !org.apache.pdfbox.*,\
+				 *

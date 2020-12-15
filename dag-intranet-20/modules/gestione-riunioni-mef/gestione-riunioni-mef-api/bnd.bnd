@@ -1,0 +1,7 @@
+Bundle-SymbolicName: gestione.riunioni.mef-api
+Bundle-Version: 1.0.3
+Export-Package:\
+	com.intranet.mef.gestione.riunioni.exception,\
+	com.intranet.mef.gestione.riunioni.model,\
+	com.intranet.mef.gestione.riunioni.service,\
+	com.intranet.mef.gestione.riunioni.service.persistence

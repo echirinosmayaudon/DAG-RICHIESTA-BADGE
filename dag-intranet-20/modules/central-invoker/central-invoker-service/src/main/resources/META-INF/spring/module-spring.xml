@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="com.intranet.mef.central.service.impl.CentralInvokerLocalServiceImpl" id="com.intranet.mef.central.service.CentralInvokerLocalService" />
+	<bean class="com.intranet.mef.central.service.impl.CentralInvokerServiceImpl" id="com.intranet.mef.central.service.CentralInvokerService" />
+	<bean class="com.intranet.mef.central.service.persistence.impl.CentralInvokerPersistenceImpl" id="com.intranet.mef.central.service.persistence.CentralInvokerPersistence" parent="basePersistence" />
+</beans>

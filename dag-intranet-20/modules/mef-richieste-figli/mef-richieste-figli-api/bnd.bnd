@@ -1,0 +1,10 @@
+Bundle-Name: mef-richieste-figli-api
+Bundle-SymbolicName: mef.richieste.figli.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	mef.richieste.figli.exception,\
+	mef.richieste.figli.model,\
+	mef.richieste.figli.service,\
+	mef.richieste.figli.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../mef-richieste-figli-service/service.xml

@@ -1,0 +1,7 @@
+Bundle-SymbolicName: whistleblowing.mef-api
+Bundle-Version: 1.0.0
+Export-Package:\
+	servizio.whistleblowing.mef.exception,\
+	servizio.whistleblowing.mef.model,\
+	servizio.whistleblowing.mef.service,\
+	servizio.whistleblowing.mef.service.persistence

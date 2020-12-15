@@ -1,0 +1,72 @@
+!SESSION 2020-01-30 15:25:21.868 -----------------------------------------------
+eclipse.buildId=3.6.1.201906250533-ga2
+java.version=1.8.0_221
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_IT
+Framework arguments:  -product com.liferay.ide.studio.ui.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.liferay.ide.studio.ui.product
+
+!ENTRY org.eclipse.ui 2 0 2020-01-30 15:26:15.550
+!MESSAGE Warnings while parsing the images from the 'org.eclipse.ui.commandImages' extension point.
+!SUBENTRY 1 org.eclipse.ui 2 0 2020-01-30 15:26:15.550
+!MESSAGE Cannot bind to an undefined command: plug-in='com.genuitec.eclipse.theming.ui', id='com.genuitec.myeclipse.help.darktheme.commandid'
+
+!ENTRY com.genuitec.eclipse.theming.ui 1 0 2020-01-30 15:26:16.714
+!MESSAGE A DevStyle Theme is being activated on this workspace; preparing colors and configuration
+
+!ENTRY com.genuitec.eclipse.theming.ui 1 0 2020-01-30 15:26:16.754
+!MESSAGE DevStyle has archived current color configurations to alternate preferences - will be restored when switching out of the DevStyle Theme
+
+!ENTRY org.eclipse.jface.text 2 0 2020-01-30 15:26:22.648
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.ui 4 4 2020-01-30 15:26:22.734
+!MESSAGE Referenced part does not exist yet: fast.
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-01-30 15:26:31.771
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\S.Faina'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-01-30 15:26:38.489
+!MESSAGE starting IvyDE plugin
+
+!ENTRY org.apache.ivyde.eclipse 1 0 2020-01-30 15:26:38.531
+!MESSAGE IvyDE plugin started
+
+!ENTRY com.liferay.ide.project.core 4 0 2020-01-30 15:27:59.832
+!MESSAGE com.liferay.ide.project.core.modules.BladeCLIException: blade does not support initializing a workspace inside of another workspace.
+	at com.liferay.ide.project.core.modules.BladeCLI.execute(BladeCLI.java:120)
+	at com.liferay.ide.gradle.core.LiferayGradleWorkspaceProjectProvider.createNewProject(LiferayGradleWorkspaceProjectProvider.java:87)
+	at com.liferay.ide.gradle.core.LiferayGradleWorkspaceProjectProvider.createNewProject(LiferayGradleWorkspaceProjectProvider.java:1)
+	at com.liferay.ide.project.core.workspace.NewLiferayWorkspaceOpMethods.execute(NewLiferayWorkspaceOpMethods.java:50)
+	at com.liferay.ide.project.core.workspace.NewLiferayWorkspaceOp$Impl.execute(Unknown Source)
+	at org.eclipse.sapphire.ui.forms.swt.SapphireWizard.performFinish(SapphireWizard.java:398)
+	at org.eclipse.sapphire.ui.forms.swt.SapphireWizard$3.run(SapphireWizard.java:362)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:122)
+
+
+!ENTRY org.eclipse.rse.core 1 0 2020-01-30 15:28:18.419
+!MESSAGE Disconnect operation timed out after 120000 milliseconds.
+!SESSION 2020-01-31 10:56:33.073 -----------------------------------------------
+eclipse.buildId=3.6.1.201906250533-ga2
+java.version=1.8.0_221
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=it_IT
+Framework arguments:  -product com.liferay.ide.studio.ui.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product com.liferay.ide.studio.ui.product
+
+!ENTRY org.eclipse.jface.text 2 0 2020-01-31 10:56:54.083
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.boolean'
+
+!ENTRY org.eclipse.egit.ui 2 0 2020-01-31 10:57:03.661
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\S.Faina'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.rse.core 1 0 2020-01-31 10:57:14.857
+!MESSAGE Disconnect operation timed out after 120000 milliseconds.

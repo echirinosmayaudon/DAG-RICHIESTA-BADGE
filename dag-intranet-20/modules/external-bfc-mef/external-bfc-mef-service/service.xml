@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="external.bfc.intranet.mef">
+	<namespace>EXTBFC</namespace>
+	
+	<entity local-service="true" name="Richieste" data-source="stage" table="NEW_RGS_RICHIESTE_BFC" remote-service="true" uuid="false" cache-enabled="false">
+		<column name="idStatoAttuale" db-name="ID_STATO_ATTUALE"  type="long" />
+		<column name="id" db-name="ID" primary="true" type="long" />
+		<column name="dataRichiesta" db-name="DATA_RICHIESTA" type="Date" />
+		<column name="idPeriodicita" db-name="ID_PERIODICITA" type="long" />
+		<column name="email" db-name="EMAIL" type="String" />
+		<column name="riferimentoStanza" db-name="RIFERIMENTO_STANZA" type="String" />
+		<column name="ispettorato" db-name="ISPETTORATO" type="String" />
+		<column name="noteRichiedente" db-name="NOTE_RICHIEDENTE" type="String" />
+		<column name="ufficio" db-name="UFFICIO" type="String" />
+		<column name="note" db-name="NOTE" type="String" />
+		<column name="uidIns" db-name="UID_INS" type="long" />
+		<column name="dataIns" db-name="DATA_INS" type="Date" />
+		<column name="uidUpd" db-name="UID_UPD" type="long" />
+		<column name="dataUpd" db-name="DATA_UPD" type="Date" />
+		<column name="oggetto" db-name="OGGETTO" type="String" />
+		<column name="idSede" db-name="ID_SEDE" type="String" />
+		<column name="strutIsp" db-name="KCSTRUT_ISP" type="String" />
+		<column name="strutUff" db-name="KCSTRUT_UFF" type="String" />
+		<column name="strutIsp2" db-name="KCSTRUT_ISP2" type="String" />
+		<column name="telRichiedente" db-name="TEL_RICHIEDENTE" type="String" />
+		<column name="costoReale" db-name="COSTO_REALE" type="float" />
+		<column name="preventivo" db-name="PREVENTIVO" type="int" />
+		<column name="flagInvio" db-name="FLAG_INVO" type="int" />
+		
+		<!-- Finder methods -->
+		<finder name="emailReqBfc" return-type="Collection" db-index="false">
+			<finder-column name="email" />
+		</finder>
+	</entity>
+	
+	
+	
+	<entity local-service="true" name="RigheRichieste" data-source="stage" table="NEW_RGS_RIGHE_RICHIESTA_BFC" remote-service="true" uuid="false" cache-enabled="false">
+		<column name="id" db-name="ID" primary="true" type="long" />
+		<column name="idMateriale" db-name="ID_MATERIALE" primary="true" type="long" />
+		<column name="numeroRiga" db-name="NUMERO_RIGA" type="long" />
+		<column name="quantitaRichiesta" db-name="QUANTITA_RICHIESTA" type="long" />
+		<column name="quantitaDisponibile" db-name="QUANTITA_DISPONIBILE" type="long" />
+		<column name="uidIns" db-name="UID_INS" type="long" />
+		<column name="dataIns" db-name="DATA_INS" type="Date" />
+		<column name="uidUpd" db-name="UID_UPD" type="long" />
+		<column name="dataUpd" db-name="DATA_UPD" type="Date" />
+		<column name="importo" db-name="IMPORTO" type="float" />
+		<column name="sottogruppo" db-name="SOTTOGRUPPO" primary="true" type="String" />
+		<column name="gruppo" db-name="GRUPPO" primary="true" type="String" />
+		<column name="descrizione" db-name="DESCRIZIONE" type="String" />
+		<!-- Finder methods -->
+		<finder name="richiesteId" return-type="Collection" db-index="false">
+			<finder-column name="id" />
+		</finder>
+	</entity>
+	
+	<entity local-service="true" name="RichiesteInfo" data-source="stage" table="NEW_RGS_RICHIESTE_BFC_INFO" remote-service="true" uuid="false" cache-enabled="false">
+		<column name="idStatoAttuale" db-name="ID_STATO_ATTUALE"  type="long" />
+		<column name="id" db-name="ID" primary="true" type="long" />
+		<column name="dataRichiesta" db-name="DATA_RICHIESTA" type="Date" />
+		<column name="email" db-name="EMAIL" type="String" />
+		<column name="riferimentoStanza" db-name="RIFERIMENTO_STANZA" type="String" />
+		<column name="ispettorato" db-name="ISPETTORATO" type="String" />
+		<column name="nomeReferente" db-name="NOME_REFERENTE" type="String" />
+		<column name="telefonoReferente" db-name="TELEFONO_REFERENTE" type="String" />
+		<column name="nMacchina" db-name="N_MACCHINA" type="String" />
+		<column name="noteRichiedente" db-name="NOTE_RICHIEDENTE" type="String" />
+		<column name="ufficio" db-name="UFFICIO" type="String" />
+		<column name="note" db-name="NOTE" type="String" />
+		<column name="uidIns" db-name="UID_INS" type="long" />
+		<column name="dataIns" db-name="DATA_INS" type="Date" />
+		<column name="uidUpd" db-name="UID_UPD" type="long" />
+		<column name="dataUpd" db-name="DATA_UPD" type="Date" />
+		<column name="oggetto" db-name="OGGETTO" type="String" />
+		<column name="idSede" db-name="ID_SEDE" type="String" />
+		<column name="telRichiedente" db-name="TEL_RICHIEDENTE" type="String" />
+		<column name="strutUff" db-name="KCSTRUT_UFF" type="String" />
+		<column name="strutIsp" db-name="KCSTRUT_ISP" type="String" />
+		<column name="costoReale" db-name="COSTO_REALE" type="float" />
+		<column name="preventivo" db-name="PREVENTIVO" type="int" />
+		<column name="flagInvio" db-name="FLAG_INVIO" type="int" />
+		
+		<!-- Finder methods -->
+		<finder name="emailReqBfcInfo" return-type="Collection" db-index="false">
+			<finder-column name="email" />
+		</finder>
+	</entity>
+	
+	
+	<entity local-service="true" name="RigheRichiesteInfo" data-source="stage" table="NEW_RIGHE_RICHIESTA_BFC_INFO" remote-service="true" uuid="false" cache-enabled="false">
+		<column name="id" db-name="ID" primary="true" type="long" />
+		<column name="idMateriale" db-name="ID_MATERIALE" primary="true"  type="long" />
+		<column name="numeroRiga" db-name="NUMERO_RIGA" type="long" />
+		<column name="quantitaRichiesta" db-name="QUANTITA_RICHIESTA" type="long" />
+		<column name="quantitaDisponibile" db-name="QUANTITA_DISPONIBILE" type="long" />
+		<column name="uidIns" db-name="UID_INS" type="long" />
+		<column name="dataIns" db-name="DATA_INS" type="Date" />
+		<column name="uidUpd" db-name="UID_UPD" type="long" />
+		<column name="dataUpd" db-name="DATA_UPD" type="Date" />
+		<column name="importo" db-name="IMPORTO" type="float" />
+		<column name="sottogruppo" db-name="SOTTOGRUPPO"  primary="true" type="String" />
+		<column name="gruppo" db-name="GRUPPO" primary="true" type="String" />
+		<column name="descrizione" db-name="DESCRIZIONE" type="String" />
+		<!-- Finder methods -->
+		<finder name="richiesteInfoId" return-type="Collection" db-index="false">
+			<finder-column name="id" />
+		</finder>
+	</entity>
+	
+	<entity local-service="true" name="RichiesteSequence" data-source="stage" table="LF_SEQ_BFC_READ" remote-service="true" uuid="false" cache-enabled="false">
+		<column name="idSeq" db-name="READ_SEQ_BFC" primary="true" type="long" />
+	</entity>
+	
+	<entity local-service="true" name="SediBfc" data-source="stage" table="LF_SEDI_BFC" remote-service="true" uuid="false">
+		<column name="id" db-name="ID" primary="true" type="long"/>
+		<column name="codice_geco" db-name="CODICE_GECO" type="String"/>
+		<column name="id_sede_geco" db-name="ID_SEDE_GECO" type="String"/>
+		<column name="id_sede_siap" db-name="ID_SEDE_SIAP" type="long"/>
+		<column name="id_org_liv2" db-name="ID_ORGANIGRAMMA_LIV2" type="long"/>
+		<column name="id_org_liv3" db-name="ID_ORGANIGRAMMA_LIV3" type="long"/>
+		<column name="nomeLoc" db-name="NAME" type="String"/>
+		<column name="flag_app" db-name="FLAG_APP" type="boolean"/>
+		
+		<finder name="IdOrgLiv2AndFlagApp" return-type="Collection" db-index="false">
+			<finder-column name="id_org_liv2" />
+			<finder-column name="flag_app" />
+		</finder>
+		
+		<finder name="IdOrgLiv3AndFlagApp" return-type="Collection" db-index="false">
+			<finder-column name="id_org_liv3" />
+			<finder-column name="flag_app" />
+		</finder>
+	</entity>
+
+</service-builder>

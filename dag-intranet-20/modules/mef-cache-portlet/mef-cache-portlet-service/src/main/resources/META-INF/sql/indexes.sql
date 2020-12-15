@@ -1,0 +1,1 @@
+create index IX_178B7D2F on CACHEPORTLET_CachePortlet (uuid_[$COLUMN_LENGTH:75$]);

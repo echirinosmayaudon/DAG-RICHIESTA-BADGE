@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="mef.email.configurator.model.AppNames">
+		<field name="id" type="long" />
+		<field name="appname" type="String" />
+		<field name="appid" type="long" />
+	</model>
+	<model name="mef.email.configurator.model.EmailApp">
+		<field name="id" type="long" />
+		<field name="appid" type="long" />
+		<field name="struttura" type="long" />
+		<field name="email" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+	</model>
+</model-hints>

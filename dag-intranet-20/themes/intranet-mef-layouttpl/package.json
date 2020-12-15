@@ -1,0 +1,27 @@
+{
+    "publishConfig": {
+    "registry": "http://10.100.130.22:8081/nexus/repository/npmgroup/"
+    },
+	"name": "intranet-mef-layouttpl",
+	"version": "1.0.0",
+	"main": "package.json",
+	"keywords": [
+		"liferay-theme"
+	],
+	"liferayLayoutTemplate": {
+		"version": "7.0"
+	},
+	"devDependencies": {
+		"gulp": "^3.8.10",
+		"liferay-plugin-node-tasks": "*"
+	},
+	"author": {
+        "email": "dag.intranet@tesoro.it",
+        "name": "dag.intranet"
+    },
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "https://gitlab.mef.gov.it/04/area_0118/intranetmefliferay.git"
+    }
+}

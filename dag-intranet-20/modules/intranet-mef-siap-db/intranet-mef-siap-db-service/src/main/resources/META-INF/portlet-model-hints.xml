@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.intranet.mef.job.siap.model.City">
+		<field name="istatCode" type="String" />
+		<field name="name" type="String" />
+		<field name="province" type="String" />
+		<field name="provinceName" type="String" />
+		<field name="district" type="String" />
+	</model>
+	<model name="com.intranet.mef.job.siap.model.ClassificationLevel">
+		<field name="levelID" type="long" />
+		<field name="codLegalPos" type="String" />
+		<field name="descLegalPos" type="String" />
+		<field name="codEconomicPos" type="String" />
+		<field name="descEconomicPos" type="String" />
+		<field name="area" type="String" />
+	</model>
+	<model name="com.intranet.mef.job.siap.model.CurrentBalanceHours">
+		<field name="personId" type="long" />
+		<field name="balanceHoursCurDate" type="Date" />
+		<field name="balanceHours" type="int" />
+	</model>
+	<model name="com.intranet.mef.job.siap.model.Festivity">
+		<field name="personId" type="long" />
+		<field name="festivityDueCurrYear" type="int" />
+		<field name="festivitySpentCurrYear" type="int" />
+		<field name="festivityRemainCurrYear" type="int" />
+	</model>
+	<model name="com.intranet.mef.job.siap.model.Location">
+		<field name="locationID" type="long" />
+		<field name="name" type="String" />
+		<field name="street" type="String" />
+		<field name="city" type="String" />
+		<field name="postalCode" type="String" />
+		<field name="locationType" type="String" />
+	</model>
+	<model name="com.intranet.mef.job.siap.model.ManagerOfficesBind">
+		<field name="personalId" type="long" />
+		<field name="idOrgChart" type="long" />
+		<field name="primary" type="String" />
+		<field name="regency" type="String" />
+	</model>
+	<model name="com.intranet.mef.job.siap.model.MealTicket">
+		<field name="custom_key" type="String" />
+		<field name="personID" type="long" />
+		<field name="month" type="String" />
+		<field name="dueMeal" type="int" />
+	</model>
+	<model name="com.intranet.mef.job.siap.model.OrganizationChart">
+		<field name="idOrgChart" type="long" />
+		<field name="name" type="String" />
+		<field name="level" type="int" />
+		<field name="idParent" type="long" />
+		<field name="type" type="String" />
+		<field name="locationId" type="long" />
+		<field name="emailOffice" type="String" />
+		<field name="faxOffice" type="String" />
+		<field name="level1" type="long" />
+		<field name="level2" type="long" />
+		<field name="level3" type="long" />
+		<field name="level4" type="long" />
+		<field name="level5" type="long" />
+		<field name="acronimo" type="String" />
+	</model>
+	<model name="com.intranet.mef.job.siap.model.OvertimeBalacePrevMonth">
+		<field name="personId" type="long" />
+		<field name="overtimeDueCurrMonth" type="int" />
+		<field name="overtimeMonthPrevRif" type="String" />
+	</model>
+	<model name="com.intranet.mef.job.siap.model.OvertimeBalance">
+		<field name="overtimeMonthCurrRif" type="String" />
+		<field name="personId" type="long" />
+		<field name="overtimeBalHourCurMonth" type="int" />
+		<field name="overtimeBalacePrevMonth" type="int" />
+	</model>
+	<model name="com.intranet.mef.job.siap.model.OvertimePrevMonthPayOff">
+		<field name="personId" type="long" />
+		<field name="overtimeHoursCurrPayOff" type="int" />
+	</model>
+	<model name="com.intranet.mef.job.siap.model.PersonalAbsence">
+		<field name="custom_key" type="String" />
+		<field name="personId" type="long" />
+		<field name="absenceDate" type="Date" />
+		<field name="refMonth" type="String" />
+		<field name="absenceCode" type="String" />
+		<field name="completeDay" type="String" />
+		<field name="from" type="int" />
+		<field name="to" type="int" />
+		<field name="hours" type="int" />
+		<field name="description" type="String" />
+	</model>
+	<model name="com.intranet.mef.job.siap.model.ProfilePicture">
+		<field name="personID" type="long" />
+		<field name="file" type="Blob" />
+	</model>
+	<model name="com.intranet.mef.job.siap.model.Punching">
+		<field name="custom_key" type="String" />
+		<field name="personId" type="long" />
+		<field name="punchingId" type="int" />
+		<field name="direction" type="String" />
+		<field name="hours" type="int" />
+		<field name="minute" type="String" />
+		<field name="voucher" type="String" />
+		<field name="terminal" type="String" />
+		<field name="accountingDate" type="Date" />
+		<field name="punchingDate" type="Date" />
+	</model>
+	<model name="com.intranet.mef.job.siap.model.UserFrontierBind">
+		<field name="personalId" type="long" />
+		<field name="idOrgChart" type="long" />
+		<field name="idDirector" type="long" />
+		<field name="dateRecruitment" type="Date" />
+		<field name="dateStartAssignOffice" type="Date" />
+		<field name="dateStartInquadramento" type="Date" />
+		<field name="dateStartFunction" type="Date" />
+		<field name="levelId" type="long" />
+		<field name="screenName" type="String" />
+		<field name="name" type="String" />
+		<field name="surName" type="String" />
+		<field name="gender" type="String" />
+		<field name="email" type="String" />
+		<field name="codIstatBirth" type="String" />
+		<field name="dateBirth" type="Date" />
+		<field name="personalPhone" type="String" />
+		<field name="workPhone" type="String" />
+		<field name="workFax" type="String" />
+		<field name="personalStreet" type="String" />
+		<field name="personalPostalCode" type="String" />
+		<field name="personalCity" type="String" />
+		<field name="officeStreet1" type="String" />
+		<field name="officeStreet2" type="String" />
+		<field name="officeStreet3" type="String" />
+		<field name="officePostalCode" type="String" />
+		<field name="officeCity" type="String" />
+		<field name="giuridicPos" type="String" />
+		<field name="economicPos" type="String" />
+	</model>
+	<model name="com.intranet.mef.job.siap.model.UserPosition">
+		<field name="pos" type="String" />
+		<field name="ruoloGiuridico" type="String" />
+		<field name="ruoloEconomico" type="String" />
+	</model>
+	<model name="com.intranet.mef.job.siap.model.Vacation">
+		<field name="personId" type="long" />
+		<field name="vacationCurrYear" type="int" />
+		<field name="vacationPrevYear" type="int" />
+		<field name="vacationSpent" type="int" />
+		<field name="vacationRemaining" type="int" />
+	</model>
+</model-hints>

@@ -1,0 +1,238 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="service.intranet.mef.model.Asset">
+		<field name="id" type="long" />
+		<field name="descrizione" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+	</model>
+	<model name="service.intranet.mef.model.BadgeRichieste">
+		<field name="id" type="long" />
+		<field name="utente" type="String" />
+		<field name="dettaglio_richiedente" type="String">
+			<hint name="max-length">2500</hint>
+		</field>
+		<field name="cognome" type="String" />
+		<field name="nome" type="String" />
+		<field name="luogo_nascita" type="String" />
+		<field name="data_nascita" type="Date" />
+		<field name="codice_fiscale" type="String">
+			<hint name="min-length">16</hint>
+			<hint name="max-length">16</hint>
+		</field>
+		<field name="numerobadge" type="String" />
+		<field name="allegatoUuid" type="String" />
+		<field name="operazione" type="String" />
+		<field name="data_richiesta" type="Date" />
+		<field name="procedura" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+		<field name="disattivazione" type="Date" />
+	</model>
+	<model name="service.intranet.mef.model.BeneInv">
+		<field name="id" type="long" />
+		<field name="bene" type="String" />
+		<field name="id_tipo" type="long" />
+	</model>
+	<model name="service.intranet.mef.model.BeneInvRichiesto">
+		<field name="id_bene_rich" type="long" />
+		<field name="tipologia" type="String" />
+		<field name="descrizione" type="String" />
+		<field name="quantita" type="int" />
+		<field name="dettagli" type="String" />
+		<field name="in_elenco" type="boolean" />
+		<field name="id_richiesta" type="long" />
+	</model>
+	<model name="service.intranet.mef.model.HardwareTecnici">
+		<field name="id" type="long" />
+		<field name="descrizione" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+	</model>
+	<model name="service.intranet.mef.model.LogisticaRichieste">
+		<field name="id" type="long" />
+		<field name="oggetto" type="String">
+			<hint name="max-length">1500</hint>
+		</field>
+		<field name="utente" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="dipartimento" type="String" />
+		<field name="data_richiesta" type="Date" />
+		<field name="dettaglio_richiedente" type="String">
+			<hint name="max-length">2500</hint>
+		</field>
+		<field name="dettaglio_richieste" type="String">
+			<hint name="max-length">2500</hint>
+		</field>
+		<field name="note_gestore" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="id_valutazione" type="long" />
+		<field name="id_stato" type="long" />
+		<field name="note" type="String">
+			<hint name="max-length">1500</hint>
+		</field>
+	</model>
+	<model name="service.intranet.mef.model.LogisticaServizio">
+		<field name="id" type="long" />
+		<field name="descrizione" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+	</model>
+	<model name="service.intranet.mef.model.LogisticaStato">
+		<field name="id" type="long" />
+		<field name="descrizione" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="utente" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+	</model>
+	<model name="service.intranet.mef.model.LogisticaValutazione">
+		<field name="id" type="long" />
+		<field name="descrizione" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+	</model>
+	<model name="service.intranet.mef.model.ModuloTrasporti">
+		<field name="id_modulo_trasporti" type="long" />
+		<field name="cognome" type="String" />
+		<field name="nome" type="String" />
+		<field name="codice_fiscale" type="String">
+			<hint name="min-length">16</hint>
+			<hint name="max-length">16</hint>
+		</field>
+		<field name="utente_inserimento" type="String" />
+		<field name="data_inserimento" type="Date" />
+		<field name="flag_tipospesa" type="String" />
+		<field name="iban" type="String" />
+		<field name="importo" type="String" />
+		<field name="data_titolo_annuale" type="Date" />
+		<field name="nr_titoli_mensili" type="String" />
+		<field name="figlio_nome" type="String" />
+		<field name="figlio_cognome" type="String" />
+		<field name="figlio_data_nascita" type="Date" />
+		<field name="figlio_luogo_data" type="String" />
+		<field name="figlio_codicefiscale" type="String">
+			<hint name="min-length">16</hint>
+			<hint name="max-length">16</hint>
+		</field>
+		<field name="note" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="flag_inviato" type="String" />
+		<field name="telefono" type="String" />
+		<field name="allegatoUuid" type="String" />
+	</model>
+	<model name="service.intranet.mef.model.PeriodicitaRichPubblic">
+		<field name="id" type="long" />
+		<field name="periodicita" type="String" />
+	</model>
+	<model name="service.intranet.mef.model.RichiestaBeneInv">
+		<field name="id_richiesta" type="long" />
+		<field name="utente" type="String" />
+		<field name="nome_rich" type="String" />
+		<field name="cogn_rich" type="String" />
+		<field name="dip_dir" type="String" />
+		<field name="dati_rich" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="oggetto" type="String" />
+		<field name="data" type="Date" />
+		<field name="beneficiario" type="String">
+			<hint name="max-length">255</hint>
+		</field>
+		<field name="destinazione" type="String" />
+		<field name="id_stato" type="long" />
+		<field name="note_consegn" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+	</model>
+	<model name="service.intranet.mef.model.RichiestaInterventi">
+		<field name="id" type="long" />
+		<field name="utente" type="String" />
+		<field name="dettaglio" type="String">
+			<hint name="max-length">2500</hint>
+		</field>
+		<field name="data_interventi" type="Date" />
+	</model>
+	<model name="service.intranet.mef.model.RichiestaPubblicSiti">
+		<field name="id_rich_pubblic" type="long" />
+		<field name="dati_richiedente" type="String">
+			<hint name="max-length">255</hint>
+		</field>
+		<field name="dati_docum" type="String">
+			<hint name="max-length">255</hint>
+		</field>
+		<field name="titolo" type="String">
+			<hint name="max-length">255</hint>
+		</field>
+		<field name="sottotitolo" type="String">
+			<hint name="max-length">255</hint>
+		</field>
+		<field name="novita_abstract" type="String">
+			<hint name="max-length">3500</hint>
+		</field>
+		<field name="note_riferim" type="String">
+			<hint name="max-length">2000</hint>
+		</field>
+		<field name="dati_stampa_carta" type="String" />
+		<field name="dati_altro" type="String" />
+		<field name="dati_autorizzaz" type="String" />
+		<field name="note_autorizzaz" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="lista_allegati" type="String">
+			<hint name="max-length">255</hint>
+		</field>
+	</model>
+	<model name="service.intranet.mef.model.RichiesteHW">
+		<field name="id_richieste_hw" type="long" />
+		<field name="utente" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+		<field name="dettaglio" type="String">
+			<hint name="max-length">2500</hint>
+		</field>
+		<field name="data_richiesta" type="Date" />
+	</model>
+	<model name="service.intranet.mef.model.RichiesteUtenza">
+		<field name="id_richieste_utenza" type="long" />
+		<field name="utente" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+		<field name="destinatario" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+		<field name="dettaglio" type="String">
+			<hint name="max-length">2500</hint>
+		</field>
+		<field name="data_richiesta" type="Date" />
+	</model>
+	<model name="service.intranet.mef.model.StatoRichBeneInv">
+		<field name="id" type="long" />
+		<field name="stato" type="String" />
+	</model>
+	<model name="service.intranet.mef.model.TipoBeneInv">
+		<field name="id" type="long" />
+		<field name="tipo" type="String" />
+	</model>
+	<model name="service.intranet.mef.model.TipologiaComputer">
+		<field name="id_tipologia_computer" type="long" />
+		<field name="descrizione" type="String" />
+	</model>
+	<model name="service.intranet.mef.model.TipologiaDispositivi">
+		<field name="id_tipologia_dispositivi" type="long" />
+		<field name="descrizione" type="String" />
+	</model>
+	<model name="service.intranet.mef.model.TipologiaRichPubblic">
+		<field name="id" type="long" />
+		<field name="tipologia" type="String" />
+	</model>
+	<model name="service.intranet.mef.model.TipologiaStampanti">
+		<field name="id_tipologia_stampanti" type="long" />
+		<field name="descrizione" type="String" />
+	</model>
+</model-hints>

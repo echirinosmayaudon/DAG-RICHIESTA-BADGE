@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="com.intranet.mef.job.siap">
+	<namespace>JOB</namespace>
+	
+	<!-- ClassificationLevel -->
+	<entity local-service="true" table="LF_LIVELLO_INQ" data-source="stage" name="ClassificationLevel" remote-service="true" uuid="false">
+		
+		<column name="levelID" db-name="LEVEL_ID" primary="true" type="long" />
+		<column name="codLegalPos" db-name="COD_POS_GIUR" type="String" />
+		<column name="descLegalPos" db-name="DESC_POS_GIUR" type="String" />
+		<column name="codEconomicPos" db-name="COD_POS_ECON" type="String" />
+		<column name="descEconomicPos" db-name="DESC_POS_ECON" type="String" />
+		<column name="area" db-name="AREA" type="String" />
+						
+	</entity>
+	
+	
+	<!-- OrganizationChart -->
+	<entity local-service="true" table="LF_ORGANIGRAMMA" data-source="stage" name="OrganizationChart" remote-service="true" uuid="false">
+ 
+		<column name="idOrgChart" db-name="ID_ORGANIGRAMMA" primary="true" type="long" />
+		<column name="name" db-name="NAME" type="String" />
+		<column name="level" db-name="LIVELLO" type="int" />
+		<column name="idParent" db-name="ID_ORGANIGRAMMA_PADRE" type="long" />
+		<column name="type" db-name="TIPO_UO" type="String" />
+		<column name="locationId" db-name="LOCATION_ID" type="long"/>
+		<column name="emailOffice" db-name="EMAIL_UFFICIO" type="String" />
+		<column name="faxOffice" db-name="FAX_UFFICIO" type="String"/>
+		<column name="level1" db-name="LEVEL_1" type="long" />
+		<column name="level2" db-name="LEVEL_2" type="long" />
+		<column name="level3" db-name="LEVEL_3" type="long" />
+		<column name="level4" db-name="LEVEL_4" type="long" />
+		<column name="level5" db-name="LEVEL_5" type="long" />
+		<column name="acronimo" db-name="ACRONIMO" type="String" />
+		
+	</entity>
+	
+	<!-- City -->
+	<entity local-service="true" name="City" table="LF_COMUNI" data-source="stage" remote-service="true" uuid="false">
+
+		<column name="istatCode" db-name="COD_ISTAT" primary="true" type="String" />
+		<column name="name" db-name="NOME_COM" type="String" />
+		<column name="province" db-name="SIGLA_PROV" type="String" />
+		<column name="provinceName" db-name="NOME_PROV" type="String" />
+		<column name="district" db-name="REGIONE" type="String" />			
+		
+	</entity>	
+	
+	<!-- Location -->
+	<entity local-service="true" name="Location" table="LF_SEDE" data-source="stage" remote-service="true" uuid="false">
+
+		<column name="locationID" db-name="LOCATION_ID" primary="true" type="long" />
+		<column name="name" db-name="NAME" type="String" />
+		<column name="street" db-name="STREET" type="String" />
+		<column name="city" db-name="CITY" type="String" />
+		<column name="postalCode" db-name="POSTAL_CODE" type="String" />			
+		<column name="locationType" db-name="TIPOLOGIA_SEDE" type="String" />
+		
+	</entity>
+	
+	
+	<!-- ManagerOfficesBind -->	
+	<entity local-service="true" table="LF_DIRIGENTI" data-source="stage" name="ManagerOfficesBind" remote-service="true" uuid="false">
+		
+		<column name="personalId" db-name="PERSON_ID" type="long" primary="true" />
+		<column name="idOrgChart" db-name="ORGANIZATION_ID" type="long" primary="true" />
+		<column name="primary" db-name="FLAG_PRIMARIO" type="String" />
+		<column name="regency" db-name="FLAG_REGGENZA" type="String" />
+		
+		<!-- Finder methods -->
+		<finder name="PersonId" return-type="Collection">
+			<finder-column name="personalId" />
+		</finder>
+
+	</entity>
+
+	<!-- UserFrontierBind -->	
+	<entity local-service="true" table="LF_FRONTIERA" data-source="stage" name="UserFrontierBind" remote-service="true" uuid="false" cache-enabled="false">
+
+		<column name="personalId" db-name="PERSON_ID" type="long" primary="true" /><!-- Custom FIELD personalId -->
+		<!-- User Organigramma -->		
+		<column name="idOrgChart" db-name="ORGANIZATION_ID" type="long" /> <!-- Custom FIELD idOrgChart -->
+		<!-- Screen name dirigente -->
+		<column name="idDirector" db-name="ID_DIRIGENTE" type="long" /> <!-- Custom FIELD idDirector -->
+
+		<column name="dateRecruitment" db-name="DATA_ULTIMA_ASSUNZIONE" type="Date" />	 <!-- Custom FIELD dateRecruitment -->
+		<column name="dateStartAssignOffice" db-name="DATA_START" type="Date" /> <!-- Custom FIELD dateStartAssignOffice -->
+		<column name="dateStartInquadramento" db-name="DATA_INIZIO_INQ" type="Date" /> <!-- Custom FIELD dateStartInquadramento -->
+		<column name="dateStartFunction" db-name="DATA_IMM_FUNZIONE" type="Date" /> <!-- Custom FIELD dateStartFunction -->		
+		<column name="levelId" db-name="LEVEL_ID" type="long" /> <!-- Custom FIELD levelId -->
+
+		<!-- User Codice Fiscale -->	
+		<column name="screenName" db-name="CODICE_FISCALE" type="String" primary="true" />
+		<column name="name" db-name="NOME" type="String" />
+		<column name="surName" db-name="COGNOME" type="String" />
+		<column name="gender" db-name="SESSO" type="String" />
+		<column name="email" db-name="EMAIL" type="String" />
+		
+		<column name="codIstatBirth" db-name="COMUNE_STATO_ESTERO_NASCITA" type="String" />
+		<column name="dateBirth" db-name="DATA_NASCITA" type="Date" />
+		<!-- user Phone -->
+		<column name="personalPhone" db-name="PHONE_MOBILE" type="String" />
+		<column name="workPhone" db-name="PHONE_WORK" type="String" />
+		<column name="workFax" db-name="PHONE_FAX" type="String" />	
+		<!-- user Residenza -->
+		<column name="personalStreet" db-name="INDIRIZZO" type="String" />	
+		<column name="personalPostalCode" db-name="POSTAL_CODE" type="String" />	
+		<column name="personalCity" db-name="TOWN_OR_CITY" type="String" />	
+		<!-- Ubicazione user in sede -->
+		<column name="officeStreet1" db-name="PIANO_ID" type="String" />	
+		<column name="officeStreet2" db-name="STANZA_ID" type="String" />	
+		<column name="officeStreet3" db-name="SCALA_CORPO_ID" type="String" />	
+		<column name="officePostalCode" db-name="CORRIDOIO_ID" type="String" />	
+		<column name="officeCity" db-name="SETTORE_ID" type="String" />	
+		<column name="giuridicPos" db-name="POS_GIU" type="String" />	
+		<column name="economicPos" db-name="POS_ECO" type="String" />	
+
+	</entity>
+
+	<!-- ProfilePicture -->
+	
+	<entity local-service="true" name="ProfilePicture" data-source="stage" table="LF_PHOTO" remote-service="true" uuid="false">
+
+		<column name="personID" db-name="PERSON_ID" type="long" primary="true" />
+		<column name="file" db-name="IMAGE" type="Blob" />
+		
+	</entity>
+	
+	<!-- MealTicket -->
+	
+	<entity local-service="true" name="MealTicket" data-source="stage" table="LF_BUONI_PASTO" remote-service="true" uuid="false">
+		<column name="custom_key" db-name="CUSTOM_KEY" primary="true" type="String"/>
+		<column name="personID" db-name="PERSON_ID" type="long"/>
+		<column name="month" db-name="MESE" type="String" />
+		<column name="dueMeal" db-name="BUONI_MATURATI" type="int" />
+		
+		<!-- Finder methods -->
+		<finder name="PersonId" return-type="Collection">
+			<finder-column name="personID" />
+		</finder>	
+	</entity>
+	
+	
+	
+	<!-- Stamping -->
+	
+	<entity local-service="true" name="Punching" data-source="stage" table="LF_TIMBRATURE" remote-service="true" uuid="false">
+		<column name="custom_key" db-name="CUSTOM_KEY" primary="true" type="String"/>
+		<column name="personId" db-name="CODICE" type="long" />
+		<column name="punchingId" db-name="TIMBRATURA" type="int"/>
+		<column name="direction" db-name="VERSO_TIMBRATURA" type="String"/>
+		<column name="hours" db-name="ORE" type="int" />
+		<column name="minute" db-name="MINUTI" type="String"/>
+		<column name="voucher" db-name="GIUSTIFICATIVO" type="String"/>
+		<column name="terminal" db-name="TERMINALE" type="String" />
+		<column name="accountingDate"	db-name="DATA_QUADRATURA" type="Date"/>
+		<column name="punchingDate"	db-name="DATA_TIMBRATURA" type="Date"/>		
+		
+		<order>
+			<order-column name="punchingDate" order-by="desc" />
+			<order-column name="punchingId" order-by="asc" />
+		</order>
+		
+		<!-- Finder methods -->
+		<finder name="PersonId" return-type="Collection">
+			<finder-column name="personId"/>
+		</finder>		
+		
+	</entity>
+	<!-- PersonalAbsence -->
+	
+	<entity local-service="true" name="PersonalAbsence" data-source="stage" table="LF_ASS_PERSONALE" remote-service="true" uuid="false">
+		<column name="custom_key" db-name="CUSTOM_KEY" primary="true" type="String"/>
+		<column name="personId" db-name="PERSON_ID" type="long"/>
+		<column name="absenceDate" db-name="DATA_ASSENZA"  type="Date" />
+		<column name="refMonth" db-name="MESE_RIFERIMENTO" type="String" />
+		<column name="absenceCode" db-name="CODICE_ASSENZA"  type="String" />
+		<column name="completeDay" db-name="INTERA_GIORNATA" type="String" />
+		<column name="from" db-name="DALLE" type="int" />
+		<column name="to" db-name="ALLE" type="int"/>
+		<column name="hours" db-name="ORE_ASSENZA" type="int" />
+		<column name="description" db-name="DESCRIZIONE" type="String" />
+		
+		<!-- Finder methods -->
+		<finder name="PersonIdAndRefMonth" return-type="Collection">
+			<finder-column name="personId" />
+			<finder-column name="refMonth" />
+		</finder>	
+			
+	</entity>
+	
+	<!-- Vacation -->
+	
+	<entity local-service="true" name="Vacation" data-source="stage" table="LF_VIEW_FERIE" remote-service="true" uuid="false">
+		<column name="personId" db-name="PERSON_ID" primary="true" type="long" />
+		<column name="vacationCurrYear" db-name="FERIE_ANNO_CORR" type="int" />
+		<column name="vacationPrevYear" db-name="FERIE_ANNO_PREC" type="int" />
+		<column name="vacationSpent" db-name="FERIE_USUFRUITE" type="int" />
+		<column name="vacationRemaining" db-name="FERIE_RESIDUE" type="int" />
+	</entity>
+	
+	<!-- Festivity -->
+	<entity local-service="true" name="Festivity" data-source="stage" table="LF_VIEW_FESTIVITA" remote-service="true" uuid="false">
+		<column name="personId" db-name="PERSON_ID" primary="true" type="long" />
+		<column name="festivityDueCurrYear" db-name="FESTIVITA_SPETT_ANNO_CORR" type="int" />
+		<column name="festivitySpentCurrYear" db-name="FESTIVITA_USUFRUITE_ANNO_CORR" type="int" />
+		<column name="festivityRemainCurrYear" db-name="FESTIVITA_RESIDUE_ANNO_CORR" type="int" />
+	</entity>
+	
+	<!-- OvertimePrevMonthPayOff -->
+	<entity local-service="true" name="OvertimePrevMonthPayOff" data-source="stage" table="LF_VIEW_LIQUIDATO_MESE_PREC" remote-service="true" uuid="false">
+		
+		<column name="personId" db-name="PERSON_ID" primary="true" type="long" />
+		<column name="overtimeHoursCurrPayOff" db-name="STR_ORE_DA_LIQUIDARE_MESE_CORR" type="int" />
+		
+	</entity>
+	
+	<!-- OvertimeBalacePrevMonth -->
+	<entity local-service="true" name="OvertimeBalacePrevMonth" data-source="stage" table="LF_VIEW_ORE_MATURATE_PREC" remote-service="true" uuid="false">
+		
+		<column name="personId" db-name="PERSON_ID" primary="true" type="long" />
+		<column name="overtimeDueCurrMonth" db-name="STR_ORE_MATURATE_MESE" type="int" />		
+		<column name="overtimeMonthPrevRif" db-name="STR_MESE_RIF_PREC" type="String" />
+		
+	</entity>
+	
+	<!-- OvertimeBalance -->
+	<entity local-service="true" name="OvertimeBalance" data-source="stage" table="LF_VIEW_SALDO" remote-service="true" uuid="false">
+		
+		<column name="overtimeMonthCurrRif" db-name="STR_MESE_RIF_CORR" type="String" />
+		<column name="personId" db-name="PERSON_ID" primary="true" type="long" />
+		<column name="overtimeBalHourCurMonth" db-name="STR_SALDO_ORE_MESE_CORR" type="int" />	
+		<column name="overtimeBalacePrevMonth" db-name="STR_SALDO_ORE_MESE_PREC" type="int" />
+		
+	</entity>
+	
+	<!-- CurrentBalanceHours -->
+	<entity local-service="true" name="CurrentBalanceHours" data-source="stage" table="LF_VIEW_SALDO_ORE_COR" remote-service="true" uuid="false">
+		
+		<column name="personId" db-name="PERSON_ID" primary="true" type="long" />
+		<column name="balanceHoursCurDate" db-name="SALDO_ORE_CORRENTE_DATA" type="Date" />
+		<column name="balanceHours" db-name="SALDO_ORE_CORRENTE_DATA_ORE" type="int" />
+		
+	</entity>
+	
+	<!-- position user configuration -->
+	<entity local-service="true" name="UserPosition" data-source="stage" table="LF_POS_USER_CONFIGURATION" remote-service="true" uuid="false" cache-enabled="false">
+		<column name="pos" db-name="INQUADRAMENTO" primary="true" type="String" />
+		<column name="ruoloGiuridico" db-name="RUOLO_POS_GIU" type="String" />	
+		<column name="ruoloEconomico" db-name="RUOLO_POS_ECO" type="String" />		
+	</entity>
+	
+</service-builder>

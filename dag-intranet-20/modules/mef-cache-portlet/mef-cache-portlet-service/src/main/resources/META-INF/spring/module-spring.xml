@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="com.cacheportlet.mef.service.impl.CachePortletLocalServiceImpl" id="com.cacheportlet.mef.service.CachePortletLocalService" />
+	<bean class="com.cacheportlet.mef.service.impl.CachePortletServiceImpl" id="com.cacheportlet.mef.service.CachePortletService" />
+	<bean class="com.cacheportlet.mef.service.persistence.impl.CachePortletPersistenceImpl" id="com.cacheportlet.mef.service.persistence.CachePortletPersistence" parent="basePersistence" />
+</beans>

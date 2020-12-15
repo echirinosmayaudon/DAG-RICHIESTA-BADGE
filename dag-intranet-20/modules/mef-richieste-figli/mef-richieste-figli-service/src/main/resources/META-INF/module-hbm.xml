@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="mef.richieste.figli.model.RICHIESTA_RIMBORSO" />
+	<class name="mef.richieste.figli.model.impl.RICHIESTA_RIMBORSOImpl" table="MFORM_RICHIESTA_RIMBORSO">
+		<id name="Id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="Nome_Richiedente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Cognome_Richiedente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Codice_Fiscale_Richiedente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Utente_Inserimento" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Data_Inserimento" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Iban" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Importo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Figlio_Nome" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Figlio_Cognome" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Figlio_Data_Nascita" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Figlio_Luogo_Nascita" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Figlio_Codice_Fiscale" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Note" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Flag_Inviato" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="Telefono" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="Allegato_UUID" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

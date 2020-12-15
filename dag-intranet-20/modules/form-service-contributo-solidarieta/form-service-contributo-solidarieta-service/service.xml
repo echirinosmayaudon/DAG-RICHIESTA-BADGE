@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder  package-path="form.service.contributo.solidarieta">
+	<namespace>CNTB_SOLID_DONATORE</namespace>
+    <entity name="Donatore" local-service="true">
+        <column name="id" type="long" primary="true" id-type="sequence" id-param="donatore_seq"></column>
+        <column name="nome" type="String"></column>
+        <column name="cognome" type="String"></column>
+        <column name="cod_fiscale" type="String"></column>
+        <column name="email" type="String"></column>
+        <column name="importo" type="String"></column>
+        <column name="data_inserimento" type="String"></column>
+        
+    </entity>
+</service-builder>

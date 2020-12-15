@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder  package-path="mef.richieste.figli">
+	<namespace>MFORM</namespace>
+    <entity name="RICHIESTA_RIMBORSO" local-service="true">
+        <column name="Id" type="long" primary="true"></column>
+        <column name="Nome_Richiedente" type="String"></column>
+        <column name="Cognome_Richiedente" type="String"></column>
+        <column name="Codice_Fiscale_Richiedente" type="String"></column>
+        <column name="Utente_Inserimento" type="String"></column>
+        <column name="Data_Inserimento" type="String"></column>
+        <column name="Iban" type="String"></column>
+        <column name="Importo" type="String"></column>
+        <column name="Figlio_Nome" type="String"></column>
+        <column name="Figlio_Cognome" type="String"></column>
+        <column name="Figlio_Data_Nascita" type="String"></column>
+        <column name="Figlio_Luogo_Nascita" type="String"></column>
+        <column name="Figlio_Codice_Fiscale" type="String"></column>
+        <column name="Note" type="String"></column>
+        <column name="Flag_Inviato" type="Boolean"></column>
+        <column name="Telefono" type="String"></column>
+        <column name="Allegato_UUID" type="String"></column>
+    </entity>
+</service-builder>

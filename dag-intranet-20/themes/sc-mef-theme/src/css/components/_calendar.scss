@@ -1,0 +1,531 @@
+
+.yui3-g [class *= "yui3-u"]{
+  font-family: $main-font !important;
+}
+
+.calendar-portlet{
+  .portlet-content{
+    padding: 30px 10px;
+
+    @media(max-width: $screen-xs-max){
+      padding: 20px 0;
+    }
+  }
+
+  .noipa-calendar-container{
+    .noipa-calendar-title{
+      font-size: 22px;
+      font-weight: bold;
+      color: $azure-new;
+      margin: 0;
+      padding: 20px;
+      border-bottom: 1px solid #d8d8d8;
+      box-shadow: inset 0 0 15px #d8d8d8;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      display: none;
+    }
+
+    .calendar-portlet-column-options{
+      width: 35%;
+      float: left;
+
+      @media(max-width: $screen-xs-max){
+        width: 100%;
+        float: none;
+      }
+
+      .calendar-portlet-mini-calendar{
+        .yui3-calendar-header{
+          .yui3-calendarnav-prevmonth, .yui3-calendarnav-nextmonth{
+            background: url(../images/icons/arrow-calendar.svg) center center no-repeat;
+            background-size: contain;
+            width: 20px;
+            height: 20px;
+            border: none;
+          }
+
+          .yui3-calendarnav-prevmonth{
+            @include rotate(180deg);
+          }
+
+          .yui3-calendar-header-label{
+            font-size: 16px;
+            text-align: center;
+            color: $azure-new;
+            text-transform: uppercase;
+          }
+        }
+
+        .yui3-calendar-grid{
+          .yui3-calendar-weekdayrow{
+            .yui3-calendar-weekday{
+              text-align: center;
+              color: $dark-grey-blue;
+              font-size: 16px;
+              text-transform: uppercase;
+              font-weight: bold;
+            }
+          }
+
+          .yui3-calendar-row{
+            .yui3-calendar-day{
+              font-size: 16px;
+              color:$navy-blue;
+              border: 3px solid white;
+
+              &:hover{
+                background: #d8d8d8;
+              }
+
+              &.lfr-busy-day{
+                font-weight: bold;
+                background: #50e3c2;
+              }
+
+              &.yui3-calendar-day-selected{
+                background: $azure;
+              }
+
+            }
+          }
+
+        }
+      }
+
+      .calendar-portlet-list{
+        .calendar-list-item-color{
+          width: 14px;
+          height: 14px;
+          border-radius: 4px;
+        }
+
+        .calendar-portlet-list-arrow{
+          height:16px;
+          width: 16px;
+          background: url(../images/icons/ico-dropdown.svg) center center no-repeat;
+          background-size: contain;
+          border: none;
+        }
+
+        .calendar-list-item-arrow{
+          height:16px;
+          width: 16px;
+          background: url(../images/icons/ico-dropdown.svg) center center no-repeat;
+          background-size: contain;
+          border: none;
+
+          .icon-caret-down{
+            display: none;
+          }
+        }
+      }
+    }
+
+    .calendar-portlet-column-grid{
+      width: 65%;
+      float: left;
+
+      @media(max-width: $screen-xs-max){
+        width: 100%;
+        float: none;
+      }
+
+      .btn-group{
+        .btn-primary{
+          border: none;
+          font-size: 12px;
+          color: $navy-blue;
+          background-color: $azure;
+          padding: 8px 10px;
+          text-transform: uppercase;
+
+          &:hover {
+            background-color: $bright-aqua;
+          }
+        }
+
+        .btn-default{
+          border: none;
+          background: #eee;
+          font-size: 12px;
+          padding: 8px 10px;
+          text-transform: uppercase;
+
+          .glyphicon{
+            font-size: 14px;
+          }
+
+          &.active{
+            background: #ccc;
+          }
+        }
+      }
+
+      .scheduler-view:not(.scheduler-view-table){
+        height: auto!important;
+
+
+        .yui3-widget-bd.scheduler-view-scrollable{
+          height: auto!important;
+          max-height: 500px;
+        }
+      }
+
+      .scheduler-event{
+        color: #333!important;
+        background-color: #b1d0f4!important;
+        font-size: 12px;
+      }
+
+
+
+      .scheduler-view-agenda-container{
+        .scheduler-view-agenda-header{
+          background-color: #d8d8d8;
+
+          .scheduler-view-agenda-header-day{
+            font-size: 20px;
+            color:$navy-blue;
+            @media(max-width: $screen-xs-max){
+              font-size: 14px;
+            }
+          }
+
+          .scheduler-view-agenda-header-extra{
+            text-transform: uppercase;
+            font-size: 20px;
+
+            @media(max-width: $screen-xs-max){
+              font-size: 14px;
+            }
+          }
+        }
+
+        .scheduler-view-agenda-event{
+          .scheduler-view-agenda-event-color{
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+            border: none;
+          }
+
+          .scheduler-view-agenda-event-content{
+            padding-left: 25px;
+            color:#4a4a4a;
+            @media(max-width: $screen-xs-max){
+              font-size: 14px;
+            }
+          }
+
+          .scheduler-view-agenda-event-dates{
+            padding-left: 25px;
+
+            @media(max-width: $screen-xs-max){
+              font-size: 14px;
+            }
+          }
+
+          &.scheduler-view-agenda-event-past{
+            .scheduler-view-agenda-event-content{
+              text-decoration: none;
+              color:#4a4a4a;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+
+
+.calendar-events{
+  display: none!important;
+  .portlet-content{
+    padding: 30px 20px;
+
+    @media(max-width: $screen-xs-max){
+      padding: 20px 10px;
+    }
+  }
+
+  .calendar-title{
+    display: none;
+  }
+
+  .calendar-mini{
+    width: 35%;
+    float: left;
+  }
+
+  .calendar-scheduler{
+    width: 65%;
+    float: left;
+  }
+
+  @media(max-width: $screen-xs-max){
+    .calendar-mini{
+      width: 100%;
+      float: none;
+    }
+
+    .calendar-scheduler{
+      width: 100%;
+      float: none;
+    }
+  }
+
+
+  #resultCalendarBooking{
+    margin: 0!important;
+    width: 100%!important;
+    border: 1px solid #ddd;
+
+    .eventOfCalendar{
+      width: 100%;
+      float: none;
+      margin: 0;
+      padding: 12px 10px;
+
+      li{
+        float: none;
+        width: 100%;
+        padding: 0;
+        position: relative;
+
+        .markerEvent{
+          background-color: #bfbf4d;
+          width: 14px;
+          height: 14px;
+          border-radius: 4px;
+          border: none;
+          float: none;
+          position: absolute;
+          top: 2px;
+          left: 0;
+          margin: 0;
+        }
+
+        p{
+          float: none;
+          padding: 0 20px;
+          padding-left: 25px;
+          color: #4a4a4a;
+          font-size: 1.1em;
+
+          @media(max-width: $screen-xs-max){
+            font-size: 1em;
+          }
+        }
+      }
+
+      .start-end-event{
+        padding-left: 25px;
+        color: #6a6a6a;
+        font-size: 1.1em;
+        @media(max-width: $screen-xs-max){
+          font-size: 1em;
+        }
+      }
+
+      .eventSeparator{
+        width: 100%;
+        margin: 15px 0;
+        float: none;
+        background-color: #d8d8d8;
+
+        &:last-child{
+          display: none;
+        }
+      }
+
+    }
+  }
+
+  .simple-calendar-header{
+    position: relative!important;
+    padding: 0 0 10px!important;
+    width: 100%!important;
+
+    .simple-calendar-month{
+      font-size: 16px;
+      text-align: center;
+      color: #4990E2;
+      text-transform: uppercase;
+    }
+
+    .simple-calendar-previous, .simple-calendar-next{
+
+
+      a{
+        background: url(../images/icons/arrow-calendar.svg) center center no-repeat;
+        background-size: contain;
+        width: 20px;
+        height: 20px;
+        border: none;
+
+        > div{
+          display: none;
+        }
+      }
+    }
+
+    .simple-calendar-next{
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .simple-calendar-previous{
+      a{
+        @include rotate(180deg);
+      }
+    }
+  }
+
+  .taglib-calendar{
+    ul.portlet-section-header{
+      li{
+        text-align: center;
+        color: #2c354f;
+        font-size: 16px;
+        text-transform: uppercase;
+        font-weight: bold;
+        padding: 0;
+      }
+    }
+
+    .calendar-day{
+      padding: 5px 0 0!important;
+      color:$navy-blue!important;
+      border-radius: 0!important;
+      cursor: pointer;
+      border-bottom: 3px solid white !important;
+
+      &.calendar-current-day{
+        background: $azure!important;
+      }
+
+      &.calendar-daylist{
+        font-weight: bold;
+        background: #50e3c2!important;
+        padding: 5px 0 0;
+
+        strong span:after{
+          color: $navy-blue!important;
+        }
+      }
+    }
+  }
+
+  .noipa-calendar-today{
+    color: #3085d1;
+    border-right: 1px solid #e4e4e4;
+    font-size: 60px;
+    padding: 10px;
+    text-align: center;
+    width: auto;
+    margin: 0;
+
+    @media(max-width: $screen-xs-max){
+      font-size: 45px;
+    }
+  }
+
+  .noipa-scheduler-header{
+    @include clearfix;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .today-big{
+    float: left;
+  }
+
+  .today-details{
+    float: left;
+    padding-left: 15px;
+    padding-top: 15px;
+    i{
+      font-size: 1.5em;
+      padding: 5px 0;
+      font-style: normal;
+      color: #3085d1;
+    }
+    h6{
+      color: #6a6a6a;
+      font-size: 1em;
+      margin: 0;
+    }
+  }
+
+  .scheduler-scrollable{
+    .scheduler-item{
+      .event-header{
+        background: #d8d8d8;
+        h4{
+          font-size: 20px;
+          color: #00264d;
+          text-transform: uppercase;
+          padding: 15px;
+          margin: 0;
+
+          @media(max-width: $screen-xs-max){
+            font-size: 14px;
+            padding: 15px 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .event-header {
+    background: lightgrey;
+  }
+
+  .taglib-asset-links {
+    display: none !important;
+  }
+
+  .scheduler-scrollable {
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    max-height: 400px;
+  }
+}
+
+
+/* Calendar fix Sangio */
+.scheduler-view-agenda-event-content, .scheduler-view-agenda-event-dates {
+  display: block;
+  float: none !important;
+}
+
+#calendarBookingDetailsPanelContent .field-wrapper {
+  display:none !important;
+}
+
+#_com_liferay_calendar_web_portlet_CalendarPortlet_enableRatings{
+  display:none !important;
+}
+
+#calendarBookingReminderPanel {
+  display: none !important;
+}
+
+
+label[for="_com_liferay_calendar_web_portlet_CalendarPortlet_enableRatings"] {
+  display: none!important;
+}
+
+
+/* FIX SMC-NDC CALENDAR MESSAGES */
+body {
+  .component.calendar-list .calendar-list-content .calendar-list-empty-message {
+    display: none;
+  }
+}
+
+
+
+

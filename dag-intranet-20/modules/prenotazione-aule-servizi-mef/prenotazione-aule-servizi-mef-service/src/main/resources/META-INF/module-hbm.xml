@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="servizio.prenotazione.aule.servizi.mef.model.ServLog" />
+	<import class="servizio.prenotazione.aule.servizi.mef.model.StrumEvento" />
+	<import class="servizio.prenotazione.aule.servizi.mef.model.StrumTec" />
+	<class name="servizio.prenotazione.aule.servizi.mef.model.impl.ServLogImpl" table="MEFAULESERV_ServLog">
+		<composite-id class="servizio.prenotazione.aule.servizi.mef.service.persistence.ServLogPK" name="primaryKey">
+			<key-property name="id_serv" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="id_sala" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+		<property name="email_ref" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="servizio.prenotazione.aule.servizi.mef.model.impl.StrumEventoImpl" table="MEFAULESERV_StrumEvento">
+		<composite-id class="servizio.prenotazione.aule.servizi.mef.service.persistence.StrumEventoPK" name="primaryKey">
+			<key-property name="id_strum" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="id_sala" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+		<property name="email_ref" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="servizio.prenotazione.aule.servizi.mef.model.impl.StrumTecImpl" table="MEFAULESERV_StrumTec">
+		<composite-id class="servizio.prenotazione.aule.servizi.mef.service.persistence.StrumTecPK" name="primaryKey">
+			<key-property name="id_strum" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="id_sala" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+		<property name="email_ref" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

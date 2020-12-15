@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="bookmarks.model.Favourites">
+		<field name="favourite_id" type="long" />
+		<field name="user_id" type="long" />
+		<field name="title_favourite" type="String" />
+		<field name="description_favourite" type="String" />
+		<field name="tag_favourite" type="String" />
+		<field name="url_favourite" type="String">
+			<hint name="max-length">2000</hint>
+		</field>
+		<field name="save_date" type="String" />
+	</model>
+</model-hints>

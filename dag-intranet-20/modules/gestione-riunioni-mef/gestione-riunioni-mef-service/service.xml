@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="com.intranet.mef.gestione.riunioni">
+
+	<namespace>MEF</namespace>
+	
+	<entity name="StatoRiunione" local-service="true" remote-service="true">
+        <column name="id_stato_riunione" type="long" primary="true"></column>
+        <column name="label" type="String"></column>
+        <column name="next_stato" type="String"></column>
+        
+        <finder return-type="Collection" name="StatoRiunione" db-index="false">
+        <finder-column name="label"></finder-column></finder>
+        
+    </entity>
+    
+    <entity name="Luogo" local-service="true" remote-service="true">
+        <column name="id_luogo" type="long" primary="true" id-type="sequence" id-param="luogo_seq"></column>
+        <column name="nome" type="String"></column>
+    </entity>
+    
+    <entity name="StatoInvitato" local-service="true" remote-service="true">
+        <column name="id_stato_invitato" type="long" primary="true"></column>
+        <column name="nome_stato" type="String"></column>
+    </entity>
+	
+	<entity name="TipoRiunione" local-service="true" remote-service="true">
+        <column name="id_tipo" type="long" primary="true"></column>
+        <column name="descrizione" type="String"></column>
+    </entity>
+	
+	<entity name="Riunione" local-service="true" remote-service="true" >
+	    	<column name="id_riunione" type="long" primary="true" id-type="sequence" id-param="riunione_seq"></column>
+        	<column name="oggetto" type="String"></column>
+        	<column name="data_inizio" type="Date"></column>
+        	<column name="data_fine" type="Date"></column>
+        	<column name="note" type="String"></column>
+        	<column name="data_modifica" type="Date"></column>
+        	<column name="data_creazione" type="Date"></column>
+        	<column name="protocollo" type="String"></column>
+        	<column name="id_stato_riunione" type="long"></column>
+            <column name="id_tipo" type="long"></column>
+		    <column name="id_luogo" type="long"></column>
+            <column name="id_amministrazione_convocante" type="long"></column>
+            <column name="data_ultimo_sollecito" type="Date"></column>
+    </entity>
+	
+	<entity name="InvitatiRiunione" local-service="true" remote-service="true"  >
+		<column name="id_segreteria" type="long" primary="true"></column>
+        <column name="note" type="String"></column>
+        <column name="partecipanti" type="String"></column>
+        <column name="id_stato_invitato" type="long"></column>
+        <column name="id_riunione" type="long" primary="true"></column>
+        
+        <finder return-type="Collection" name="Riunione" db-index="false">
+        <finder-column name="id_riunione"></finder-column></finder>
+        
+        <finder name="Segreteria" return-type="Collection" db-index="false">
+         <finder-column name="id_segreteria"></finder-column>
+         </finder>
+         
+         <finder name="SegreteriaRiunione" return-type="Collection" db-index="false">
+         <finder-column name="id_segreteria"/>
+         <finder-column name="id_riunione" arrayable-operator="OR" comparator="="/>
+         </finder>
+	</entity>
+    
+   
+    
+    <entity name="StoricoStatoRiunione" local-service="true" remote-service="true">
+        <column name="id_riunione" type="long" primary="true"></column>
+        <column name="id_storico" type="long" primary="true"></column>
+        <column name="data" type="Date"></column>
+	    <column name="id_stato_riunione" type="long"></column>
+	    
+	    <finder name="StoricoRiunione" return-type="Collection" db-index="false">
+        <finder-column name="id_riunione"></finder-column></finder>
+    </entity>
+
+    <entity name="AmministrazioneConvocante" local-service="true" remote-service="true">
+        <column name="id_amministrazione_convocante" type="long" primary="true" id-type="sequence" id-param="ammconv_seq"></column>
+        <column name="nome_amministrazione" type="String"></column>
+    </entity>
+	
+	<entity name="Segreteria" local-service="true" remote-service="true" >
+        <column name="id_segreteria" type="long" primary="true"></column>
+        <column name="email" type="String"></column>
+        <column name="descrizione" type="String" ></column>
+        <column name="acronimo" type="String" ></column>
+        <column name="livello_gerarchia" type="long" ></column>
+        <column name="cod_padre" type="long" ></column>
+        <column name="data_fine_esistenza" type="Date" ></column>
+        <column name="indirizzo" type="String" ></column>
+        <column name="cap" type="String" ></column>
+        <column name="cod_istat_citta" type="long" ></column>
+    </entity>
+</service-builder>

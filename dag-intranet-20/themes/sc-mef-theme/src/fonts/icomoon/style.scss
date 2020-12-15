@@ -1,0 +1,1066 @@
+@import "variables";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?vg5erg');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?vg5erg#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?vg5erg') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?vg5erg') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?vg5erg##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icomoon-"], [class*=" icomoon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icomoon-posti {
+  &:before {
+    content: $icomoon-posti; 
+  }
+}
+.icomoon-cestino {
+  &:before {
+    content: $icomoon-cestino; 
+  }
+}
+.icomoon-survey {
+  &:before {
+    content: $icomoon-survey; 
+  }
+}
+.icomoon-forum {
+  &:before {
+    content: $icomoon-forum; 
+  }
+}
+.icomoon-wiki {
+  &:before {
+    content: $icomoon-wiki; 
+  }
+}
+.icomoon-calendario {
+  &:before {
+    content: $icomoon-calendario; 
+  }
+}
+.icomoon-preferiti {
+  &:before {
+    content: $icomoon-preferiti; 
+  }
+}
+.icomoon-documenti2 {
+  &:before {
+    content: $icomoon-documenti2; 
+  }
+}
+.icomoon-task {
+  &:before {
+    content: $icomoon-task; 
+  }
+}
+.icomoon-home2 {
+  &:before {
+    content: $icomoon-home2; 
+  }
+}
+.icomoon-contatti {
+  &:before {
+    content: $icomoon-contatti; 
+  }
+}
+.icomoon-community {
+  &:before {
+    content: $icomoon-community; 
+  }
+}
+.icomoon-preferiti2 {
+  &:before {
+    content: $icomoon-preferiti2; 
+  }
+}
+.icomoon-spazi_personali {
+  &:before {
+    content: $icomoon-spazi_personali; 
+  }
+}
+.icomoon-gruppi_di_lavoro {
+  &:before {
+    content: $icomoon-gruppi_di_lavoro; 
+  }
+}
+.icomoon-documenti {
+  &:before {
+    content: $icomoon-documenti; 
+  }
+}
+.icomoon-to_do_list {
+  &:before {
+    content: $icomoon-to_do_list; 
+  }
+}
+.icomoon-la_mia_home {
+  &:before {
+    content: $icomoon-la_mia_home; 
+  }
+}
+.icomoon-user {
+  &:before {
+    content: $icomoon-user; 
+  }
+}
+.icomoon-search {
+  &:before {
+    content: $icomoon-search; 
+  }
+}
+.icomoon-apps {
+  &:before {
+    content: $icomoon-apps; 
+  }
+}
+.icomoon-notification {
+  &:before {
+    content: $icomoon-notification; 
+  }
+}
+.icomoon-favourites {
+  &:before {
+    content: $icomoon-favourites; 
+  }
+}
+.icomoon-exit {
+  &:before {
+    content: $icomoon-exit; 
+  }
+}
+.icomoon-vai {
+  &:before {
+    content: $icomoon-vai; 
+  }
+}
+.icomoon-user3 {
+  &:before {
+    content: $icomoon-user3; 
+  }
+}
+.icomoon-convenzioni-post-blu {
+  &:before {
+    content: $icomoon-convenzioni-post-blu; 
+  }
+}
+.icomoon-mepa {
+  &:before {
+    content: $icomoon-mepa; 
+  }
+}
+.icomoon-ferie-festivita {
+  &:before {
+    content: $icomoon-ferie-festivita; 
+  }
+}
+.icomoon-straordinari {
+  &:before {
+    content: $icomoon-straordinari; 
+  }
+}
+.icomoon-buoni-pasto {
+  &:before {
+    content: $icomoon-buoni-pasto; 
+  }
+}
+.icomoon-timbrature {
+  &:before {
+    content: $icomoon-timbrature; 
+  }
+}
+.icomoon-fax {
+  &:before {
+    content: $icomoon-fax; 
+  }
+}
+.icomoon-rubrica-tel {
+  &:before {
+    content: $icomoon-rubrica-tel; 
+  }
+}
+.icomoon-profilo-mobile {
+  &:before {
+    content: $icomoon-profilo-mobile; 
+  }
+}
+.icomoon-ico-r {
+  &:before {
+    content: $icomoon-ico-r; 
+  }
+}
+.icomoon-ico-a {
+  &:before {
+    content: $icomoon-ico-a; 
+  }
+}
+.icomoon-rubrica {
+  &:before {
+    content: $icomoon-rubrica; 
+  }
+}
+.icomoon-requests {
+  &:before {
+    content: $icomoon-requests; 
+  }
+}
+.icomoon-mail {
+  &:before {
+    content: $icomoon-mail; 
+  }
+}
+.icomoon-protocollo {
+  &:before {
+    content: $icomoon-protocollo; 
+  }
+}
+.icomoon-ufficio-passi {
+  &:before {
+    content: $icomoon-ufficio-passi; 
+  }
+}
+.icomoon-banche-dati {
+  &:before {
+    content: $icomoon-banche-dati; 
+  }
+}
+.icomoon-rassegna-stampa {
+  &:before {
+    content: $icomoon-rassegna-stampa; 
+  }
+}
+.icomoon-ico-requests {
+  &:before {
+    content: $icomoon-ico-requests; 
+  }
+}
+.icomoon-settings {
+  &:before {
+    content: $icomoon-settings; 
+  }
+}
+.icomoon-retweet {
+  &:before {
+    content: $icomoon-retweet; 
+  }
+}
+.icomoon-comment {
+  &:before {
+    content: $icomoon-comment; 
+  }
+}
+.icomoon-quotation-marks-open {
+  &:before {
+    content: $icomoon-quotation-marks-open; 
+  }
+}
+.icomoon-quotation-marks-close {
+  &:before {
+    content: $icomoon-quotation-marks-close; 
+  }
+}
+.icomoon-camera-multim {
+  &:before {
+    content: $icomoon-camera-multim; 
+  }
+}
+.icomoon-video-multim {
+  &:before {
+    content: $icomoon-video-multim; 
+  }
+}
+.icomoon-info {
+  &:before {
+    content: $icomoon-info; 
+  }
+}
+.icomoon-pin {
+  &:before {
+    content: $icomoon-pin; 
+  }
+}
+.icomoon-time {
+  &:before {
+    content: $icomoon-time; 
+  }
+}
+.icomoon-e-mail {
+  &:before {
+    content: $icomoon-e-mail; 
+  }
+}
+.icomoon-phone {
+  &:before {
+    content: $icomoon-phone; 
+  }
+}
+.icomoon-location {
+  &:before {
+    content: $icomoon-location; 
+  }
+}
+.icomoon-whisteblowing {
+  &:before {
+    content: $icomoon-whisteblowing; 
+  }
+}
+.icomoon-social-twitter {
+  &:before {
+    content: $icomoon-social-twitter; 
+  }
+}
+.icomoon-social-telegram {
+  &:before {
+    content: $icomoon-social-telegram; 
+  }
+}
+.icomoon-social-instagram {
+  &:before {
+    content: $icomoon-social-instagram; 
+  }
+}
+.icomoon-social-youtube {
+  &:before {
+    content: $icomoon-social-youtube; 
+  }
+}
+.icomoon-social-flickr {
+  &:before {
+    content: $icomoon-social-flickr; 
+  }
+}
+.icomoon-star-color {
+  &:before {
+    content: $icomoon-star-color; 
+  }
+}
+.icomoon-plus {
+  &:before {
+    content: $icomoon-plus; 
+  }
+}
+.icomoon-alert {
+  &:before {
+    content: $icomoon-alert; 
+  }
+}
+.icomoon-vedi-dark {
+  &:before {
+    content: $icomoon-vedi-dark; 
+  }
+}
+.icomoon-edi {
+  &:before {
+    content: $icomoon-edi; 
+  }
+}
+.icomoon-delete {
+  &:before {
+    content: $icomoon-delete; 
+  }
+}
+.icomoon-edit-border {
+  &:before {
+    content: $icomoon-edit-border; 
+  }
+}
+.icomoon-star-border {
+  &:before {
+    content: $icomoon-star-border; 
+  }
+}
+.icomoon-add-border {
+  &:before {
+    content: $icomoon-add-border; 
+  }
+}
+.icomoon-send-mail {
+  &:before {
+    content: $icomoon-send-mail; 
+  }
+}
+.icomoon-edit-tools {
+  &:before {
+    content: $icomoon-edit-tools; 
+  }
+}
+.icomoon-star {
+  &:before {
+    content: $icomoon-star; 
+  }
+}
+.icomoon-home {
+  &:before {
+    content: $icomoon-home; 
+  }
+}
+.icomoon-download {
+  &:before {
+    content: $icomoon-download; 
+  }
+}
+.icomoon-calendar {
+  &:before {
+    content: $icomoon-calendar; 
+  }
+}
+.icomoon-pdf {
+  &:before {
+    content: $icomoon-pdf; 
+  }
+}
+.icomoon-arrow {
+  &:before {
+    content: $icomoon-arrow; 
+  }
+}
+.icomoon-categoria-generale {
+  &:before {
+    content: $icomoon-categoria-generale; 
+  }
+}
+.icomoon-calendar-date {
+  &:before {
+    content: $icomoon-calendar-date; 
+  }
+}
+.icomoon-visits {
+  &:before {
+    content: $icomoon-visits; 
+  }
+}
+.icomoon-chiudi-dark {
+  &:before {
+    content: $icomoon-chiudi-dark; 
+  }
+}
+.icomoon-link-button {
+  &:before {
+    content: $icomoon-link-button; 
+  }
+}
+.icomoon-close-white {
+  &:before {
+    content: $icomoon-close-white; 
+  }
+}
+.icomoon-arrow-dx {
+  &:before {
+    content: $icomoon-arrow-dx; 
+  }
+}
+.icomoon-personalizza {
+  &:before {
+    content: $icomoon-personalizza; 
+  }
+}
+.icomoon-play {
+  &:before {
+    content: $icomoon-play; 
+  }
+}
+.icomoon-reduct-screen {
+  &:before {
+    content: $icomoon-reduct-screen; 
+  }
+}
+.icomoon-fullscreen {
+  &:before {
+    content: $icomoon-fullscreen; 
+  }
+}
+.icomoon-pause {
+  &:before {
+    content: $icomoon-pause; 
+  }
+}
+.icomoon-update {
+  &:before {
+    content: $icomoon-update; 
+  }
+}
+.icomoon-hourglass {
+  &:before {
+    content: $icomoon-hourglass; 
+  }
+}
+.icomoon-success-blu {
+  &:before {
+    content: $icomoon-success-blu; 
+  }
+}
+.icomoon-riunione-wait {
+  &:before {
+    content: $icomoon-riunione-wait; 
+  }
+}
+.icomoon-riunione-ok {
+  &:before {
+    content: $icomoon-riunione-ok; 
+  }
+}
+.icomoon-riunione-ko {
+  &:before {
+    content: $icomoon-riunione-ko; 
+  }
+}
+.icomoon-print {
+  &:before {
+    content: $icomoon-print; 
+  }
+}
+.icomoon-meeting {
+  &:before {
+    content: $icomoon-meeting; 
+  }
+}
+.icomoon-cancel {
+  &:before {
+    content: $icomoon-cancel; 
+  }
+}
+.icomoon-riunione-alert {
+  &:before {
+    content: $icomoon-riunione-alert; 
+  }
+}
+.icomoon-sollecito-mail {
+  &:before {
+    content: $icomoon-sollecito-mail; 
+  }
+}
+.icomoon-convocanti {
+  &:before {
+    content: $icomoon-convocanti; 
+  }
+}
+.icomoon-location2 {
+  &:before {
+    content: $icomoon-location2; 
+  }
+}
+.icomoon-dati {
+  &:before {
+    content: $icomoon-dati; 
+  }
+}
+.icomoon-stato {
+  &:before {
+    content: $icomoon-stato; 
+  }
+}
+.icomoon-invitati {
+  &:before {
+    content: $icomoon-invitati; 
+  }
+}
+.icomoon-pin-white-bold {
+  &:before {
+    content: $icomoon-pin-white-bold; 
+  }
+}
+.icomoon-success {
+  &:before {
+    content: $icomoon-success; 
+  }
+}
+.icomoon-evoluzione-stato {
+  &:before {
+    content: $icomoon-evoluzione-stato; 
+  }
+}
+.icomoon-trash {
+  &:before {
+    content: $icomoon-trash; 
+  }
+}
+.icomoon-video-file {
+  &:before {
+    content: $icomoon-video-file; 
+  }
+}
+.icomoon-setting-file {
+  &:before {
+    content: $icomoon-setting-file; 
+  }
+}
+.icomoon-zip-file {
+  &:before {
+    content: $icomoon-zip-file; 
+  }
+}
+.icomoon-generic-file {
+  &:before {
+    content: $icomoon-generic-file; 
+  }
+}
+.icomoon-image-file {
+  &:before {
+    content: $icomoon-image-file; 
+  }
+}
+.icomoon-pdf-file {
+  &:before {
+    content: $icomoon-pdf-file; 
+  }
+}
+.icomoon-ppt-file {
+  &:before {
+    content: $icomoon-ppt-file; 
+  }
+}
+.icomoon-word-file {
+  &:before {
+    content: $icomoon-word-file; 
+  }
+}
+.icomoon-xls-file {
+  &:before {
+    content: $icomoon-xls-file; 
+  }
+}
+.icomoon-audio-file {
+  &:before {
+    content: $icomoon-audio-file; 
+  }
+}
+.icomoon-ministero {
+  &:before {
+    content: $icomoon-ministero; 
+  }
+}
+.icomoon-dipartimento {
+  &:before {
+    content: $icomoon-dipartimento; 
+  }
+}
+.icomoon-less {
+  &:before {
+    content: $icomoon-less; 
+  }
+}
+.icomoon-link-utili {
+  &:before {
+    content: $icomoon-link-utili; 
+  }
+}
+.icomoon-cultura {
+  &:before {
+    content: $icomoon-cultura; 
+  }
+}
+.icomoon-sport-tempo-libero {
+  &:before {
+    content: $icomoon-sport-tempo-libero; 
+  }
+}
+.icomoon-servizi-bancari-finanziari-assicurativi {
+  &:before {
+    content: $icomoon-servizi-bancari-finanziari-assicurativi; 
+  }
+}
+.icomoon-servizi-formativi-educativi {
+  &:before {
+    content: $icomoon-servizi-formativi-educativi; 
+  }
+}
+.icomoon-servizi-medico-sanitari-assistenziali {
+  &:before {
+    content: $icomoon-servizi-medico-sanitari-assistenziali; 
+  }
+}
+.icomoon-spesa-ristorazione {
+  &:before {
+    content: $icomoon-spesa-ristorazione; 
+  }
+}
+.icomoon-telefonia {
+  &:before {
+    content: $icomoon-telefonia; 
+  }
+}
+.icomoon-trasporto-parcheggi {
+  &:before {
+    content: $icomoon-trasporto-parcheggi; 
+  }
+}
+.icomoon-arredamento {
+  &:before {
+    content: $icomoon-arredamento; 
+  }
+}
+.icomoon-sport {
+  &:before {
+    content: $icomoon-sport; 
+  }
+}
+.icomoon-immobiliare {
+  &:before {
+    content: $icomoon-immobiliare; 
+  }
+}
+.icomoon-auto {
+  &:before {
+    content: $icomoon-auto; 
+  }
+}
+.icomoon-altro {
+  &:before {
+    content: $icomoon-altro; 
+  }
+}
+.icomoon-due-ruote {
+  &:before {
+    content: $icomoon-due-ruote; 
+  }
+}
+.icomoon-abbigliamento {
+  &:before {
+    content: $icomoon-abbigliamento; 
+  }
+}
+.icomoon-regali {
+  &:before {
+    content: $icomoon-regali; 
+  }
+}
+.icomoon-tempo-libero {
+  &:before {
+    content: $icomoon-tempo-libero; 
+  }
+}
+.icomoon-word {
+  &:before {
+    content: $icomoon-word; 
+  }
+}
+.icomoon-web {
+  &:before {
+    content: $icomoon-web; 
+  }
+}
+.icomoon-video {
+  &:before {
+    content: $icomoon-video; 
+  }
+}
+.icomoon-img {
+  &:before {
+    content: $icomoon-img; 
+  }
+}
+.icomoon-altro2 {
+  &:before {
+    content: $icomoon-altro2; 
+  }
+}
+.icomoon-document-audio {
+  &:before {
+    content: $icomoon-document-audio; 
+  }
+}
+.icomoon-document-excel {
+  &:before {
+    content: $icomoon-document-excel; 
+  }
+}
+.icomoon-document-ppt {
+  &:before {
+    content: $icomoon-document-ppt; 
+  }
+}
+.icomoon-discuss-issue {
+  &:before {
+    content: $icomoon-discuss-issue; 
+  }
+}
+.icomoon-placeholder-2 {
+  &:before {
+    content: $icomoon-placeholder-2; 
+  }
+}
+.icomoon-tickets {
+  &:before {
+    content: $icomoon-tickets; 
+  }
+}
+.icomoon-group-7 {
+  &:before {
+    content: $icomoon-group-7; 
+  }
+}
+.icomoon-calendar-scadenza {
+  &:before {
+    content: $icomoon-calendar-scadenza; 
+  }
+}
+.icomoon-document-3 {
+  &:before {
+    content: $icomoon-document-3; 
+  }
+}
+.icomoon-graphic-view {
+  &:before {
+    content: $icomoon-graphic-view;     
+    color: #455;
+  }
+}
+.icomoon-txt-view {
+  &:before {
+    content: $icomoon-txt-view;     
+    color: #455;
+  }
+}
+.icomoon-tag {
+  &:before {
+    content: $icomoon-tag; 
+  }
+}
+.icomoon-phone-call {
+  &:before {
+    content: $icomoon-phone-call; 
+  }
+}
+.icomoon-print2 {
+  &:before {
+    content: $icomoon-print2; 
+  }
+}
+.icomoon-software {
+  &:before {
+    content: $icomoon-software; 
+  }
+}
+.icomoon-server {
+  &:before {
+    content: $icomoon-server; 
+  }
+}
+.icomoon-computer {
+  &:before {
+    content: $icomoon-computer; 
+  }
+}
+.icomoon-trash1 {
+  &:before {
+    content: $icomoon-trash1; 
+  }
+}
+.icomoon-file {
+  &:before {
+    content: $icomoon-file; 
+  }
+}
+.icomoon-cart {
+  &:before {
+    content: $icomoon-cart; 
+  }
+}
+.icomoon-cart-2 {
+  &:before {
+    content: $icomoon-cart-2; 
+  }
+}
+.icomoon-cart-3 {
+  &:before {
+    content: $icomoon-cart-3; 
+  }
+}
+.icomoon-condividi-stampanti {
+  &:before {
+    content: $icomoon-condividi-stampanti; 
+  }
+}
+.icomoon-folder {
+  &:before {
+    content: $icomoon-folder; 
+  }
+}
+.icomoon-email-servizi {
+  &:before {
+    content: $icomoon-email-servizi; 
+  }
+}
+.icomoon-altro-richiesta {
+  &:before {
+    content: $icomoon-altro-richiesta; 
+  }
+}
+.icomoon-question {
+  &:before {
+    content: $icomoon-question; 
+  }
+}
+.icomoon-profile {
+  &:before {
+    content: $icomoon-profile; 
+  }
+}
+.icomoon-search-richiesta {
+  &:before {
+    content: $icomoon-search-richiesta; 
+  }
+}
+.icomoon-group-21 {
+  &:before {
+    content: $icomoon-group-21; 
+  }
+}
+.icomoon-pdf-border {
+  &:before {
+    content: $icomoon-pdf-border; 
+  }
+}
+.icomoon-add-documents {
+  &:before {
+    content: $icomoon-add-documents; 
+  }
+}
+.icomoon-user2 {
+  &:before {
+    content: $icomoon-user2; 
+  }
+}
+.icomoon-categoria-informatica {
+  &:before {
+    content: $icomoon-categoria-informatica; 
+  }
+}
+.icomoon-categoria-personale {
+  &:before {
+    content: $icomoon-categoria-personale; 
+  }
+}
+.icomoon-categoria-logistica {
+  &:before {
+    content: $icomoon-categoria-logistica; 
+  }
+}
+.icomoon-question3 {
+  &:before {
+    content: $icomoon-question3; 
+  }
+}
+.icomoon-question2 {
+  &:before {
+    content: $icomoon-question2; 
+  }
+}
+.icomoon-question1 {
+  &:before {
+    content: $icomoon-question1; 
+  }
+}
+.icomoon-lock {
+  &:before {
+    content: $icomoon-lock; 
+  }
+}
+.icomoon-unlocked {
+  &:before {
+    content: $icomoon-unlocked; 
+  }
+}
+.icomoon-partecipanti {
+  &:before {
+    content: $icomoon-partecipanti; 
+  }
+}
+.icomoon-scarso {
+  &:before {
+    content: $icomoon-scarso; 
+  }
+}
+.icomoon-sufficente {
+  &:before {
+    content: $icomoon-sufficente; 
+  }
+}
+.icomoon-buono {
+  &:before {
+    content: $icomoon-buono; 
+  }
+}
+.icomoon-book {
+  &:before {
+    content: $icomoon-book; 
+  }
+}
+.icomoon-allegati {
+  &:before {
+    content: $icomoon-allegati; 
+  }
+}
+.icomoon-circolari {
+  &:before {
+    content: $icomoon-circolari; 
+  }
+}
+.icomoon-collocazione {
+  &:before {
+    content: $icomoon-collocazione; 
+  }
+}
+.icomoon-glossario {
+  &:before {
+    content: $icomoon-glossario; 
+  }
+}
+.icomoon-stampa {
+  &:before {
+    content: $icomoon-stampa; 
+  }
+}
+.icomoon-uffici {
+  &:before {
+    content: $icomoon-uffici; 
+  }
+}
+.icomoon-picture {
+  &:before {
+    content: $icomoon-picture; 
+  }
+}
+.icomoon-photo-camera {
+  &:before {
+    content: $icomoon-photo-camera; 
+  }
+}
+.icomoon-commento {
+  &:before {
+    content: $icomoon-commento; 
+  }
+}
+.icomoon-info-icon {
+  &:before {
+    content: $icomoon-info-icon; 
+  }
+}
+.icomoon-social-linkedin {
+  &:before {
+    content: $icomoon-icon-social-linkedin; 
+  }
+}
+.icomoon-assistenza {
+  &:before {
+    content: $icomoon-assistenza; 
+  }
+}
+

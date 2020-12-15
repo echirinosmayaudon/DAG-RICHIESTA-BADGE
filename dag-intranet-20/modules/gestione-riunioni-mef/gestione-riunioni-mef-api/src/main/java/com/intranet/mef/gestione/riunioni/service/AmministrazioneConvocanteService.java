@@ -1,0 +1,68 @@
+/**
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+
+package com.intranet.mef.gestione.riunioni.service;
+
+import aQute.bnd.annotation.ProviderType;
+
+import com.intranet.mef.gestione.riunioni.model.AmministrazioneConvocante;
+
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.jsonwebservice.JSONWebService;
+import com.liferay.portal.kernel.security.access.control.AccessControlled;
+import com.liferay.portal.kernel.service.BaseService;
+import com.liferay.portal.kernel.spring.osgi.OSGiBeanProperties;
+import com.liferay.portal.kernel.transaction.Isolation;
+import com.liferay.portal.kernel.transaction.Transactional;
+
+import java.util.List;
+
+/**
+ * Provides the remote service interface for AmministrazioneConvocante. Methods of this
+ * service are expected to have security checks based on the propagated JAAS
+ * credentials because this service can be accessed remotely.
+ *
+ * @author Brian Wing Shun Chan
+ * @see AmministrazioneConvocanteServiceUtil
+ * @see com.intranet.mef.gestione.riunioni.service.base.AmministrazioneConvocanteServiceBaseImpl
+ * @see com.intranet.mef.gestione.riunioni.service.impl.AmministrazioneConvocanteServiceImpl
+ * @generated
+ */
+@AccessControlled
+@JSONWebService
+@OSGiBeanProperties(property =  {
+	"json.web.service.context.name=mef", "json.web.service.context.path=AmministrazioneConvocante"}, service = AmministrazioneConvocanteService.class)
+@ProviderType
+@Transactional(isolation = Isolation.PORTAL, rollbackFor =  {
+	PortalException.class, SystemException.class})
+public interface AmministrazioneConvocanteService extends BaseService {
+	/*
+	 * NOTE FOR DEVELOPERS:
+	 *
+	 * Never modify or reference this interface directly. Always use {@link AmministrazioneConvocanteServiceUtil} to access the amministrazione convocante remote service. Add custom service methods to {@link com.intranet.mef.gestione.riunioni.service.impl.AmministrazioneConvocanteServiceImpl} and rerun ServiceBuilder to automatically copy the method declarations to this interface.
+	 */
+	public boolean setAmministrazioneConvocante(
+		java.lang.String nome_amministrazione);
+
+	/**
+	* Returns the OSGi service identifier.
+	*
+	* @return the OSGi service identifier
+	*/
+	public java.lang.String getOSGiServiceIdentifier();
+
+	public List<AmministrazioneConvocante> findByKeywordAdmin(
+		java.lang.String keyword);
+}

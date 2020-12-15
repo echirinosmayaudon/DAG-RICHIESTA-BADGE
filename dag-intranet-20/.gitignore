@@ -1,0 +1,9 @@
+/.gradle/
+bin/
+gradlew.bat
+build/
+themes/intranet-mef-layouttpl/build_gradle/node/node.exe
+build_gradle/
+themes/intranet-mef-layouttpl/liferay-theme.json
+.settings/
+bundles/

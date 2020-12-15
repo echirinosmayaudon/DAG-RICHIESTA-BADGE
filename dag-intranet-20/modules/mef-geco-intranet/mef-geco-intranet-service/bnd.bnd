@@ -1,0 +1,19 @@
+Bundle-SymbolicName: mef.geco.intranet-service
+Bundle-Version: 1.0.0
+Export-Package:	\
+com.mef.geco.intranet.exception,\
+com.mef.geco.intranet.model,\
+com.mef.geco.intranet.service,\
+com.mef.geco.intranet.service.persistence,\
+com.mef.geco.intranet.util,\
+geco.mef.it,\
+it.tesoro.geco_bfc.geco_webservice.services.sottogrupposervice,\
+it.tesoro.geco.geco_webservice.services.richiestabfcservice,\
+it.tesoro.geco.geco_webservice.services.schedaservice,\
+it.tesoro.pigreco.pigreco_webservice.services.sottogrupposervice,\
+it.tesoro.pigreco.pigreco_webservice.services.schedaservice,\
+it.tesoro.pigreco.pigreco_webservice.services.richiestabfcservice
+Liferay-Require-SchemaVersion: 1.0.0
+Liferay-Service: true
+
+

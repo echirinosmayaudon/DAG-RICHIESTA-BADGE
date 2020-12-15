@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="com.intranet.mef.assistance.service.impl.AmbitoLocalServiceImpl" id="com.intranet.mef.assistance.service.AmbitoLocalService" />
+	<bean class="com.intranet.mef.assistance.service.persistence.impl.AmbitoPersistenceImpl" id="com.intranet.mef.assistance.service.persistence.AmbitoPersistence" parent="basePersistence" />
+	<bean class="com.intranet.mef.assistance.service.impl.AreaLocalServiceImpl" id="com.intranet.mef.assistance.service.AreaLocalService" />
+	<bean class="com.intranet.mef.assistance.service.persistence.impl.AreaPersistenceImpl" id="com.intranet.mef.assistance.service.persistence.AreaPersistence" parent="basePersistence" />
+	<bean class="com.intranet.mef.assistance.service.impl.AssistanceHelperLocalServiceImpl" id="com.intranet.mef.assistance.service.AssistanceHelperLocalService" />
+	<bean class="com.intranet.mef.assistance.service.impl.FaqLocalServiceImpl" id="com.intranet.mef.assistance.service.FaqLocalService" />
+	<bean class="com.intranet.mef.assistance.service.persistence.impl.FaqPersistenceImpl" id="com.intranet.mef.assistance.service.persistence.FaqPersistence" parent="basePersistence" />
+	<bean class="com.intranet.mef.assistance.service.impl.ProblemLocalServiceImpl" id="com.intranet.mef.assistance.service.ProblemLocalService" />
+	<bean class="com.intranet.mef.assistance.service.persistence.impl.ProblemPersistenceImpl" id="com.intranet.mef.assistance.service.persistence.ProblemPersistence" parent="basePersistence" />
+	<bean class="com.intranet.mef.assistance.service.impl.ServizioLocalServiceImpl" id="com.intranet.mef.assistance.service.ServizioLocalService" />
+	<bean class="com.intranet.mef.assistance.service.persistence.impl.ServizioPersistenceImpl" id="com.intranet.mef.assistance.service.persistence.ServizioPersistence" parent="basePersistence" />
+	<bean class="com.intranet.mef.assistance.service.impl.TopicLocalServiceImpl" id="com.intranet.mef.assistance.service.TopicLocalService" />
+	<bean class="com.intranet.mef.assistance.service.persistence.impl.TopicPersistenceImpl" id="com.intranet.mef.assistance.service.persistence.TopicPersistence" parent="basePersistence" />
+</beans>

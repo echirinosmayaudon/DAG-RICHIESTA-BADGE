@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="autorizzazione.dir.mef.model.AutorizzazioneDir" />
+	<import class="autorizzazione.dir.mef.model.Scrivania" />
+	<import class="autorizzazione.dir.mef.model.UtilizzoApplicazioni" />
+	<class name="autorizzazione.dir.mef.model.impl.AutorizzazioneDirImpl" table="MEFSERV_AutorizzazioneDir">
+		<id name="id_autorizzazione" type="long">
+			<generator class="identity" />
+		</id>
+		<property name="id_applicazione" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="mef" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="dipartimento" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="direzione" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="ufficio" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="codice_fiscale" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="nega" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="tag" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="autorizzazione.dir.mef.model.impl.ScrivaniaImpl" table="MEFSERV_Scrivania">
+		<composite-id class="autorizzazione.dir.mef.service.persistence.ScrivaniaPK" name="primaryKey">
+			<key-property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="applicationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+		<property column="rowId_" name="rowId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="homeFlag" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="profileFlag" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+	<class name="autorizzazione.dir.mef.model.impl.UtilizzoApplicazioniImpl" table="MEFSERV_UtilizzoApplicazioni">
+		<composite-id class="autorizzazione.dir.mef.service.persistence.UtilizzoApplicazioniPK" name="primaryKey">
+			<key-property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="applicationId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+		<property column="rowId_" name="rowId" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" />
+		<property name="lastUseDate" type="org.hibernate.type.TimestampType" />
+		<property name="hitsCount" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+	</class>
+</hibernate-mapping>

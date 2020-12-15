@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="service.intranet.mef.service.impl.AssetLocalServiceImpl" id="service.intranet.mef.service.AssetLocalService" />
+	<bean class="service.intranet.mef.service.impl.AssetServiceImpl" id="service.intranet.mef.service.AssetService" />
+	<bean class="service.intranet.mef.service.persistence.impl.AssetPersistenceImpl" id="service.intranet.mef.service.persistence.AssetPersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.BadgeRichiesteLocalServiceImpl" id="service.intranet.mef.service.BadgeRichiesteLocalService" />
+	<bean class="service.intranet.mef.service.impl.BadgeRichiesteServiceImpl" id="service.intranet.mef.service.BadgeRichiesteService" />
+	<bean class="service.intranet.mef.service.persistence.impl.BadgeRichiestePersistenceImpl" id="service.intranet.mef.service.persistence.BadgeRichiestePersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.BeneInvLocalServiceImpl" id="service.intranet.mef.service.BeneInvLocalService" />
+	<bean class="service.intranet.mef.service.impl.BeneInvServiceImpl" id="service.intranet.mef.service.BeneInvService" />
+	<bean class="service.intranet.mef.service.persistence.impl.BeneInvPersistenceImpl" id="service.intranet.mef.service.persistence.BeneInvPersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.BeneInvRichiestoLocalServiceImpl" id="service.intranet.mef.service.BeneInvRichiestoLocalService" />
+	<bean class="service.intranet.mef.service.impl.BeneInvRichiestoServiceImpl" id="service.intranet.mef.service.BeneInvRichiestoService" />
+	<bean class="service.intranet.mef.service.persistence.impl.BeneInvRichiestoPersistenceImpl" id="service.intranet.mef.service.persistence.BeneInvRichiestoPersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.HardwareTecniciLocalServiceImpl" id="service.intranet.mef.service.HardwareTecniciLocalService" />
+	<bean class="service.intranet.mef.service.impl.HardwareTecniciServiceImpl" id="service.intranet.mef.service.HardwareTecniciService" />
+	<bean class="service.intranet.mef.service.persistence.impl.HardwareTecniciPersistenceImpl" id="service.intranet.mef.service.persistence.HardwareTecniciPersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.LogisticaRichiesteLocalServiceImpl" id="service.intranet.mef.service.LogisticaRichiesteLocalService" />
+	<bean class="service.intranet.mef.service.impl.LogisticaRichiesteServiceImpl" id="service.intranet.mef.service.LogisticaRichiesteService" />
+	<bean class="service.intranet.mef.service.persistence.impl.LogisticaRichiestePersistenceImpl" id="service.intranet.mef.service.persistence.LogisticaRichiestePersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.LogisticaServizioLocalServiceImpl" id="service.intranet.mef.service.LogisticaServizioLocalService" />
+	<bean class="service.intranet.mef.service.impl.LogisticaServizioServiceImpl" id="service.intranet.mef.service.LogisticaServizioService" />
+	<bean class="service.intranet.mef.service.persistence.impl.LogisticaServizioPersistenceImpl" id="service.intranet.mef.service.persistence.LogisticaServizioPersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.LogisticaStatoLocalServiceImpl" id="service.intranet.mef.service.LogisticaStatoLocalService" />
+	<bean class="service.intranet.mef.service.impl.LogisticaStatoServiceImpl" id="service.intranet.mef.service.LogisticaStatoService" />
+	<bean class="service.intranet.mef.service.persistence.impl.LogisticaStatoPersistenceImpl" id="service.intranet.mef.service.persistence.LogisticaStatoPersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.LogisticaValutazioneLocalServiceImpl" id="service.intranet.mef.service.LogisticaValutazioneLocalService" />
+	<bean class="service.intranet.mef.service.impl.LogisticaValutazioneServiceImpl" id="service.intranet.mef.service.LogisticaValutazioneService" />
+	<bean class="service.intranet.mef.service.persistence.impl.LogisticaValutazionePersistenceImpl" id="service.intranet.mef.service.persistence.LogisticaValutazionePersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.ModuloTrasportiLocalServiceImpl" id="service.intranet.mef.service.ModuloTrasportiLocalService" />
+	<bean class="service.intranet.mef.service.impl.ModuloTrasportiServiceImpl" id="service.intranet.mef.service.ModuloTrasportiService" />
+	<bean class="service.intranet.mef.service.persistence.impl.ModuloTrasportiPersistenceImpl" id="service.intranet.mef.service.persistence.ModuloTrasportiPersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.PeriodicitaRichPubblicLocalServiceImpl" id="service.intranet.mef.service.PeriodicitaRichPubblicLocalService" />
+	<bean class="service.intranet.mef.service.impl.PeriodicitaRichPubblicServiceImpl" id="service.intranet.mef.service.PeriodicitaRichPubblicService" />
+	<bean class="service.intranet.mef.service.persistence.impl.PeriodicitaRichPubblicPersistenceImpl" id="service.intranet.mef.service.persistence.PeriodicitaRichPubblicPersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.RichiestaBeneInvLocalServiceImpl" id="service.intranet.mef.service.RichiestaBeneInvLocalService" />
+	<bean class="service.intranet.mef.service.impl.RichiestaBeneInvServiceImpl" id="service.intranet.mef.service.RichiestaBeneInvService" />
+	<bean class="service.intranet.mef.service.persistence.impl.RichiestaBeneInvPersistenceImpl" id="service.intranet.mef.service.persistence.RichiestaBeneInvPersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.persistence.impl.RichiestaBeneInvFinderImpl" id="service.intranet.mef.service.persistence.RichiestaBeneInvFinder" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.RichiestaInterventiLocalServiceImpl" id="service.intranet.mef.service.RichiestaInterventiLocalService" />
+	<bean class="service.intranet.mef.service.impl.RichiestaInterventiServiceImpl" id="service.intranet.mef.service.RichiestaInterventiService" />
+	<bean class="service.intranet.mef.service.persistence.impl.RichiestaInterventiPersistenceImpl" id="service.intranet.mef.service.persistence.RichiestaInterventiPersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.RichiestaPubblicSitiLocalServiceImpl" id="service.intranet.mef.service.RichiestaPubblicSitiLocalService" />
+	<bean class="service.intranet.mef.service.impl.RichiestaPubblicSitiServiceImpl" id="service.intranet.mef.service.RichiestaPubblicSitiService" />
+	<bean class="service.intranet.mef.service.persistence.impl.RichiestaPubblicSitiPersistenceImpl" id="service.intranet.mef.service.persistence.RichiestaPubblicSitiPersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.RichiesteHWLocalServiceImpl" id="service.intranet.mef.service.RichiesteHWLocalService" />
+	<bean class="service.intranet.mef.service.impl.RichiesteHWServiceImpl" id="service.intranet.mef.service.RichiesteHWService" />
+	<bean class="service.intranet.mef.service.persistence.impl.RichiesteHWPersistenceImpl" id="service.intranet.mef.service.persistence.RichiesteHWPersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.RichiesteUtenzaLocalServiceImpl" id="service.intranet.mef.service.RichiesteUtenzaLocalService" />
+	<bean class="service.intranet.mef.service.impl.RichiesteUtenzaServiceImpl" id="service.intranet.mef.service.RichiesteUtenzaService" />
+	<bean class="service.intranet.mef.service.persistence.impl.RichiesteUtenzaPersistenceImpl" id="service.intranet.mef.service.persistence.RichiesteUtenzaPersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.StatoRichBeneInvLocalServiceImpl" id="service.intranet.mef.service.StatoRichBeneInvLocalService" />
+	<bean class="service.intranet.mef.service.impl.StatoRichBeneInvServiceImpl" id="service.intranet.mef.service.StatoRichBeneInvService" />
+	<bean class="service.intranet.mef.service.persistence.impl.StatoRichBeneInvPersistenceImpl" id="service.intranet.mef.service.persistence.StatoRichBeneInvPersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.TipoBeneInvLocalServiceImpl" id="service.intranet.mef.service.TipoBeneInvLocalService" />
+	<bean class="service.intranet.mef.service.impl.TipoBeneInvServiceImpl" id="service.intranet.mef.service.TipoBeneInvService" />
+	<bean class="service.intranet.mef.service.persistence.impl.TipoBeneInvPersistenceImpl" id="service.intranet.mef.service.persistence.TipoBeneInvPersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.TipologiaComputerLocalServiceImpl" id="service.intranet.mef.service.TipologiaComputerLocalService" />
+	<bean class="service.intranet.mef.service.impl.TipologiaComputerServiceImpl" id="service.intranet.mef.service.TipologiaComputerService" />
+	<bean class="service.intranet.mef.service.persistence.impl.TipologiaComputerPersistenceImpl" id="service.intranet.mef.service.persistence.TipologiaComputerPersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.TipologiaDispositiviLocalServiceImpl" id="service.intranet.mef.service.TipologiaDispositiviLocalService" />
+	<bean class="service.intranet.mef.service.impl.TipologiaDispositiviServiceImpl" id="service.intranet.mef.service.TipologiaDispositiviService" />
+	<bean class="service.intranet.mef.service.persistence.impl.TipologiaDispositiviPersistenceImpl" id="service.intranet.mef.service.persistence.TipologiaDispositiviPersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.TipologiaRichPubblicLocalServiceImpl" id="service.intranet.mef.service.TipologiaRichPubblicLocalService" />
+	<bean class="service.intranet.mef.service.impl.TipologiaRichPubblicServiceImpl" id="service.intranet.mef.service.TipologiaRichPubblicService" />
+	<bean class="service.intranet.mef.service.persistence.impl.TipologiaRichPubblicPersistenceImpl" id="service.intranet.mef.service.persistence.TipologiaRichPubblicPersistence" parent="basePersistence" />
+	<bean class="service.intranet.mef.service.impl.TipologiaStampantiLocalServiceImpl" id="service.intranet.mef.service.TipologiaStampantiLocalService" />
+	<bean class="service.intranet.mef.service.impl.TipologiaStampantiServiceImpl" id="service.intranet.mef.service.TipologiaStampantiService" />
+	<bean class="service.intranet.mef.service.persistence.impl.TipologiaStampantiPersistenceImpl" id="service.intranet.mef.service.persistence.TipologiaStampantiPersistence" parent="basePersistence" />
+</beans>

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="mef.richiesta.gest.pos.model.Corridoio" />
+	<import class="mef.richiesta.gest.pos.model.FuoriPorta" />
+	<import class="mef.richiesta.gest.pos.model.Piano" />
+	<import class="mef.richiesta.gest.pos.model.Sede" />
+	<class name="mef.richiesta.gest.pos.model.impl.CorridoioImpl" table="BADGE_POS_Corridoio">
+		<id name="id_pk_corridoio" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="id_corridoio" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="id_piano" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="cod_corridoio" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="desc_" name="desc" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_ins" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_agg" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="user_ins" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="user_agg" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="mef.richiesta.gest.pos.model.impl.FuoriPortaImpl" table="BADGE_POS_FuoriPorta">
+		<id name="id_pk_fuoriPorta" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="id_fuoriPorta" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="id_corridoio" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="cod_fuoriPorta" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="desc_" name="desc" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_ins" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_agg" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="user_ins" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="user_agg" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="mef.richiesta.gest.pos.model.impl.PianoImpl" table="BADGE_POS_Piano">
+		<id name="id_pk_piano" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="id_piano" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="id_sede" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="cod_piano" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="desc_" name="desc" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_ins" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_agg" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="user_ins" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="user_agg" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="mef.richiesta.gest.pos.model.impl.SedeImpl" table="BADGE_POS_Sede">
+		<id name="id_pk_sede" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="id_sede" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="cod_sede" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="desc_" name="desc" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_ins" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_agg" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="user_ins" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="user_agg" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

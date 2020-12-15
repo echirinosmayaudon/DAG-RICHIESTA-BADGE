@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="servizio.local.bfc.model.LocalRich">
+		<field name="idStatoAttuale" type="long" />
+		<field name="id" type="long" />
+		<field name="id_richiesta" type="long" />
+		<field name="dataRichiesta" type="Date" />
+		<field name="idPeriodicita" type="long" />
+		<field name="email" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="rifStanza" type="String">
+			<hint name="max-length">50</hint>
+		</field>
+		<field name="ispettorato" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="noteRich" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="ufficio" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="note" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="uidIns" type="long" />
+		<field name="dataIns" type="Date" />
+		<field name="uidUpd" type="long" />
+		<field name="dataUpd" type="Date" />
+		<field name="oggetto" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="idSede" type="String">
+			<hint name="max-length">50</hint>
+		</field>
+		<field name="strutIsp" type="String">
+			<hint name="max-length">10</hint>
+		</field>
+		<field name="strutUff" type="String">
+			<hint name="max-length">10</hint>
+		</field>
+		<field name="strutIsp2" type="String">
+			<hint name="max-length">10</hint>
+		</field>
+		<field name="telRich" type="String">
+			<hint name="max-length">20</hint>
+		</field>
+		<field name="costoReale" type="float" />
+		<field name="preventivo" type="int" />
+		<field name="flagInvio" type="int" />
+		<field name="inStage" type="boolean" />
+	</model>
+	<model name="servizio.local.bfc.model.LocalRichInfo">
+		<field name="idStatoAttuale" type="long" />
+		<field name="id" type="long" />
+		<field name="id_richiesta" type="long" />
+		<field name="dataRichiesta" type="Date" />
+		<field name="email" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="rifStanza" type="String">
+			<hint name="max-length">50</hint>
+		</field>
+		<field name="ispettorato" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="nomeRef" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="telRef" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="nMacchina" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="noteRich" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="ufficio" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="note" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="uidIns" type="long" />
+		<field name="dataIns" type="Date" />
+		<field name="uidUpd" type="long" />
+		<field name="dataUpd" type="Date" />
+		<field name="oggetto" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="idSede" type="String">
+			<hint name="max-length">50</hint>
+		</field>
+		<field name="telRich" type="String">
+			<hint name="max-length">20</hint>
+		</field>
+		<field name="strutUff" type="String">
+			<hint name="max-length">10</hint>
+		</field>
+		<field name="strutIsp" type="String">
+			<hint name="max-length">10</hint>
+		</field>
+		<field name="costoReale" type="float" />
+		<field name="preventivo" type="int" />
+		<field name="flagInvio" type="int" />
+		<field name="inStage" type="boolean" />
+	</model>
+</model-hints>

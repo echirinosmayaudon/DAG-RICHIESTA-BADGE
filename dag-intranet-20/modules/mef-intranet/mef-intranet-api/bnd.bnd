@@ -1,0 +1,7 @@
+Bundle-SymbolicName: mef.intranet-api
+Bundle-Version: 1.0.2
+Export-Package:\
+	com.mef.intranet.rubrica.exception,\
+	com.mef.intranet.rubrica.model,\
+	com.mef.intranet.rubrica.service,\
+	com.mef.intranet.rubrica.service.persistence

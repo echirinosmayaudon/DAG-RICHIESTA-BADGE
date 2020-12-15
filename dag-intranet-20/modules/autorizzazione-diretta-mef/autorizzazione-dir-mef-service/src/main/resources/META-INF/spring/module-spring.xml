@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="autorizzazione.dir.mef.service.impl.AutorizzazioneDirLocalServiceImpl" id="autorizzazione.dir.mef.service.AutorizzazioneDirLocalService" />
+	<bean class="autorizzazione.dir.mef.service.impl.AutorizzazioneDirServiceImpl" id="autorizzazione.dir.mef.service.AutorizzazioneDirService" />
+	<bean class="autorizzazione.dir.mef.service.persistence.impl.AutorizzazioneDirPersistenceImpl" id="autorizzazione.dir.mef.service.persistence.AutorizzazioneDirPersistence" parent="basePersistence" />
+	<bean class="autorizzazione.dir.mef.service.persistence.impl.AutorizzazioneDirFinderImpl" id="autorizzazione.dir.mef.service.persistence.AutorizzazioneDirFinder" parent="basePersistence" />
+	<bean class="autorizzazione.dir.mef.service.impl.ScrivaniaLocalServiceImpl" id="autorizzazione.dir.mef.service.ScrivaniaLocalService" />
+	<bean class="autorizzazione.dir.mef.service.impl.ScrivaniaServiceImpl" id="autorizzazione.dir.mef.service.ScrivaniaService" />
+	<bean class="autorizzazione.dir.mef.service.persistence.impl.ScrivaniaPersistenceImpl" id="autorizzazione.dir.mef.service.persistence.ScrivaniaPersistence" parent="basePersistence" />
+	<bean class="autorizzazione.dir.mef.service.impl.UtilizzoApplicazioniLocalServiceImpl" id="autorizzazione.dir.mef.service.UtilizzoApplicazioniLocalService" />
+	<bean class="autorizzazione.dir.mef.service.impl.UtilizzoApplicazioniServiceImpl" id="autorizzazione.dir.mef.service.UtilizzoApplicazioniService" />
+	<bean class="autorizzazione.dir.mef.service.persistence.impl.UtilizzoApplicazioniPersistenceImpl" id="autorizzazione.dir.mef.service.persistence.UtilizzoApplicazioniPersistence" parent="basePersistence" />
+</beans>

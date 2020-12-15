@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="autorizzazione.dir.mef.model.AutorizzazioneDir">
+		<field name="id_autorizzazione" type="long" />
+		<field name="id_applicazione" type="long" />
+		<field name="mef" type="long" />
+		<field name="dipartimento" type="long" />
+		<field name="direzione" type="long" />
+		<field name="ufficio" type="long" />
+		<field name="codice_fiscale" type="String" />
+		<field name="nega" type="boolean" />
+		<field name="tag" type="String" />
+	</model>
+	<model name="autorizzazione.dir.mef.model.Scrivania">
+		<field name="rowId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="applicationId" type="long" />
+		<field name="homeFlag" type="boolean" />
+		<field name="profileFlag" type="boolean" />
+	</model>
+	<model name="autorizzazione.dir.mef.model.UtilizzoApplicazioni">
+		<field name="rowId" type="long" />
+		<field name="createDate" type="Date" />
+		<field name="userId" type="long" />
+		<field name="applicationId" type="long" />
+		<field name="lastUseDate" type="Date" />
+		<field name="hitsCount" type="int" />
+	</model>
+</model-hints>

@@ -1,0 +1,2 @@
+Modulo utile al download del file .ics nel dettaglio del Web Content / evento di tipo Agenda.
+Per funzionare correttamente è necessario che la portlet sia aggiunta all'interno della pagina in cui è presente l'archivio Asset Publisher.

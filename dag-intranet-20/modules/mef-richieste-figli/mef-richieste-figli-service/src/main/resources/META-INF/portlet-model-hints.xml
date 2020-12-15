@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="mef.richieste.figli.model.RICHIESTA_RIMBORSO">
+		<field name="Id" type="long" />
+		<field name="Nome_Richiedente" type="String" />
+		<field name="Cognome_Richiedente" type="String" />
+		<field name="Codice_Fiscale_Richiedente" type="String" />
+		<field name="Utente_Inserimento" type="String" />
+		<field name="Data_Inserimento" type="String" />
+		<field name="Iban" type="String" />
+		<field name="Importo" type="String" />
+		<field name="Figlio_Nome" type="String" />
+		<field name="Figlio_Cognome" type="String" />
+		<field name="Figlio_Data_Nascita" type="String" />
+		<field name="Figlio_Luogo_Nascita" type="String" />
+		<field name="Figlio_Codice_Fiscale" type="String" />
+		<field name="Note" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="Flag_Inviato" type="Boolean" />
+		<field name="Telefono" type="String" />
+		<field name="Allegato_UUID" type="String" />
+	</model>
+</model-hints>

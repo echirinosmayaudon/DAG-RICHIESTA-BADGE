@@ -1,0 +1,10 @@
+Bundle-Name:  Intranet MEF Import Users API 
+Bundle-SymbolicName: com.intranet.mef.importusers.api
+Bundle-Version: 1.0.4
+Export-Package: \
+	com.intranet.mef.importusers.constants,\
+	com.intranet.mef.importusers.model,\
+	com.intranet.mef.importusers.service,\
+	com.intranet.mef.importusers.service.persistence,\
+	com.intranet.mef.importusers.exception
+-includeresource: META-INF/service.xml=../import-users-service/service.xml

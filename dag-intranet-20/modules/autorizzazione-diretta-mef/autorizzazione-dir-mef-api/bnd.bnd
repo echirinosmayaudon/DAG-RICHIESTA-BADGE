@@ -1,0 +1,9 @@
+Bundle-Name: autorizzazione-dir-mef-api
+Bundle-SymbolicName: autorizzazione.dir.mef.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	autorizzazione.dir.mef.exception,\
+	autorizzazione.dir.mef.model,\
+	autorizzazione.dir.mef.service,\
+	autorizzazione.dir.mef.service.persistence
+-includeresource: META-INF/service.xml=../autorizzazione-dir-mef-service/service.xml

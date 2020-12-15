@@ -1,0 +1,39 @@
+<ul id="grid">
+
+<script type="text/javascript"> 
+
+    if (${permissionChecker.isSignedIn().toString()}===true) {
+        currentId = ${permissionChecker.getUserId()};
+        console.log(currentId);
+    }
+ 
+    Liferay.Service(
+    '/mefintranet.favourites/get-favourites-by-user',
+    {
+        user_id: currentId
+    },
+        function(obj) {
+        
+        var orderArr = $.map(obj, function(key,value){
+        var tit = key.title_favourite;
+        var dt = key.save_date;
+        var url = key.url_favourite;
+        return {title_favourite: tit, url_favourite: url, save_date: Date.parse(dt)};
+        });
+        
+        orderArr.sort(function(a, b) {
+        return new Date(b.save_date) - new Date(a.save_date); });
+
+        var limitArr = orderArr.slice(0, 12);
+        
+        $.each(limitArr, function(key, value) {
+        
+        var dat = new Date(value.save_date).toString();
+        
+    $("#grid").append("<li><p>"+ value.title_favourite +"</p><p><a href='"+ 
+        value.url_favourite +"'>"+ 
+        value.url_favourite +"</a></p><p>"+ dat +"</p></li>");
+        });
+
+    });
+</script>

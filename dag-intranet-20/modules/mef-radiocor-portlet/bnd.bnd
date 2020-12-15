@@ -1,0 +1,6 @@
+Bundle-Name: mef-radiocor-form
+Bundle-SymbolicName: mef.radiocor.form
+Bundle-Version: 1.0.0
+Export-Package: mef.radiocor.form.constants
+
+Include-Resource: @jackson-databind-2.8.4.jar,@jackson-annotations-2.8.4.jar,@jackson-core-2.8.4.jar

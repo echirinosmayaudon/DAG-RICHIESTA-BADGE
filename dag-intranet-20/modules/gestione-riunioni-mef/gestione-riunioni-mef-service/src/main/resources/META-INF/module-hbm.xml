@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="com.intranet.mef.gestione.riunioni.model.AmministrazioneConvocante" />
+	<import class="com.intranet.mef.gestione.riunioni.model.InvitatiRiunione" />
+	<import class="com.intranet.mef.gestione.riunioni.model.Luogo" />
+	<import class="com.intranet.mef.gestione.riunioni.model.Riunione" />
+	<import class="com.intranet.mef.gestione.riunioni.model.Segreteria" />
+	<import class="com.intranet.mef.gestione.riunioni.model.StatoInvitato" />
+	<import class="com.intranet.mef.gestione.riunioni.model.StatoRiunione" />
+	<import class="com.intranet.mef.gestione.riunioni.model.StoricoStatoRiunione" />
+	<import class="com.intranet.mef.gestione.riunioni.model.TipoRiunione" />
+	<class name="com.intranet.mef.gestione.riunioni.model.impl.AmministrazioneConvocanteImpl" table="MEF_AmministrazioneConvocante">
+		<id name="id_amministrazione_convocante" type="long">
+			<generator class="sequence">
+				<param name="sequence">ammconv_seq</param>
+			</generator>
+		</id>
+		<property name="nome_amministrazione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.intranet.mef.gestione.riunioni.model.impl.InvitatiRiunioneImpl" table="MEF_InvitatiRiunione">
+		<composite-id class="com.intranet.mef.gestione.riunioni.service.persistence.InvitatiRiunionePK" name="primaryKey">
+			<key-property name="id_segreteria" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="id_riunione" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+		<property name="note" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="partecipanti" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="id_stato_invitato" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="com.intranet.mef.gestione.riunioni.model.impl.LuogoImpl" table="MEF_Luogo">
+		<id name="id_luogo" type="long">
+			<generator class="sequence">
+				<param name="sequence">luogo_seq</param>
+			</generator>
+		</id>
+		<property name="nome" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.intranet.mef.gestione.riunioni.model.impl.RiunioneImpl" table="MEF_Riunione">
+		<id name="id_riunione" type="long">
+			<generator class="sequence">
+				<param name="sequence">riunione_seq</param>
+			</generator>
+		</id>
+		<property name="oggetto" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_inizio" type="org.hibernate.type.TimestampType" />
+		<property name="data_fine" type="org.hibernate.type.TimestampType" />
+		<property name="note" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_modifica" type="org.hibernate.type.TimestampType" />
+		<property name="data_creazione" type="org.hibernate.type.TimestampType" />
+		<property name="protocollo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="id_stato_riunione" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="id_tipo" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="id_luogo" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="id_amministrazione_convocante" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="data_ultimo_sollecito" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.intranet.mef.gestione.riunioni.model.impl.SegreteriaImpl" table="MEF_Segreteria">
+		<id name="id_segreteria" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="email" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="descrizione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="acronimo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="livello_gerarchia" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="cod_padre" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="data_fine_esistenza" type="org.hibernate.type.TimestampType" />
+		<property name="indirizzo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="cap" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="cod_istat_citta" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="com.intranet.mef.gestione.riunioni.model.impl.StatoInvitatoImpl" table="MEF_StatoInvitato">
+		<id name="id_stato_invitato" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="nome_stato" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.intranet.mef.gestione.riunioni.model.impl.StatoRiunioneImpl" table="MEF_StatoRiunione">
+		<id name="id_stato_riunione" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="label" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="next_stato" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.intranet.mef.gestione.riunioni.model.impl.StoricoStatoRiunioneImpl" table="MEF_StoricoStatoRiunione">
+		<composite-id class="com.intranet.mef.gestione.riunioni.service.persistence.StoricoStatoRiunionePK" name="primaryKey">
+			<key-property name="id_riunione" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="id_storico" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+		<property column="data_" name="data" type="org.hibernate.type.TimestampType" />
+		<property name="id_stato_riunione" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="com.intranet.mef.gestione.riunioni.model.impl.TipoRiunioneImpl" table="MEF_TipoRiunione">
+		<id name="id_tipo" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="descrizione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

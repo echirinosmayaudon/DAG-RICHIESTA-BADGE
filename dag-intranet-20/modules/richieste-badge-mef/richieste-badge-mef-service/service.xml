@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="servizio.richieste.badge.mef">
+
+	<namespace>MBADGE</namespace>
+	
+	<entity name="RichiestaBadge" local-service="true" remote-service="true">
+		<column name="id_pk" type="long" primary="true" id-type="sequence" id-param="richbadge_seq"></column>
+		<column name="id_richiesta" type="long"></column>
+		<column name="screename_richiedente" type="String"></column>
+		<column name="id_ufficio" type="long"></column>
+		<column name="id_sedesiap" type="long"></column>
+		<column name="json_richiedente" type="String"></column>
+		<column name="is_internal" type="boolean"></column>
+		<column name="nome_intestatario" type="String"></column>
+		<column name="cognome_intestatario" type="String"></column>
+		<column name="cf_intestatario" type="String"></column>
+		<column name="luogonascita_intestatario" type="String"></column>
+		<column name="datanascita_intestatario" type="Date"></column>
+		<column name="id_oggetto" type="long"></column>
+		<column name="numero_badge" type="String"></column>
+		<column name="uuid_foto" type="String"></column>
+		<column name="uuid_modulosostituzione" type="String"></column>
+		<column name="societa" type="String"></column>
+		<column name="referente_societa" type="String"></column>
+		<column name="progetto" type="String"></column>
+		<column name="json_richiesta_external" type="String"></column>
+		<column name="array_sedi_abilitate" type="String"></column>
+		<column name="motivazione" type="String"></column>
+		<column name="data_scadenza" type="Date"></column>
+		<column name="uuid_modulopdf" type="String"></column>
+		<column name="data_richiesta" type="Date"></column>
+		<column name="data_modifica" type="Date"></column>
+		<column name="id_stato" type="long"></column>
+		<column name="utente_cambio_stato" type="String"></column>
+		<column name="note" type="String"></column>
+		<column name="is_last" type="boolean"></column>
+		
+		<finder name="IdRichiesta" return-type="Collection" db-index="false">
+        	<finder-column name="id_richiesta"></finder-column>
+        </finder> 
+		
+		<finder name="Richiedente" return-type="Collection" db-index="false">
+        	<finder-column name="screename_richiedente"></finder-column>
+        	<finder-column name="is_last"></finder-column>
+        </finder> 
+        
+         <finder name="Ruolo" return-type="Collection" db-index="false">
+         	<finder-column name="is_last"></finder-column>
+         	<finder-column name="is_internal"></finder-column>       	
+         	<finder-column name="id_stato"></finder-column>
+         </finder>
+         
+         <finder name="RuoloSede" return-type="Collection" db-index="false">
+         	<finder-column name="is_last"></finder-column>
+         	<finder-column name="is_internal"></finder-column>       	
+         	<finder-column name="id_stato"></finder-column>
+         	<finder-column name="id_sedesiap"></finder-column>
+         </finder>
+	</entity>
+	
+	<entity name="OggettoRichiesta" local-service="true" remote-service="true">
+		<column name="id_oggetto" type="long" primary="true"></column>
+		<column name="descrizione_oggetto" type="String"></column>
+	</entity>
+
+	<entity name="StatoRichiesta" local-service="true" remote-service="true">
+		<column name="id_stato" type="long" primary="true"></column>
+		<column name="descrizione_stato" type="String"></column>
+		
+		<finder name="descrizione" return-type="Collection" db-index="false">
+	    <finder-column name="descrizione_stato"></finder-column>
+	    </finder>
+	</entity>
+	
+	<entity name="AnaDipExt" local-service="true" remote-service="true">
+		<column name="id_dip_ext" type="long" primary="true" id-type="sequence" id-param="anadipext_seq"></column>
+		<column name="nome_dip_ext" type="String"></column>
+		<column name="cognome_dip_ext" type="String"></column>
+		<column name="cf_dip_ext" type="String"></column>
+		<column name="luogonascita_dip_ext" type="String"></column>
+		<column name="datanascita_dip_ext" type="Date"></column>
+		
+		<finder name="CodiceFiscaleEsterno" return-type="Collection" db-index="false">
+        <finder-column name="cf_dip_ext"></finder-column>
+        </finder>
+	</entity>
+	
+	<entity name="GestioneUtenti" local-service="true" remote-service="true">
+		<column name="id_gest_utenti" type="long" primary="true" id-type="sequence" id-param="gestutentibadge_seq"></column>
+		<column name="data" type="Date"></column>
+		<column name="screename_dirigente" type="String"></column>
+		<column name="screename_utente" type="String"></column>
+		<column name="id_ufficio" type="long"></column>
+		<column name="abilitazione" type="boolean"></column>
+	    <column name="delega" type="boolean"></column>
+	</entity>
+	
+	<entity name="SediEsterne" local-service="true" remote-service="true">
+		<column name="id_sede_esterna" type="long" primary="true"></column>
+		<column name="nome_sede_esterna" type="String"></column>
+		<column name="id_sedesiap" type="long"></column>
+		<column name="acronimo_sede" type="String"></column>
+		
+		<finder name="IdSedeSiap" return-type="Collection" db-index="false">
+        <finder-column name="id_sedesiap"></finder-column>
+        </finder>
+        
+        <finder name="AcronimoSede" return-type="Collection" db-index="false">
+        <finder-column name="acronimo_sede"></finder-column>
+        </finder>
+		
+	</entity>
+	
+</service-builder>

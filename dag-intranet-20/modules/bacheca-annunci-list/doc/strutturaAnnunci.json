@@ -1,0 +1,352 @@
+{
+    "availableLanguageIds": [
+        "it_IT"
+    ],
+    "defaultLanguageId": "it_IT",
+    "fields": [
+        {
+            "label": {
+                "it_IT": "Titolo"
+            },
+            "predefinedValue": {
+                "it_IT": ""
+            },
+            "style": {
+                "it_IT": ""
+            },
+            "tip": {
+                "it_IT": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Title",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "it_IT": "Utente"
+            },
+            "predefinedValue": {
+                "it_IT": ""
+            },
+            "style": {
+                "it_IT": ""
+            },
+            "tip": {
+                "it_IT": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "User",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "it_IT": "Data di inserimento"
+            },
+            "predefinedValue": {
+                "it_IT": ""
+            },
+            "style": {
+                "it_IT": ""
+            },
+            "tip": {
+                "it_IT": ""
+            },
+            "dataType": "date",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "StartDate",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "ddm-date"
+        },
+        {
+            "label": {
+                "it_IT": "Data scadenza "
+            },
+            "predefinedValue": {
+                "it_IT": ""
+            },
+            "style": {
+                "it_IT": ""
+            },
+            "tip": {
+                "it_IT": ""
+            },
+            "dataType": "date",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Deadline",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "ddm-date"
+        },
+        {
+            "label": {
+                "it_IT": "Argomento"
+            },
+            "predefinedValue": {
+                "it_IT": ""
+            },
+            "style": {
+                "it_IT": ""
+            },
+            "tip": {
+                "it_IT": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Topic",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "it_IT": "Tipo di annuncio"
+            },
+            "options": [
+                {
+                    "value": "offresi",
+                    "label": {
+                        "it_IT": "offresi"
+                    }
+                },
+                {
+                    "value": "cercasi",
+                    "label": {
+                        "it_IT": "cercasi"
+                    }
+                }
+            ],
+            "predefinedValue": {
+                "it_IT": [
+                    ""
+                ]
+            },
+            "style": {
+                "it_IT": ""
+            },
+            "tip": {
+                "it_IT": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Type",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "radio"
+        },
+        {
+            "label": {
+                "it_IT": "Email"
+            },
+            "predefinedValue": {
+                "it_IT": ""
+            },
+            "style": {
+                "it_IT": ""
+            },
+            "tip": {
+                "it_IT": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Email",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "it_IT": "Testo"
+            },
+            "predefinedValue": {
+                "it_IT": ""
+            },
+            "style": {
+                "it_IT": ""
+            },
+            "tip": {
+                "it_IT": ""
+            },
+            "dataType": "string",
+            "indexType": "text",
+            "localizable": true,
+            "name": "Body",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "textarea"
+        },
+        {
+            "label": {
+                "it_IT": "Numero"
+            },
+            "predefinedValue": {
+                "it_IT": ""
+            },
+            "style": {
+                "it_IT": ""
+            },
+            "tip": {
+                "it_IT": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "PhoneNumber",
+            "readOnly": false,
+            "repeatable": false,
+            "required": true,
+            "showLabel": true,
+            "type": "text"
+        },
+        {
+            "label": {
+                "it_IT": "Foto"
+            },
+            "predefinedValue": {
+                "it_IT": ""
+            },
+            "style": {
+                "it_IT": ""
+            },
+            "tip": {
+                "it_IT": ""
+            },
+            "dataType": "image",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Photo1",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-image"
+        },
+        {
+            "label": {
+                "it_IT": "Foto"
+            },
+            "predefinedValue": {
+                "it_IT": ""
+            },
+            "style": {
+                "it_IT": ""
+            },
+            "tip": {
+                "it_IT": ""
+            },
+            "dataType": "image",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Photo2",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-image"
+        },
+        {
+            "label": {
+                "it_IT": "Foto"
+            },
+            "predefinedValue": {
+                "it_IT": ""
+            },
+            "style": {
+                "it_IT": ""
+            },
+            "tip": {
+                "it_IT": ""
+            },
+            "dataType": "image",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Photo3",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-image"
+        },
+        {
+            "label": {
+                "it_IT": "Foto"
+            },
+            "predefinedValue": {
+                "it_IT": ""
+            },
+            "style": {
+                "it_IT": ""
+            },
+            "tip": {
+                "it_IT": ""
+            },
+            "dataType": "image",
+            "fieldNamespace": "ddm",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Photo4",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "ddm-image"
+        },
+        {
+            "label": {
+                "it_IT": "Zona"
+            },
+            "predefinedValue": {
+                "it_IT": ""
+            },
+            "style": {
+                "it_IT": ""
+            },
+            "tip": {
+                "it_IT": ""
+            },
+            "dataType": "string",
+            "indexType": "keyword",
+            "localizable": true,
+            "name": "Zona",
+            "readOnly": false,
+            "repeatable": false,
+            "required": false,
+            "showLabel": true,
+            "type": "text"
+        }
+    ]
+}

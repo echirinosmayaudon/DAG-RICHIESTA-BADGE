@@ -1,0 +1,7 @@
+Bundle-SymbolicName: logicaldel.gestione.riunioni-api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.intranet.mef.logicaldel.gestione.riunioni.exception,\
+	com.intranet.mef.logicaldel.gestione.riunioni.model,\
+	com.intranet.mef.logicaldel.gestione.riunioni.service,\
+	com.intranet.mef.logicaldel.gestione.riunioni.service.persistence

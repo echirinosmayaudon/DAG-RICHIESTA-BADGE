@@ -1,0 +1,1 @@
+create sequence righerichnew_seq;

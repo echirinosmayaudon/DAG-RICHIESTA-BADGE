@@ -1,0 +1,7 @@
+Bundle-SymbolicName: beni.facile.consumo.mef-api
+Bundle-Version: 1.0.1
+Export-Package:\
+	servizio.beni.facile.consumo.exception,\
+	servizio.beni.facile.consumo.model,\
+	servizio.beni.facile.consumo.service,\
+	servizio.beni.facile.consumo.service.persistence

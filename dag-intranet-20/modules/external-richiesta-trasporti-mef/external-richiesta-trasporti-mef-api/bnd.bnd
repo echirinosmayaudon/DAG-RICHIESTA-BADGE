@@ -1,0 +1,7 @@
+Bundle-SymbolicName: external.richiesta.trasporti.mef-api
+Bundle-Version: 1.0.0
+Export-Package:\
+	servizio.richiesta.trasporti.exception,\
+	servizio.richiesta.trasporti.model,\
+	servizio.richiesta.trasporti.service,\
+	servizio.richiesta.trasporti.service.persistence

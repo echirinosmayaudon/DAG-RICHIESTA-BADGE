@@ -1,0 +1,139 @@
+.spaces-row {
+	display: flex;
+	flex-wrap: wrap;
+
+	@media (max-width: 650px) {
+		justify-content: center;
+	}
+
+	.space-box {
+		width: 230px;
+		height: 125px;
+		padding: 0px 5px;
+		display: inline-block;
+		margin: 8px 0px;
+
+		&.create-spaces {
+			.card-group.spaces-summary {
+				.card {
+					justify-content: center;
+					background-color: $white;
+				}
+
+				&:hover {
+
+					.card {
+						background-color: $blue;
+						justify-content: center;
+						transition: background-color 200ms ease-out;
+
+						.text-center {
+
+							span {
+								color: $white;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.card-group.spaces-summary {
+			width: 100%;
+			height: 100%;
+
+			.card {
+				background-color: $blue;
+				border-color: transparent;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				flex-wrap: wrap;
+
+				&.card-light {
+					background: $grayLight;
+				}
+
+					.card-block {
+						display: flex;
+						justify-content: space-between;
+						padding: 10px 15px;
+
+						.card-title {
+							display: inline-block;
+							word-break: break-all;
+
+							p {
+								color: $white;
+								font-size: 14px;
+							}
+						}
+
+						.star-wrapper {
+							display: inline-block;
+
+							&:hover {
+
+								i {
+									color: $yellow;
+								}
+							}
+
+							i.icon-star {
+								color: $yellow;
+							}
+						}
+					}
+
+					.card-footer {
+						display: flex;
+						justify-content: space-between;
+						align-items: center;
+						padding: 6px;
+
+						.card-collaborators {
+							font-size: 12px;
+							padding-left: 9px;
+
+							p {
+								margin: 0;
+								color: $white;
+							}
+						}
+
+						.icons-wrapper {
+							color: $white;
+
+							a {
+								color: $white;
+							}
+						}
+					}
+			}
+
+			&.create-space {
+				.card {
+					justify-content: center;
+					background-color: $white;
+				}
+
+				&:hover {
+
+					.card {
+						background-color: $blue;
+						justify-content: center;
+						transition: background-color 200ms ease-out;
+
+						.text-center {
+
+							span {
+								color: $white;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

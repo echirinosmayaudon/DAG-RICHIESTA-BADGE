@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="47" height="42" viewBox="0 0 47 42">
+    <defs>
+        <circle id="a" cx="7.405" cy="29.568" r="1"/>
+        <circle id="b" cx="9.568" cy="29.568" r="1"/>
+        <circle id="c" cx="11.73" cy="29.568" r="1"/>
+        <circle id="d" cx="13.892" cy="29.568" r="1"/>
+        <circle id="e" cx="16.054" cy="29.568" r="1"/>
+        <circle id="f" cx="18.216" cy="29.568" r="1"/>
+        <circle id="g" cx="8.486" cy="28.486" r="1"/>
+        <circle id="h" cx="10.649" cy="28.486" r="1"/>
+        <circle id="i" cx="12.811" cy="19.297" r="1"/>
+        <circle id="j" cx="9.568" cy="13.351" r="1"/>
+        <circle id="k" cx="11.73" cy="13.351" r="1"/>
+        <circle id="l" cx="13.892" cy="13.351" r="1"/>
+        <circle id="m" cx="16.054" cy="13.351" r="1"/>
+        <circle id="n" cx="14.973" cy="12.27" r="1"/>
+        <circle id="o" cx="16.054" cy="11.189" r="1"/>
+        <circle id="p" cx="10.649" cy="12.27" r="1"/>
+        <circle id="q" cx="12.811" cy="12.27" r="1"/>
+        <circle id="r" cx="9.568" cy="11.189" r="1"/>
+        <circle id="s" cx="10.649" cy="14.432" r="1"/>
+        <circle id="t" cx="11.73" cy="15.514" r="1"/>
+        <circle id="u" cx="13.892" cy="15.514" r="1"/>
+        <circle id="v" cx="12.811" cy="14.432" r="1"/>
+        <circle id="w" cx="14.973" cy="14.432" r="1"/>
+        <circle id="x" cx="12.811" cy="20.919" r="1"/>
+        <circle id="y" cx="12.811" cy="22.541" r="1"/>
+        <circle id="z" cx="12.811" cy="24.162" r="1"/>
+        <circle id="A" cx="12.811" cy="25.784" r="1"/>
+        <circle id="B" cx="12.811" cy="27.405" r="1"/>
+        <circle id="C" cx="14.973" cy="28.486" r="1"/>
+        <circle id="D" cx="17.135" cy="28.486" r="1"/>
+    </defs>
+    <g fill="none" fill-rule="nonzero">
+        <path fill="#3BC3F2" stroke="#3BC3F2" d="M44.622 36.514h-2.163V33.27c0-4.108-2.216-7.784-5.783-9.73 3.567-1.945 5.783-5.621 5.783-9.73v-3.242h2.163c.919 0 1.621-.595 1.621-2.163 0-1.35-.702-2.162-1.621-2.162H23c-.919 0-1.946.649-1.946 2.216 0 1.622 1.081 2.109 1.946 2.109h2.162v3.243c0 4.108 2.216 7.784 5.784 9.73-3.568 1.945-5.784 5.621-5.784 9.73v3.243H23c-.919 0-1.622.54-1.622 2.162 0 1.405.649 1.946 1.568 1.946h21.622c.918 0 1.73-.487 1.73-1.892 0-1.568-.757-2.216-1.676-2.216zM22.838 9.162c-.324 0-.54-.378-.54-.81 0-.433.216-.811.54-.811h21.621c.325 0 .541.378.541.81 0 .433-.216.811-.54.811H22.837zm3.946 4.649v-3.243h14.054v3.243c0 4-2.379 7.08-6.054 8.648h-1.946c-3.676-1.567-6.054-4.648-6.054-8.648zm0 19.46c0-4 2.378-7.622 6.054-9.19h1.946a9.984 9.984 0 0 1 6.054 9.19v3.243c0-.325-.216-.541-.54-.541-.325 0-.541.216-.541.54h-1.081c0-.324-.217-.54-.54-.54-.325 0-.541.216-.541.54h-1.081c0-.324-.217-.54-.541-.54-.324 0-.54.216-.54.54H34.35c0-.324-.216-.54-.54-.54-.325 0-.54.216-.54.54h-1.082c0-.324-.216-.54-.54-.54-.325 0-.54.216-.54.54h-1.082c0-.324-.216-.54-.54-.54-.325 0-.541.216-.541.54h-1.081c0-.324-.216-.54-.54-.54-.325 0-.541.216-.541.54V33.27zm-3.73 6.27c-.324 0-.54-.379-.54-.811 0-.433.216-.811.54-.811h21.622c.324 0 .54.378.54.81 0 .433-.216.812-.54.812H23.054z"/>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#a"/>
+            <circle cx="7.405" cy="29.568" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#b"/>
+            <circle cx="9.568" cy="29.568" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#c"/>
+            <circle cx="11.73" cy="29.568" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#d"/>
+            <circle cx="13.892" cy="29.568" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#e"/>
+            <circle cx="16.054" cy="29.568" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#f"/>
+            <circle cx="18.216" cy="29.568" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#g"/>
+            <circle cx="8.486" cy="28.486" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#h"/>
+            <circle cx="10.649" cy="28.486" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#i"/>
+            <circle cx="12.811" cy="19.297" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#j"/>
+            <circle cx="9.568" cy="13.351" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#k"/>
+            <circle cx="11.73" cy="13.351" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#l"/>
+            <circle cx="13.892" cy="13.351" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#m"/>
+            <circle cx="16.054" cy="13.351" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#n"/>
+            <circle cx="14.973" cy="12.27" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#o"/>
+            <circle cx="16.054" cy="11.189" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#p"/>
+            <circle cx="10.649" cy="12.27" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#q"/>
+            <circle cx="12.811" cy="12.27" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#r"/>
+            <circle cx="9.568" cy="11.189" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#s"/>
+            <circle cx="10.649" cy="14.432" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#t"/>
+            <circle cx="11.73" cy="15.514" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#u"/>
+            <circle cx="13.892" cy="15.514" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#v"/>
+            <circle cx="12.811" cy="14.432" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#w"/>
+            <circle cx="14.973" cy="14.432" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#x"/>
+            <circle cx="12.811" cy="20.919" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#y"/>
+            <circle cx="12.811" cy="22.541" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#z"/>
+            <circle cx="12.811" cy="24.162" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#A"/>
+            <circle cx="12.811" cy="25.784" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#B"/>
+            <circle cx="12.811" cy="27.405" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#C"/>
+            <circle cx="14.973" cy="28.486" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g transform="translate(21 5.865)">
+            <use fill="#3BC3F2" fill-rule="evenodd" xlink:href="#D"/>
+            <circle cx="17.135" cy="28.486" r="1" stroke="#3BC3F2"/>
+        </g>
+        <g fill="#3BC3F2" stroke="#3BC3F2">
+            <path d="M5.973 34.135c0 .054 0 .108.054.108v.054c0 .054.054.054.054.108v.054c0 .055.054.055.054.055l.054.054 6.325 5.891c.162.163.378.217.648.217.162-.054 5.297-.054 6.973-.054.27 0 .54-.27.487-.54a.484.484 0 0 0-.487-.487h-6.162l3.676-6.973v-.054s0-.054.054-.109v-.162-.162l-4.27-24.973c-.055-.378-.433-.648-.865-.594-.379.054-.65.432-.595.864l4.162 24.217-3.676.648-3.567-20.919c-.054-.378-.433-.648-.865-.594-.378.054-.649.432-.595.865L11 32.568l-3.676.648L3.054 8.19c-.054-.378-.432-.648-.865-.594-.432.054-.648.486-.594.864l4.378 25.676zm9.676-.919l-2.865 5.46-4.487-4.162 7.352-1.298z"/>
+            <path d="M9.757 1.054l-6.54 1.081c-1.46.27-2.433 1.622-2.163 3.027l.703 4c.054.379.432.649.865.595l10.27-1.73c.378-.054.649-.432.594-.865l-.702-4c-.27-1.405-1.622-2.378-3.027-2.108zm2.162 5.622L3.054 8.189l-.54-3.243c-.109-.649.27-1.243.918-1.351l6.541-1.136a1.168 1.168 0 0 1 1.351.973l.595 3.244z"/>
+        </g>
+    </g>
+</svg>

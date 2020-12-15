@@ -1,0 +1,180 @@
+.notifications-wrapper {
+	.header {
+		li:first-child {
+			//display: none;
+		}
+	}
+
+	.cards-list {
+		list-style: none;
+
+		@media (max-width: $screen-sm-max) {
+			padding: 0;
+		}
+
+		.card-wrapper {
+			background: $white;
+			position: relative;
+			padding: 15px;
+
+			&.muted {
+				background: $grayLighter;
+			}
+
+			.card {
+
+				.media {
+
+					.pull-left {
+						padding-right: 7px;
+
+						img {
+
+							@media (max-width: $screen-xs-max) {
+								width: 50px;
+							}
+						}
+					}
+				}
+			}
+
+			.card-actions {
+				position: absolute;
+				right: 20px;
+				top: 100px;
+				z-index: 2;
+
+					@media (max-width: $screen-xs-max) {
+						top: 70px;
+					}
+
+				a {
+					padding: 0 10px;
+					border: none;
+				}
+			}
+		}
+	}
+
+	.show-all {
+		display: none;
+	}
+}
+
+//Notifications in dockbar
+
+.sc-dockbar {
+
+	.dropdown-menu {
+		max-width: 400px;
+		z-index: 2000;
+		overflow: hidden;
+
+	}
+
+	.notifications-dropdown-menu {
+		width: 400px;
+	}
+
+	.portlet-title-text {
+		display: none;
+	}
+
+	.notifications-wrapper {
+		font-size: $notifications-font-size;
+		padding: 0;
+
+		.header {
+			border-bottom: 1px solid $grayLighter;
+			padding-bottom: 10px;
+
+			li:first-child {
+				display: block;
+
+				@media (max-width: $screen-xs-max) {
+					display: block;
+				}
+			}
+
+			@media (max-width: $screen-xs-max) {
+				li {
+					display: none;
+				}
+			}
+
+			li > a {
+				padding: 5px;
+			}
+		}
+
+		.cards-list {
+			list-style: none;
+			max-height: 215px;
+			overflow: auto;
+			padding: 0;
+
+			.card-wrapper {
+
+				border-top: 1px solid $grayLighter;
+
+				.media {
+					margin-top: 0px;
+					padding: 5px 10px;
+				}
+
+				.user-avatar {
+					margin-right: 10px;
+					max-width: 2.4em;
+					max-height: 2.4em;
+				}
+
+				.button-holder {
+					margin: 0px;
+
+					.user-notification-action {
+						border-radius: 4px;
+						font-size: 12px;
+						line-height: 12px;
+						padding: 3px 5px;
+					}
+				}
+
+				.card-actions {
+					display: none;
+				}
+
+				time {
+					color: $blue;
+				}
+
+				.status-request {
+					display: none;
+				}
+			}
+
+			li.card-wrapper:first-child {
+				border: none;
+			}
+		}
+
+		.show-all {
+			border-top: 1px solid $grayLighter;
+			display: block;
+			padding-top: 10px;
+			text-align: center;
+
+			a:hover{
+				color:$bright-aqua;
+			}
+		}
+
+		.lfr-pagination {
+			display: none;
+		}
+
+		.empty-message {
+			padding: 30px;
+			text-align: center;
+		}
+	}
+}

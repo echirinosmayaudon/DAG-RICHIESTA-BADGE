@@ -1,0 +1,77 @@
+<c:if test="<%= searchDisplayContext.isShowMenu() %>">
+
+	<aui:col id="facetNavigation" span="<%= 3 %>">
+		<div class="div-navigation-risultati-ricerca">
+			
+			<%
+			for (SearchFacet searchFacet : ListUtil.sort(searchDisplayContext.getEnabledSearchFacets(), SearchFacetComparator.INSTANCE)) {
+				if (searchFacet.isStatic()) {
+					continue;
+				}
+
+				request.setAttribute("search.jsp-facet", searchFacet.getFacet());
+
+				searchFacet.includeView(request, new PipingServletResponse(pageContext));
+			}
+			%>
+
+			<aui:script sandbox="<%= true %>">
+				$('#<portlet:namespace />facetNavigation').on(
+					'click',
+					'.facet-value a',
+					function(event) {
+						event.preventDefault();
+						var term = $(event.currentTarget);
+						
+						var facetValue = term.parentsUntil('.search-facet', '.facet-value');
+						
+						if (!facetValue.hasClass('active')) {
+							facetValue.addClass('active');
+
+							facetValue.siblings().removeClass('active');
+
+							var searchFacet = facetValue.parentsUntil('.search-layout', '.search-facet');
+
+						var form = $(document.<portlet:namespace />fm);
+
+							var field = form.fm(searchFacet.data('facetfieldname'));
+							var fieldSelection = form.fm(searchFacet.data('facetfieldname') + 'selection');
+                            
+							if (field.length) {
+								field.val(term.data('value'));
+
+								if (fieldSelection.length) {
+								}
+
+								form.fm('<%= SearchContainer.DEFAULT_CUR_PARAM %>').val(1);
+
+								var facetTagText = $(this).contents().filter(function() {
+        							return this.nodeType == 3;
+    							}).text();
+    							
+								var inputFacetTag = document.createElement("input");
+					 			$(inputFacetTag).attr("type", 'hidden');
+					 			$(inputFacetTag).attr("name", '<portlet:namespace/>selectedFacetTagName');
+					 			$(inputFacetTag).val(facetTagText);
+					 			$(this).append(inputFacetTag);
+
+								submitForm(form);
+							}
+						}
+					}
+				);
+				
+				$('#<portlet:namespace/>searchCustomRangeButton').on('click',function(){
+			    	var inputFacetTagIntervalloDate = document.createElement("input");
+					$(inputFacetTagIntervalloDate).attr("type", 'hidden');
+					$(inputFacetTagIntervalloDate).attr("name", '<portlet:namespace/>selectedFacetTagName');
+					var rangeDate = "DA " + $('#<portlet:namespace/>modifiedfrom').val() + " A " +  $('#<portlet:namespace/>modifiedto').val();
+					$(inputFacetTagIntervalloDate).val(rangeDate);
+					$(this).append(inputFacetTagIntervalloDate);
+	            });
+				
+			</aui:script>
+		</div>
+	</aui:col>
+
+</c:if>

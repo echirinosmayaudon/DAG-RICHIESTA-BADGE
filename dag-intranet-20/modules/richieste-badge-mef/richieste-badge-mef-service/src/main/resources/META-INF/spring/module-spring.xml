@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="servizio.richieste.badge.mef.service.impl.AnaDipExtLocalServiceImpl" id="servizio.richieste.badge.mef.service.AnaDipExtLocalService" />
+	<bean class="servizio.richieste.badge.mef.service.impl.AnaDipExtServiceImpl" id="servizio.richieste.badge.mef.service.AnaDipExtService" />
+	<bean class="servizio.richieste.badge.mef.service.persistence.impl.AnaDipExtPersistenceImpl" id="servizio.richieste.badge.mef.service.persistence.AnaDipExtPersistence" parent="basePersistence" />
+	<bean class="servizio.richieste.badge.mef.service.impl.GestioneUtentiLocalServiceImpl" id="servizio.richieste.badge.mef.service.GestioneUtentiLocalService" />
+	<bean class="servizio.richieste.badge.mef.service.impl.GestioneUtentiServiceImpl" id="servizio.richieste.badge.mef.service.GestioneUtentiService" />
+	<bean class="servizio.richieste.badge.mef.service.persistence.impl.GestioneUtentiPersistenceImpl" id="servizio.richieste.badge.mef.service.persistence.GestioneUtentiPersistence" parent="basePersistence" />
+	<bean class="servizio.richieste.badge.mef.service.impl.OggettoRichiestaLocalServiceImpl" id="servizio.richieste.badge.mef.service.OggettoRichiestaLocalService" />
+	<bean class="servizio.richieste.badge.mef.service.impl.OggettoRichiestaServiceImpl" id="servizio.richieste.badge.mef.service.OggettoRichiestaService" />
+	<bean class="servizio.richieste.badge.mef.service.persistence.impl.OggettoRichiestaPersistenceImpl" id="servizio.richieste.badge.mef.service.persistence.OggettoRichiestaPersistence" parent="basePersistence" />
+	<bean class="servizio.richieste.badge.mef.service.impl.RichiestaBadgeLocalServiceImpl" id="servizio.richieste.badge.mef.service.RichiestaBadgeLocalService" />
+	<bean class="servizio.richieste.badge.mef.service.impl.RichiestaBadgeServiceImpl" id="servizio.richieste.badge.mef.service.RichiestaBadgeService" />
+	<bean class="servizio.richieste.badge.mef.service.persistence.impl.RichiestaBadgePersistenceImpl" id="servizio.richieste.badge.mef.service.persistence.RichiestaBadgePersistence" parent="basePersistence" />
+	<bean class="servizio.richieste.badge.mef.service.persistence.impl.RichiestaBadgeFinderImpl" id="servizio.richieste.badge.mef.service.persistence.RichiestaBadgeFinder" parent="basePersistence" />
+	<bean class="servizio.richieste.badge.mef.service.impl.SediEsterneLocalServiceImpl" id="servizio.richieste.badge.mef.service.SediEsterneLocalService" />
+	<bean class="servizio.richieste.badge.mef.service.impl.SediEsterneServiceImpl" id="servizio.richieste.badge.mef.service.SediEsterneService" />
+	<bean class="servizio.richieste.badge.mef.service.persistence.impl.SediEsternePersistenceImpl" id="servizio.richieste.badge.mef.service.persistence.SediEsternePersistence" parent="basePersistence" />
+	<bean class="servizio.richieste.badge.mef.service.impl.StatoRichiestaLocalServiceImpl" id="servizio.richieste.badge.mef.service.StatoRichiestaLocalService" />
+	<bean class="servizio.richieste.badge.mef.service.impl.StatoRichiestaServiceImpl" id="servizio.richieste.badge.mef.service.StatoRichiestaService" />
+	<bean class="servizio.richieste.badge.mef.service.persistence.impl.StatoRichiestaPersistenceImpl" id="servizio.richieste.badge.mef.service.persistence.StatoRichiestaPersistence" parent="basePersistence" />
+</beans>

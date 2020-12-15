@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="servizio.whistleblowing.mef.model.Segnalazione">
+		<field name="id_segnalazione" type="long" />
+		<field name="json_dati_personali" type="String">
+			<hint name="max-length">1500</hint>
+		</field>
+		<field name="luogo" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="azioni_omissioni" type="String">
+			<hint name="max-length">1500</hint>
+		</field>
+		<field name="descrizione" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="autore" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="altri_testimoni" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+	</model>
+</model-hints>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.intranet.mef.daily.punching.model.DailyPunching">
+		<field name="custom_key" type="String" />
+		<field name="personId" type="long" />
+		<field name="punchingId" type="int" />
+		<field name="direction" type="String" />
+		<field name="voucher" type="String" />
+		<field name="terminal" type="String" />
+		<field name="hours" type="int" />
+		<field name="minute" type="String" />
+	</model>
+</model-hints>

@@ -1,0 +1,7 @@
+Bundle-SymbolicName: send.calendar.by.email-api
+Bundle-Version: 1.1.2
+Export-Package:\
+	com.intranet.mef.calendar.sender.exception,\
+	com.intranet.mef.calendar.sender.model,\
+	com.intranet.mef.calendar.sender.service,\
+	com.intranet.mef.calendar.sender.service.persistence

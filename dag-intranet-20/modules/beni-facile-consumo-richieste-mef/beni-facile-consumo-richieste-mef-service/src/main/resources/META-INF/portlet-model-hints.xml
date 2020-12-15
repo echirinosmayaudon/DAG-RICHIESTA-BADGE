@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="servizio.beni.facile.consumo.richieste.model.RigheRichBFCNew">
+		<field name="id" type="long" />
+		<field name="id_rich" type="long" />
+		<field name="dipartimento" type="String" />
+		<field name="dati1" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="dati2" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="dati3" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="dati4" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+	</model>
+</model-hints>

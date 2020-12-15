@@ -1,0 +1,7 @@
+Bundle-SymbolicName: beni.facile.consumo.richieste.mef-api
+Bundle-Version: 1.0.1
+Export-Package:\
+	servizio.beni.facile.consumo.richieste.exception,\
+	servizio.beni.facile.consumo.richieste.model,\
+	servizio.beni.facile.consumo.richieste.service,\
+	servizio.beni.facile.consumo.richieste.service.persistence

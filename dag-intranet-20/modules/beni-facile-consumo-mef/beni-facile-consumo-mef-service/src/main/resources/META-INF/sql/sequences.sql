@@ -1,0 +1,2 @@
+create sequence cambiostatodir_seq;
+create sequence gestioneutenti_seq;

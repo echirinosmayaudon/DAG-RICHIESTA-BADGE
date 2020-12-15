@@ -1,0 +1,7 @@
+Bundle-SymbolicName: mef.email.configurator-api
+Bundle-Version: 1.0.1
+Export-Package:\
+	mef.email.configurator.exception,\
+	mef.email.configurator.model,\
+	mef.email.configurator.service,\
+	mef.email.configurator.service.persistence

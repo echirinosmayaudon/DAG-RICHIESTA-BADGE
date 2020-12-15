@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<custom-sql>
+    
+   
+    
+     <sql id="com.accenture.lavoro.agile.istanza.mef.service.persistence.RichLavAgileFinder.getRichiesteOrder">
+        <![CDATA[ 
+        SELECT 
+		   *
+	   	   FROM MEFISTAGILE_RICHLAVAGILE 
+	   	   WHERE
+	   	    ID_ IN 
+	   	       (SELECT 
+	   	      MAX(ID_)
+               FROM MEFISTAGILE_RICHLAVAGILE 
+               GROUP BY SCREENAME)
+              
+        ]]>
+    </sql>
+</custom-sql>

@@ -1,0 +1,214 @@
+.button {
+  font-size: 16px;
+  color: $navy-blue;
+  height: 40px;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 0 30px;
+  text-align: center;
+  background-color: $azure;
+  border: none;
+
+  &.cta {
+    height: 50px;
+    line-height: 50px;
+    display: inline-block;
+    padding: 0 30px;
+    font-size: 18px;
+  }
+
+  &:hover {
+    background-color: $bright-aqua;
+  }
+
+  &:active, &.active {
+    background-color: $bright-sky-blue;
+  }
+
+  &:disabled, &.disabled {
+    cursor: default;
+    background-color: $prussian-blue;
+  }
+}
+
+.tasks-portlet {
+  .button-holder {
+    .btn {
+      @include btn-cta();
+    }
+  }
+
+  .btn-toolbar-content{
+    .btn-group{
+      .btn-toolbar-button{
+        @include btn-cta();
+        margin: 0 5px;
+      }
+    }
+  }
+}
+
+.portlet-message-boards {
+  .button-holder {
+    .btn {
+      @include btn-cta();
+    }
+  }
+}
+
+.contacts-portlet {
+  .button-holder {
+    &.dialog-footer {
+      .btn {
+        @include btn-cta();
+      }
+    }
+  }
+}
+
+.portlet-wiki {
+  .button-holder {
+    .btn {
+      @include btn-cta();
+    }
+  }
+}
+
+
+.portlet-polls-display {
+  .button-holder {
+    .btn {
+      @include btn-cta();
+    }
+  }
+}
+
+.microblogs-portlet {
+  .button-holder {
+    .btn {
+      @include btn-cta();
+    }
+  }
+}
+
+
+/*.tasks-portlet {
+
+    .button-holder {
+      &.dialog-footer {
+        .btn {
+          text-transform: uppercase;
+          width: 155px;
+          height: 50px;
+          color: black;
+          border-radius: 100px;
+          padding: 14px;
+
+
+
+          &.btn-primary {
+            border-color: $azure;
+            background-color: $azure;
+            box-shadow: 0 2px 14px 0 $azure;
+          }
+
+          &:hover {
+            background-color: $bright-aqua;
+            border-color: $bright-aqua;
+            color: $black;
+            box-shadow: 0 2px 14px 0 $bright-aqua;
+          }
+
+          &:active, &.active {
+            border-color: $bright-sky-blue;
+            color: $black;
+            box-shadow: 0 2px 14px 0 $bright-sky-blue;
+          }
+
+          &:disabled, &.disabled {
+            opacity: 0.7;
+          }
+
+        }
+      }
+    }
+}
+
+.portlet-message-boards{
+  .button-holder {
+      .btn {
+        text-transform: uppercase;
+        color: black;
+        border-radius: 100px;
+        padding: 14px;
+        font-size: 13px;
+
+        &.btn-primary {
+          border-color: $azure;
+          background-color: $azure;
+          box-shadow: 0 2px 14px 0 $azure;
+        }
+
+        &:hover {
+          background-color: $bright-aqua;
+          border-color: $bright-aqua;
+          color: $black;
+          box-shadow: 0 2px 14px 0 $bright-aqua;
+        }
+
+        &:active, &.active {
+          border-color: $bright-sky-blue;
+          color: $black;
+          box-shadow: 0 2px 14px 0 $bright-sky-blue;
+        }
+
+        &:disabled, &.disabled {
+          opacity: 0.7;
+        }
+
+      }
+  }
+
+}
+
+
+.contacts-portlet{
+  .button-holder {
+    &.dialog-footer {
+      .btn {
+        text-transform: uppercase;
+        width: 155px;
+        height: 50px;
+        color: black;
+        border-radius: 100px;
+        padding: 14px;
+
+        &.btn-primary {
+          border-color: $azure;
+          background-color: $azure;
+          box-shadow: 0 2px 14px 0 $azure;
+        }
+
+        &:hover {
+          background-color: $bright-aqua;
+          border-color: $bright-aqua;
+          color: $black;
+          box-shadow: 0 2px 14px 0 $bright-aqua;
+        }
+
+        &:active, &.active {
+          border-color: $bright-sky-blue;
+          color: $black;
+          box-shadow: 0 2px 14px 0 $bright-sky-blue;
+        }
+
+        &:disabled, &.disabled {
+          opacity: 0.7;
+        }
+
+      }
+    }
+  }
+
+}*/
+

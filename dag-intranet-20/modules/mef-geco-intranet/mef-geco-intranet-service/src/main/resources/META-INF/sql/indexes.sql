@@ -1,0 +1,1 @@
+create index IX_2048C49C on MEFGECO_supportData (uuid_[$COLUMN_LENGTH:75$]);

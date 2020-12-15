@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<beans
+	default-destroy-method="destroy"
+	default-init-method="afterPropertiesSet"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+	<bean class="form.service.contributo.solidarieta.service.impl.DonatoreLocalServiceImpl" id="form.service.contributo.solidarieta.service.DonatoreLocalService" />
+	<bean class="form.service.contributo.solidarieta.service.impl.DonatoreServiceImpl" id="form.service.contributo.solidarieta.service.DonatoreService" />
+	<bean class="form.service.contributo.solidarieta.service.persistence.impl.DonatorePersistenceImpl" id="form.service.contributo.solidarieta.service.persistence.DonatorePersistence" parent="basePersistence" />
+</beans>

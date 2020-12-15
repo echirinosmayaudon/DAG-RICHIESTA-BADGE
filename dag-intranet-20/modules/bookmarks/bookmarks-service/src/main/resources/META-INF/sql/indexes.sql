@@ -1,0 +1,1 @@
+create index IX_8AB0B09D on MEFINTRANET_Favourites (user_id);

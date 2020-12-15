@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="servizio.beni.facile.consumo.service.impl.CambioStatoDirigenteLocalServiceImpl" id="servizio.beni.facile.consumo.service.CambioStatoDirigenteLocalService" />
+	<bean class="servizio.beni.facile.consumo.service.impl.CambioStatoDirigenteServiceImpl" id="servizio.beni.facile.consumo.service.CambioStatoDirigenteService" />
+	<bean class="servizio.beni.facile.consumo.service.persistence.impl.CambioStatoDirigentePersistenceImpl" id="servizio.beni.facile.consumo.service.persistence.CambioStatoDirigentePersistence" parent="basePersistence" />
+	<bean class="servizio.beni.facile.consumo.service.impl.GestioneUtentiLocalServiceImpl" id="servizio.beni.facile.consumo.service.GestioneUtentiLocalService" />
+	<bean class="servizio.beni.facile.consumo.service.impl.GestioneUtentiServiceImpl" id="servizio.beni.facile.consumo.service.GestioneUtentiService" />
+	<bean class="servizio.beni.facile.consumo.service.persistence.impl.GestioneUtentiPersistenceImpl" id="servizio.beni.facile.consumo.service.persistence.GestioneUtentiPersistence" parent="basePersistence" />
+	<bean class="servizio.beni.facile.consumo.service.impl.PeriodicitaLocalServiceImpl" id="servizio.beni.facile.consumo.service.PeriodicitaLocalService" />
+	<bean class="servizio.beni.facile.consumo.service.impl.PeriodicitaServiceImpl" id="servizio.beni.facile.consumo.service.PeriodicitaService" />
+	<bean class="servizio.beni.facile.consumo.service.persistence.impl.PeriodicitaPersistenceImpl" id="servizio.beni.facile.consumo.service.persistence.PeriodicitaPersistence" parent="basePersistence" />
+	<bean class="servizio.beni.facile.consumo.service.impl.RigheRichiestaBFCLocalServiceImpl" id="servizio.beni.facile.consumo.service.RigheRichiestaBFCLocalService" />
+	<bean class="servizio.beni.facile.consumo.service.impl.RigheRichiestaBFCServiceImpl" id="servizio.beni.facile.consumo.service.RigheRichiestaBFCService" />
+	<bean class="servizio.beni.facile.consumo.service.persistence.impl.RigheRichiestaBFCPersistenceImpl" id="servizio.beni.facile.consumo.service.persistence.RigheRichiestaBFCPersistence" parent="basePersistence" />
+	<bean class="servizio.beni.facile.consumo.service.impl.ServizioMaterialeLocalServiceImpl" id="servizio.beni.facile.consumo.service.ServizioMaterialeLocalService" />
+	<bean class="servizio.beni.facile.consumo.service.impl.ServizioMaterialeServiceImpl" id="servizio.beni.facile.consumo.service.ServizioMaterialeService" />
+	<bean class="servizio.beni.facile.consumo.service.persistence.impl.ServizioMaterialePersistenceImpl" id="servizio.beni.facile.consumo.service.persistence.ServizioMaterialePersistence" parent="basePersistence" />
+	<bean class="servizio.beni.facile.consumo.service.impl.StatoLocalServiceImpl" id="servizio.beni.facile.consumo.service.StatoLocalService" />
+	<bean class="servizio.beni.facile.consumo.service.impl.StatoServiceImpl" id="servizio.beni.facile.consumo.service.StatoService" />
+	<bean class="servizio.beni.facile.consumo.service.persistence.impl.StatoPersistenceImpl" id="servizio.beni.facile.consumo.service.persistence.StatoPersistence" parent="basePersistence" />
+</beans>

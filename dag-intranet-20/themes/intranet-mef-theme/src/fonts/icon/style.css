@@ -1,0 +1,694 @@
+@font-face {
+  font-family: 'icomoon';
+  src:  url('fonts/icomoon.eot?pxhech');
+  src:  url('fonts/icomoon.eot?pxhech#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?pxhech') format('truetype'),
+    url('fonts/icomoon.woff?pxhech') format('woff'),
+    url('fonts/icomoon.svg?pxhech#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icomoon-"], [class*=" icomoon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icomoon-search:before {
+  content: "\e900";
+}
+.icomoon-apps:before {
+  content: "\e901";
+}
+.icomoon-notification:before {
+  content: "\e902";
+}
+.icomoon-favourites:before {
+  content: "\e903";
+}
+.icomoon-exit:before {
+  content: "\e924";
+}
+.icomoon-vai:before {
+  content: "\e92b";
+}
+.icomoon-user:before {
+  content: "\e908";
+}
+.icomoon-convenzioni-post-blu:before {
+  content: "\e92c";
+}
+.icomoon-mepa:before {
+  content: "\e925";
+}
+.icomoon-ferie-festivita:before {
+  content: "\e926";
+}
+.icomoon-straordinari:before {
+  content: "\e927";
+}
+.icomoon-buoni-pasto:before {
+  content: "\e928";
+}
+.icomoon-timbrature:before {
+  content: "\e929";
+}
+.icomoon-fax:before {
+  content: "\e921";
+}
+.icomoon-rubrica-tel:before {
+  content: "\e922";
+}
+.icomoon-profilo-mobile:before {
+  content: "\e923";
+}
+.icomoon-ico-r:before {
+  content: "\e910";
+}
+.icomoon-ico-a:before {
+  content: "\e91f";
+}
+.icomoon-rubrica:before {
+  content: "\e91d";
+}
+.icomoon-requests:before {
+  content: "\e91e";
+}
+.icomoon-mail:before {
+  content: "\e91b";
+}
+.icomoon-protocollo:before {
+  content: "\e91c";
+}
+.icomoon-ufficio-passi:before {
+  content: "\e904";
+}
+.icomoon-banche-dati:before {
+  content: "\e905";
+}
+.icomoon-rassegna-stampa:before {
+  content: "\e906";
+}
+.icomoon-ico-requests:before {
+  content: "\e907";
+}
+.icomoon-settings:before {
+  content: "\e909";
+}
+.icomoon-retweet:before {
+  content: "\e920";
+}
+.icomoon-comment:before {
+  content: "\e90a";
+}
+.icomoon-quotation-marks-open:before {
+  content: "\e90b";
+}
+.icomoon-quotation-marks-close:before {
+  content: "\e90c";
+}
+.icomoon-camera-multim:before {
+  content: "\e90d";
+}
+.icomoon-video-multim:before {
+  content: "\e90e";
+}
+.icomoon-info:before {
+  content: "\e90f";
+}
+.icomoon-pin:before {
+  content: "\e911";
+}
+.icomoon-time:before {
+  content: "\e913";
+}
+.icomoon-e-mail:before {
+  content: "\e914";
+}
+.icomoon-phone:before {
+  content: "\e915";
+}
+.icomoon-location:before {
+  content: "\e916";
+}
+.icomoon-whisteblowing:before {
+  content: "\e92a";
+}
+.icomoon-social-twitter:before {
+  content: "\e917";
+}
+.icomoon-social-telegram:before {
+  content: "\e918";
+}
+.icomoon-social-instagram:before {
+  content: "\e919";
+}
+.icomoon-social-youtube:before {
+  content: "\e91a";
+}
+.icomoon-social-flickr:before {
+  content: "\e92d";
+}
+.icomoon-star-color:before {
+  content: "\e92e";
+}
+.icomoon-plus:before {
+  content: "\e92f";
+}
+.icomoon-alert:before {
+  content: "\e930";
+}
+.icomoon-vedi-dark:before {
+  content: "\e931";
+}
+.icomoon-edi:before {
+  content: "\e933";
+}
+.icomoon-delete:before {
+  content: "\e934";
+}
+.icomoon-edit-border:before {
+  content: "\e932";
+}
+.icomoon-star-border:before {
+  content: "\e935";
+}
+.icomoon-add-border:before {
+  content: "\e936";
+}
+.icomoon-send-mail:before {
+  content: "\e937";
+}
+.icomoon-edit-tools:before {
+  content: "\e938";
+}
+.icomoon-star:before {
+  content: "\e939";
+}
+.icomoon-home:before {
+  content: "\e93a";
+}
+.icomoon-download:before {
+  content: "\e93b";
+}
+.icomoon-calendar:before {
+  content: "\e912";
+}
+.icomoon-pdf:before {
+  content: "\e93c";
+}
+.icomoon-arrow:before {
+  content: "\e93d";
+}
+.icomoon-categoria-generale:before {
+  content: "\e93e";
+}
+.icomoon-calendar-date:before {
+  content: "\e93f";
+}
+.icomoon-visits:before {
+  content: "\e940";
+}
+.icomoon-chiudi-dark:before {
+  content: "\e941";
+}
+.icomoon-link-button:before {
+  content: "\e942";
+}
+.icomoon-close-white:before {
+  content: "\e943";
+}
+.icomoon-arrow-dx:before {
+  content: "\e944";
+}
+.icomoon-personalizza:before {
+  content: "\e945";
+}
+.icomoon-play:before {
+  content: "\e946";
+}
+.icomoon-reduct-screen:before {
+  content: "\e947";
+}
+.icomoon-fullscreen:before {
+  content: "\e948";
+}
+.icomoon-pause:before {
+  content: "\e949";
+}
+.icomoon-update:before {
+  content: "\e94a";
+}
+.icomoon-hourglass:before {
+  content: "\e94b";
+}
+.icomoon-success-blu:before {
+  content: "\e94c";
+}
+.icomoon-riunione-wait:before {
+  content: "\e94d";
+}
+.icomoon-riunione-ok:before {
+  content: "\e94e";
+}
+.icomoon-riunione-ko:before {
+  content: "\e94f";
+}
+.icomoon-print:before {
+  content: "\e950";
+}
+.icomoon-meeting:before {
+  content: "\e951";
+}
+.icomoon-cancel:before {
+  content: "\e952";
+}
+.icomoon-riunione-alert:before {
+  content: "\e953";
+}
+.icomoon-sollecito-mail:before {
+  content: "\e954";
+}
+.icomoon-convocanti:before {
+  content: "\e955";
+}
+.icomoon-location2:before {
+  content: "\e956";
+}
+.icomoon-dati:before {
+  content: "\e957";
+}
+.icomoon-stato:before {
+  content: "\e958";
+}
+.icomoon-invitati:before {
+  content: "\e959";
+}
+.icomoon-pin-white-bold:before {
+  content: "\e95a";
+}
+.icomoon-success:before {
+  content: "\e95b";
+}
+.icomoon-evoluzione-stato:before {
+  content: "\e95c";
+}
+.icomoon-trash:before {
+  content: "\e967";
+}
+.icomoon-video-file:before {
+  content: "\e95d";
+}
+.icomoon-setting-file:before {
+  content: "\e95e";
+}
+.icomoon-zip-file:before {
+  content: "\e95f";
+}
+.icomoon-generic-file:before {
+  content: "\e960";
+}
+.icomoon-image-file:before {
+  content: "\e961";
+}
+.icomoon-pdf-file:before {
+  content: "\e962";
+}
+.icomoon-ppt-file:before {
+  content: "\e963";
+}
+.icomoon-word-file:before {
+  content: "\e964";
+}
+.icomoon-xls-file:before {
+  content: "\e965";
+}
+.icomoon-audio-file:before {
+  content: "\e966";
+}
+.icomoon-ministero:before {
+  content: "\e968";
+}
+.icomoon-dipartimento:before {
+  content: "\e969";
+}
+.icomoon-less:before {
+  content: "\e96a";
+}
+.icomoon-link-utili:before {
+  content: "\e96b";
+}
+.icomoon-cultura:before {
+  content: "\e96c";
+}
+.icomoon-sport-tempo-libero:before {
+  content: "\e96d";
+}
+.icomoon-servizi-bancari-finanziari-assicurativi:before {
+  content: "\e96e";
+}
+.icomoon-servizi-formativi-educativi:before {
+  content: "\e96f";
+}
+.icomoon-servizi-medico-sanitari-assistenziali:before {
+  content: "\e970";
+}
+.icomoon-spesa-ristorazione:before {
+  content: "\e971";
+}
+.icomoon-telefonia:before {
+  content: "\e972";
+}
+.icomoon-trasporto-parcheggi:before {
+  content: "\e973";
+}
+.icomoon-arredamento:before {
+  content: "\e974";
+}
+.icomoon-sport:before {
+  content: "\e975";
+}
+.icomoon-immobiliare:before {
+  content: "\e976";
+}
+.icomoon-auto:before {
+  content: "\e977";
+}
+.icomoon-altro:before {
+  content: "\e978";
+}
+.icomoon-due-ruote:before {
+  content: "\e979";
+}
+.icomoon-abbigliamento:before {
+  content: "\e97a";
+}
+.icomoon-regali:before {
+  content: "\e97b";
+}
+.icomoon-tempo-libero:before {
+  content: "\e97c";
+}
+.icomoon-word:before {
+  content: "\e97d";
+}
+.icomoon-web:before {
+  content: "\e97e";
+}
+.icomoon-video:before {
+  content: "\e97f";
+}
+.icomoon-img:before {
+  content: "\e982";
+}
+.icomoon-altro2:before {
+  content: "\e985";
+}
+.icomoon-document-audio:before {
+  content: "\e980";
+}
+.icomoon-document-excel:before {
+  content: "\e981";
+}
+.icomoon-document-ppt:before {
+  content: "\e983";
+}
+.icomoon-discuss-issue:before {
+  content: "\e984";
+}
+.icomoon-placeholder-2:before {
+  content: "\e986";
+}
+.icomoon-tickets:before {
+  content: "\e987";
+}
+.icomoon-group-7:before {
+  content: "\e988";
+}
+.icomoon-calendar-scadenza:before {
+  content: "\e989";
+}
+.icomoon-document-3:before {
+  content: "\e98a";
+}
+.icomoon-graphic-view:before {
+  content: "\e98b";
+  color: #455;
+}
+.icomoon-txt-view:before {
+  content: "\e98c";
+  color: #455;
+}
+.icomoon-tag:before {
+  content: "\e98d";
+}
+.icomoon-phone-call:before {
+  content: "\e98e";
+}
+.icomoon-print2:before {
+  content: "\e98f";
+}
+.icomoon-software:before {
+  content: "\e990";
+}
+.icomoon-server:before {
+  content: "\e991";
+}
+.icomoon-computer:before {
+  content: "\e992";
+}
+.icomoon-trash1:before {
+  content: "\e993";
+}
+.icomoon-file:before {
+  content: "\e994";
+}
+.icomoon-cart:before {
+  content: "\e995";
+}
+.icomoon-cart-2:before {
+  content: "\e997";
+}
+.icomoon-cart-3:before {
+  content: "\e99f";
+}
+.icomoon-condividi-stampanti:before {
+  content: "\e998";
+}
+.icomoon-folder:before {
+  content: "\e999";
+}
+.icomoon-email-servizi:before {
+  content: "\e99a";
+}
+.icomoon-altro-richiesta:before {
+  content: "\e99b";
+}
+.icomoon-question:before {
+  content: "\e99c";
+}
+.icomoon-profile:before {
+  content: "\e99d";
+}
+.icomoon-search-richiesta:before {
+  content: "\e99e";
+}
+.icomoon-group-21:before {
+  content: "\e996";
+}
+.icomoon-pdf-border:before {
+  content: "\e9a0";
+}
+.icomoon-add-documents:before {
+  content: "\e9a7";
+}
+.icomoon-user2:before {
+  content: "\e9a1";
+}
+.icomoon-categoria-informatica:before {
+  content: "\e9a2";
+}
+.icomoon-categoria-personale:before {
+  content: "\e9a3";
+}
+.icomoon-categoria-logistica:before {
+  content: "\e9a4";
+}
+.icomoon-question3:before {
+  content: "\e9a5";
+}
+.icomoon-question2:before {
+  content: "\e9a8";
+}
+.icomoon-question1:before {
+  content: "\e9a9";
+}
+.icomoon-lock:before {
+  content: "\e9a6";
+}
+.icomoon-unlocked:before {
+  content: "\e9aa";
+}
+.icomoon-partecipanti:before {
+  content: "\e9ab";
+}
+.icomoon-posti:before {
+  content: "\e9ac";
+}
+.icomoon-scarso:before {
+  content: "\e9ad";
+}
+.icomoon-sufficente:before {
+  content: "\e9ae";
+}
+.icomoon-buono:before {
+  content: "\e9af";
+}
+.icomoon-book:before {
+  content: "\e9b0";
+}
+.icomoon-allegati:before {
+  content: "\e9b1";
+}
+.icomoon-circolari:before {
+  content: "\e9b2";
+}
+.icomoon-collocazione:before {
+  content: "\e9b3";
+}
+.icomoon-glossario:before {
+  content: "\e9b4";
+}
+.icomoon-stampa:before {
+  content: "\e9b5";
+}
+.icomoon-uffici:before {
+  content: "\e9b6";
+}
+.icomoon-picture:before {
+  content: "\e9b7";
+}
+.icomoon-photo-camera:before {
+  content: "\e9b8";
+}
+.icomoon-commento:before {
+  content: "\e9b9";
+}
+.icomoon-info-icon:before {
+  content: "\e9ba";
+}
+.icomoon-sportello:before {
+  content: "\e9bb";
+}
+.icomoon-mef:before {
+  content: "\e9bc";
+}
+.icomoon-strumenti:before {
+  content: "\e9bd";
+}
+.icomoon-mef-per-me:before {
+  content: "\e9be";
+}
+.icomoon-info-news:before {
+  content: "\e9bf";
+}
+.icomoon-prenota-approvata:before {
+  content: "\e9c0";
+}
+.icomoon-assistenza:before {
+  content: "\e9c1";
+}
+.icomoon-Trasporto-Parcheggi:before {
+  content: "\e9c2";
+}
+.icomoon-Servizi-Professionali:before {
+  content: "\e9c3";
+}
+.icomoon-Spesa-ristorazione:before {
+  content: "\e9c4";
+}
+.icomoon-Servizi-medico-sanitari-assistenziali:before {
+  content: "\e9c5";
+}
+.icomoon-Servizi-bancari-finanziari-assicurativi:before {
+  content: "\e9c6";
+}
+.icomoon-Servizi-formativi-educativi:before {
+  content: "\e9c7";
+}
+.icomoon-Cultura-sport-tempo-libero:before {
+  content: "\e9c8";
+}
+.icomoon-Convenzioni-fondo-di-previdenza-MEF:before {
+  content: "\e9c9";
+}
+.icomoon-SPORT-HOBBY:before {
+  content: "\e9ca";
+}
+.icomoon-IMMOBILIARE:before {
+  content: "\e9cb";
+}
+.icomoon-AUTO:before {
+  content: "\e9cc";
+}
+.icomoon-CASA:before {
+  content: "\e9cd";
+}
+.icomoon-Telefonia:before {
+  content: "\e9ce";
+}
+.icomoon-Animali:before {
+  content: "\e9cf";
+}
+.icomoon-non-approvata:before {
+  content: "\e9d0";
+}
+.icomoon-in-approvazione:before {
+  content: "\e9d1";
+}
+.icomoon-approvata:before {
+  content: "\e9d2";
+}
+.icomoon-scala:before {
+  content: "\e9d3";
+}
+.icomoon-stanza:before {
+  content: "\e9d4";
+}
+.icomoon-piano:before {
+  content: "\e9d5";
+}
+.icomoon-social-linkedin:before {
+  content: "\e9d6";
+}
+.icomoon-altri-servizi:before {
+  content: "\e9d7";
+}
+.icomoon-servizi-assicurativi:before {
+  content: "\e9d8";
+}
+.icomoon-servizi-autorimessa-parcheggio:before {
+  content: "\e9d9";
+}
+.icomoon-servizi-mobilita:before {
+  content: "\e9da";
+}
+.icomoon-servizi-trasporto:before {
+  content: "\e9db";
+}
+.icomoon-servizi-settore-grande-distribuzione:before {
+  content: "\e9dc";
+}
+.icomoon-servizi-ricreativi-e-svago:before {
+  content: "\e9dd";
+}

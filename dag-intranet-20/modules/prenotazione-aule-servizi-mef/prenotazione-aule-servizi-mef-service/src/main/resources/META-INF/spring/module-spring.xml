@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="servizio.prenotazione.aule.servizi.mef.service.impl.ServLogLocalServiceImpl" id="servizio.prenotazione.aule.servizi.mef.service.ServLogLocalService" />
+	<bean class="servizio.prenotazione.aule.servizi.mef.service.impl.ServLogServiceImpl" id="servizio.prenotazione.aule.servizi.mef.service.ServLogService" />
+	<bean class="servizio.prenotazione.aule.servizi.mef.service.persistence.impl.ServLogPersistenceImpl" id="servizio.prenotazione.aule.servizi.mef.service.persistence.ServLogPersistence" parent="basePersistence" />
+	<bean class="servizio.prenotazione.aule.servizi.mef.service.impl.StrumEventoLocalServiceImpl" id="servizio.prenotazione.aule.servizi.mef.service.StrumEventoLocalService" />
+	<bean class="servizio.prenotazione.aule.servizi.mef.service.impl.StrumEventoServiceImpl" id="servizio.prenotazione.aule.servizi.mef.service.StrumEventoService" />
+	<bean class="servizio.prenotazione.aule.servizi.mef.service.persistence.impl.StrumEventoPersistenceImpl" id="servizio.prenotazione.aule.servizi.mef.service.persistence.StrumEventoPersistence" parent="basePersistence" />
+	<bean class="servizio.prenotazione.aule.servizi.mef.service.impl.StrumTecLocalServiceImpl" id="servizio.prenotazione.aule.servizi.mef.service.StrumTecLocalService" />
+	<bean class="servizio.prenotazione.aule.servizi.mef.service.impl.StrumTecServiceImpl" id="servizio.prenotazione.aule.servizi.mef.service.StrumTecService" />
+	<bean class="servizio.prenotazione.aule.servizi.mef.service.persistence.impl.StrumTecPersistenceImpl" id="servizio.prenotazione.aule.servizi.mef.service.persistence.StrumTecPersistence" parent="basePersistence" />
+</beans>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="servizio.beni.facile.consumo.richieste.service.impl.RigheRichBFCNewLocalServiceImpl" id="servizio.beni.facile.consumo.richieste.service.RigheRichBFCNewLocalService" />
+	<bean class="servizio.beni.facile.consumo.richieste.service.impl.RigheRichBFCNewServiceImpl" id="servizio.beni.facile.consumo.richieste.service.RigheRichBFCNewService" />
+	<bean class="servizio.beni.facile.consumo.richieste.service.persistence.impl.RigheRichBFCNewPersistenceImpl" id="servizio.beni.facile.consumo.richieste.service.persistence.RigheRichBFCNewPersistence" parent="basePersistence" />
+</beans>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="servizio.whistleblowing.mef">
+
+	<namespace>MEFWHISTLE</namespace>
+	
+	
+	<entity name="Segnalazione" local-service="true" remote-service="true">
+		<column name="id_segnalazione" type="long" primary="true" id-type="sequence" id-param="whistle_seq"></column>
+	    <column name="json_dati_personali" type="String"></column>   
+	    <column name="luogo" type="String"></column>   
+	    <column name="azioni_omissioni" type="String"></column>   
+	    <column name="descrizione" type="String"></column>   
+	    <column name="autore" type="String"></column>   
+	    <column name="altri_testimoni" type="String"></column>   
+	</entity>
+	
+	
+</service-builder>

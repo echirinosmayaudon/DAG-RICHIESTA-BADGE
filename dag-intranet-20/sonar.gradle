@@ -1,0 +1,21 @@
+file("sonar-project.properties").withReader {
+    Properties sonarProperties = new Properties()
+    sonarProperties.load(it)
+
+    sonarProperties.each { key, value ->
+        sonarqube {
+            properties {
+                property key, value
+            }
+        }
+    }
+}
+
+sonarqube {
+    properties {
+        property "sonar.host.url", System.getProperty('systemProp.sonar.host.url')
+        property "sonar.projectKey", System.getProperty('systemProp.sonar.projectKey')
+        property "sonar.branch", System.getProperty('systemProp.sonar.branch')
+        property "sonar.login", System.getProperty('systemProp.sonar.login')
+    }
+}

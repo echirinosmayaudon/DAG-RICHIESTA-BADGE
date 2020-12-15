@@ -1,0 +1,7 @@
+Bundle-SymbolicName: lavoro.agile.istanza.mef-api
+Bundle-Version: 1.0.1
+Export-Package:\
+	com.accenture.lavoro.agile.istanza.mef.exception,\
+	com.accenture.lavoro.agile.istanza.mef.model,\
+	com.accenture.lavoro.agile.istanza.mef.service,\
+	com.accenture.lavoro.agile.istanza.mef.service.persistence

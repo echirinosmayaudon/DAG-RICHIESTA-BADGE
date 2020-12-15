@@ -1,0 +1,3 @@
+Bundle-SymbolicName: mef.autologin
+Bundle-Version: 1.0.0
+-sources: true

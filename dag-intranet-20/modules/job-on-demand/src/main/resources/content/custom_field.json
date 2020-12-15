@@ -1,0 +1,8 @@
+[{'name':'personalId','type':'STRING', 'defaultValue':''}, 
+{'name':'idOrgChart','type':'STRING', 'defaultValue':''}, 
+{'name':'idDirector','type':'STRING', 'defaultValue':''},
+{'name':'levelId','type':'STRING', 'defaultValue':''},
+{'name':'dateRecruitment','type':'STRING', 'defaultValue':''},
+{'name':'dateStartAssignOffice','type':'STRING', 'defaultValue':''},
+{'name':'dateStartInquadramento','type':'STRING', 'defaultValue':''},
+{'name':'dateStartFunction','type':'STRING', 'defaultValue':''}]

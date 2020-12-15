@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="servizio.prenotazione.aule.servizi.mef.model.ServLog">
+		<field name="id_serv" type="long" />
+		<field name="id_sala" type="long" />
+		<field name="email_ref" type="String">
+			<hint name="max-length">250</hint>
+		</field>
+	</model>
+	<model name="servizio.prenotazione.aule.servizi.mef.model.StrumEvento">
+		<field name="id_strum" type="long" />
+		<field name="id_sala" type="long" />
+		<field name="email_ref" type="String">
+			<hint name="max-length">250</hint>
+		</field>
+	</model>
+	<model name="servizio.prenotazione.aule.servizi.mef.model.StrumTec">
+		<field name="id_strum" type="long" />
+		<field name="id_sala" type="long" />
+		<field name="email_ref" type="String">
+			<hint name="max-length">250</hint>
+		</field>
+	</model>
+</model-hints>

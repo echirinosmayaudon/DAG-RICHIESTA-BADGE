@@ -1,0 +1,148 @@
+.portlet-search{
+
+  .searchContainerInput{
+    .input-text-wrapper{
+
+      .field{
+        border-radius: 20px;
+        background-color: rgba(65, 72, 97, 0.7);
+        color: $white;
+        padding: 10px 14px;
+        opacity: 1;
+        border-bottom: none;
+      }
+    }
+
+    .field-wrapper{
+
+      .btn{
+        position: relative;
+        color: $white;
+        border: none;
+        margin-top: 2px;
+        opacity: 1;
+        background-color: rgba(65, 72, 97, 0.7);
+        border: 1px solid $white;
+        border-radius: 25px;
+      }
+    }
+  }
+
+  .search-layout{
+    .panel-default{
+      box-shadow: none;
+
+      .panel-heading{
+        background-color: $input-light-bkg;
+        border-radius: 10px;
+        border-color: snow;
+
+        .panel-title{
+          text-transform: uppercase;
+          color: $dark-grey-blue;
+          font-weight: bold;
+          font-size: 20px;
+        }
+      }
+
+      .panel-body{
+        .list-unstyled {
+          .default {
+            .text-primary {
+              color: $cerulean;
+              font-size: 16px;
+              font-weight: bold;
+
+
+              &:hover {
+                color: $bright-aqua;
+              }
+
+            }
+          }
+          .facet-value{
+            .text-default{
+              color: $cerulean;
+              font-size: 16px;
+
+              &:hover {
+                color: $bright-aqua;
+              }
+
+
+              .frequency{
+                color: $dark-grey-blue;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .main-content-body{
+      .tabular-list-group{
+        box-shadow: none;
+
+          .list-group-item-field{
+            border: 0;
+        }
+
+        .list-group-item-content{
+          border: 0;
+          a{
+            strong {
+              font-size: 20px;
+              color: $cerulean;
+
+              &:hover {
+                color: $bright-aqua;
+              }
+
+              }
+            }
+          }
+
+        h5 a:nth-child(2){
+          text-indent: -9999px;
+          background: url(../images/icons/ico-download.svg) 15px center no-repeat;
+          background-color: $grayLighter;
+          float: right;
+          padding: 15px 0;
+          border-radius: 8px;
+          display: inline-block;
+          width: 50px;
+
+
+          &:hover {
+            background-color: $hover-light;
+          }
+
+          &:active, &.active {
+            background-color: $hover-light;
+          }
+
+          &:disabled, &.disabled {
+            cursor: default;
+            background-color: $hover-light;
+          }
+        }
+
+          .text-default{
+            font-size: 14px;
+            color: $dark-grey-blue;
+
+
+              .taglib-asset-tags-summary{
+              .badge-default{
+                border-radius: 100px;
+                background-color: rgba(65, 73, 96, 0.8);
+                border: solid 1px #ffffff;
+                color: white;
+                padding: 7px 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }

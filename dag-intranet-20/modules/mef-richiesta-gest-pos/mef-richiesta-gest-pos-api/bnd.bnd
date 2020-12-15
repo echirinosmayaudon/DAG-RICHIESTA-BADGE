@@ -1,0 +1,10 @@
+Bundle-Name: mef-richiesta-gest-pos-api
+Bundle-SymbolicName: mef.richiesta.gest.pos.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	mef.richiesta.gest.pos.exception,\
+	mef.richiesta.gest.pos.model,\
+	mef.richiesta.gest.pos.service,\
+	mef.richiesta.gest.pos.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../mef-richiesta-gest-pos-service/service.xml

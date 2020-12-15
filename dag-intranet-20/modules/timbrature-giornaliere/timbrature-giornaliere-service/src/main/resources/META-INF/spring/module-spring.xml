@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="com.intranet.mef.daily.punching.service.impl.DailyPunchingLocalServiceImpl" id="com.intranet.mef.daily.punching.service.DailyPunchingLocalService" />
+	<bean class="com.intranet.mef.daily.punching.service.impl.DailyPunchingServiceImpl" id="com.intranet.mef.daily.punching.service.DailyPunchingService" />
+	<bean class="com.intranet.mef.daily.punching.service.persistence.impl.DailyPunchingPersistenceImpl" id="com.intranet.mef.daily.punching.service.persistence.DailyPunchingPersistence" parent="basePersistence">
+		<property name="dataSource" ref="timbrature" />
+	</bean>
+</beans>

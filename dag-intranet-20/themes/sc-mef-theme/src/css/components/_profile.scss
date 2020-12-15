@@ -1,0 +1,85 @@
+$screen-full-layout: $screen-md;
+$screen-collapsed-layout-max: $screen-sm-max;
+
+.contacts-portlet {
+
+	.contacts-container {
+
+		.field-group.lfr-detail-info {
+			float: none;
+
+			.lfr-contact-password {
+				font-size: 12px;
+				z-index: 2;
+				display: none;
+			}
+
+			i {
+				left: 90%;
+				top: 20px;
+				z-index: 2;
+				display: inline-block;
+			}
+
+			@media (min-width: $screen-collapsed-layout-max) {
+
+				i {
+					left: 90%;
+					z-index: 2;
+					display: none;
+				}
+
+				.lfr-contact-thumb {
+					width: auto;
+
+					a {
+
+						img {
+							width: 50px;
+						}
+					}
+				}
+
+				.lfr-contact-info {
+					margin: 0;
+				}
+
+				.lfr-contact-name {
+					font-size: 30px;
+				}
+
+				.lfr-contact-job-title {
+					font-size: 12px;
+				}
+
+				.lfr-contact-extra {
+					font-size: 18px;
+				}
+			}
+		}
+		.lfr-user-info-container{
+			.lfr-user-email-addresses{
+				display: none;
+			}
+			.lfr-user-addresses{
+				display: none;
+			}
+		}
+	}
+
+	.lfr-autorow-controls {
+		border: none;
+
+		.toolbar-content {
+			float: right;
+		}
+	}
+	.profile-actions{
+		.field-actions-toolbar{
+			.lfr-token[data-sectionid~="additionalEmailAddresses"] {
+				display: none;
+			}
+		}
+
+	}
+}

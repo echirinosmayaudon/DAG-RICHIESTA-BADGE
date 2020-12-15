@@ -1,0 +1,5 @@
+Bundle-SymbolicName: mef.richieste.badge.form
+Bundle-Version: 2.0.10
+-includeresource:\
+        @poi-[0-9]*.jar;lib=true,\
+        @commons-collections4-[0-9]*.jar;lib=true

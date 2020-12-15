@@ -1,0 +1,296 @@
+/**
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+
+package com.mef.geco.intranet.service.persistence;
+
+import aQute.bnd.annotation.ProviderType;
+
+import com.liferay.portal.kernel.service.persistence.BasePersistence;
+
+import com.mef.geco.intranet.exception.NoSuchsupportDataException;
+import com.mef.geco.intranet.model.supportData;
+
+/**
+ * The persistence interface for the support data service.
+ *
+ * <p>
+ * Caching information and settings can be found in <code>portal.properties</code>
+ * </p>
+ *
+ * @author Brian Wing Shun Chan
+ * @see com.mef.geco.intranet.service.persistence.impl.supportDataPersistenceImpl
+ * @see supportDataUtil
+ * @generated
+ */
+@ProviderType
+public interface supportDataPersistence extends BasePersistence<supportData> {
+	/*
+	 * NOTE FOR DEVELOPERS:
+	 *
+	 * Never modify or reference this interface directly. Always use {@link supportDataUtil} to access the support data persistence. Modify <code>service.xml</code> and rerun ServiceBuilder to regenerate this interface.
+	 */
+
+	/**
+	* Returns all the support datas where uuid = &#63;.
+	*
+	* @param uuid the uuid
+	* @return the matching support datas
+	*/
+	public java.util.List<supportData> findByUuid(java.lang.String uuid);
+
+	/**
+	* Returns a range of all the support datas where uuid = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link supportDataModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param uuid the uuid
+	* @param start the lower bound of the range of support datas
+	* @param end the upper bound of the range of support datas (not inclusive)
+	* @return the range of matching support datas
+	*/
+	public java.util.List<supportData> findByUuid(java.lang.String uuid,
+		int start, int end);
+
+	/**
+	* Returns an ordered range of all the support datas where uuid = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link supportDataModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param uuid the uuid
+	* @param start the lower bound of the range of support datas
+	* @param end the upper bound of the range of support datas (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching support datas
+	*/
+	public java.util.List<supportData> findByUuid(java.lang.String uuid,
+		int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<supportData> orderByComparator);
+
+	/**
+	* Returns an ordered range of all the support datas where uuid = &#63;.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link supportDataModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param uuid the uuid
+	* @param start the lower bound of the range of support datas
+	* @param end the upper bound of the range of support datas (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of matching support datas
+	*/
+	public java.util.List<supportData> findByUuid(java.lang.String uuid,
+		int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<supportData> orderByComparator,
+		boolean retrieveFromCache);
+
+	/**
+	* Returns the first support data in the ordered set where uuid = &#63;.
+	*
+	* @param uuid the uuid
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching support data
+	* @throws NoSuchsupportDataException if a matching support data could not be found
+	*/
+	public supportData findByUuid_First(java.lang.String uuid,
+		com.liferay.portal.kernel.util.OrderByComparator<supportData> orderByComparator)
+		throws NoSuchsupportDataException;
+
+	/**
+	* Returns the first support data in the ordered set where uuid = &#63;.
+	*
+	* @param uuid the uuid
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the first matching support data, or <code>null</code> if a matching support data could not be found
+	*/
+	public supportData fetchByUuid_First(java.lang.String uuid,
+		com.liferay.portal.kernel.util.OrderByComparator<supportData> orderByComparator);
+
+	/**
+	* Returns the last support data in the ordered set where uuid = &#63;.
+	*
+	* @param uuid the uuid
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching support data
+	* @throws NoSuchsupportDataException if a matching support data could not be found
+	*/
+	public supportData findByUuid_Last(java.lang.String uuid,
+		com.liferay.portal.kernel.util.OrderByComparator<supportData> orderByComparator)
+		throws NoSuchsupportDataException;
+
+	/**
+	* Returns the last support data in the ordered set where uuid = &#63;.
+	*
+	* @param uuid the uuid
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the last matching support data, or <code>null</code> if a matching support data could not be found
+	*/
+	public supportData fetchByUuid_Last(java.lang.String uuid,
+		com.liferay.portal.kernel.util.OrderByComparator<supportData> orderByComparator);
+
+	/**
+	* Returns the support datas before and after the current support data in the ordered set where uuid = &#63;.
+	*
+	* @param id the primary key of the current support data
+	* @param uuid the uuid
+	* @param orderByComparator the comparator to order the set by (optionally <code>null</code>)
+	* @return the previous, current, and next support data
+	* @throws NoSuchsupportDataException if a support data with the primary key could not be found
+	*/
+	public supportData[] findByUuid_PrevAndNext(long id, java.lang.String uuid,
+		com.liferay.portal.kernel.util.OrderByComparator<supportData> orderByComparator)
+		throws NoSuchsupportDataException;
+
+	/**
+	* Removes all the support datas where uuid = &#63; from the database.
+	*
+	* @param uuid the uuid
+	*/
+	public void removeByUuid(java.lang.String uuid);
+
+	/**
+	* Returns the number of support datas where uuid = &#63;.
+	*
+	* @param uuid the uuid
+	* @return the number of matching support datas
+	*/
+	public int countByUuid(java.lang.String uuid);
+
+	/**
+	* Caches the support data in the entity cache if it is enabled.
+	*
+	* @param supportData the support data
+	*/
+	public void cacheResult(supportData supportData);
+
+	/**
+	* Caches the support datas in the entity cache if it is enabled.
+	*
+	* @param supportDatas the support datas
+	*/
+	public void cacheResult(java.util.List<supportData> supportDatas);
+
+	/**
+	* Creates a new support data with the primary key. Does not add the support data to the database.
+	*
+	* @param id the primary key for the new support data
+	* @return the new support data
+	*/
+	public supportData create(long id);
+
+	/**
+	* Removes the support data with the primary key from the database. Also notifies the appropriate model listeners.
+	*
+	* @param id the primary key of the support data
+	* @return the support data that was removed
+	* @throws NoSuchsupportDataException if a support data with the primary key could not be found
+	*/
+	public supportData remove(long id) throws NoSuchsupportDataException;
+
+	public supportData updateImpl(supportData supportData);
+
+	/**
+	* Returns the support data with the primary key or throws a {@link NoSuchsupportDataException} if it could not be found.
+	*
+	* @param id the primary key of the support data
+	* @return the support data
+	* @throws NoSuchsupportDataException if a support data with the primary key could not be found
+	*/
+	public supportData findByPrimaryKey(long id)
+		throws NoSuchsupportDataException;
+
+	/**
+	* Returns the support data with the primary key or returns <code>null</code> if it could not be found.
+	*
+	* @param id the primary key of the support data
+	* @return the support data, or <code>null</code> if a support data with the primary key could not be found
+	*/
+	public supportData fetchByPrimaryKey(long id);
+
+	@Override
+	public java.util.Map<java.io.Serializable, supportData> fetchByPrimaryKeys(
+		java.util.Set<java.io.Serializable> primaryKeys);
+
+	/**
+	* Returns all the support datas.
+	*
+	* @return the support datas
+	*/
+	public java.util.List<supportData> findAll();
+
+	/**
+	* Returns a range of all the support datas.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link supportDataModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param start the lower bound of the range of support datas
+	* @param end the upper bound of the range of support datas (not inclusive)
+	* @return the range of support datas
+	*/
+	public java.util.List<supportData> findAll(int start, int end);
+
+	/**
+	* Returns an ordered range of all the support datas.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link supportDataModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param start the lower bound of the range of support datas
+	* @param end the upper bound of the range of support datas (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of support datas
+	*/
+	public java.util.List<supportData> findAll(int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<supportData> orderByComparator);
+
+	/**
+	* Returns an ordered range of all the support datas.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link supportDataModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param start the lower bound of the range of support datas
+	* @param end the upper bound of the range of support datas (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @param retrieveFromCache whether to retrieve from the finder cache
+	* @return the ordered range of support datas
+	*/
+	public java.util.List<supportData> findAll(int start, int end,
+		com.liferay.portal.kernel.util.OrderByComparator<supportData> orderByComparator,
+		boolean retrieveFromCache);
+
+	/**
+	* Removes all the support datas from the database.
+	*/
+	public void removeAll();
+
+	/**
+	* Returns the number of support datas.
+	*
+	* @return the number of support datas
+	*/
+	public int countAll();
+
+	@Override
+	public java.util.Set<java.lang.String> getBadColumnNames();
+}

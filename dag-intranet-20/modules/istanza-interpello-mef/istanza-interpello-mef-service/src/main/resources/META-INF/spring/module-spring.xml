@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<beans
+	default-destroy-method="destroy"
+	default-init-method="afterPropertiesSet"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+	<bean class="com.accenture.istanza.interpello.service.impl.EmailLocalServiceImpl" id="com.accenture.istanza.interpello.service.EmailLocalService" />
+	<bean class="com.accenture.istanza.interpello.service.impl.EmailServiceImpl" id="com.accenture.istanza.interpello.service.EmailService" />
+	<bean class="com.accenture.istanza.interpello.service.persistence.impl.EmailPersistenceImpl" id="com.accenture.istanza.interpello.service.persistence.EmailPersistence" parent="basePersistence" />
+	<bean class="com.accenture.istanza.interpello.service.impl.RichInterpelloLocalServiceImpl" id="com.accenture.istanza.interpello.service.RichInterpelloLocalService" />
+	<bean class="com.accenture.istanza.interpello.service.impl.RichInterpelloServiceImpl" id="com.accenture.istanza.interpello.service.RichInterpelloService" />
+	<bean class="com.accenture.istanza.interpello.service.persistence.impl.RichInterpelloPersistenceImpl" id="com.accenture.istanza.interpello.service.persistence.RichInterpelloPersistence" parent="basePersistence" />
+	<bean class="com.accenture.istanza.interpello.service.persistence.impl.RichInterpelloFinderImpl" id="com.accenture.istanza.interpello.service.persistence.RichInterpelloFinder" parent="basePersistence" />
+	<bean class="com.accenture.istanza.interpello.service.impl.TextRichLocalServiceImpl" id="com.accenture.istanza.interpello.service.TextRichLocalService" />
+	<bean class="com.accenture.istanza.interpello.service.impl.TextRichServiceImpl" id="com.accenture.istanza.interpello.service.TextRichService" />
+	<bean class="com.accenture.istanza.interpello.service.persistence.impl.TextRichPersistenceImpl" id="com.accenture.istanza.interpello.service.persistence.TextRichPersistence" parent="basePersistence" />
+</beans>

@@ -1,0 +1,126 @@
+.portlet-wiki {
+  .main-content-body {
+    .page-actions {
+      .taglib-icon {
+        border: 1px solid $dark-grey-blue;
+        border-radius: 3px;
+        padding: 10px 15px;
+      }
+
+      .stats {
+        font-weight: bold;
+        color: $dark-grey-blue;
+      }
+
+      .taglib-text{
+        text-decoration: none;
+        color: $dark-grey-blue;
+      }
+
+    }
+
+    .panel-default {
+      margin-top: 25px;
+
+      .collapse-icon-middle {
+        font-size: 25px;
+        text-align: left;
+        color: $dark-grey-blue;
+      }
+
+      .typo-h2{
+        color: $dark-grey-blue;
+      }
+    }
+
+
+
+    .lfr-discussion-body {
+      margin-left: 0;
+
+      .text-mandatory{
+        font-size: 12px;
+        color: $dark-grey-blue;
+      }
+
+      .alloy-editor-container {
+        .alloy-editor {
+          &:not(:focus) {
+            padding: 20px 30px;
+            border-radius: 16px;
+            background-color: $input-light-bkg;
+            border: solid 1px $input-light-bkg;
+            border-left: none !important;
+          }
+
+          &:focus {
+            padding: 20px 30px;
+            border-radius: 16px;
+            background-color: $input-light-bkg;
+            border: solid 1px $input-light-bkg;
+          }
+        }
+      }
+
+      .form-control {
+        height: 123px;
+        border-radius: 16px;
+        background-color: $input-light-bkg;
+        border: 1px solid $input-light-bkg;
+        padding: 20px;
+        resize: none;
+        margin-bottom: 25px;
+      }
+
+    }
+
+
+    .lfr-discussion {
+
+      .card-row {
+        position: relative;
+        .card-col-content {
+          display: inline;
+        }
+        .card-col-field {
+          position: absolute;
+          right: 30px;
+          margin-top: 20px;
+          top: 0;
+        }
+      }
+
+      .lfr-discussion-message {
+
+        .grey-box {
+          background-color: $light-grey;
+
+          .box-date {
+            font-size: 14px;
+            color: $navy-blue;
+            padding: 30px 45px 0;
+            margin-bottom: 0;
+            text-transform: uppercase;
+          }
+
+          .typo-h3 {
+            padding: 0 20px 0;
+            font-size: 20px;
+            font-weight: bold;
+            color: $navy-blue;
+            margin-top: 0;
+            margin-bottom: 0;
+            position: absolute;
+            top: 25px;
+          }
+
+          .copy-text {
+            padding: 20px 20px 35px;
+          }
+        }
+      }
+    }
+  }
+}
+
+

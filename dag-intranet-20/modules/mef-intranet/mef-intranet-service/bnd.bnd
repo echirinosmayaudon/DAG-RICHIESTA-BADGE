@@ -1,0 +1,11 @@
+Bundle-SymbolicName: mef.intranet-service
+Bundle-Version: 1.0.1
+Export-Package:com.mef.intranet.rubrica.exception, \
+com.mef.intranet.rubrica.model, \
+com.mef.intranet.rubrica.service, \
+com.mef.intranet.rubrica.service.persistence, \
+it.intranetdag.rubrica.business.dao.model.xsd, \
+it.intranetdag.rubrica.services, \
+it.intranetdag.rubrica.services.vo.xsd  
+Liferay-Require-SchemaVersion: 1.0.0
+Liferay-Service: true

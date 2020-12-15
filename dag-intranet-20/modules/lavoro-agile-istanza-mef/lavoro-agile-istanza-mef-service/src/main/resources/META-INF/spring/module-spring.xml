@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<beans
+	default-destroy-method="destroy"
+	default-init-method="afterPropertiesSet"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+	<bean class="com.accenture.lavoro.agile.istanza.mef.service.impl.EmailLocalServiceImpl" id="com.accenture.lavoro.agile.istanza.mef.service.EmailLocalService" />
+	<bean class="com.accenture.lavoro.agile.istanza.mef.service.impl.EmailServiceImpl" id="com.accenture.lavoro.agile.istanza.mef.service.EmailService" />
+	<bean class="com.accenture.lavoro.agile.istanza.mef.service.persistence.impl.EmailPersistenceImpl" id="com.accenture.lavoro.agile.istanza.mef.service.persistence.EmailPersistence" parent="basePersistence" />
+	<bean class="com.accenture.lavoro.agile.istanza.mef.service.impl.OpzioneRichLocalServiceImpl" id="com.accenture.lavoro.agile.istanza.mef.service.OpzioneRichLocalService" />
+	<bean class="com.accenture.lavoro.agile.istanza.mef.service.impl.OpzioneRichServiceImpl" id="com.accenture.lavoro.agile.istanza.mef.service.OpzioneRichService" />
+	<bean class="com.accenture.lavoro.agile.istanza.mef.service.persistence.impl.OpzioneRichPersistenceImpl" id="com.accenture.lavoro.agile.istanza.mef.service.persistence.OpzioneRichPersistence" parent="basePersistence" />
+	<bean class="com.accenture.lavoro.agile.istanza.mef.service.impl.RichLavAgileLocalServiceImpl" id="com.accenture.lavoro.agile.istanza.mef.service.RichLavAgileLocalService" />
+	<bean class="com.accenture.lavoro.agile.istanza.mef.service.impl.RichLavAgileServiceImpl" id="com.accenture.lavoro.agile.istanza.mef.service.RichLavAgileService" />
+	<bean class="com.accenture.lavoro.agile.istanza.mef.service.persistence.impl.RichLavAgilePersistenceImpl" id="com.accenture.lavoro.agile.istanza.mef.service.persistence.RichLavAgilePersistence" parent="basePersistence" />
+	<bean class="com.accenture.lavoro.agile.istanza.mef.service.persistence.impl.RichLavAgileFinderImpl" id="com.accenture.lavoro.agile.istanza.mef.service.persistence.RichLavAgileFinder" parent="basePersistence" />
+</beans>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="servizio.beni.facile.consumo.richieste.model.RigheRichBFCNew" />
+	<class name="servizio.beni.facile.consumo.richieste.model.impl.RigheRichBFCNewImpl" table="MEFRICHBFC_RigheRichBFCNew">
+		<id column="id_" name="id" type="long">
+			<generator class="sequence">
+				<param name="sequence">righerichnew_seq</param>
+			</generator>
+		</id>
+		<property name="id_rich" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="dipartimento" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dati1" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dati2" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dati3" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dati4" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

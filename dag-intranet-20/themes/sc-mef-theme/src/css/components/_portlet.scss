@@ -1,0 +1,33 @@
+.sc-dockbar .portlet-header {
+	margin: 0px;
+}
+
+.portlet-decorate{
+	.portlet-header {
+		margin: 0;
+
+		.portlet-topper-toolbar {
+			float: right;
+			margin: 0px;
+
+			> .dropdown {
+				background: none;
+			}
+		}
+	}
+
+	.portlet-title-text{
+		display: none;
+	}
+
+	.portlet-content{
+		border: none;
+		box-shadow: 0 2px 22px 0 rgba(0, 0, 0, 0.2);
+		border-radius: 4px;
+	}
+
+	menu {
+		position: relative;
+		bottom: 2em;
+	}
+}

@@ -1,0 +1,7 @@
+Bundle-SymbolicName: mef.webcontent.config-api
+Bundle-Version: 1.0.0
+Export-Package:\
+	mef.webcontent.config.exception,\
+	mef.webcontent.config.model,\
+	mef.webcontent.config.service,\
+	mef.webcontent.config.service.persistence

@@ -1,0 +1,1 @@
+nuovo servizio utile alla nuova funzionalità di richiesta badge (evolutive)

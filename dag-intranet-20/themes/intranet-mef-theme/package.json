@@ -1,0 +1,38 @@
+{
+  "name": "intranet-mef-theme",
+  "version": "1.0.47",
+  "keywords": [
+    "liferay-theme"
+  ],
+  "scripts": {
+    "deploy:gogo": "gulp deploy:gogo",
+    "format": "prettier --write --tab-width 4 --use-tabs --single-quote \"src/css/**/*.scss\" \"src/js/*.js\" \"src/js/modules/**/*.js\""
+  },
+  "liferayTheme": {
+    "baseTheme": "styled",
+    "screenshot": "",
+    "rubySass": false,
+    "templateLanguage": "ftl",
+    "version": "7.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "liferay-theme-deps-7.0": "1.0.0",
+    "liferay-theme-tasks": "1.4.5",
+    "prettier": "^1.4.4"
+  },
+  "publishConfig": {
+    "tag": "7_0_x",
+    "registry": "http://10.100.130.22:8081/nexus/repository/npmgroup/"
+  },
+	"author": {
+        "email": "dag.intranet@tesoro.it",
+        "name": "dag.intranet"
+    },
+    "license": "ISC",
+    "repository": {
+      "type": "git",
+      "url": "https://gitlab.mef.gov.it/04/area_0118/intranetmefliferay.git"
+    }
+
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="servizio.richiesta.trasporti.model.Mobilita" />
+	<class name="servizio.richiesta.trasporti.model.impl.MobilitaImpl" table="LF_MOBILITA">
+		<id column="CUSTOM_KEY" name="custom_key" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property column="PERSON_ID" name="person_id" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property column="TIPO_MOBILITA" name="tipo_mobilita" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

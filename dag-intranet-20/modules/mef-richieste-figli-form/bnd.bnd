@@ -1,0 +1,26 @@
+Bundle-Name: mef-richieste-figli-form
+Bundle-SymbolicName: mef.richieste.figli.form
+Bundle-Version: 1.0.0
+
+Export-Package: mef.richieste.figli.form.constants
+-jsp: *.jsp,*.jspf
+-plugin.jsp: com.liferay.ant.bnd.jsp.JspAnalyzerPlugin
+-plugin.resourcebundle: com.liferay.ant.bnd.resource.bundle.ResourceBundleLoaderAnalyzerPlugin
+-plugin.sass: com.liferay.ant.bnd.sass.SassAnalyzerPlugin
+-sass: *
+
+Import-Package: \
+javax.imageio.*,\
+*;resolution:=optional
+
+
+Bundle-ClassPath:\
+    .,\
+    lib/pdfbox-2.0.3.jar,\
+    lib/fontbox-2.0.3.jar
+    
+Include-Resource:\
+    lib/pdfbox-2.0.3.jar=pdfbox-2.0.3.jar,\
+    lib/fontbox-2.0.3.jar=fontbox-2.0.3.jar
+      
+-metatype: *

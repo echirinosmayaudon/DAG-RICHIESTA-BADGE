@@ -1,0 +1,6 @@
+Bundle-Name: form-richiesta-utenza-sistemi-informatici
+Bundle-SymbolicName: form.richiesta.utenza.sistemi.informatici
+Bundle-Version: 1.0.1
+-includeresource:\
+        @poi-[0-9]*.jar;lib=true,\
+        @commons-collections4-[0-9]*.jar;lib=true 

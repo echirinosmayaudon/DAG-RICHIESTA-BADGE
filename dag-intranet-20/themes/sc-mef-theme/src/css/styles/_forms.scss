@@ -1,0 +1,35 @@
+form {
+	fieldset {
+		input {
+			color: $black;
+
+			&.focus {
+				color: $black;
+
+				&::placeholder {
+					color: $black;
+				}
+
+				&::after {
+					background-color: $black;
+				}
+			}
+
+			&:focus, &:active {
+				color: $black;
+
+				&::placeholder {
+					color: $black;
+				}
+
+				&::after {
+					background-color: $black;
+				}
+			}
+		}
+
+		textarea {
+			color: $black;
+		}
+	}
+}

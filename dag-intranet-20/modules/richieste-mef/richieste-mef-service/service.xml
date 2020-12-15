@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder package-path="service.intranet.mef">
+
+	<namespace>MFORM</namespace>
+
+	<entity name="TipologiaComputer" local-service="true" remote-service="true">
+		<column name="id_tipologia_computer" type="long" primary="true" id-type="increment"></column>
+	    <column name="descrizione" type="String"></column>   
+	</entity>
+	
+	<entity name="TipologiaStampanti" local-service="true" remote-service="true">
+		<column name="id_tipologia_stampanti" type="long" primary="true" id-type="increment"></column>
+	    <column name="descrizione" type="String"></column>   
+	</entity>
+	
+	<entity name="TipologiaDispositivi" local-service="true" remote-service="true">
+		<column name="id_tipologia_dispositivi" type="long" primary="true" id-type="increment"></column>
+	    <column name="descrizione" type="String"></column>   
+	</entity>
+	
+	<entity name="RichiesteHW" local-service="true" remote-service="true">
+		<column name="id_richieste_hw" type="long" primary="true" id-type="sequence" id-param="richiestehw_seq"></column>
+	    <column name="utente" type="String"></column>
+	    <column name="dettaglio" type="String"></column>  
+	    <column name="data_richiesta" type="Date"></column>       
+	</entity>
+	
+	<entity name="RichiesteUtenza" local-service="true" remote-service="true">
+		<column name="id_richieste_utenza" type="long" primary="true" id-type="sequence" id-param="richuten_seq"></column>
+	    <column name="utente" type="String"></column>
+	    <column name="destinatario" type="String"></column>
+	    <column name="dettaglio" type="String"></column>  
+	    <column name="data_richiesta" type="Date"></column>       
+	</entity>
+	
+	  <entity name="ModuloTrasporti" local-service="true"  remote-service="true">
+            <column name="id_modulo_trasporti" type="long" primary="true" id-type="sequence" id-param="modtrasporti_seq"></column>
+            <column name="cognome" type="String"></column>         
+            <column name="nome" type="String"></column>
+            <column name="codice_fiscale" type="String"></column>
+            <column name="utente_inserimento" type="String"></column>
+            <column name="data_inserimento" type="Date"></column>
+            <column name="flag_tipospesa" type="String"></column>
+            <column name="iban" type="String"></column>
+            <column name="importo" type="String"></column>
+            <column name="data_titolo_annuale" type="Date"></column>
+            <column name="nr_titoli_mensili" type="String"></column>
+            <column name="figlio_nome" type="String"></column>
+            <column name="figlio_cognome" type="String"></column>
+            <column name="figlio_data_nascita" type="Date"></column>
+            <column name="figlio_luogo_data" type="String"></column>
+            <column name="figlio_codicefiscale" type="String"></column>
+            <column name="note" type="String"></column>
+            <column name="flag_inviato" type="String"></column>
+            <column name="telefono" type="String"></column>
+            <column name="allegatoUuid" type="String"></column>
+      </entity>
+      
+	 <entity name="HardwareTecnici" local-service="true"  remote-service="true">
+	 <column name="id" type="long" primary="true" id-type="increment"></column>
+	 <column name="descrizione" type="String"></column>
+	 </entity>
+	 
+	 <entity name="Asset" local-service="true"  remote-service="true">
+	 <column name="id" type="long" primary="true" id-type="increment"></column>
+	 <column name="descrizione" type="String"></column>
+	 </entity>
+     
+     <entity name="RichiestaInterventi" local-service="true" remote-service="true">
+		<column name="id" type="long" primary="true" id-type="sequence" id-param="rich_interventi_seq"></column>
+	    <column name="utente" type="String"></column>
+	    <column name="dettaglio" type="String"></column>  
+	    <column name="data_interventi" type="Date"></column>       
+	</entity>
+	
+	<entity name="RichiestaBeneInv" local-service="true" remote-service="true">
+          <column name="id_richiesta" type="long" primary="true" id-type="sequence" id-param="richiestabene_seq"></column>
+          <column name="utente" type="String"></column>
+          <column name="nome_rich" type="String"></column> 
+          <column name="cogn_rich" type="String"></column> 
+          <column name="dip_dir" type="String"></column> 
+          <column name="dati_rich" type="String"></column> 
+          <column name="oggetto" type="String"></column>                      
+          <column name="data" type="Date"></column>                               
+          <column name="beneficiario" type="String"></column>
+          <column name="destinazione" type="String"></column>
+          <column name="id_stato" type="long"></column>
+          <column name="note_consegn" type="String"></column>
+                               
+       <order by="desc">
+       <order-column name="data" />
+       <order-column name="id_richiesta" /> 
+       </order>       
+                      
+         <finder name="Utente" return-type="Collection" db-index="false">
+         <finder-column name="utente"></finder-column>
+         </finder>
+                
+                
+         <finder name="Dipartimento" return-type="Collection" db-index="false">
+         <finder-column name="dip_dir"></finder-column>
+         </finder>
+         
+            <finder name="DipartimentoStato" return-type="Collection" db-index="false">
+         <finder-column name="dip_dir"></finder-column>
+         <finder-column name="id_stato"></finder-column>
+         </finder>
+         </entity>
+
+
+<entity name="BeneInvRichiesto" local-service="true" remote-service="true">
+         <column name="id_bene_rich" type="long" primary="true" id-type="sequence" id-param="benerich_seq"></column>
+         <column name="tipologia" type="String"></column>
+         <column name="descrizione" type="String"></column>
+         <column name="quantita" type="int"></column>
+         <column name="dettagli" type="String"></column>
+         <column name="in_elenco" type="boolean"></column>
+         <column name="id_richiesta" type="long"></column>
+                
+                <finder name="BeniInvRichiestiList" return-type="Collection" db-index="false">
+         <finder-column name="id_richiesta"/>
+         <finder-column name="in_elenco"/>
+         </finder>
+                </entity>
+
+	
+	<entity name="StatoRichBeneInv" local-service="true" remote-service="true">
+		<column name="id" type="long" primary="true" id-type="increment"></column>
+	    <column name="stato" type="String"></column>   
+	    
+	    <finder name="NomeStato" return-type="Collection" db-index="false">
+         <finder-column name="stato"></finder-column>
+         </finder>   
+	</entity>
+	
+	<entity name="TipoBeneInv" local-service="true" remote-service="true">
+		<column name="id" type="long" primary="true" id-type="increment"></column>
+	    <column name="tipo" type="String"></column>
+	</entity>
+	
+	<entity name="BeneInv" local-service="true" remote-service="true">
+		<column name="id" type="long" primary="true" id-type="increment"></column>
+	    <column name="bene" type="String"></column>
+		<column name="id_tipo" type="long"></column>
+		
+		 <finder name="TipoBeneInv" return-type="Collection" db-index="false">
+         <finder-column name="id_tipo"></finder-column>
+         </finder>
+	</entity>
+
+	<entity name="LogisticaValutazione" local-service="true" remote-service="true">
+		<column name="id" type="long" primary="true" id-type="increment"></column>
+	    <column name="descrizione" type="String"></column>
+	</entity>
+	
+	<entity name="LogisticaStato" local-service="true" remote-service="true">
+		<column name="id" type="long" primary="true" id-type="increment"></column>
+	    <column name="descrizione" type="String"></column>
+	    <column name="utente" type="String"></column>
+	    
+	     <finder name="Utente" return-type="Collection" db-index="false">
+         <finder-column name="utente"></finder-column>
+         </finder>
+	</entity>
+	
+	<entity name="LogisticaServizio" local-service="true" remote-service="true">
+		<column name="id" type="long" primary="true" id-type="increment"></column>
+	    <column name="descrizione" type="String"></column>
+	</entity>
+	
+	 <entity name="LogisticaRichieste" local-service="true" remote-service="true">
+		<column name="id" type="long" primary="true" id-type="sequence" id-param="logisticrich_seq"></column>
+	    <column name="oggetto" type="String"></column>
+	   	<column name="utente" type="String"></column>
+	   	<column name="dipartimento" type="String"></column>
+	    <column name="data_richiesta" type="Date"></column>       
+	   	<column name="dettaglio_richiedente" type="String"></column>  
+	    <column name="dettaglio_richieste" type="String"></column>  
+	    <column name="note_gestore" type="String"></column>    
+	    <column name="id_valutazione" type="long"></column> 
+	    <column name="id_stato" type="long"></column> 
+	   	<column name="note" type="String"></column> 
+	   	
+	   	 <finder name="Utente" return-type="Collection" db-index="false">
+         <finder-column name="utente"></finder-column>
+         </finder>
+         
+          <finder name="Dipartimento" return-type="Collection" db-index="false">
+         <finder-column name="dipartimento"></finder-column>
+         </finder>
+	    
+	</entity>
+	
+	
+	 <entity name="BadgeRichieste" local-service="true" remote-service="true">
+		<column name="id" type="long" primary="true" id-type="sequence" id-param="badgerich_seq"></column>
+	   	<column name="utente" type="String"></column>
+	   	<column name="dettaglio_richiedente" type="String"></column>  
+	    <column name="cognome" type="String"></column>      
+	    <column name="nome" type="String"></column>
+	    <column name="luogo_nascita" type="String"></column>     
+	    <column name="data_nascita" type="Date"></column> 
+	    <column name="codice_fiscale" type="String"></column>
+	    <column name="numerobadge" type="String"></column>
+	    <column name="allegatoUuid" type="String"></column>
+	   	<column name="operazione" type="String"></column> 
+	   	<column name="data_richiesta" type="Date"></column>     
+	   	<column name="procedura" type="String"></column> 
+	   	<column name="disattivazione" type="Date"></column>  
+	</entity>
+	
+	
+	<entity name="TipologiaRichPubblic" local-service="true" remote-service="true">
+		<column name="id" type="long" primary="true" id-type="increment"></column>
+	    <column name="tipologia" type="String"></column>   
+</entity>
+
+<entity name="PeriodicitaRichPubblic" local-service="true" remote-service="true">
+		<column name="id" type="long" primary="true" id-type="increment"></column>
+	    <column name="periodicita" type="String"></column>   
+</entity>
+
+<entity name="RichiestaPubblicSiti" local-service="true"  remote-service="true">
+            <column name="id_rich_pubblic" type="long" primary="true" id-type="increment"></column>
+            <column name="dati_richiedente" type="String"></column>
+			<column name="dati_docum" type="String"></column>
+			<column name="titolo" type="String"></column>
+            <column name="sottotitolo" type="String"></column>
+            <column name="novita_abstract" type="String"></column>
+            <column name="note_riferim" type="String"></column>
+			<column name="dati_stampa_carta" type="String"></column>
+			<column name="dati_altro" type="String"></column>
+			<column name="dati_autorizzaz" type="String"></column>
+            <column name="note_autorizzaz" type="String"></column>	
+			<column name="lista_allegati" type="String"></column>	
+</entity>
+
+</service-builder>

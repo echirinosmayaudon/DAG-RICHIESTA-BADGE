@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://geco.tesoro.it/geco-webservice/services/RichiestaBFCService" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://geco.tesoro.it/geco-webservice/services/RichiestaBFCService" xmlns:intf="http://geco.tesoro.it/geco-webservice/services/RichiestaBFCService" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="urn:it.mef.geco" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema targetNamespace="urn:it.mef.geco" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="nuovaRichiestaMaterialeResponse">
+
+      <wsdl:part name="nuovaRichiestaMaterialeReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   
+   <wsdl:message name="nuovaRichiestaMaterialeRequest">
+
+      <wsdl:part name="in0" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+  
+
+   <wsdl:portType name="RichiestaBFCService">
+
+
+      <wsdl:operation name="nuovaRichiestaMateriale" parameterOrder="in0">
+
+         <wsdl:input message="impl:nuovaRichiestaMaterialeRequest" name="nuovaRichiestaMaterialeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:nuovaRichiestaMaterialeResponse" name="nuovaRichiestaMaterialeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="RichiestaBFCServiceSoapBinding" type="impl:RichiestaBFCService">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+
+
+      <wsdl:operation name="nuovaRichiestaMateriale">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="nuovaRichiestaMaterialeRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://geco.tesoro.it/geco-webservice/services/RichiestaBFCService" />
+
+         </wsdl:input>
+
+         <wsdl:output name="nuovaRichiestaMaterialeResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://geco.tesoro.it/geco-webservice/services/RichiestaBFCService" />
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="RichiestaBFCServiceService">
+
+      <wsdl:port binding="impl:RichiestaBFCServiceSoapBinding" name="RichiestaBFCService">
+
+         <wsdlsoap:address location="http://geco.tesoro.it/geco-webservice/services/RichiestaBFCService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

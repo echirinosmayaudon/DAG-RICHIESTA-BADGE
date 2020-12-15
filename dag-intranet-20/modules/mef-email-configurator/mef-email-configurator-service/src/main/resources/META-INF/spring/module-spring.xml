@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="mef.email.configurator.service.impl.AppNamesLocalServiceImpl" id="mef.email.configurator.service.AppNamesLocalService" />
+	<bean class="mef.email.configurator.service.impl.AppNamesServiceImpl" id="mef.email.configurator.service.AppNamesService" />
+	<bean class="mef.email.configurator.service.persistence.impl.AppNamesPersistenceImpl" id="mef.email.configurator.service.persistence.AppNamesPersistence" parent="basePersistence" />
+	<bean class="mef.email.configurator.service.impl.EmailAppLocalServiceImpl" id="mef.email.configurator.service.EmailAppLocalService" />
+	<bean class="mef.email.configurator.service.impl.EmailAppServiceImpl" id="mef.email.configurator.service.EmailAppService" />
+	<bean class="mef.email.configurator.service.persistence.impl.EmailAppPersistenceImpl" id="mef.email.configurator.service.persistence.EmailAppPersistence" parent="basePersistence" />
+</beans>

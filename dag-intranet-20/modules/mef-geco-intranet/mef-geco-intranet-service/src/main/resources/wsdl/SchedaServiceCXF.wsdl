@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://geco.tesoro.it/geco-webservice/services/SchedaService" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://geco.tesoro.it/geco-webservice/services/SchedaService" xmlns:intf="http://geco.tesoro.it/geco-webservice/services/SchedaService" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="urn:it.mef.geco" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema targetNamespace="urn:it.mef.geco" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getSchedeResponse">
+
+      <wsdl:part name="getSchedeReturn" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getSchedeRequest">
+
+      <wsdl:part name="in0" type="xsd:string">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   
+   <wsdl:portType name="SchedaService">
+
+
+     
+
+      <wsdl:operation name="getSchede" parameterOrder="in0">
+
+         <wsdl:input message="impl:getSchedeRequest" name="getSchedeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getSchedeResponse" name="getSchedeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SchedaServiceSoapBinding" type="impl:SchedaService">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getSchede">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getSchedeRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://geco.tesoro.it/geco-webservice/services/SchedaService"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getSchedeResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://geco.tesoro.it/geco-webservice/services/SchedaService"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SchedaServiceService">
+
+      <wsdl:port binding="impl:SchedaServiceSoapBinding" name="SchedaService">
+
+         <wsdlsoap:address location="http://geco.tesoro.it/geco-webservice/services/SchedaService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

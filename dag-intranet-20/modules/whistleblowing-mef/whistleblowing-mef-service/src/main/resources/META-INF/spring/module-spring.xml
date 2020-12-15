@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="servizio.whistleblowing.mef.service.impl.SegnalazioneLocalServiceImpl" id="servizio.whistleblowing.mef.service.SegnalazioneLocalService" />
+	<bean class="servizio.whistleblowing.mef.service.impl.SegnalazioneServiceImpl" id="servizio.whistleblowing.mef.service.SegnalazioneService" />
+	<bean class="servizio.whistleblowing.mef.service.persistence.impl.SegnalazionePersistenceImpl" id="servizio.whistleblowing.mef.service.persistence.SegnalazionePersistence" parent="basePersistence" />
+</beans>

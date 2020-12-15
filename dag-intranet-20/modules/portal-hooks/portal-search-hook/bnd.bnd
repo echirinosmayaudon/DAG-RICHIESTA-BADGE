@@ -1,0 +1,4 @@
+Bundle-Name: SMC Social Collaboration - Portal Search Hook
+Bundle-SymbolicName: it.smc.osportal.sc.hook.portal.search.hook
+Bundle-Version: 1.0.0
+Export-Package: it.smc.osportal.sc.portal.search.web.util

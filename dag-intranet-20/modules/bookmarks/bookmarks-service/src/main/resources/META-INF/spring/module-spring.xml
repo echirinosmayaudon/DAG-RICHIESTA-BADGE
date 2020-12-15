@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="bookmarks.service.impl.FavouritesLocalServiceImpl" id="bookmarks.service.FavouritesLocalService" />
+	<bean class="bookmarks.service.impl.FavouritesServiceImpl" id="bookmarks.service.FavouritesService" />
+	<bean class="bookmarks.service.persistence.impl.FavouritesPersistenceImpl" id="bookmarks.service.persistence.FavouritesPersistence" parent="basePersistence" />
+</beans>

@@ -1,0 +1,6 @@
+Bundle-SymbolicName: mef.lavoro.agile.form
+Bundle-Version: 1.0.6
+-metatype: *
+-includeresource:\
+        @poi-[0-9]*.jar;lib=true,\
+        @commons-collections4-[0-9]*.jar;lib=true

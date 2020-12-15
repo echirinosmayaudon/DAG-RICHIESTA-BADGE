@@ -1,0 +1,9 @@
+Bundle-Name: bookmarks-api
+Bundle-SymbolicName: bookmarks.api
+Bundle-Version: 1.0.1
+Export-Package:\
+	bookmarks.exception,\
+	bookmarks.model,\
+	bookmarks.service,\
+	bookmarks.service.persistence
+-includeresource: META-INF/service.xml=../bookmarks-service/service.xml

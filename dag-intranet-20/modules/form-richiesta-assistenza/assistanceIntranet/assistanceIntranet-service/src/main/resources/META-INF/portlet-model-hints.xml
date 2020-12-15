@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.intranet.mef.assistance.model.Ambito">
+		<field name="uuid" type="String" />
+		<field name="assScopeId" type="String" />
+		<field name="scopeName" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+	</model>
+	<model name="com.intranet.mef.assistance.model.Area">
+		<field name="uuid" type="String" />
+		<field name="areaId" type="String" />
+		<field name="areaName" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+		<field name="assServiceId" type="String" />
+	</model>
+	<model name="com.intranet.mef.assistance.model.Faq">
+		<field name="uuid" type="String" />
+		<field name="faqId" type="String" />
+		<field name="siebelId" type="String" />
+		<field name="questions" type="String">
+			<hint-collection name="CLOB" />
+		</field>
+		<field name="response" type="String">
+			<hint-collection name="CLOB" />
+		</field>
+	</model>
+	<model name="com.intranet.mef.assistance.model.Problem">
+		<field name="uuid" type="String" />
+		<field name="problemId" type="String" />
+		<field name="problemName" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+		<field name="topicId" type="String" />
+	</model>
+	<model name="com.intranet.mef.assistance.model.Servizio">
+		<field name="uuid" type="String" />
+		<field name="assServiceId" type="String" />
+		<field name="serviceName" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+		<field name="assScopeId" type="String" />
+		<field name="levelAssistance" type="String" />
+	</model>
+	<model name="com.intranet.mef.assistance.model.Topic">
+		<field name="uuid" type="String" />
+		<field name="topicId" type="String" />
+		<field name="topicName" type="String">
+			<hint name="max-length">200</hint>
+		</field>
+		<field name="areaId" type="String" />
+	</model>
+</model-hints>

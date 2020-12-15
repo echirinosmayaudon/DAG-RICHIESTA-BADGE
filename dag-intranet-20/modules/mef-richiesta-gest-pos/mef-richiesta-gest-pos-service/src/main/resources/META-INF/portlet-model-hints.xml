@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="mef.richiesta.gest.pos.model.Corridoio">
+		<field name="id_pk_corridoio" type="long" />
+		<field name="id_corridoio" type="long" />
+		<field name="id_piano" type="long" />
+		<field name="cod_corridoio" type="String" />
+		<field name="desc" type="String" />
+		<field name="data_ins" type="String" />
+		<field name="data_agg" type="String" />
+		<field name="user_ins" type="String" />
+		<field name="user_agg" type="String" />
+	</model>
+	<model name="mef.richiesta.gest.pos.model.FuoriPorta">
+		<field name="id_pk_fuoriPorta" type="long" />
+		<field name="id_fuoriPorta" type="long" />
+		<field name="id_corridoio" type="long" />
+		<field name="cod_fuoriPorta" type="String" />
+		<field name="desc" type="String" />
+		<field name="data_ins" type="String" />
+		<field name="data_agg" type="String" />
+		<field name="user_ins" type="String" />
+		<field name="user_agg" type="String" />
+	</model>
+	<model name="mef.richiesta.gest.pos.model.Piano">
+		<field name="id_pk_piano" type="long" />
+		<field name="id_piano" type="long" />
+		<field name="id_sede" type="long" />
+		<field name="cod_piano" type="String" />
+		<field name="desc" type="String" />
+		<field name="data_ins" type="String" />
+		<field name="data_agg" type="String" />
+		<field name="user_ins" type="String" />
+		<field name="user_agg" type="String" />
+	</model>
+	<model name="mef.richiesta.gest.pos.model.Sede">
+		<field name="id_pk_sede" type="long" />
+		<field name="id_sede" type="long" />
+		<field name="cod_sede" type="String" />
+		<field name="desc" type="String" />
+		<field name="data_ins" type="String" />
+		<field name="data_agg" type="String" />
+		<field name="user_ins" type="String" />
+		<field name="user_agg" type="String" />
+	</model>
+</model-hints>

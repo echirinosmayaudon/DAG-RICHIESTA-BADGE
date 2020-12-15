@@ -1,0 +1,5 @@
+Bundle-SymbolicName: mef.prenotazione.aule.form
+Bundle-Version: 1.0.8
+-includeresource:\
+        @commons-lang3-[0-9]*.jar;lib=true,\
+        @commons-collections4-[0-9]*.jar;lib=true

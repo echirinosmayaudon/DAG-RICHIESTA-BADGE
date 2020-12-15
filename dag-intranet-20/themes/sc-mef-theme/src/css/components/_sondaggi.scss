@@ -1,0 +1,29 @@
+.portlet-polls-display{
+  .icons-container{
+    .lfr-icon-actions{
+
+      .taglib-text{
+        color: $dark-grey-blue;
+      }
+      .taglib-icon{
+        border: 1px solid $dark-grey-blue;
+        border-radius: 3px;
+        padding: 10px 15px;
+        margin-right: 5px;
+
+
+
+        &:hover{
+          .taglib-text{
+            text-decoration: none;
+          }
+        }
+      }
+
+    }
+  }
+
+  .card-horizontal{
+    margin-top: 20px;
+  }
+}

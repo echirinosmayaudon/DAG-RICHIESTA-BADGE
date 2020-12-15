@@ -1,0 +1,7 @@
+Bundle-SymbolicName: richieste.badge.mef-api
+Bundle-Version: 1.0.0
+Export-Package:\
+	servizio.richieste.badge.mef.exception,\
+	servizio.richieste.badge.mef.model,\
+	servizio.richieste.badge.mef.service,\
+	servizio.richieste.badge.mef.service.persistence

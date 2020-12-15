@@ -1,0 +1,6 @@
+Bundle-SymbolicName: mef.richieste.interventi.form
+Bundle-Version: 1.0.1
+-includeresource:\
+        @poi-[0-9]*.jar;lib=true,\
+        @commons-collections4-[0-9]*.jar;lib=true 
+        

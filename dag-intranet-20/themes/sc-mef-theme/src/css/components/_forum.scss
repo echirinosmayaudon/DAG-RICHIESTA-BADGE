@@ -1,0 +1,91 @@
+.portlet-message-boards {
+  .lfr-search-container-wrapper {
+    .splitter {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: left;
+      color: $dark-grey-blue;
+      text-transform: uppercase;
+      background-color: $white;
+    }
+
+    .list-group-item{
+    .list-group-item-content {
+      h5 {
+        color: $dark-grey-blue;
+        height: 60px;
+        border-radius: 8px;
+        background-color: rgba(0, 124, 188, 0.1);
+        padding: 20px 20px 0;
+      }
+      .h6{
+        font-weight:bold;
+      }
+    }
+  }
+  }
+
+  .tabular-list-group {
+    box-shadow: none;
+  }
+
+  .list-group-item-field {
+    .click-selector {
+      border-radius: 30px;
+    }
+
+    .taglib-user-display{
+      text-align: left;
+
+      .user-details {
+         .thread-user-join-date,.thread-user-last-post-date,.thread-user-rank, .thread-user-post-count{
+           padding-bottom: 5px;
+           margin-top: 10px;
+           span {
+             font-size: 16px;
+             font-weight: bold;
+             color: $dark-grey-blue;
+
+             @media (max-width: $screen-xs-max) {
+               display: block;
+             }
+           }
+         }
+        }
+
+      }
+
+    .user-name{
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 30px;
+    }
+
+      .aspect-ratio-bg-cover{
+        display: inline-block;
+        height: 60px;
+        width: 60px;
+        vertical-align: middle;
+        margin-right: 10px;
+      }
+    }
+  }
+
+  .taglib-header{
+    .header-title{
+      span{
+          font-size: 20px;
+          font-weight: bold;
+          text-align: left;
+          color: $dark-grey-blue;
+          text-transform: uppercase;
+      }
+    }
+  }
+
+.contacts-portlet
+{
+  .contacts-action{
+    display: none;
+  }
+}

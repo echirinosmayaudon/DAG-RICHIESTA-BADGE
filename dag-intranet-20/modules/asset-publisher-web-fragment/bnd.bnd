@@ -1,0 +1,6 @@
+Bundle-Name: asset-publisher-web-fragment
+Bundle-SymbolicName: asset.publisher.web.fragment
+Bundle-Version: 1.0.3
+Fragment-Host: com.liferay.asset.publisher.web;bundle-version="1.4.1"
+Export-Package: \
+    com.liferay.asset.publisher.web.internal.configuration

@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="service.intranet.mef.model.Asset" />
+	<import class="service.intranet.mef.model.BadgeRichieste" />
+	<import class="service.intranet.mef.model.BeneInv" />
+	<import class="service.intranet.mef.model.BeneInvRichiesto" />
+	<import class="service.intranet.mef.model.HardwareTecnici" />
+	<import class="service.intranet.mef.model.LogisticaRichieste" />
+	<import class="service.intranet.mef.model.LogisticaServizio" />
+	<import class="service.intranet.mef.model.LogisticaStato" />
+	<import class="service.intranet.mef.model.LogisticaValutazione" />
+	<import class="service.intranet.mef.model.ModuloTrasporti" />
+	<import class="service.intranet.mef.model.PeriodicitaRichPubblic" />
+	<import class="service.intranet.mef.model.RichiestaBeneInv" />
+	<import class="service.intranet.mef.model.RichiestaInterventi" />
+	<import class="service.intranet.mef.model.RichiestaPubblicSiti" />
+	<import class="service.intranet.mef.model.RichiesteHW" />
+	<import class="service.intranet.mef.model.RichiesteUtenza" />
+	<import class="service.intranet.mef.model.StatoRichBeneInv" />
+	<import class="service.intranet.mef.model.TipoBeneInv" />
+	<import class="service.intranet.mef.model.TipologiaComputer" />
+	<import class="service.intranet.mef.model.TipologiaDispositivi" />
+	<import class="service.intranet.mef.model.TipologiaRichPubblic" />
+	<import class="service.intranet.mef.model.TipologiaStampanti" />
+	<class name="service.intranet.mef.model.impl.AssetImpl" table="MFORM_Asset">
+		<id column="id_" name="id" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="descrizione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.BadgeRichiesteImpl" table="MFORM_BadgeRichieste">
+		<id column="id_" name="id" type="long">
+			<generator class="sequence">
+				<param name="sequence">badgerich_seq</param>
+			</generator>
+		</id>
+		<property name="utente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dettaglio_richiedente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="cognome" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="nome" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="luogo_nascita" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_nascita" type="org.hibernate.type.TimestampType" />
+		<property name="codice_fiscale" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="numerobadge" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="allegatoUuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="operazione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_richiesta" type="org.hibernate.type.TimestampType" />
+		<property name="procedura" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="disattivazione" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.BeneInvImpl" table="MFORM_BeneInv">
+		<id column="id_" name="id" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="bene" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="id_tipo" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.BeneInvRichiestoImpl" table="MFORM_BeneInvRichiesto">
+		<id name="id_bene_rich" type="long">
+			<generator class="sequence">
+				<param name="sequence">benerich_seq</param>
+			</generator>
+		</id>
+		<property name="tipologia" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="descrizione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="quantita" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="dettagli" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="in_elenco" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+		<property name="id_richiesta" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.HardwareTecniciImpl" table="MFORM_HardwareTecnici">
+		<id column="id_" name="id" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="descrizione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.LogisticaRichiesteImpl" table="MFORM_LogisticaRichieste">
+		<id column="id_" name="id" type="long">
+			<generator class="sequence">
+				<param name="sequence">logisticrich_seq</param>
+			</generator>
+		</id>
+		<property name="oggetto" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="utente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dipartimento" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_richiesta" type="org.hibernate.type.TimestampType" />
+		<property name="dettaglio_richiedente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dettaglio_richieste" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="note_gestore" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="id_valutazione" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="id_stato" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="note" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.LogisticaServizioImpl" table="MFORM_LogisticaServizio">
+		<id column="id_" name="id" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="descrizione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.LogisticaStatoImpl" table="MFORM_LogisticaStato">
+		<id column="id_" name="id" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="descrizione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="utente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.LogisticaValutazioneImpl" table="MFORM_LogisticaValutazione">
+		<id column="id_" name="id" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="descrizione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.ModuloTrasportiImpl" table="MFORM_ModuloTrasporti">
+		<id name="id_modulo_trasporti" type="long">
+			<generator class="sequence">
+				<param name="sequence">modtrasporti_seq</param>
+			</generator>
+		</id>
+		<property name="cognome" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="nome" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="codice_fiscale" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="utente_inserimento" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_inserimento" type="org.hibernate.type.TimestampType" />
+		<property name="flag_tipospesa" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="iban" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="importo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_titolo_annuale" type="org.hibernate.type.TimestampType" />
+		<property name="nr_titoli_mensili" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="figlio_nome" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="figlio_cognome" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="figlio_data_nascita" type="org.hibernate.type.TimestampType" />
+		<property name="figlio_luogo_data" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="figlio_codicefiscale" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="note" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="flag_inviato" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="telefono" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="allegatoUuid" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.PeriodicitaRichPubblicImpl" table="MFORM_PeriodicitaRichPubblic">
+		<id column="id_" name="id" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="periodicita" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.RichiestaBeneInvImpl" table="MFORM_RichiestaBeneInv">
+		<id name="id_richiesta" type="long">
+			<generator class="sequence">
+				<param name="sequence">richiestabene_seq</param>
+			</generator>
+		</id>
+		<property name="utente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="nome_rich" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="cogn_rich" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dip_dir" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dati_rich" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="oggetto" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property column="data_" name="data" type="org.hibernate.type.TimestampType" />
+		<property name="beneficiario" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="destinazione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="id_stato" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="note_consegn" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.RichiestaInterventiImpl" table="MFORM_RichiestaInterventi">
+		<id column="id_" name="id" type="long">
+			<generator class="sequence">
+				<param name="sequence">rich_interventi_seq</param>
+			</generator>
+		</id>
+		<property name="utente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dettaglio" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_interventi" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.RichiestaPubblicSitiImpl" table="MFORM_RichiestaPubblicSiti">
+		<id name="id_rich_pubblic" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="dati_richiedente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dati_docum" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="titolo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="sottotitolo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="novita_abstract" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="note_riferim" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dati_stampa_carta" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dati_altro" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dati_autorizzaz" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="note_autorizzaz" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="lista_allegati" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.RichiesteHWImpl" table="MFORM_RichiesteHW">
+		<id name="id_richieste_hw" type="long">
+			<generator class="sequence">
+				<param name="sequence">richiestehw_seq</param>
+			</generator>
+		</id>
+		<property name="utente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dettaglio" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_richiesta" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.RichiesteUtenzaImpl" table="MFORM_RichiesteUtenza">
+		<id name="id_richieste_utenza" type="long">
+			<generator class="sequence">
+				<param name="sequence">richuten_seq</param>
+			</generator>
+		</id>
+		<property name="utente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="destinatario" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dettaglio" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_richiesta" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.StatoRichBeneInvImpl" table="MFORM_StatoRichBeneInv">
+		<id column="id_" name="id" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="stato" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.TipoBeneInvImpl" table="MFORM_TipoBeneInv">
+		<id column="id_" name="id" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="tipo" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.TipologiaComputerImpl" table="MFORM_TipologiaComputer">
+		<id name="id_tipologia_computer" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="descrizione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.TipologiaDispositiviImpl" table="MFORM_TipologiaDispositivi">
+		<id name="id_tipologia_dispositivi" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="descrizione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.TipologiaRichPubblicImpl" table="MFORM_TipologiaRichPubblic">
+		<id column="id_" name="id" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="tipologia" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="service.intranet.mef.model.impl.TipologiaStampantiImpl" table="MFORM_TipologiaStampanti">
+		<id name="id_tipologia_stampanti" type="long">
+			<generator class="increment" />
+		</id>
+		<property name="descrizione" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

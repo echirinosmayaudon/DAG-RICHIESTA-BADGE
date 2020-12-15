@@ -1,0 +1,4 @@
+Bundle-SymbolicName: com.intranet.mef.search.pre.action
+Bundle-Version: 1.0.1
+Export-Package: com.intranet.mef.search.pre.action
+-sources: true

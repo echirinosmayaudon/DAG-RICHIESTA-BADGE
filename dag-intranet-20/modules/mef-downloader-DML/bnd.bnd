@@ -1,0 +1,4 @@
+Bundle-SymbolicName: mef.downloader.dml
+Bundle-Version: 1.0.0
+-sources : true
+Export-Package: mef.dowloader.dml

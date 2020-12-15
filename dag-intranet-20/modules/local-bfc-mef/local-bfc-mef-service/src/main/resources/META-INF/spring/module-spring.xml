@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="servizio.local.bfc.service.impl.LocalRichLocalServiceImpl" id="servizio.local.bfc.service.LocalRichLocalService" />
+	<bean class="servizio.local.bfc.service.impl.LocalRichServiceImpl" id="servizio.local.bfc.service.LocalRichService" />
+	<bean class="servizio.local.bfc.service.persistence.impl.LocalRichPersistenceImpl" id="servizio.local.bfc.service.persistence.LocalRichPersistence" parent="basePersistence" />
+	<bean class="servizio.local.bfc.service.persistence.impl.LocalRichFinderImpl" id="servizio.local.bfc.service.persistence.LocalRichFinder" parent="basePersistence" />
+	<bean class="servizio.local.bfc.service.impl.LocalRichInfoLocalServiceImpl" id="servizio.local.bfc.service.LocalRichInfoLocalService" />
+	<bean class="servizio.local.bfc.service.impl.LocalRichInfoServiceImpl" id="servizio.local.bfc.service.LocalRichInfoService" />
+	<bean class="servizio.local.bfc.service.persistence.impl.LocalRichInfoPersistenceImpl" id="servizio.local.bfc.service.persistence.LocalRichInfoPersistence" parent="basePersistence" />
+	<bean class="servizio.local.bfc.service.persistence.impl.LocalRichInfoFinderImpl" id="servizio.local.bfc.service.persistence.LocalRichInfoFinder" parent="basePersistence" />
+</beans>

@@ -1,0 +1,286 @@
+<%--
+/**
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+--%>
+
+<%
+	long maxFileSize = ParamUtil.getLong(request, "maxFileSize");
+	String tempImageFileName = ParamUtil.getString(request, "tempImageFileName");
+	String randomNamespace = ParamUtil.getString(request, "randomNamespace");
+	String personalId = (String) themeDisplay.getUser().getExpandoBridge().getAttribute("personalId");
+	ProfilePicture profilePicture = ProfilePictureLocalServiceUtil.fetchProfilePicture(Long.parseLong(personalId));
+	boolean siapImageExists = false;	
+	if (profilePicture != null){
+		siapImageExists = true;		
+	}
+%>
+<div id="clickSx" class="hide">false</div>
+<liferay-portlet:resourceURL copyCurrentRenderParameters="<%=false%>"
+	id="/image_uploader/view" var="previewURL">
+	<portlet:param name="mvcRenderCommandName" value="/image_uploader/view" />
+	<portlet:param name="<%=Constants.CMD%>"
+		value="<%=Constants.GET_TEMP%>" />
+</liferay-portlet:resourceURL>
+
+
+<liferay-portlet:resourceURL var="previewImageSiapURL"
+	id="/image_uploader/siapImageURL"></liferay-portlet:resourceURL>
+
+<c:choose>
+	<c:when
+		test='<%=SessionMessages.contains(renderRequest, "imageUploaded")%>'>
+
+		<%
+			FileEntry fileEntry = (FileEntry) SessionMessages.get(renderRequest, "imageUploaded");
+
+					previewURL = HttpUtil.addParameter(previewURL, renderResponse.getNamespace() + "tempImageFileName",
+							tempImageFileName);
+		%>
+
+		<aui:script>
+			<c:if test="<%= fileEntry != null %>">
+				Liferay.Util.getOpener().<%= HtmlUtil.escapeJS(randomNamespace) %>changeLogo('<%= previewURL %>', '<%= fileEntry.getFileEntryId() %>');
+			</c:if>
+
+			Liferay.Util.getWindow().hide();
+		</aui:script>
+			
+
+
+	
+		</c:when>
+	<c:otherwise>
+		<portlet:actionURL name="saveImage" var="saveImageURL">
+			<portlet:param name="maxFileSize"
+				value="<%=String.valueOf(maxFileSize)%>" />
+		</portlet:actionURL>
+
+		<aui:form action="<%=saveImageURL%>" enctype="multipart/form-data"
+			method="post" name="fm" data-parsley-validate="true">
+			<aui:input name="cropRegion" type="hidden" />
+			<aui:input name="siapImage" type="hidden" />
+			<aui:input name="currentLogoURL" type="hidden"
+				value="<%=currentImageURL%>" />
+			<aui:input name="previewURL" type="hidden" value="<%=previewURL%>" />
+			<aui:input name="randomNamespace" type="hidden"
+				value="<%=randomNamespace%>" />
+			<aui:input name="tempImageFileName" type="hidden"
+				value="<%=tempImageFileName%>" />
+			<aui:input name="imageUploaded" type="hidden"
+				value='<%=SessionMessages.contains(renderRequest, "imageUploaded")%>' />
+
+			<div id="modal-upload-image" class="modal modal-custom fade"
+				role="dialog">
+				<div class="modal-dialog">
+
+					<div class="modal-content">
+						<div class="modal-body">
+							<div class="modal-title-box">
+								<a href="#" class="icomoon-close-white" data-dismiss="modal"></a>
+
+								<div class="title-modal">
+									<h2 class="title">AGGIUNGI L'IMMAGINE DEL PROFILO</h2>
+								</div>
+							</div>
+
+
+							<div class="modal-upload-image">
+
+								<h3 class="subtitle-modal">SELEZIONA LA TUA FOTO DI SIAP
+									OPPURE CARICA UNA FOTO PERSONALIZZATA
+								</h3>
+								<div class="buttons-upload-wrapper clearfix">
+			                        <div class="container-button">
+			                            <button role="button" type="button" onclick="setDefaultImage();return false;" class="configurator-image">
+			                                <img class="image-siap" alt="Cancella foto di liferay" id="<portlet:namespace />defaultPhotoImg" src="<%=themeDisplay.getPathImage()%>/user_<%=themeDisplay.getUser().isFemale() ? "female" :"male"%>_portrait?img_id=0" />
+			                                <p class="upload-text" ><%=labelRestoreDefault %></p>
+			                            </button>
+			                            
+			                            <c:if test="<%=siapImageExists%>">
+				                            <button role="button" class="configurator-image" onclick="setSiapImage();return false;">
+				                                <img class="image-siap" alt="Carica foto di SIAP" id="<portlet:namespace />siapPreviewImg" src="<%=previewImageSiapURL.toString()%>" />
+				                                <p class="upload-text" ><%=labelSetSIAPImage %></p>
+				                            </button>
+			                            </c:if>
+			                          
+			                             <c:if test="<%=!siapImageExists%>">
+			                            	<button role="button" class="configurator-image no-siap-image" onclick="return false;">
+				                                <img class="image-siap" alt="NO SIAP" id="<portlet:namespace />siapPreviewImg" src="<%="/o/intranet-mef-theme/images/siap-empty.jpg"%>" />
+				                                <p class="upload-text"><%=labelNoSIAPImage %></p>
+				                            </button>
+			                            </c:if>
+			 
+			                           
+			                            <button role="button" class="configurator-image" onclick="document.getElementById('clickSx').textContent='true';document.getElementById('<portlet:namespace/>fileName').click();return false;">
+			                                <span class="icomoon-picture upload-icon" id="<portlet:namespace />uploadNewImg">
+			                                    <span class="sr-only">Carica foto personalizzata</span>
+			                                </span>
+			                                <p class="upload-text" ><%=labelUploadImage %></p>
+			                            </button>
+			                        </div>
+			                        <div class="container-button">
+			                            
+			                        	<label role="button" for="<portlet:namespace />fileName" class="btn-upload-image" type="button">
+												<img		
+													src="<%=HtmlUtil.escape(currentImageURL)%>" 
+													class="image-loaded"
+													alt="Carica foto di SIAP"													
+													id="<portlet:namespace />portraitPreviewImg"													
+	                                     		/>	
+										</label>																
+										
+										<c:if
+											test='<%=Validator.isNull(currentImageURL) || currentImageURL.contains("/spacer.png")%>'>
+											<p class="text-muted"
+												id="<portlet:namespace />emptyResultMessage">
+												<%=StringUtil.toLowerCase(LanguageUtil.get(request, "none"))%>
+											</p>
+										</c:if>
+										<aui:input cssClass="hide" label="" name="fileName" type="file">
+											<aui:validator name="acceptFiles">
+												'<%=StringUtil.merge(PrefsPropsUtil.getStringArray(PropsKeys.DL_FILE_EXTENSIONS, StringPool.COMMA))%>'
+											</aui:validator>
+										</aui:input>
+			                        </div>
+                    			</div>
+								<div class="checkbox-blue mt-35-xs">
+			                        <div class="squaredOne">
+			                            <input type="checkbox" class="upload-checkbox" value="None" id="squaredOne" name="check" data-parsley-required="true" data-parsley-error-message="Campo obbligatorio">
+			                            <label for="squaredOne"></label>
+			                        </div>
+	                       			<p class="text-check"><%=labelPrivacyAcceptance %></p>
+                    			</div>
+
+			                    <div class="ama-row mt-35-xs buttons-bottom text-center">
+			                        <div class="ama-col-xs-12 ama-col-sm-6">
+			                            <button id="upload-image-decline-button" class="button button-secondary" data-dismiss="modal">ANNULLA</button>
+			                        </div>
+			                        <div class="ama-col-xs-12 ama-col-sm-6">
+			                            <button disabled class="button disabled button-primary" type="submit" id="salva">SALVA</button>
+			                        </div>
+			                    </div>								
+
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</aui:form>
+
+		<aui:script use="liferay-logo-editor">
+			
+			
+			<portlet:actionURL name="/image_uploader/view" var="addTempImageURL">
+				<portlet:param name="mvcRenderCommandName" value="/image_uploader/view" />
+				<portlet:param name="<%= Constants.CMD %>" value="<%= Constants.ADD_TEMP %>" />
+				<portlet:param name="maxFileSize" value="<%= String.valueOf(maxFileSize) %>" />
+			</portlet:actionURL>
+			
+			
+			$('#upload-image-decline-button').on('click',function(){
+				
+			})
+			$('.modal-upload-image .upload-checkbox').on('change', function() { 
+	    		
+	    		if (!this.checked) {
+	        		$(".modal-upload-image .button-primary").prop("disabled", true).addClass("disabled");
+	    		}
+	    		else{
+	    			$(".modal-upload-image .button-primary").prop("disabled", false).removeClass("disabled");
+	    		}
+			}); 
+			$("#<portlet:namespace />fm").on("submit",function(event){				
+				
+				console.log("modal hide action");
+				$(".modal-backdrop").hide();
+			})
+			var imageUploadedInput = A.one('#<portlet:namespace />imageUploaded');
+			var siapImage = A.one('#<portlet:namespace />siapImage');
+			var currentLogoURL = A.one('#<portlet:namespace/>currentLogoURL');
+			var uploadStart = function(){				
+				console.log("upload started");
+				$("#<portlet:namespace />siapImage").val("");
+				$("#<portlet:namespace />currentLogoURL").val("");
+			}
+			var uploadComplete = function(){
+				A.bind('val', imageUploadedInput, true);
+				$("#<portlet:namespace />currentLogoURL").val($("#<portlet:namespace />previewURL").val());
+				setTimeout(function(){
+				    console.log("Prevent Default");
+					$("#<portlet:namespace />fileUpload").on("click",function(e){e.preventDefault();});
+				},2000);
+			     
+			}
+			var logoEditor = new Liferay.LogoEditor(
+				{
+					<%
+					DecimalFormatSymbols decimalFormatSymbols = DecimalFormatSymbols.getInstance(locale);
+					%>
+
+					decimalSeparator: '<%= decimalFormatSymbols.getDecimalSeparator() %>',
+
+					maxFileSize: <%= maxFileSize %>,
+					namespace: '<portlet:namespace />',
+					on: {
+						uploadComplete: uploadComplete() ,
+						uploadStart: uploadStart()
+					},
+					previewURL: '<%= previewURL %>',
+					uploadURL: '<%= addTempImageURL %>'
+				}
+			);
+			
+
+			if (Liferay.Util.getTop() !== A.config.win) {
+				var dialog = Liferay.Util.getWindow();
+
+				if (dialog) {
+					dialog.on(['resize:end', 'resize:resize', 'resize:start'], logoEditor.resize, logoEditor);
+				}
+			}
+		</aui:script>
+		
+	<script>
+	
+	
+		document.getElementById("<portlet:namespace/>fileName").onclick = function(e){
+			console.log("evento click intercettato");
+		    if($("#clickSx").text() != "true"){
+		    	console.log("sto prima del prevent default - semaforo a false")
+		    	e.preventDefault ? e.preventDefault() : (e.returnValue = false);		        
+		        return false;
+		    }
+		    console.log("semaforo a true");
+		    $("#clickSx").text("false");
+		} 
+		function setSiapImage(){			
+			var imageSiapURL = $("#<portlet:namespace/>siapPreviewImg").attr("src");
+			$("#<portlet:namespace/>portraitPreviewImg").attr("src",imageSiapURL);
+			$("#<portlet:namespace/>siapImage").val(imageSiapURL);
+			$("#<portlet:namespace/>currentLogoURL").val("");
+		}
+		
+		function setDefaultImage(){
+			//var defaultImage = $("#<portlet:namespace/>currentLogoURL").val();
+			console.log("setting default image");
+			$("#<portlet:namespace/>portraitPreviewImg").attr("src",'<%=themeDisplay.getPathImage()%>/user_<%=themeDisplay.getUser().isFemale() ? "female" : "male"%>_portrait?img_id=0');
+			$("#<portlet:namespace/>currentLogoURL").val('<%=themeDisplay.getPathImage()%>/user_<%=themeDisplay.getUser().isFemale() ? "female" : "male"%>_portrait?img_id=0');
+
+		}
+		
+		</script>
+	</c:otherwise>
+</c:choose>

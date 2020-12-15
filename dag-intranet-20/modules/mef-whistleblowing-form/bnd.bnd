@@ -1,0 +1,5 @@
+Bundle-SymbolicName: mef.whistleblowing.form
+Bundle-Version: 1.0.1
+Import-Package:\
+				 !org.apache.pdfbox.*,\
+				 *

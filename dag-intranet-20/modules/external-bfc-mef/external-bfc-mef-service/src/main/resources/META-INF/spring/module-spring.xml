@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="external.bfc.intranet.mef.service.impl.RichiesteLocalServiceImpl" id="external.bfc.intranet.mef.service.RichiesteLocalService" />
+	<bean class="external.bfc.intranet.mef.service.impl.RichiesteServiceImpl" id="external.bfc.intranet.mef.service.RichiesteService" />
+	<bean class="external.bfc.intranet.mef.service.persistence.impl.RichiestePersistenceImpl" id="external.bfc.intranet.mef.service.persistence.RichiestePersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="external.bfc.intranet.mef.service.persistence.impl.RichiesteFinderImpl" id="external.bfc.intranet.mef.service.persistence.RichiesteFinder" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="external.bfc.intranet.mef.service.impl.RichiesteInfoLocalServiceImpl" id="external.bfc.intranet.mef.service.RichiesteInfoLocalService" />
+	<bean class="external.bfc.intranet.mef.service.impl.RichiesteInfoServiceImpl" id="external.bfc.intranet.mef.service.RichiesteInfoService" />
+	<bean class="external.bfc.intranet.mef.service.persistence.impl.RichiesteInfoPersistenceImpl" id="external.bfc.intranet.mef.service.persistence.RichiesteInfoPersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="external.bfc.intranet.mef.service.persistence.impl.RichiesteInfoFinderImpl" id="external.bfc.intranet.mef.service.persistence.RichiesteInfoFinder" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="external.bfc.intranet.mef.service.impl.RichiesteSequenceLocalServiceImpl" id="external.bfc.intranet.mef.service.RichiesteSequenceLocalService" />
+	<bean class="external.bfc.intranet.mef.service.impl.RichiesteSequenceServiceImpl" id="external.bfc.intranet.mef.service.RichiesteSequenceService" />
+	<bean class="external.bfc.intranet.mef.service.persistence.impl.RichiesteSequencePersistenceImpl" id="external.bfc.intranet.mef.service.persistence.RichiesteSequencePersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="external.bfc.intranet.mef.service.impl.RigheRichiesteLocalServiceImpl" id="external.bfc.intranet.mef.service.RigheRichiesteLocalService" />
+	<bean class="external.bfc.intranet.mef.service.impl.RigheRichiesteServiceImpl" id="external.bfc.intranet.mef.service.RigheRichiesteService" />
+	<bean class="external.bfc.intranet.mef.service.persistence.impl.RigheRichiestePersistenceImpl" id="external.bfc.intranet.mef.service.persistence.RigheRichiestePersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="external.bfc.intranet.mef.service.impl.RigheRichiesteInfoLocalServiceImpl" id="external.bfc.intranet.mef.service.RigheRichiesteInfoLocalService" />
+	<bean class="external.bfc.intranet.mef.service.impl.RigheRichiesteInfoServiceImpl" id="external.bfc.intranet.mef.service.RigheRichiesteInfoService" />
+	<bean class="external.bfc.intranet.mef.service.persistence.impl.RigheRichiesteInfoPersistenceImpl" id="external.bfc.intranet.mef.service.persistence.RigheRichiesteInfoPersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="external.bfc.intranet.mef.service.impl.SediBfcLocalServiceImpl" id="external.bfc.intranet.mef.service.SediBfcLocalService" />
+	<bean class="external.bfc.intranet.mef.service.impl.SediBfcServiceImpl" id="external.bfc.intranet.mef.service.SediBfcService" />
+	<bean class="external.bfc.intranet.mef.service.persistence.impl.SediBfcPersistenceImpl" id="external.bfc.intranet.mef.service.persistence.SediBfcPersistence" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+	<bean class="external.bfc.intranet.mef.service.persistence.impl.SediBfcFinderImpl" id="external.bfc.intranet.mef.service.persistence.SediBfcFinder" parent="basePersistence">
+		<property name="dataSource" ref="stage" />
+	</bean>
+</beans>

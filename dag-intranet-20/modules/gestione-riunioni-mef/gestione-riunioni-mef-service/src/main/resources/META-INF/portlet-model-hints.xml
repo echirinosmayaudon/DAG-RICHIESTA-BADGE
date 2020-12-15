@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.intranet.mef.gestione.riunioni.model.AmministrazioneConvocante">
+		<field name="id_amministrazione_convocante" type="long" />
+		<field name="nome_amministrazione" type="String">
+			<hint name="max-length">250</hint>
+		</field>
+	</model>
+	<model name="com.intranet.mef.gestione.riunioni.model.InvitatiRiunione">
+		<field name="id_segreteria" type="long" />
+		<field name="note" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="partecipanti" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="id_stato_invitato" type="long" />
+		<field name="id_riunione" type="long" />
+	</model>
+	<model name="com.intranet.mef.gestione.riunioni.model.Luogo">
+		<field name="id_luogo" type="long" />
+		<field name="nome" type="String">
+			<hint name="max-length">250</hint>
+		</field>
+	</model>
+	<model name="com.intranet.mef.gestione.riunioni.model.Riunione">
+		<field name="id_riunione" type="long" />
+		<field name="oggetto" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="data_inizio" type="Date" />
+		<field name="data_fine" type="Date" />
+		<field name="note" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+		<field name="data_modifica" type="Date" />
+		<field name="data_creazione" type="Date" />
+		<field name="protocollo" type="String">
+			<hint name="max-length">50</hint>
+		</field>
+		<field name="id_stato_riunione" type="long" />
+		<field name="id_tipo" type="long" />
+		<field name="id_luogo" type="long" />
+		<field name="id_amministrazione_convocante" type="long" />
+		<field name="data_ultimo_sollecito" type="Date" />
+	</model>
+	<model name="com.intranet.mef.gestione.riunioni.model.Segreteria">
+		<field name="id_segreteria" type="long" />
+		<field name="email" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="descrizione" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="acronimo" type="String">
+			<hint name="max-length">50</hint>
+		</field>
+		<field name="livello_gerarchia" type="long" />
+		<field name="cod_padre" type="long" />
+		<field name="data_fine_esistenza" type="Date" />
+		<field name="indirizzo" type="String">
+			<hint name="max-length">250</hint>
+		</field>
+		<field name="cap" type="String">
+			<hint name="max-length">5</hint>
+		</field>
+		<field name="cod_istat_citta" type="long" />
+	</model>
+	<model name="com.intranet.mef.gestione.riunioni.model.StatoInvitato">
+		<field name="id_stato_invitato" type="long" />
+		<field name="nome_stato" type="String">
+			<hint name="max-length">50</hint>
+		</field>
+	</model>
+	<model name="com.intranet.mef.gestione.riunioni.model.StatoRiunione">
+		<field name="id_stato_riunione" type="long" />
+		<field name="label" type="String">
+			<hint name="max-length">15</hint>
+		</field>
+		<field name="next_stato" type="String">
+			<hint name="max-length">35</hint>
+		</field>
+	</model>
+	<model name="com.intranet.mef.gestione.riunioni.model.StoricoStatoRiunione">
+		<field name="id_riunione" type="long" />
+		<field name="id_storico" type="long" />
+		<field name="data" type="Date" />
+		<field name="id_stato_riunione" type="long" />
+	</model>
+	<model name="com.intranet.mef.gestione.riunioni.model.TipoRiunione">
+		<field name="id_tipo" type="long" />
+		<field name="descrizione" type="String">
+			<hint name="max-length">50</hint>
+		</field>
+	</model>
+</model-hints>

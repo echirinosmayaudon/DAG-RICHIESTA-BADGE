@@ -1,0 +1,16 @@
+Bundle-SymbolicName: mef.geco.intranet-api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.mef.geco.intranet.exception,\
+	com.mef.geco.intranet.model,\
+	com.mef.geco.intranet.service,\
+	com.mef.geco.intranet.service.persistence,\
+	
+
+
+
+
+	
+
+  
+

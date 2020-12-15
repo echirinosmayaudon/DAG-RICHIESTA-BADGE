@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="servizio.prenotazione.aule.mef.model.Approvatore">
+		<field name="id_approvatore" type="long" />
+		<field name="id_sala" type="long" />
+		<field name="email_approvatore" type="String" />
+	</model>
+	<model name="servizio.prenotazione.aule.mef.model.Orario">
+		<field name="id_ora" type="long" />
+		<field name="ore" type="String" />
+	</model>
+	<model name="servizio.prenotazione.aule.mef.model.Prenotazione">
+		<field name="id_prenota" type="long" />
+		<field name="id_sala" type="long" />
+		<field name="cod_fiscale" type="String">
+			<hint name="max-length">16</hint>
+		</field>
+		<field name="data_prenota" type="Date" />
+		<field name="data_inizio" type="Date" />
+		<field name="data_fine" type="Date" />
+		<field name="partecipanti" type="int" />
+		<field name="id_evento" type="long" />
+		<field name="attivita" type="String">
+			<hint name="max-length">100</hint>
+		</field>
+		<field name="note" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+		<field name="id_stato" type="long" />
+		<field name="dati_rich" type="String">
+			<hint name="max-length">1500</hint>
+		</field>
+		<field name="servizi" type="String">
+			<hint name="max-length">1500</hint>
+		</field>
+	</model>
+	<model name="servizio.prenotazione.aule.mef.model.Sala">
+		<field name="id_sala" type="long" />
+		<field name="desc_sala" type="String" />
+		<field name="indirizzo" type="String" />
+		<field name="citta" type="String" />
+		<field name="cap" type="String">
+			<hint name="max-length">5</hint>
+		</field>
+		<field name="cod_prov" type="String">
+			<hint name="max-length">2</hint>
+		</field>
+		<field name="piano" type="String" />
+		<field name="stanza" type="String" />
+		<field name="posti" type="int" />
+		<field name="video_conferenza" type="boolean" />
+		<field name="proiettore" type="boolean" />
+		<field name="postazione_rete" type="boolean" />
+		<field name="autorizzazione" type="boolean" />
+		<field name="email_ref" type="String" />
+	</model>
+	<model name="servizio.prenotazione.aule.mef.model.SalaStruttura">
+		<field name="id" type="long" />
+		<field name="id_sala" type="long" />
+		<field name="id_struttura" type="long" />
+	</model>
+	<model name="servizio.prenotazione.aule.mef.model.ServizioLog">
+		<field name="id_servizio" type="long" />
+		<field name="desc_servizio" type="String" />
+		<field name="email_ref" type="String" />
+	</model>
+	<model name="servizio.prenotazione.aule.mef.model.StatoAula">
+		<field name="id_stato_aula" type="long" />
+		<field name="desc_stato" type="String" />
+	</model>
+	<model name="servizio.prenotazione.aule.mef.model.StrumentoEvento">
+		<field name="id_strumento" type="long" />
+		<field name="desc_strumento" type="String" />
+		<field name="email_ref" type="String" />
+	</model>
+	<model name="servizio.prenotazione.aule.mef.model.StrumentoTec">
+		<field name="id_strumento" type="long" />
+		<field name="desc_strumento" type="String" />
+		<field name="email_ref" type="String" />
+	</model>
+	<model name="servizio.prenotazione.aule.mef.model.TipoEvento">
+		<field name="id_evento" type="long" />
+		<field name="desc_evento" type="String" />
+	</model>
+</model-hints>

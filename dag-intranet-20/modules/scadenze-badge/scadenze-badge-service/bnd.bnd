@@ -1,0 +1,5 @@
+Bundle-SymbolicName: scadenze.badge-service
+Bundle-SymbolicName: com.intranet.mef.scadenze.badge.service
+Bundle-Version: 1.0.1
+Liferay-Require-SchemaVersion: 1.0.0
+Liferay-Service: true

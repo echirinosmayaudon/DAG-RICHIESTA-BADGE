@@ -1,0 +1,80 @@
+<span>SET YOUR NEW FAVOURITE</span> <br>
+<div>Favourite Title: <input type="text" id="setFavTitle"></input><br>
+Favourite Description: <input type="text" id="setFavDescription"></input><br>
+Favourite URL: <input type="text" id="setFavUrl"></input></div>
+<button type="submit" id="setFavBtn">Set Favourite</button> <br> <br>
+
+<span>MY FAVOURITES LIST</span> <br>
+<table id="tableFav"><tr><td width="200px">TITLE</td><td width="200px">DESCRIPTION</td><td width="200px">URL</td><td width="200px">SAVE DATE</td></tr></table> <br>
+
+<script type="text/javascript"> 
+
+    if (${permissionChecker.isSignedIn().toString()}===true) {
+        currentId = ${permissionChecker.getUserId()};
+        console.log(currentId);
+    }
+ 
+    Liferay.Service(
+    '/mefintranet.favourites/get-favourites-by-user',
+    {
+        user_id: currentId
+    },
+        function(obj) {
+        console.log(obj);
+    
+    $.each(obj, function(key, value) {
+ 
+    $("#tableFav").append("<tr id='" + value.favourite_id + "'><td>"+ 
+        value.title_favourite +"</td><td>"+ 
+        value.description_favourite +"</td><td><a href='"+ 
+        value.url_favourite +"'>"+ 
+        value.url_favourite +"</a></td><td>"+ 
+        value.save_date +"</td><td><button class=\"deleteFavBtn\" onclick=\"deleteFunction('" + value.favourite_id + "')\">X</button></td></tr>");
+
+    });
+    
+});
+</script>
+
+<script type="text/javascript">
+
+    var d = new Date().toString();
+
+    $('#setFavBtn').on('click', function(e) {
+    
+    Liferay.Service(
+    '/mefintranet.favourites/set-favourite',
+        {
+    user_id: currentId,
+    title_favourite: document.getElementById("setFavTitle").value,
+    description_favourite: document.getElementById("setFavDescription").value,
+    url_favourite: document.getElementById("setFavUrl").value,
+    save_date: d
+    },
+    
+    function(obj) {
+    console.log(obj);
+    
+    });
+  
+window.alert("Succesfully saved in Favourites!");});
+
+</script>
+
+<script type="text/javascript">
+
+ function deleteFunction(c) {
+ 
+ if (confirm("Are you sure you want to delete this item from Favourites List?") == true) {
+ 
+    Liferay.Service(
+    '/mefintranet.favourites/delete-favourite',
+    {
+    favourite_id: c
+    },
+    function(obj) {
+    console.log(obj);
+    });
+  }
+}
+</script>

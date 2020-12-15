@@ -1,0 +1,7 @@
+Bundle-SymbolicName: istanza.interpello.mef-api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.accenture.istanza.interpello.exception,\
+	com.accenture.istanza.interpello.model,\
+	com.accenture.istanza.interpello.service,\
+	com.accenture.istanza.interpello.service.persistence

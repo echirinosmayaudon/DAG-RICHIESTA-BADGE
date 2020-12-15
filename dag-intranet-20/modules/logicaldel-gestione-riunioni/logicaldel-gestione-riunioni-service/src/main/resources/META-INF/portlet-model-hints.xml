@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.intranet.mef.logicaldel.gestione.riunioni.model.CancelAmmConv">
+		<field name="id_amministrazione_convocante" type="long" />
+		<field name="cancellato" type="boolean" />
+	</model>
+	<model name="com.intranet.mef.logicaldel.gestione.riunioni.model.CancelLuogo">
+		<field name="id_luogo" type="long" />
+		<field name="cancellato" type="boolean" />
+	</model>
+</model-hints>

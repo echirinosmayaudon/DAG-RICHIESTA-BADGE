@@ -1,0 +1,25 @@
+//node {
+//  version = '5.8.0'
+//  npmVersion = '3.8.0'
+//  download = true
+//  // distBaseUrl = Custom artifactory location here for node/npm.
+
+//global = true
+//}
+
+buildscript {
+	dependencies {
+		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.workspace", version: "1.0.40"
+        classpath group: "com.liferay", name: "com.liferay.gradle.plugins.deployment.helper", version: "1.0.5"
+	}
+
+	repositories {
+	    //maven { url "http://10.100.130.22:8081/nexus/repository/public/" }
+		maven {
+			url "https://cdn.lfrs.sl/repository.liferay.com/nexus/content/groups/public"
+		}
+	}
+}
+
+
+apply plugin: "com.liferay.workspace"

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.intranet.mef.central.model.CentralInvoker">
+		<field name="uuid" type="String" />
+		<field name="idRecord" type="long" />
+		<field name="secretaryId" type="long" />
+	</model>
+</model-hints>

@@ -1,0 +1,8 @@
+Bundle-SymbolicName: mef.cache.portlet-api
+Bundle-Version: 1.0.0
+Export-Package:\
+	com.cacheportlet.mef.exception,\
+	com.cacheportlet.mef.model,\
+	com.cacheportlet.mef.service,\
+	com.cacheportlet.mef.service.persistence,\
+	com.cacheportlet.mef.constants

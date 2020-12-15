@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE layout-templates PUBLIC "-//Liferay//DTD Layout Templates 7.0.0//EN" "http://www.liferay.com/dtd/liferay-layout-templates_7_0_0.dtd">
+
+<layout-templates>
+	<custom>
+		<layout-template id="intranet-mef-12_3-9_12-breadcrumb-nav" name="12-3.9-12-bread-nav_Layout">
+			<template-path>/intranet-mef-12_3-9_12-breadcrumb-nav.tpl</template-path>
+			<thumbnail-path>/intranet-mef-12_3-9_12-breadcrumb-nav.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="intranet-mef-12_12-breadcrumb" name="12-12-breadcrumb_Layout">
+			<template-path>/intranet-mef-12_12-breadcrumb.tpl</template-path>
+			<thumbnail-path>/intranet-mef-12_12-breadcrumb.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="intranet-mef-12_8-4_12-no-breadcrumb-nav" name="12-8.4-12-no.breadcrumb_Layout">
+			<template-path>/intranet-mef-12_8-4_12-no-breadcrumb-nav.tpl</template-path>
+			<thumbnail-path>/intranet-mef-12_8-4_12-no-breadcrumb-nav.png</thumbnail-path>
+		</layout-template>
+	</custom>
+</layout-templates>

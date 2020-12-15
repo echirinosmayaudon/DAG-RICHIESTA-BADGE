@@ -1,0 +1,9 @@
+create sequence badgerich_seq;
+create sequence benerich_seq;
+create sequence logisticrich-seq;
+create sequence logisticrich_seq;
+create sequence modtrasporti_seq;
+create sequence rich_interventi_seq;
+create sequence richiestabene_seq;
+create sequence richiestehw_seq;
+create sequence richuten_seq;

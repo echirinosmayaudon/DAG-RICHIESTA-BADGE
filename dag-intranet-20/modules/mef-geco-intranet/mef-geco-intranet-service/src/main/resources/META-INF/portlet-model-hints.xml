@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.mef.geco.intranet.model.supportData">
+		<field name="uuid" type="String" />
+		<field name="id" type="long" />
+		<field name="data" type="String" />
+	</model>
+</model-hints>

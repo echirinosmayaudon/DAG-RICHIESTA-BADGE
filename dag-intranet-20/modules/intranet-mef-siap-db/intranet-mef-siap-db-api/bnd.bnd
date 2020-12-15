@@ -1,0 +1,9 @@
+Bundle-SymbolicName: intranet.mef.siap.db-api
+Bundle-Version: 1.0.2
+Export-Package: \
+	com.intranet.mef.job.siap.exception,\
+	com.intranet.mef.job.siap.model,\
+	com.intranet.mef.job.siap.service,\
+	com.intranet.mef.job.siap.service.persistence,\
+	com.intranet.mef.job.siap.util
+	

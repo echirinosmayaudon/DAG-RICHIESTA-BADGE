@@ -1,0 +1,66 @@
+/* These inject tags are used for dynamically creating imports for themelet styles, you can place them where ever you like in this file. */
+
+/* inject:imports */
+/* endinject */
+
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('../fonts/segoeui/SegoeUI.eot');
+  src: url('../fonts/segoeui/SegoeUI.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/segoeui/SegoeUI.woff2') format('woff2'),
+  url('../fonts/segoeui/SegoeUI.woff') format('woff'),
+  url('../fonts/segoeui/SegoeUI.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Segoe UI';
+  src: url('../fonts/segoeui/SegoeUI-Bold.eot');
+  src: url('../fonts/segoeui/SegoeUI-Bold.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/segoeui/SegoeUI-Bold.woff2') format('woff2'),
+  url('../fonts/segoeui/SegoeUI-Bold.woff') format('woff'),
+  url('../fonts/segoeui/SegoeUI-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@import "aui_variables";
+@import "mixins_custom";
+@import "styles/font_custom";
+@import "styles/helpers";
+@import "styles/general";
+@import "styles/navigation";
+@import "styles/forms";
+@import "styles/buttons";
+@import "styles/footer";
+@import "styles/navbars";
+@import "components/sc-dockbar";
+@import "components/notifications-list";
+@import "components/notifications-badge";
+@import "components/spaces";
+@import "components/chat";
+@import "components/portlet";
+@import "components/profile";
+@import "components/contacts";
+@import "components/microblogs";
+@import "components/todo_list";
+@import "components/calendar";
+@import "components/search";
+@import "components/trash";
+@import "components/sondaggi";
+@import "components/wiki";
+@import "components/forum";
+@import "components/documents";
+@import "components/cards_spaces_groups";
+@import "components/loading";
+
+
+
+//fix for double scrolbar in popup
+.dialog-iframe-root-node{
+	padding-top:0 !important;
+	padding-bottom:0 !important;
+}

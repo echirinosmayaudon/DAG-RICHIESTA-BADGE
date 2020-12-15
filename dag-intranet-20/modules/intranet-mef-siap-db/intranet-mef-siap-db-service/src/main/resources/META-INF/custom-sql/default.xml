@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<custom-sql>
+	<sql id="com.intranet.mef.job.siap.service.persistence.impl.UserFrontierBindFinderImpl.LoadBck">
+		<![CDATA[
+			select [$NAME_FUNCTION$]() as func from dual
+		]]>
+	</sql>
+
+	<sql id="com.intranet.mef.job.siap.service.persistence.impl.UserFrontierBindFinderImpl.Dummy">
+		<![CDATA[
+			select [$NAME_FUNCTION$]() as func from dual
+		]]>
+	</sql>
+
+	<sql id="com.intranet.mef.job.siap.service.persistence.impl.UserFrontierBindFinderImpl.ErrorImport">
+		<![CDATA[
+			select [$NAME_FUNCTION$](?) as func from dual
+		]]>
+	</sql>
+</custom-sql>

@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="servizio.local.bfc.model.LocalRich" />
+	<import class="servizio.local.bfc.model.LocalRichInfo" />
+	<class name="servizio.local.bfc.model.impl.LocalRichImpl" table="LOCBFC_LocalRich">
+		<id column="id_" name="id" type="long">
+			<generator class="sequence">
+				<param name="sequence">localrich_seq</param>
+			</generator>
+		</id>
+		<property name="idStatoAttuale" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="id_richiesta" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="dataRichiesta" type="org.hibernate.type.TimestampType" />
+		<property name="idPeriodicita" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="email" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="rifStanza" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ispettorato" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="noteRich" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ufficio" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="note" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="uidIns" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="dataIns" type="org.hibernate.type.TimestampType" />
+		<property name="uidUpd" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="dataUpd" type="org.hibernate.type.TimestampType" />
+		<property name="oggetto" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="idSede" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="strutIsp" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="strutUff" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="strutIsp2" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="telRich" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="costoReale" type="com.liferay.portal.dao.orm.hibernate.FloatType" />
+		<property name="preventivo" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="flagInvio" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="inStage" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+	<class name="servizio.local.bfc.model.impl.LocalRichInfoImpl" table="LOCBFC_LocalRichInfo">
+		<id column="id_" name="id" type="long">
+			<generator class="sequence">
+				<param name="sequence">localrichinfo_seq</param>
+			</generator>
+		</id>
+		<property name="idStatoAttuale" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="id_richiesta" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="dataRichiesta" type="org.hibernate.type.TimestampType" />
+		<property name="email" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="rifStanza" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ispettorato" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="nomeRef" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="telRef" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property access="com.liferay.portal.dao.orm.hibernate.CamelCasePropertyAccessor" name="nMacchina" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="noteRich" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="ufficio" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="note" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="uidIns" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="dataIns" type="org.hibernate.type.TimestampType" />
+		<property name="uidUpd" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="dataUpd" type="org.hibernate.type.TimestampType" />
+		<property name="oggetto" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="idSede" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="telRich" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="strutUff" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="strutIsp" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="costoReale" type="com.liferay.portal.dao.orm.hibernate.FloatType" />
+		<property name="preventivo" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="flagInvio" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="inStage" type="com.liferay.portal.dao.orm.hibernate.BooleanType" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,323 @@
+/*********************
+MIXINS
+*********************/
+
+//transition, usage:  @include transition(all, 0.2s, ease-in-out);
+@mixin transition($transition-property, $transition-time, $method) {
+  -webkit-transition: $transition-property $transition-time $method;
+  -moz-transition: $transition-property $transition-time $method;
+  -ms-transition: $transition-property $transition-time $method;
+  -o-transition: $transition-property $transition-time $method;
+  transition: $transition-property $transition-time $method;
+}
+
+@mixin css3-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -khtml-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  -o-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+
+@mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4), $inset: "") {
+  @if ($inset != "") {
+    @include css3-prefix('box-shadow', $inset $x $y $blur $color);
+  } @else {
+    @include css3-prefix('box-shadow', $x $y $blur $color);
+  }
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  /* stops bg color from leaking outside the border: */
+}
+
+// Single side border-radius
+
+@mixin border-top-radius($radius) {
+  -webkit-border-top-right-radius: $radius;
+  border-top-right-radius: $radius;
+  -webkit-border-top-left-radius: $radius;
+  border-top-left-radius: $radius;
+  background-clip: padding-box;
+}
+@mixin border-right-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+  -webkit-border-top-right-radius: $radius;
+  border-top-right-radius: $radius;
+  background-clip: padding-box;
+}
+@mixin border-bottom-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+  -webkit-border-bottom-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+  background-clip: padding-box;
+}
+@mixin border-left-radius($radius) {
+  -webkit-border-bottom-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+  -webkit-border-top-left-radius: $radius;
+  border-top-left-radius: $radius;
+  background-clip: padding-box;
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin abs-pos ($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  position: absolute;
+}
+
+
+
+@mixin rotate($deg) {
+  transform:rotate($deg);
+  -o-transform:rotate($deg);
+  -moz-transform:rotate($deg);
+  -webkit-transform:rotate($deg);
+}
+
+
+@mixin reset-all{
+  padding:0;
+  margin:0;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  text-shadow: none;
+  list-style:none;
+}
+
+@mixin reset-space{
+  padding:0;
+  margin:0;
+}
+
+@mixin reset-border{
+  border-radius: 0;
+  border: none;
+}
+
+@mixin reset-shadow{
+  box-shadow: none;
+  text-shadow: none;
+}
+
+
+// generic transform
+@mixin transform($transforms) {
+  -moz-transform: $transforms;
+  -o-transform: $transforms;
+  -ms-transform: $transforms;
+  -webkit-transform: $transforms;
+  transform: $transforms;
+}
+
+// translate
+@mixin translate ($x:0, $y:0) {
+  @include transform(translate($x, $y));
+}
+
+
+@mixin font-size($font-size, $line-height: auto){
+  font-size: $font-size;
+  font-size: ($font-size / $base-font-size) * 1rem;
+
+  @if $line-height == auto {
+    line-height: ceil($font-size / $base-line-height) * ($base-line-height / $font-size);
+  }
+
+  @else {
+
+    @if (type-of($line-height) == number or $line-height == inherit or $line-height == normal) {
+      line-height: $line-height;
+    }
+
+    @elseif ($line-height != none and $line-height != false) {
+      @warn "D’oh! ‘#{$line-height}’ is not a valid value for `line-height`."
+    }
+
+  }
+
+}
+
+@mixin font($font-size, $line-height: auto, $font-weight: 400, $font-color: $base__color, $font-family: $font__main) {
+
+  @include font-size($font-size, $line-height);
+
+  @if($font-weight != null){
+    font-weight: $font-weight;
+  }
+  @if($font-family != null){
+    font-family: $font-family;
+  }
+  @if($font-color != null){
+    color: $font-color;
+  }
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+}
+
+@mixin input-custom ($bkg-color,$border-color,$font-color,$placeholder-color){
+  width: 100%;
+  padding: 12px 20px;
+  background-color:$bkg-color;
+  background-clip: border-box;
+  border:1px solid $border-color;
+  @include border-radius(16px);
+  color: $font-color;
+  box-shadow:none;
+  font-size: 18px;
+  @include placeholder ($placeholder-color);
+}
+
+@mixin white-box{
+  background-color: $white;
+  padding: 35px;
+  @include border-radius(8px);
+  @include clearfix;
+  @media(max-width: $screen-xs-max){
+    padding: 25px 15px;
+    margin-left:-15px;
+    margin-right:-15px;
+  }
+}
+
+@mixin white-box-top-radius{
+  @include white-box;
+  @include border-top-radius(8px);
+  @include border-bottom-radius(0);
+  padding-bottom: 0;
+  @media(max-width: $screen-xs-max){
+    padding-bottom: 0;
+  }
+}
+
+@mixin white-box-bottom-radius{
+  @include white-box;
+  @include border-top-radius(0);
+  @include border-bottom-radius(8px);
+  padding-top: 0;
+  @media(max-width: $screen-xs-max){
+    padding-top: 0;
+  }
+}
+
+@mixin white-box-small{
+  @include white-box;
+  padding: 25px 20px;
+}
+
+@mixin white-box-small-top-radius{
+  @include white-box;
+  @include border-top-radius(8px);
+  @include border-bottom-radius(0);
+  padding: 25px 20px 0 20px;
+  @media(max-width: $screen-xs-max){
+    padding: 25px 10px 0 10px;
+  }
+}
+
+@mixin white-box-small-bottom-radius{
+  @include white-box;
+  @include border-top-radius(0);
+  @include border-bottom-radius(8px);
+  padding: 0 20px 25px 20px;
+  @media(max-width: $screen-xs-max){
+    padding: 0 10px 25px 10px;
+  }
+}
+
+@mixin white-box-small-between{
+  @include white-box;
+  @include reset-border;
+  padding: 0 20px 0 20px;
+  @media(max-width: $screen-xs-max){
+    padding: 0 10px 0 10px;
+  }
+}
+
+@mixin icon-fontawesome{
+  [class^="icon-"], [class*=" icon-"] {
+    font-family: 'fontawesome-alloy' !important;
+  }
+}
+
+@mixin focus-outline{
+  background: none!important;
+  outline: $focus solid 3px !important;
+}
+
+
+
+
+@mixin placeholder ($color-placeholder){
+  &::-webkit-input-placeholder {color: $color-placeholder !important; opacity:1; font-size: 18px;}
+  &:-moz-placeholder           {color: $color-placeholder !important; opacity:1; font-size: 18px;}
+  &::-moz-placeholder          {color: $color-placeholder !important; opacity:1; font-size: 18px;}
+  &:-ms-input-placeholder      {color: $color-placeholder !important; opacity:1; font-size: 18px;}
+}
+
+
+@mixin btn-cta {
+  &.btn-default{
+    text-transform: uppercase;
+    height: 50px;
+    padding: 14px;
+    line-height: 23px;
+    letter-spacing: 1.6px;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px 2px rgba(31, 31, 31, 0.04);
+    display: inline-block;
+    min-width: 120px;
+    border: none;
+    background-color: #d8d8d8;
+    color: #445555;
+  }
+
+  &.btn-primary {
+    background-color: $yellow;
+    color: $blue;
+
+    &:hover:not(.disabled) {
+      background-color: $bright-aqua;
+      color: $blue;
+    }
+  }
+  &:active, &.active {
+    border-color: $bright-aqua;
+    color: $blue;
+  }
+
+  &:disabled, &.disabled {
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,92 @@
+html {
+	padding: 0;
+	@media (max-width: $screen-sm-max) {
+		overflow-x: hidden;
+	}
+}
+
+
+body {
+	font-family: $main-font;
+	background: white;
+
+	&.bg-site{
+		overflow-x: hidden !important;
+		height: 100vh !important;
+		margin: 0;
+		padding: 0;
+		background-color: white;
+		color: $dark-grey-blue;
+	}
+}
+
+/* ---------------------------------*/
+
+$screen-full-layout: $screen-md;
+$screen-collapsed-layout-max: $screen-sm-max;
+
+
+
+#wrapper {
+	min-height: calc(100vh - 150px);
+	padding-bottom: 50px!important;
+
+	@media (min-width: $screen-full-layout) {
+		min-height: 500px;
+	}
+}
+
+
+@media (min-width: $screen-full-layout) {
+	body.has-target-menu .spaces-navigation > .container-fluid-1280 {
+		padding-left: 280px;
+	}
+}
+
+
+
+@media (min-width: $screen-full-layout) {
+	body.has-target-menu #content {
+		padding-left: 280px;
+		transition: 200ms;
+	}
+
+	body.has-target-menu-closed #content {
+		transition: 200ms;
+	}
+}
+
+
+.portlet-topper-toolbar{
+	.dropdown-toggle{
+		.lexicon-icon{
+			margin-top: 35px;
+		}
+	}
+}
+
+.parsley-error-list,
+.parsley-errors-list{
+	padding: 5px;
+	li{
+		color: #FF0022;
+		list-style: none;
+		text-align: left;
+		padding: 5px 0;
+		font-size: 16px;
+	}
+}
+
+.lexicon-icon {
+  pointer-events: none;
+}
+
+
+.well {
+	background: transparent;
+	border: none;
+	box-shadow: none;
+	border-radius: 0;
+	padding: 0;
+	min-height: initial;
+}

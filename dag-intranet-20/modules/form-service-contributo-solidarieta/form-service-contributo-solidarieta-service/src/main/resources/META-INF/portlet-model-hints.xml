@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="form.service.contributo.solidarieta.model.Donatore">
+		<field name="id" type="long" />
+		<field name="nome" type="String" />
+		<field name="cognome" type="String" />
+		<field name="cod_fiscale" type="String" />
+		<field name="email" type="String" />
+		<field name="importo" type="String" />
+		<field name="data_inserimento" type="String" />
+	</model>
+</model-hints>

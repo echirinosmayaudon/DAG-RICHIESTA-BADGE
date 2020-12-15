@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="servizio.beni.facile.consumo.model.CambioStatoDirigente">
+		<field name="id" type="long" />
+		<field name="id_rich" type="long" />
+		<field name="data" type="Date" />
+		<field name="utente" type="String" />
+		<field name="id_stato" type="long" />
+		<field name="note" type="String">
+			<hint name="max-length">500</hint>
+		</field>
+	</model>
+	<model name="servizio.beni.facile.consumo.model.GestioneUtenti">
+		<field name="id" type="long" />
+		<field name="data" type="Date" />
+		<field name="cod_fiscale" type="String">
+			<hint name="max-length">16</hint>
+		</field>
+		<field name="nome" type="String" />
+		<field name="cognome" type="String" />
+		<field name="ufficio" type="String" />
+		<field name="abilitazione" type="boolean" />
+		<field name="delega" type="boolean" />
+	</model>
+	<model name="servizio.beni.facile.consumo.model.Periodicita">
+		<field name="id" type="long" />
+		<field name="descrizione" type="String" />
+	</model>
+	<model name="servizio.beni.facile.consumo.model.RigheRichiestaBFC">
+		<field name="id" type="long" />
+		<field name="id_richiesta" type="long" />
+		<field name="dipartimento" type="String" />
+		<field name="dati" type="String">
+			<hint name="max-length">4000</hint>
+		</field>
+	</model>
+	<model name="servizio.beni.facile.consumo.model.ServizioMateriale">
+		<field name="gruppo" type="String" />
+		<field name="descrizione" type="String" />
+		<field name="categoria" type="String" />
+	</model>
+	<model name="servizio.beni.facile.consumo.model.Stato">
+		<field name="id" type="long" />
+		<field name="descrizione" type="String" />
+	</model>
+</model-hints>

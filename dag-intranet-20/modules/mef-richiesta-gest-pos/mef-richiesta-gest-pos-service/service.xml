@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.0.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_0_0.dtd">
+
+<service-builder  package-path="mef.richiesta.gest.pos">
+	<namespace>BADGE_POS</namespace>
+    <entity name="Sede" local-service="true" remote-service="false">
+        <column name="id_pk_sede" type="long" primary="true"></column>
+        <column name="id_sede" type="long"></column>
+        <column name="cod_sede" type="String"></column>
+        <column name="desc" type="String"></column>
+        <column name="data_ins" type="String"></column>
+        <column name="data_agg" type="String"></column>
+        <column name="user_ins" type="String"></column>
+        <column name="user_agg" type="String"></column>
+    </entity>
+    <entity name="Piano" local-service="true" remote-service="false">
+    	<column name="id_pk_piano" type="long" primary="true"></column>
+        <column name="id_piano" type="long"></column>
+        <column name="id_sede" type="long"></column>
+        <column name="cod_piano" type="String"></column>
+        <column name="desc" type="String"></column>
+        <column name="data_ins" type="String"></column>
+        <column name="data_agg" type="String"></column>
+        <column name="user_ins" type="String"></column>
+        <column name="user_agg" type="String"></column>
+    </entity>
+    <entity name="Corridoio" local-service="true" remote-service="false">
+    	<column name="id_pk_corridoio" type="long" primary="true"></column>
+        <column name="id_corridoio" type="long"></column>
+        <column name="id_piano" type="long"></column>
+        <column name="cod_corridoio" type="String"></column>
+        <column name="desc" type="String"></column>
+        <column name="data_ins" type="String"></column>
+        <column name="data_agg" type="String">	</column>
+        <column name="user_ins" type="String"></column>
+        <column name="user_agg" type="String"></column>
+    </entity>
+    <entity name="FuoriPorta" local-service="true" remote-service="false">
+    	<column name="id_pk_fuoriPorta" type="long" primary="true"></column>
+        <column name="id_fuoriPorta" type="long"></column>
+        <column name="id_corridoio" type="long"></column>
+        <column name="cod_fuoriPorta" type="String"></column>
+        <column name="desc" type="String"></column>
+        <column name="data_ins" type="String"></column>
+        <column name="data_agg" type="String"></column>
+        <column name="user_ins" type="String"></column>
+        <column name="user_agg" type="String"></column>
+    </entity>
+</service-builder>

@@ -1,0 +1,1 @@
+create sequence mefinterpello_seq;

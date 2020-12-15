@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="servizio.prenotazione.aule.mef.service.impl.ApprovatoreLocalServiceImpl" id="servizio.prenotazione.aule.mef.service.ApprovatoreLocalService" />
+	<bean class="servizio.prenotazione.aule.mef.service.impl.ApprovatoreServiceImpl" id="servizio.prenotazione.aule.mef.service.ApprovatoreService" />
+	<bean class="servizio.prenotazione.aule.mef.service.persistence.impl.ApprovatorePersistenceImpl" id="servizio.prenotazione.aule.mef.service.persistence.ApprovatorePersistence" parent="basePersistence" />
+	<bean class="servizio.prenotazione.aule.mef.service.impl.OrarioLocalServiceImpl" id="servizio.prenotazione.aule.mef.service.OrarioLocalService" />
+	<bean class="servizio.prenotazione.aule.mef.service.impl.OrarioServiceImpl" id="servizio.prenotazione.aule.mef.service.OrarioService" />
+	<bean class="servizio.prenotazione.aule.mef.service.persistence.impl.OrarioPersistenceImpl" id="servizio.prenotazione.aule.mef.service.persistence.OrarioPersistence" parent="basePersistence" />
+	<bean class="servizio.prenotazione.aule.mef.service.persistence.impl.OrarioFinderImpl" id="servizio.prenotazione.aule.mef.service.persistence.OrarioFinder" parent="basePersistence" />
+	<bean class="servizio.prenotazione.aule.mef.service.impl.PrenotazioneLocalServiceImpl" id="servizio.prenotazione.aule.mef.service.PrenotazioneLocalService" />
+	<bean class="servizio.prenotazione.aule.mef.service.impl.PrenotazioneServiceImpl" id="servizio.prenotazione.aule.mef.service.PrenotazioneService" />
+	<bean class="servizio.prenotazione.aule.mef.service.persistence.impl.PrenotazionePersistenceImpl" id="servizio.prenotazione.aule.mef.service.persistence.PrenotazionePersistence" parent="basePersistence" />
+	<bean class="servizio.prenotazione.aule.mef.service.persistence.impl.PrenotazioneFinderImpl" id="servizio.prenotazione.aule.mef.service.persistence.PrenotazioneFinder" parent="basePersistence" />
+	<bean class="servizio.prenotazione.aule.mef.service.impl.SalaLocalServiceImpl" id="servizio.prenotazione.aule.mef.service.SalaLocalService" />
+	<bean class="servizio.prenotazione.aule.mef.service.impl.SalaServiceImpl" id="servizio.prenotazione.aule.mef.service.SalaService" />
+	<bean class="servizio.prenotazione.aule.mef.service.persistence.impl.SalaPersistenceImpl" id="servizio.prenotazione.aule.mef.service.persistence.SalaPersistence" parent="basePersistence" />
+	<bean class="servizio.prenotazione.aule.mef.service.impl.SalaStrutturaLocalServiceImpl" id="servizio.prenotazione.aule.mef.service.SalaStrutturaLocalService" />
+	<bean class="servizio.prenotazione.aule.mef.service.impl.SalaStrutturaServiceImpl" id="servizio.prenotazione.aule.mef.service.SalaStrutturaService" />
+	<bean class="servizio.prenotazione.aule.mef.service.persistence.impl.SalaStrutturaPersistenceImpl" id="servizio.prenotazione.aule.mef.service.persistence.SalaStrutturaPersistence" parent="basePersistence" />
+	<bean class="servizio.prenotazione.aule.mef.service.impl.ServizioLogLocalServiceImpl" id="servizio.prenotazione.aule.mef.service.ServizioLogLocalService" />
+	<bean class="servizio.prenotazione.aule.mef.service.impl.ServizioLogServiceImpl" id="servizio.prenotazione.aule.mef.service.ServizioLogService" />
+	<bean class="servizio.prenotazione.aule.mef.service.persistence.impl.ServizioLogPersistenceImpl" id="servizio.prenotazione.aule.mef.service.persistence.ServizioLogPersistence" parent="basePersistence" />
+	<bean class="servizio.prenotazione.aule.mef.service.impl.StatoAulaLocalServiceImpl" id="servizio.prenotazione.aule.mef.service.StatoAulaLocalService" />
+	<bean class="servizio.prenotazione.aule.mef.service.impl.StatoAulaServiceImpl" id="servizio.prenotazione.aule.mef.service.StatoAulaService" />
+	<bean class="servizio.prenotazione.aule.mef.service.persistence.impl.StatoAulaPersistenceImpl" id="servizio.prenotazione.aule.mef.service.persistence.StatoAulaPersistence" parent="basePersistence" />
+	<bean class="servizio.prenotazione.aule.mef.service.impl.StrumentoEventoLocalServiceImpl" id="servizio.prenotazione.aule.mef.service.StrumentoEventoLocalService" />
+	<bean class="servizio.prenotazione.aule.mef.service.impl.StrumentoEventoServiceImpl" id="servizio.prenotazione.aule.mef.service.StrumentoEventoService" />
+	<bean class="servizio.prenotazione.aule.mef.service.persistence.impl.StrumentoEventoPersistenceImpl" id="servizio.prenotazione.aule.mef.service.persistence.StrumentoEventoPersistence" parent="basePersistence" />
+	<bean class="servizio.prenotazione.aule.mef.service.impl.StrumentoTecLocalServiceImpl" id="servizio.prenotazione.aule.mef.service.StrumentoTecLocalService" />
+	<bean class="servizio.prenotazione.aule.mef.service.impl.StrumentoTecServiceImpl" id="servizio.prenotazione.aule.mef.service.StrumentoTecService" />
+	<bean class="servizio.prenotazione.aule.mef.service.persistence.impl.StrumentoTecPersistenceImpl" id="servizio.prenotazione.aule.mef.service.persistence.StrumentoTecPersistence" parent="basePersistence" />
+	<bean class="servizio.prenotazione.aule.mef.service.impl.TipoEventoLocalServiceImpl" id="servizio.prenotazione.aule.mef.service.TipoEventoLocalService" />
+	<bean class="servizio.prenotazione.aule.mef.service.impl.TipoEventoServiceImpl" id="servizio.prenotazione.aule.mef.service.TipoEventoService" />
+	<bean class="servizio.prenotazione.aule.mef.service.persistence.impl.TipoEventoPersistenceImpl" id="servizio.prenotazione.aule.mef.service.persistence.TipoEventoPersistence" parent="basePersistence" />
+</beans>

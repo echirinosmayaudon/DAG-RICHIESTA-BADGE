@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.mef.intranet.rubrica.model.SearchData">
+		<field name="uuid" type="String" />
+		<field name="searchId" type="long" />
+		<field name="searchData" type="String">
+			<hint name="max-length">1000</hint>
+		</field>
+		<field name="createDate" type="Date" />
+	</model>
+</model-hints>

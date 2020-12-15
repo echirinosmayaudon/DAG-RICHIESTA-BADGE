@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping auto-import="false" default-lazy="false">
+	<import class="com.accenture.lavoro.agile.istanza.mef.model.Email" />
+	<import class="com.accenture.lavoro.agile.istanza.mef.model.OpzioneRich" />
+	<import class="com.accenture.lavoro.agile.istanza.mef.model.RichLavAgile" />
+	<class name="com.accenture.lavoro.agile.istanza.mef.model.impl.EmailImpl" table="MEFISTAGILE_Email">
+		<id column="id_" name="id" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="idStruttura" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="mailCC" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+	<class name="com.accenture.lavoro.agile.istanza.mef.model.impl.OpzioneRichImpl" table="MEFISTAGILE_OpzioneRich">
+		<id name="id_opt" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="label_opt" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="testo_opt" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="peso_opt" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="data_in" type="org.hibernate.type.TimestampType" />
+	</class>
+	<class name="com.accenture.lavoro.agile.istanza.mef.model.impl.RichLavAgileImpl" table="MEFISTAGILE_RichLavAgile">
+		<id column="id_" name="id" type="long">
+			<generator class="sequence">
+				<param name="sequence">mefistagile_seq</param>
+			</generator>
+		</id>
+		<property name="id_richiesta" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="cognome" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="nome" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="dipartimento" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="direzione" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="ufficio" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		<property name="screename" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="json_richiedente" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="json_richiesta" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="peso_tot" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		<property name="peso_plus" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="bando" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="data_richiesta" type="org.hibernate.type.TimestampType" />
+		<property name="allegato" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		<property name="pdf" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+	</class>
+</hibernate-mapping>

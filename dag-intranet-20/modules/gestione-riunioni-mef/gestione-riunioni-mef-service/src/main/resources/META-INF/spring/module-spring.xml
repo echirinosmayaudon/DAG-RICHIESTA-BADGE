@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean class="com.intranet.mef.gestione.riunioni.service.impl.AmministrazioneConvocanteLocalServiceImpl" id="com.intranet.mef.gestione.riunioni.service.AmministrazioneConvocanteLocalService" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.impl.AmministrazioneConvocanteServiceImpl" id="com.intranet.mef.gestione.riunioni.service.AmministrazioneConvocanteService" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.persistence.impl.AmministrazioneConvocantePersistenceImpl" id="com.intranet.mef.gestione.riunioni.service.persistence.AmministrazioneConvocantePersistence" parent="basePersistence" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.persistence.impl.AmministrazioneConvocanteFinderImpl" id="com.intranet.mef.gestione.riunioni.service.persistence.AmministrazioneConvocanteFinder" parent="basePersistence" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.impl.InvitatiRiunioneLocalServiceImpl" id="com.intranet.mef.gestione.riunioni.service.InvitatiRiunioneLocalService" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.impl.InvitatiRiunioneServiceImpl" id="com.intranet.mef.gestione.riunioni.service.InvitatiRiunioneService" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.persistence.impl.InvitatiRiunionePersistenceImpl" id="com.intranet.mef.gestione.riunioni.service.persistence.InvitatiRiunionePersistence" parent="basePersistence" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.impl.LuogoLocalServiceImpl" id="com.intranet.mef.gestione.riunioni.service.LuogoLocalService" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.impl.LuogoServiceImpl" id="com.intranet.mef.gestione.riunioni.service.LuogoService" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.persistence.impl.LuogoPersistenceImpl" id="com.intranet.mef.gestione.riunioni.service.persistence.LuogoPersistence" parent="basePersistence" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.persistence.impl.LuogoFinderImpl" id="com.intranet.mef.gestione.riunioni.service.persistence.LuogoFinder" parent="basePersistence" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.impl.RiunioneLocalServiceImpl" id="com.intranet.mef.gestione.riunioni.service.RiunioneLocalService" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.impl.RiunioneServiceImpl" id="com.intranet.mef.gestione.riunioni.service.RiunioneService" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.persistence.impl.RiunionePersistenceImpl" id="com.intranet.mef.gestione.riunioni.service.persistence.RiunionePersistence" parent="basePersistence" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.persistence.impl.RiunioneFinderImpl" id="com.intranet.mef.gestione.riunioni.service.persistence.RiunioneFinder" parent="basePersistence" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.impl.SegreteriaLocalServiceImpl" id="com.intranet.mef.gestione.riunioni.service.SegreteriaLocalService" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.impl.SegreteriaServiceImpl" id="com.intranet.mef.gestione.riunioni.service.SegreteriaService" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.persistence.impl.SegreteriaPersistenceImpl" id="com.intranet.mef.gestione.riunioni.service.persistence.SegreteriaPersistence" parent="basePersistence" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.impl.StatoInvitatoLocalServiceImpl" id="com.intranet.mef.gestione.riunioni.service.StatoInvitatoLocalService" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.impl.StatoInvitatoServiceImpl" id="com.intranet.mef.gestione.riunioni.service.StatoInvitatoService" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.persistence.impl.StatoInvitatoPersistenceImpl" id="com.intranet.mef.gestione.riunioni.service.persistence.StatoInvitatoPersistence" parent="basePersistence" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.impl.StatoRiunioneLocalServiceImpl" id="com.intranet.mef.gestione.riunioni.service.StatoRiunioneLocalService" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.impl.StatoRiunioneServiceImpl" id="com.intranet.mef.gestione.riunioni.service.StatoRiunioneService" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.persistence.impl.StatoRiunionePersistenceImpl" id="com.intranet.mef.gestione.riunioni.service.persistence.StatoRiunionePersistence" parent="basePersistence" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.impl.StoricoStatoRiunioneLocalServiceImpl" id="com.intranet.mef.gestione.riunioni.service.StoricoStatoRiunioneLocalService" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.impl.StoricoStatoRiunioneServiceImpl" id="com.intranet.mef.gestione.riunioni.service.StoricoStatoRiunioneService" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.persistence.impl.StoricoStatoRiunionePersistenceImpl" id="com.intranet.mef.gestione.riunioni.service.persistence.StoricoStatoRiunionePersistence" parent="basePersistence" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.impl.TipoRiunioneLocalServiceImpl" id="com.intranet.mef.gestione.riunioni.service.TipoRiunioneLocalService" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.impl.TipoRiunioneServiceImpl" id="com.intranet.mef.gestione.riunioni.service.TipoRiunioneService" />
+	<bean class="com.intranet.mef.gestione.riunioni.service.persistence.impl.TipoRiunionePersistenceImpl" id="com.intranet.mef.gestione.riunioni.service.persistence.TipoRiunionePersistence" parent="basePersistence" />
+</beans>
