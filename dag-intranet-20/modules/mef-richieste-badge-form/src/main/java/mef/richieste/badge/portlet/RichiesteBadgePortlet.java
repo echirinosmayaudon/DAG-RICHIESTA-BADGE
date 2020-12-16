@@ -430,8 +430,25 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 		renderRequest.setAttribute("uffici", uffici_by_dirigente_list);
 
+		
+		/* mod temp radio
+
+		
+		
+		long id = CounterLocalServiceUtil.increment(OggettoRichiesta.class.getName());
+		OggettoRichiesta oggettoRichiesta = OggettoRichiestaLocalServiceUtil.createOggettoRichiesta(-1);
+		oggettoRichiesta.setId_oggetto(id);
+		oggettoRichiesta.setDescrizione_oggetto("primo rilascio badge");
+		OggettoRichiestaLocalServiceUtil.addOggettoRichiesta(oggettoRichiesta);
+		
+		 fine mod temp radio */
+		
+		
 		List<OggettoRichiesta> oggettoRichiestaList = OggettoRichiestaLocalServiceUtil
 				.getOggettoRichiestas(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		
+		
+		
 		
 		/* mod temp sedi ext 
 
