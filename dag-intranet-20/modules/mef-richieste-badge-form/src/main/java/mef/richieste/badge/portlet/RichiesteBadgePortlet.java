@@ -432,6 +432,20 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 		List<OggettoRichiesta> oggettoRichiestaList = OggettoRichiestaLocalServiceUtil
 				.getOggettoRichiestas(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		
+		/* mod temp sedi ext 
+
+
+		
+		long id = CounterLocalServiceUtil.increment(SediEsterne.class.getName());
+		SediEsterne sedeEsterna = SediEsterneLocalServiceUtil.createSediEsterne(-1);
+		
+		sedeEsterna.setId_sede_esterna(id);
+		sedeEsterna.setNome_sede_esterna("XX Settembre");
+		SediEsterneLocalServiceUtil.addSediEsterne(sedeEsterna);
+		
+		 fine mod temp sedi ext */
+		
 		List<SediEsterne> sediEsterneList = SediEsterneLocalServiceUtil.getSediEsternes(QueryUtil.ALL_POS,
 				QueryUtil.ALL_POS);
 
