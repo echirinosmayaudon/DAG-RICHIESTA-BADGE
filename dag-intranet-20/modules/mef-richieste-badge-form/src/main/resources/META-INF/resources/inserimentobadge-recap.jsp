@@ -408,19 +408,19 @@ if(request.getParameter("richiestaId")!=null || (request.getAttribute("richiesta
                                   <!-- modifica 2021 -->
                             <div class="ama-col-md-3 ama-col-sm-6">
                                 <span class="section-information"><liferay-ui:message key="badge-recap-sede"/>:</span>
-                                <p class="info"><%=moduloRichiedente.getSedePostazione()%></p>
+                                <p class="info"><%=moduloRichiedente.getSedePostazione().split("##")[1]%></p>
                             </div>
                             <div class="ama-col-md-3 ama-col-sm-6">
                                 <span class="section-information"><liferay-ui:message key="badge-recap-piano"/>:</span>
-                                <p class="info"><%=moduloRichiedente.getPianoPostazione()%></p>
+                                <p class="info"><%=moduloRichiedente.getPianoPostazione().split("##")[1]%></p>
                             </div>
                             <div class="ama-col-md-3 ama-col-sm-6">
                                 <span class="section-information"><liferay-ui:message key="badge-recap-corridoio"/>:</span>
-                                <p class="info"><%=moduloRichiedente.getCorridoioPostazione()%></p>
+                                <p class="info"><%=moduloRichiedente.getCorridoioPostazione().split("##")[1]%></p>
                             </div>
                             <div class="ama-col-md-3 ama-col-sm-6">
                                 <span class="section-information"><liferay-ui:message key="badge-recap-fuori-porta"/>:</span>
-                                <p class="info"><%=moduloRichiedente.getFuoriPortaPostazione()%></p>
+                                <p class="info"><%=moduloRichiedente.getFuoriPortaPostazione().split("##")[1]%></p>
                             </div>
                        
                             

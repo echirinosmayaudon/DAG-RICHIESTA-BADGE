@@ -178,8 +178,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		
 		ThemeDisplay themeDisplay = (ThemeDisplay) renderRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		User user = themeDisplay.getUser();
-		//String idOrgChart = (String) user.getExpandoBridge().getAttribute("idOrgChart");
-		String idOrgChart ="24992";
+		String idOrgChart = (String) user.getExpandoBridge().getAttribute("idOrgChart");
+		//String idOrgChart ="24992";
 		Long userId = (Long) user.getUserId();
 		String navigation = (String) renderRequest.getAttribute("navigation");
 
@@ -1145,6 +1145,11 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			screename_richiedente = user.getScreenName();
 		}
 
+
+		
+		
+		
+		
 		if ((user != null) && (user.getExpandoBridge() != null)
 				&& (user.getExpandoBridge().getAttribute(_customFieldUserOrg) != null)) {
 			id_ufficio = Long.parseLong((String) user.getExpandoBridge().getAttribute(_customFieldUserOrg));
