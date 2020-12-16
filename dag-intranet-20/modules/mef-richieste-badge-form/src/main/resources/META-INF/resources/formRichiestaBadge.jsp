@@ -1748,7 +1748,7 @@
 												sede : $("#<portlet:namespace/>sede").val(),
 												piano : $("#<portlet:namespace/>piano").val(),
 												corridoio : $("#<portlet:namespace/>corridoio").val(),
-												fuoriporta : $("#<portlet:namespace/>").val()
+												fuoriporta : $("#<portlet:namespace/>fuoriPorta").val()
 										   };
 					$("#<portlet:namespace/>jsonRichiestaesterna").val(JSON.stringify(jsonRichiestaEsterna));
 				}
@@ -1847,7 +1847,7 @@ function resetComboz(combos) {
 
 function checkValueComboz(idCombo,valueCombo,arrayCombo){
 	
-	console.log("dentro del check");
+	console.log("dentro del check "+valueCombo);
 	//Vengo dal return la fail invio mail oppure modifica richiesta
 		 if(valueCombo!=""){
 				 $(idCombo).find('option[value="'+valueCombo+'"]').attr("selected","selected");
@@ -1873,20 +1873,28 @@ function loadComboSede(listaSedi){
         	comboz.append($option);
         });
         
-        //checkValueComboz(idCombo,valueCombo,arrayCombo)
+        checkValueComboz("#<portlet:namespace/>sede",sede,listaSedi);
        
+        /*
         if(listaSedi.length==1){
         	$($("#<portlet:namespace/>sede").find('option')[1]).attr("selected","selected");
         	$("#<portlet:namespace/>sede" ).trigger( "change" );
-        }	 	
+        }	 
+        */	
        
 }
 
 $('#<portlet:namespace/>sede').bind("change", function (event) { 
-        console.log("on change sede");
-        resetComboz(['piano','corridoio','fuoriPorta']);     	        
-        	loadComboPiano();        	        	        	
-    });
+    	console.log("on change sede");
+    	_xval =  $(this).val();
+    	
+    	resetComboz(['piano','corridoio','fuoriPorta']);  
+    	if(_xval){
+        	sede = "";
+        	loadComboPiano();     
+        }
+    	
+});
 
 
 function filterPiano(){
@@ -1915,17 +1923,27 @@ function loadComboPiano(){
         	$option = $("<option/>").attr("value", item.id_pk_piano).text(item.desc);
         	comboz.append($option);
         });	
+        
+        checkValueComboz("#<portlet:namespace/>piano",piano,data);
+        
+        /*
         if(data.length==1){
         	$($("#<portlet:namespace/>piano").find('option')[1]).attr("selected","selected");
         	$("#<portlet:namespace/>piano" ).trigger( "change" );
 
-        }	 	
+        }	 	*/
 	}
 
 $('#<portlet:namespace/>piano').bind("change", function (event) { 
         console.log("on change piano");
-        resetComboz(['corridoio','fuoriPorta']);     	        
-        	loadComboCorridoio();        	        	        	
+       	_xval =  $(this).val();
+       	
+       	resetComboz(['corridoio','fuoriPorta']);   
+           
+       	if(_xval){
+           	piano = "";
+           	loadComboCorridoio();        
+           }	      	
     });
 
 function filterCorridoio(){
@@ -1953,18 +1971,31 @@ function loadComboCorridoio(){
         	$option = $("<option/>").attr("value", item.id_pk_corridoio).text(item.desc);
         	comboz.append($option);
         });	
+        
+        checkValueComboz("#<portlet:namespace/>corridoio",corridoio,data);
+        
+        /*
         if(data.length==1){
         	$($("#<portlet:namespace/>corridoio").find('option')[1]).attr("selected","selected");
         	$("#<portlet:namespace/>corridoio" ).trigger( "change" );
 
-        }	 	
+        }
+        */
 	}
 	
 	
 $('#<portlet:namespace/>corridoio').bind("change", function (event) { 
-        console.log("on change");
-        resetComboz(['fuoriPorta']);     	        
-        	loadComboFuoriPorta();        	        	        	
+      console.log("on change");        	
+      	_xval =  $(this).val();
+         	
+      	resetComboz(['fuoriPorta']);      
+             
+         	if(_xval){
+             	corridoio = "";
+             	fuoriPorta="";
+             	
+             	loadComboFuoriPorta();         
+             }	   		
     });
 
 function filterFuoriPorta(){
@@ -1991,21 +2022,18 @@ function loadComboFuoriPorta(){
         	$option = $("<option/>").attr("value", item.id_pk_fuoriPorta).text(item.desc);
         	comboz.append($option);
         });	
+        
+        checkValueComboz("#<portlet:namespace/>fuoriPorta",fuoriPorta,data);
+        
+        /*
         if(data.length==1){
         	$($("#<portlet:namespace/>fuoriPorta").find('option')[1]).attr("selected","selected");
 
-        }	 	
+        }	 */	
 	}
 </script>
 
 <aui:script>
-
-var sede="${moduloRichiedente.getSedePostazione()}";
-	var piano="${moduloRichiedente.getPianoPostazione()}";
-	var corridoio="${moduloRichiedente.getCorridoioPostazione()}";
-	var fuoriPorta="${moduloRichiedente.getFuoriPortaPostazione()}";
-
-
  AUI().ready(function(){
  	alert("Sede: "+sede+" piano: "+piano+" corridoio: "+corridoio+" fuoriPorta: "+fuoriPorta);
  
