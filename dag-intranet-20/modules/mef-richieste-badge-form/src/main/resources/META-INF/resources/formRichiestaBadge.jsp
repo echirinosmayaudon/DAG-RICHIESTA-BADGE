@@ -1846,8 +1846,6 @@ function resetComboz(combos) {
 }
 
 function checkValueComboz(idCombo,valueCombo,arrayCombo){
-	
-	console.log("dentro del check "+valueCombo);
 	//Vengo dal return la fail invio mail oppure modifica richiesta
 		 if(valueCombo!=""){
 				 $(idCombo).find('option[value="'+valueCombo+'"]').attr("selected","selected");
@@ -1869,23 +1867,15 @@ function loadComboSede(listaSedi){
         $.each(listaSedi, function(i, item) {  
         console.log("id pk = "+item.id_pk_sede);  
          console.log("id = "+item.id_sede); 
-        	$option = $("<option/>").attr("value", item.id_pk_sede).text(item.desc);
+        	$option = $("<option/>").attr("value", item.id_pk_sede+"##"+item.desc).text(item.desc);
         	comboz.append($option);
         });
         
         checkValueComboz("#<portlet:namespace/>sede",sede,listaSedi);
-       
-        /*
-        if(listaSedi.length==1){
-        	$($("#<portlet:namespace/>sede").find('option')[1]).attr("selected","selected");
-        	$("#<portlet:namespace/>sede" ).trigger( "change" );
-        }	 
-        */	
-       
 }
 
 $('#<portlet:namespace/>sede').bind("change", function (event) { 
-    	console.log("on change sede");
+    	//console.log("on change sede");
     	_xval =  $(this).val();
     	
     	resetComboz(['piano','corridoio','fuoriPorta']);  
@@ -1898,11 +1888,11 @@ $('#<portlet:namespace/>sede').bind("change", function (event) {
 
 
 function filterPiano(){
-	  _sede = $("#<portlet:namespace/>sede").val();
+	  _sede = $("#<portlet:namespace/>sede").val().split("##")[0];
 		_items = [];
 		var listaPiani = ${listaPiani};
 		$.each(listaPiani, function(i, item) {
-		console.log("item.id_sede = "+item.id_sede+"|| _sede = "+_sede);
+		//console.log("item.id_sede = "+item.id_sede+"|| _sede = "+_sede);
 			if(item.id_sede==_sede){
 				if($.inArray(item,_items)< 0) {
 				_items.push(item);
@@ -1920,24 +1910,16 @@ function loadComboPiano(){
         data = filterPiano();
         
         $.each(data, function(i, item) {
-        	$option = $("<option/>").attr("value", item.id_pk_piano).text(item.desc);
+        	$option = $("<option/>").attr("value", item.id_pk_piano+"##"+item.desc).text(item.desc);
         	comboz.append($option);
         });	
         
         checkValueComboz("#<portlet:namespace/>piano",piano,data);
-        
-        /*
-        if(data.length==1){
-        	$($("#<portlet:namespace/>piano").find('option')[1]).attr("selected","selected");
-        	$("#<portlet:namespace/>piano" ).trigger( "change" );
-
-        }	 	*/
-	}
+     }
 
 $('#<portlet:namespace/>piano').bind("change", function (event) { 
-        console.log("on change piano");
+        //console.log("on change piano");
        	_xval =  $(this).val();
-       	
        	resetComboz(['corridoio','fuoriPorta']);   
            
        	if(_xval){
@@ -1947,7 +1929,7 @@ $('#<portlet:namespace/>piano').bind("change", function (event) {
     });
 
 function filterCorridoio(){
-	  _piano = $("#<portlet:namespace/>piano").val();
+	  _piano = $("#<portlet:namespace/>piano").val().split("##")[0];
 		_items = [];
 		var listaCorridoi = ${listaCorridoi};
 		$.each(listaCorridoi, function(i, item) {
@@ -1968,38 +1950,27 @@ function loadComboCorridoio(){
         data = filterCorridoio();
         
         $.each(data, function(i, item) {
-        	$option = $("<option/>").attr("value", item.id_pk_corridoio).text(item.desc);
+        	$option = $("<option/>").attr("value", item.id_pk_corridoio+"##"+item.desc).text(item.desc);
         	comboz.append($option);
         });	
         
         checkValueComboz("#<portlet:namespace/>corridoio",corridoio,data);
         
-        /*
-        if(data.length==1){
-        	$($("#<portlet:namespace/>corridoio").find('option')[1]).attr("selected","selected");
-        	$("#<portlet:namespace/>corridoio" ).trigger( "change" );
-
-        }
-        */
 	}
 	
-	
 $('#<portlet:namespace/>corridoio').bind("change", function (event) { 
-      console.log("on change");        	
-      	_xval =  $(this).val();
-         	
+      //console.log("on change");        	
+      	_xval =  $(this).val();    	
       	resetComboz(['fuoriPorta']);      
-             
-         	if(_xval){
-             	corridoio = "";
-             	fuoriPorta="";
-             	
-             	loadComboFuoriPorta();         
-             }	   		
+         
+      	if(_xval){
+          	corridoio = "";
+          	loadComboFuoriPorta();         
+          }	   		
     });
-
+    
 function filterFuoriPorta(){
-	  _corridoio = $("#<portlet:namespace/>corridoio").val();
+	  _corridoio = $("#<portlet:namespace/>corridoio").val().split("##")[0];
 		_items = [];
 		var listaFuoriPorta = ${listaFuoriPorta};
 		$.each(listaFuoriPorta, function(i, item) {
@@ -2019,27 +1990,24 @@ function loadComboFuoriPorta(){
         comboz.append("<option/>");
         data = filterFuoriPorta();
         $.each(data, function(i, item) {
-        	$option = $("<option/>").attr("value", item.id_pk_fuoriPorta).text(item.desc);
+        	$option = $("<option/>").attr("value", item.id_pk_fuoriPorta+"##"+item.desc).text(item.desc);
         	comboz.append($option);
         });	
         
         checkValueComboz("#<portlet:namespace/>fuoriPorta",fuoriPorta,data);
-        
-        /*
-        if(data.length==1){
-        	$($("#<portlet:namespace/>fuoriPorta").find('option')[1]).attr("selected","selected");
+}
+	
+$('#<portlet:namespace/>fuoriPorta').bind("change", function (event) { 
+	fuoriPorta="";
+  });
 
-        }	 */	
-	}
 </script>
 
 <aui:script>
- AUI().ready(function(){
- 	alert("Sede: "+sede+" piano: "+piano+" corridoio: "+corridoio+" fuoriPorta: "+fuoriPorta);
- 
+ AUI().ready(function(){ 
 	var listaSedi = ${listaSedi};
 	loadComboSede(listaSedi);
-	console.log("fine ready");
+	//console.log("fine ready");
 });
 
  </aui:script>
