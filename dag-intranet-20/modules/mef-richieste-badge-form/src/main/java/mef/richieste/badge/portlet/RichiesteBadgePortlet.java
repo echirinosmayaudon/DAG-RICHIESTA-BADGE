@@ -2604,7 +2604,15 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 					risultato_richiesta_bean.setPiano(json_richiesta_external.getString("piano"));
 					risultato_richiesta_bean.setPostazione(json_richiesta_external.getString("postazione"));
 					risultato_richiesta_bean.setSedi(singola_richiesta.getArray_sedi_abilitate());
-
+					
+					// modifica 2021
+					risultato_richiesta_bean.setSedePostazione(json_richiesta_external.getString("sedepos"));
+					risultato_richiesta_bean.setPianoPostazione(json_richiesta_external.getString("pianopos"));
+					risultato_richiesta_bean.setCorridoioPostazione(json_richiesta_external.getString("corridoiopos"));
+					risultato_richiesta_bean.setFuoriPortaPostazione(json_richiesta_external.getString("fuoriportapos"));
+					
+					
+					
 					if (singola_richiesta.getData_scadenza() != null) {
 						risultato_richiesta_bean
 								.setData_scadenza_badge(sdf.format(singola_richiesta.getData_scadenza()));
@@ -3714,6 +3722,12 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 					beanExcel.setNumero_badge(arrayRicerca.getJSONObject(i).getString("numero_badge"));
 					beanExcel.setAllegati(arrayRicerca.getJSONObject(i).getString("allegati"));
 					beanExcel.setNote(arrayRicerca.getJSONObject(i).getString("note"));
+					// modifica 2021
+					beanExcel.setSedePostazione(arrayRicerca.getJSONObject(i).getString("sedepos"));
+					beanExcel.setPianoPostazione(arrayRicerca.getJSONObject(i).getString("pianopos"));
+					beanExcel.setCorridoioPostazione(arrayRicerca.getJSONObject(i).getString("corridoiopos"));
+					beanExcel.setFuoriPortaPostazione(arrayRicerca.getJSONObject(i).getString("fuoriporta"));
+					
 
 					excelList.add(beanExcel);
 

@@ -52,6 +52,13 @@ public class RichiestaBadgeExcelBean implements java.io.Serializable {
 	private String allegati;
 	private String note;
 	
+	// modifica 2021
+	private String sedePostazione;
+	private String pianoPostazione;
+	private String corridoioPostazione;
+	private String fuoriPortaPostazione;
+	
+	
 
 	public String getId_richiesta_badge() {
 		return id_richiesta_badge;
@@ -405,7 +412,41 @@ public class RichiestaBadgeExcelBean implements java.io.Serializable {
 	public void setNote(String note) {
 		this.note = note;
 	}
+	
+	// modifica 2021
+	
+	public String getSedePostazione() {
+		return sedePostazione;
+	}
+	
+	public void setSedePostazione(String sedePostazione) {
+		this.sedePostazione = sedePostazione;
+	}
+	
+	public String getPianoPostazione() {
+		return pianoPostazione;
+	}
+	
+	public void setPianoPostazione(String pianoPostazione) {
+		this.pianoPostazione = pianoPostazione;
+	}
+	public String getCorridoioPostazione() {
+		return corridoioPostazione;
+	}
+	
+	public void setCorridoioPostazione(String corridoioPostazione) {
+		this.corridoioPostazione = corridoioPostazione;
+	}
+	public String getFuoriPortaPostazione() {
+		return fuoriPortaPostazione;
+	}
+	
+	public void setFuoriPortaPostazione(String fuoriPortaPostazione) {
+		this.fuoriPortaPostazione = fuoriPortaPostazione;
+	}
 
+	
+	
 	public JSONObject toJSONObject() {
 
 		JSONObject jo = JSONFactoryUtil.createJSONObject();
@@ -454,6 +495,11 @@ public class RichiestaBadgeExcelBean implements java.io.Serializable {
 		jo.put("numero_badge", this.getNumero_badge());
 		jo.put("allegati", this.getAllegati());
 		jo.put("note", this.getNote());
+		// modifica 2021
+		jo.put("sedepos", this.getSedePostazione());
+		jo.put("pianopos", this.getPianoPostazione());
+		jo.put("corridoiopos", this.getCorridoioPostazione());
+		jo.put("fuoriportapos", this.getFuoriPortaPostazione());
 		
 		return jo;
 
