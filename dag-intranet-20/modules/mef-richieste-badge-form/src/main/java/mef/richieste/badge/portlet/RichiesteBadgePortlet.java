@@ -1202,6 +1202,12 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			moduloRichiedente.setSediAbilitate(jsonRichiestaSubmit.getString("sedi").replace("_", " "));
 			moduloRichiedente.setDataScadenza(jsonRichiestaSubmit.getString("scadenza"));
 			moduloRichiedente.setMotivazione(jsonRichiestaSubmit.getString("motivazione"));
+			// modifica 2021
+			moduloRichiedente.setSedePostazione(jsonRichiestaSubmit.getString("sede"));
+			moduloRichiedente.setPianoPostazione(jsonRichiestaSubmit.getString("piano"));
+			moduloRichiedente.setCorridoioPostazione(jsonRichiestaSubmit.getString("corridoio"));
+			moduloRichiedente.setFuoriPortaPostazione(jsonRichiestaSubmit.getString("fuoriporta"));
+			
 		}
 
 		moduloRichiedente.setOggettoRichiestaId(jsonRichiestaSubmit.getString("oggetto"));
@@ -1413,7 +1419,13 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 				json_richiesta_external.put("contratto", jsonRichiestaSubmit.getString("contratto"));
 				json_richiesta_external.put("piano", jsonRichiestaSubmit.getString("contratto"));
 				json_richiesta_external.put("postazione", jsonRichiestaSubmit.getString("postazione"));
-
+				// modifica 2021
+				json_richiesta_external.put("sede", jsonRichiestaSubmit.getString("sede"));
+				json_richiesta_external.put("piano", jsonRichiestaSubmit.getString("piano"));
+				json_richiesta_external.put("corridoio", jsonRichiestaSubmit.getString("corridoio"));
+				json_richiesta_external.put("fuoriporta", jsonRichiestaSubmit.getString("fuoriporta"));
+				
+				
 				long siapId = 0L;
 				OrganizationChart orgChart = OrganizationChartLocalServiceUtil.getOrganizationChart(id_ufficio);
 				if (orgChart != null)
