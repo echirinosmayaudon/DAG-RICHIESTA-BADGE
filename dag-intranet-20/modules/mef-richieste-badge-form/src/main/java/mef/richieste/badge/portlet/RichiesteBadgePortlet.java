@@ -431,7 +431,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		renderRequest.setAttribute("uffici", uffici_by_dirigente_list);
 
 		
-		/* mod temp radio
+		// mod temp radio
 
 		
 		
@@ -441,7 +441,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		oggettoRichiesta.setDescrizione_oggetto("primo rilascio badge");
 		OggettoRichiestaLocalServiceUtil.addOggettoRichiesta(oggettoRichiesta);
 		
-		 fine mod temp radio */
+		 //fine mod temp radio */
 		
 		
 		List<OggettoRichiesta> oggettoRichiestaList = OggettoRichiestaLocalServiceUtil
@@ -450,18 +450,18 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		
 		
 		
-		/* mod temp sedi ext 
+		//* mod temp sedi ext 
 
 
 		
-		long id = CounterLocalServiceUtil.increment(SediEsterne.class.getName());
+		long id1 = CounterLocalServiceUtil.increment(SediEsterne.class.getName());
 		SediEsterne sedeEsterna = SediEsterneLocalServiceUtil.createSediEsterne(-1);
 		
-		sedeEsterna.setId_sede_esterna(id);
+		sedeEsterna.setId_sede_esterna(id1);
 		sedeEsterna.setNome_sede_esterna("XX Settembre");
 		SediEsterneLocalServiceUtil.addSediEsterne(sedeEsterna);
 		
-		 fine mod temp sedi ext */
+		// fine mod temp sedi ext */
 		
 		List<SediEsterne> sediEsterneList = SediEsterneLocalServiceUtil.getSediEsternes(QueryUtil.ALL_POS,
 				QueryUtil.ALL_POS);
