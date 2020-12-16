@@ -433,7 +433,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		
 		// mod temp radio
 
-		
+		/*
 		
 		long id = CounterLocalServiceUtil.increment(OggettoRichiesta.class.getName());
 		OggettoRichiesta oggettoRichiesta = OggettoRichiestaLocalServiceUtil.createOggettoRichiesta(-1);
@@ -441,7 +441,9 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		oggettoRichiesta.setDescrizione_oggetto("primo rilascio badge");
 		OggettoRichiestaLocalServiceUtil.addOggettoRichiesta(oggettoRichiesta);
 		
-		 //fine mod temp radio */
+		 //fine mod temp radio 
+		  * 
+		 */
 		
 		
 		List<OggettoRichiesta> oggettoRichiestaList = OggettoRichiestaLocalServiceUtil
@@ -453,7 +455,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		//* mod temp sedi ext 
 
 
-		
+		/*
 		long id1 = CounterLocalServiceUtil.increment(SediEsterne.class.getName());
 		SediEsterne sedeEsterna = SediEsterneLocalServiceUtil.createSediEsterne(-1);
 		
@@ -461,7 +463,10 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		sedeEsterna.setNome_sede_esterna("XX Settembre");
 		SediEsterneLocalServiceUtil.addSediEsterne(sedeEsterna);
 		
-		// fine mod temp sedi ext */
+		// fine mod temp sedi ext 
+		  
+		
+		*/
 		
 		List<SediEsterne> sediEsterneList = SediEsterneLocalServiceUtil.getSediEsternes(QueryUtil.ALL_POS,
 				QueryUtil.ALL_POS);
@@ -1749,6 +1754,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			moduloRichiedente.setSediAbilitate(jsonRichiestaEsterna.getString("sedi").replace("_", " "));
 			moduloRichiedente.setDataScadenza(jsonRichiestaEsterna.getString("scadenza"));
 			moduloRichiedente.setMotivazione(jsonRichiestaEsterna.getString("motivazione"));
+			
+			/*Modifica 2021*/
 			moduloRichiedente.setSedePostazione(jsonRichiestaEsterna.getString("sede"));
 			moduloRichiedente.setPianoPostazione(jsonRichiestaEsterna.getString("piano"));
 			moduloRichiedente.setCorridoioPostazione(jsonRichiestaEsterna.getString("corridoio"));
@@ -1821,7 +1828,6 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	public void modificaRichiestaBadge(ActionRequest actionRequest, ActionResponse actionResponse)
 			throws ParseException, IOException, RichiesteBadgeException, PortalException {
 
-		_log.info("Dentro modifica richiesta badge");
 		
 		Richiedente richiedente = new Richiedente();
 
@@ -1879,6 +1885,21 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			moduloRichiedente.setSediAbilitate(HtmlUtil.escape(jsonRichiestaSubmit.getString("sedi")));
 			moduloRichiedente.setDataScadenza(HtmlUtil.escape(jsonRichiestaSubmit.getString("scadenza")));
 			moduloRichiedente.setMotivazione(HtmlUtil.escape(jsonRichiestaSubmit.getString("motivazione")));
+
+			_log.info("Dentro modifica richiesta badge else");
+			
+			/*Modifica 2021*/
+			moduloRichiedente.setSedePostazione(jsonRichiestaSubmit.getString("sede"));
+			moduloRichiedente.setPianoPostazione(jsonRichiestaSubmit.getString("piano"));
+			moduloRichiedente.setCorridoioPostazione(jsonRichiestaSubmit.getString("corridoio"));
+			moduloRichiedente.setFuoriPortaPostazione(jsonRichiestaSubmit.getString("fuoriporta"));
+			
+			_log.info("Sede: "+moduloRichiedente.getSedePostazione());
+			_log.info("Piano: "+moduloRichiedente.getPianoPostazione());
+			_log.info("Corridoio: "+moduloRichiedente.getCorridoioPostazione());
+			_log.info("FuoriPorta: "+moduloRichiedente.getFuoriPortaPostazione());
+			
+			
 		}
 
 		moduloRichiedente.setOggettoRichiestaId(jsonRichiestaSubmit.getString("oggetto"));

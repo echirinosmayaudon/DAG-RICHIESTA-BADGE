@@ -15,10 +15,10 @@
 	boolean gestoreExt = (boolean)request.getAttribute("roleGestoreExt");
 	boolean gestoreInt = (boolean)request.getAttribute("roleGestoreInt");
 	
-	String listaSedi = (String)request.getAttribute("listaSedi");
-	String listaPianiSize = (String)request.getAttribute("listaPiani");
-	String listaCorridoiSize = (String)request.getAttribute("listaCorridoi");
-	String listaFuoriPorteSize = (String)request.getAttribute("listaFuoriPorta");
+//	String listaSedi = (String)request.getAttribute("listaSedi");
+//	String listaPianiSize = (String)request.getAttribute("listaPiani");
+//	String listaCorridoiSize = (String)request.getAttribute("listaCorridoi");
+//	String listaFuoriPorteSize = (String)request.getAttribute("listaFuoriPorta");
 	
 	
 	Richiedente richiedente = new Richiedente();
@@ -1826,27 +1826,42 @@
 	
  </script> 
  <!--  modifica 2021 --> 
- <aui:script>
  
- 	function resetComboz(combos) {
-    	if (combos != null) {
-        	for (var i = 0; i <= combos.length; i++) {
-               if ($("#<portlet:namespace/>" + combos[i]).length) {
-                    $("#<portlet:namespace/>" + combos[i]).empty();
-                }        
-    		}
+
+<script>
+	var sede="${moduloRichiedente.getSedePostazione()}";
+	var piano="${moduloRichiedente.getPianoPostazione()}";
+	var corridoio="${moduloRichiedente.getCorridoioPostazione()}";
+	var fuoriPorta="${moduloRichiedente.getFuoriPortaPostazione()}";
+
+
+function resetComboz(combos) {
+	if (combos != null) {
+    	for (var i = 0; i <= combos.length; i++) {
+           if ($("#<portlet:namespace/>" + combos[i]).length) {
+                $("#<portlet:namespace/>" + combos[i]).empty();
+            }        
 		}
 	}
+}
+
+function checkValueComboz(idCombo,valueCombo,arrayCombo){
 	
- AUI().ready(function(){
-	var listaSedi = ${listaSedi};
-	loadComboSede(listaSedi);
-	console.log("fine ready");
-});
+	console.log("dentro del check");
+	//Vengo dal return la fail invio mail oppure modifica richiesta
+		 if(valueCombo!=""){
+				 $(idCombo).find('option[value="'+valueCombo+'"]').attr("selected","selected");
+	        	 $(idCombo).trigger( "change" );
+	      //Primo avvio della form 	
+	     }else if(arrayCombo.length==1){
+	    		$($(idCombo).find('option')[1]).attr("selected","selected");
+	        	$(idCombo).trigger( "change" );
+			// Se la combo ha già l'option seleziona...  	
+	      } 
+	}
 
-function loadComboSede(listaSedi){
 
-console.log("load combo sede 2");
+function loadComboSede(listaSedi){	
 		comboz = $("#<portlet:namespace/>sede");
 		comboz.empty();
         comboz.append("<option/>");
@@ -1858,10 +1873,13 @@ console.log("load combo sede 2");
         	comboz.append($option);
         });
         
+        //checkValueComboz(idCombo,valueCombo,arrayCombo)
+       
         if(listaSedi.length==1){
         	$($("#<portlet:namespace/>sede").find('option')[1]).attr("selected","selected");
         	$("#<portlet:namespace/>sede" ).trigger( "change" );
         }	 	
+       
 }
 
 $('#<portlet:namespace/>sede').bind("change", function (event) { 
@@ -1978,4 +1996,22 @@ function loadComboFuoriPorta(){
 
         }	 	
 	}
+</script>
+
+<aui:script>
+
+var sede="${moduloRichiedente.getSedePostazione()}";
+	var piano="${moduloRichiedente.getPianoPostazione()}";
+	var corridoio="${moduloRichiedente.getCorridoioPostazione()}";
+	var fuoriPorta="${moduloRichiedente.getFuoriPortaPostazione()}";
+
+
+ AUI().ready(function(){
+ 	alert("Sede: "+sede+" piano: "+piano+" corridoio: "+corridoio+" fuoriPorta: "+fuoriPorta);
+ 
+	var listaSedi = ${listaSedi};
+	loadComboSede(listaSedi);
+	console.log("fine ready");
+});
+
  </aui:script>
