@@ -1020,7 +1020,14 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 				moduloRichiedente.setPiano(HtmlUtil.escape(jsonRichiestaEsternaSubmit.getString("piano")));
 				moduloRichiedente.setPostazione(HtmlUtil.escape(jsonRichiestaEsternaSubmit.getString("postazione")));
 				moduloRichiedente.setSediAbilitate(HtmlUtil.escape(richiesta.getArray_sedi_abilitate()));
-
+				
+				// modifica 2021
+				moduloRichiedente.setSedePostazione(HtmlUtil.escape(jsonRichiestaEsternaSubmit.getString("sedepos")));
+				moduloRichiedente.setPianoPostazione(HtmlUtil.escape(jsonRichiestaEsternaSubmit.getString("pianopos")));
+				moduloRichiedente.setCorridoioPostazione(HtmlUtil.escape(jsonRichiestaEsternaSubmit.getString("corridoiopos")));
+				moduloRichiedente.setFuoriPortaPostazione(HtmlUtil.escape(jsonRichiestaEsternaSubmit.getString("fuoriportapos")));
+				
+				// fine 2021
 				if (richiesta.getData_scadenza() != null) {
 					moduloRichiedente.setDataScadenza(sdf.format(richiesta.getData_scadenza()));
 				}
@@ -1208,10 +1215,10 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			moduloRichiedente.setDataScadenza(jsonRichiestaSubmit.getString("scadenza"));
 			moduloRichiedente.setMotivazione(jsonRichiestaSubmit.getString("motivazione"));
 			// modifica 2021
-			moduloRichiedente.setSedePostazione(jsonRichiestaSubmit.getString("sede"));
-			moduloRichiedente.setPianoPostazione(jsonRichiestaSubmit.getString("piano"));
-			moduloRichiedente.setCorridoioPostazione(jsonRichiestaSubmit.getString("corridoio"));
-			moduloRichiedente.setFuoriPortaPostazione(jsonRichiestaSubmit.getString("fuoriporta"));
+			moduloRichiedente.setSedePostazione(jsonRichiestaSubmit.getString("sedepos"));
+			moduloRichiedente.setPianoPostazione(jsonRichiestaSubmit.getString("pianopos"));
+			moduloRichiedente.setCorridoioPostazione(jsonRichiestaSubmit.getString("corridoiopos"));
+			moduloRichiedente.setFuoriPortaPostazione(jsonRichiestaSubmit.getString("fuoriportapos"));
 			
 		}
 
@@ -1425,10 +1432,10 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 				json_richiesta_external.put("piano", jsonRichiestaSubmit.getString("contratto"));
 				json_richiesta_external.put("postazione", jsonRichiestaSubmit.getString("postazione"));
 				// modifica 2021
-				json_richiesta_external.put("sede", jsonRichiestaSubmit.getString("sede"));
-				json_richiesta_external.put("piano", jsonRichiestaSubmit.getString("piano"));
-				json_richiesta_external.put("corridoio", jsonRichiestaSubmit.getString("corridoio"));
-				json_richiesta_external.put("fuoriporta", jsonRichiestaSubmit.getString("fuoriporta"));
+				json_richiesta_external.put("sedepos", jsonRichiestaSubmit.getString("sedepos"));
+				json_richiesta_external.put("pianopos", jsonRichiestaSubmit.getString("pianopos"));
+				json_richiesta_external.put("corridoiopos", jsonRichiestaSubmit.getString("corridoiopos"));
+				json_richiesta_external.put("fuoriportapos", jsonRichiestaSubmit.getString("fuoriportapos"));
 				
 				
 				long siapId = 0L;
@@ -1708,6 +1715,11 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			moduloRichiedente.setSediAbilitate("");
 			moduloRichiedente.setDataScadenza("");
 			moduloRichiedente.setMotivazione("");
+			//modifica 2021
+			moduloRichiedente.setSedePostazione("");
+			moduloRichiedente.setPianoPostazione("");
+			moduloRichiedente.setCorridoioPostazione("");
+			moduloRichiedente.setFuoriPortaPostazione("");
 
 			RichiestaBadge richiestaDaForm = RichiestaBadgeLocalServiceUtil
 					.fetchRichiestaBadge(moduloRichiedente.getId_richiesta());
@@ -1756,10 +1768,12 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			moduloRichiedente.setMotivazione(jsonRichiestaEsterna.getString("motivazione"));
 			
 			/*Modifica 2021*/
-			moduloRichiedente.setSedePostazione(jsonRichiestaEsterna.getString("sede"));
-			moduloRichiedente.setPianoPostazione(jsonRichiestaEsterna.getString("piano"));
-			moduloRichiedente.setCorridoioPostazione(jsonRichiestaEsterna.getString("corridoio"));
-			moduloRichiedente.setFuoriPortaPostazione(jsonRichiestaEsterna.getString("fuoriporta"));
+			moduloRichiedente.setSedePostazione(jsonRichiestaEsterna.getString("sedepos"));
+			moduloRichiedente.setPianoPostazione(jsonRichiestaEsterna.getString("pianopos"));
+			moduloRichiedente.setCorridoioPostazione(jsonRichiestaEsterna.getString("corridoiopos"));
+			moduloRichiedente.setFuoriPortaPostazione(jsonRichiestaEsterna.getString("fuoriportapos"));
+			// fine 2021
+			
 			id_oggetto = jsonRichiestaEsterna.getString("oggetto");
 			moduloRichiedente.setOggettoRichiestaId(id_oggetto);
 			moduloRichiedente.setNumeroBadge(jsonRichiestaEsterna.getString("numbadge"));
@@ -1889,10 +1903,10 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			_log.info("Dentro modifica richiesta badge else");
 			
 			/*Modifica 2021*/
-			moduloRichiedente.setSedePostazione(jsonRichiestaSubmit.getString("sede"));
-			moduloRichiedente.setPianoPostazione(jsonRichiestaSubmit.getString("piano"));
-			moduloRichiedente.setCorridoioPostazione(jsonRichiestaSubmit.getString("corridoio"));
-			moduloRichiedente.setFuoriPortaPostazione(jsonRichiestaSubmit.getString("fuoriporta"));
+			moduloRichiedente.setSedePostazione(jsonRichiestaSubmit.getString("sedepos"));
+			moduloRichiedente.setPianoPostazione(jsonRichiestaSubmit.getString("pianopos"));
+			moduloRichiedente.setCorridoioPostazione(jsonRichiestaSubmit.getString("corridoiopos"));
+			moduloRichiedente.setFuoriPortaPostazione(jsonRichiestaSubmit.getString("fuoriportapos"));
 			
 			_log.info("Sede: "+moduloRichiedente.getSedePostazione());
 			_log.info("Piano: "+moduloRichiedente.getPianoPostazione());
@@ -2116,6 +2130,11 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 						moduloRichiedente.setSediAbilitate("");
 						moduloRichiedente.setDataScadenza("");
 						moduloRichiedente.setMotivazione("");
+						// modifica 2021
+						moduloRichiedente.setSedePostazione("");
+						moduloRichiedente.setPianoPostazione("");
+						moduloRichiedente.setCorridoioPostazione("");
+						moduloRichiedente.setFuoriPortaPostazione("");
 
 					} else {
 						moduloRichiedente.setTipo("esterna");
@@ -2165,6 +2184,12 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 									.setPiano(HtmlUtil.escape(json_object_richiesta_esterna.getString("piano")));
 							moduloRichiedente.setPostazione(
 									HtmlUtil.escape(json_object_richiesta_esterna.getString("postazione")));
+							
+							// modifica 2021
+							moduloRichiedente.setSedePostazione(HtmlUtil.escape(json_object_richiesta_esterna.getString("sedepos")));
+							moduloRichiedente.setPianoPostazione(HtmlUtil.escape(json_object_richiesta_esterna.getString("pianopos")));
+							moduloRichiedente.setCorridoioPostazione(HtmlUtil.escape(json_object_richiesta_esterna.getString("corridoiopos")));
+							moduloRichiedente.setFuoriPortaPostazione(HtmlUtil.escape(json_object_richiesta_esterna.getString("fuoriportapos")));
 						}
 					}
 
