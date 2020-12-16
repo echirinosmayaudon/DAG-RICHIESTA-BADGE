@@ -1745,10 +1745,10 @@
 												motivazione: $("#<portlet:namespace/>motivazioneExt").val(),
 												oggetto : $("input[name=<portlet:namespace/>checkOggetto]:checked", "#<portlet:namespace/>oggettoRichiesta").val(),
 												numbadge : number_badge,
-												sede : $("#<portlet:namespace/>sede").val(),
-												piano : $("#<portlet:namespace/>piano").val(),
-												corridoio : $("#<portlet:namespace/>corridoio").val(),
-												fuoriporta : $("#<portlet:namespace/>fuoriPorta").val()
+												sedepos : $("#<portlet:namespace/>sede").val(),
+												pianopos : $("#<portlet:namespace/>piano").val(),
+												corridoiopos : $("#<portlet:namespace/>corridoio").val(),
+												fuoriportapos : $("#<portlet:namespace/>fuoriPorta").val()
 										   };
 					$("#<portlet:namespace/>jsonRichiestaesterna").val(JSON.stringify(jsonRichiestaEsterna));
 				}
