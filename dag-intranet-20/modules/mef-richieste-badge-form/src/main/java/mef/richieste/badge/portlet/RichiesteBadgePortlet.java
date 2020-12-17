@@ -175,6 +175,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			throws IOException, PortletException {
 
 		_log.info("Dentro del doview");
+		_log.info("numero richieste badge "+RichiestaBadgeLocalServiceUtil.getRichiestaBadges(QueryUtil.ALL_POS, QueryUtil.ALL_POS).size());
+		_log.info("richieste Badge"+RichiestaBadgeLocalServiceUtil.getRichiestaBadges(QueryUtil.ALL_POS, QueryUtil.ALL_POS));
 		
 		 /* mod temp - svuota richieste badges
 		List<RichiestaBadge> richiestaBadges = RichiestaBadgeLocalServiceUtil.getRichiestaBadges(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
@@ -187,8 +189,12 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		
 		ThemeDisplay themeDisplay = (ThemeDisplay) renderRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		User user = themeDisplay.getUser();
+		
+		
 		String idOrgChart = (String) user.getExpandoBridge().getAttribute("idOrgChart");
-		//String idOrgChart ="24992";
+		
+		
+		
 		Long userId = (Long) user.getUserId();
 		String navigation = (String) renderRequest.getAttribute("navigation");
 
@@ -1088,11 +1094,11 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	public void eventoRichiestaBadge(ActionRequest actionRequest, ActionResponse actionResponse)
 			throws ParseException, IOException, RichiesteBadgeException, PortalException {
 		
-		_log.info("Dentro evento richiesta badge");
+		_log.info("1 Dentro eventoRichiestaBadge - dopo INVIA");
 
 		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		User user = themeDisplay.getUser();
-		
+		_log.info("2 recupera utente");
 		
 		
 		boolean dirigente = false;
@@ -1101,7 +1107,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		boolean gestoreEsterno = false;
 	
 		List<String> roles_list = getRolesFromUser(themeDisplay);
-		
+		_log.info("3 recupera ruolo utente");
 	
 		if (roles_list.contains(_delegatoBadge)) {
 			delegatoBadge = true;
@@ -1136,7 +1142,9 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 				&& (user.getExpandoBridge().getAttribute(_customFieldUserOrg) != null)) {
 			id_ufficio = Long.parseLong((String) user.getExpandoBridge().getAttribute(_customFieldUserOrg));
 		}
-
+		_log.info("4 dopo expando _customFieldUserOrg");
+		
+		
 		JSONObject jsonRichiedenteSubmit = JSONFactoryUtil
 				.createJSONObject(actionRequest.getParameter("DatiRichiedenteSubmit"));
 		JSONObject jsonRichiestaSubmit = JSONFactoryUtil
@@ -1152,14 +1160,15 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		richiedente.setTelefono(jsonRichiedenteSubmit.getString("telrichiedente"));
 		richiedente.setEmail(jsonRichiedenteSubmit.getString("emailrichiedente"));
 
+		
 		ModuloRichiedente moduloRichiedente = new ModuloRichiedente();
-
+		_log.info("6 if jsonRichiestaSubmit.getString(\"id_richiesta\") = "+jsonRichiestaSubmit.getString("id_richiesta") );
 		if (jsonRichiestaSubmit.getString("id_richiesta") != null
 				&& jsonRichiestaSubmit.getString("id_richiesta") != "")
 			id_richiesta = Long.parseLong(jsonRichiestaSubmit.getString("id_richiesta"));
 
 		moduloRichiedente.setId_richiesta(id_richiesta);
-
+		_log.info("7 id_richiesta del moduloRichiedente = "+id_richiesta);
 		if (("interna").equalsIgnoreCase(actionRequest.getParameter("TipoRichiesta"))) {
 			moduloRichiedente.setTipo("interna");
 			moduloRichiedente.setCognome(jsonRichiestaSubmit.getString("cognomeint"));
@@ -1169,7 +1178,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			moduloRichiedente.setDataNascita(jsonRichiestaSubmit.getString("datanascitaint"));
 
 		} else {
-			_log.info("Dentro evento richiesta badge esterno");
+			_log.info("8 riempimento modulo richiedente esterni");
 			
 			moduloRichiedente.setTipo("esterna");
 			moduloRichiedente.setDipartimento(jsonRichiestaSubmit.getString("dipartimento"));
@@ -1208,19 +1217,19 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			moduloRichiedente.setFuoriPortaPostazione(jsonRichiestaSubmit.getString("fuoriportapos"));
 			
 		}
-
+		_log.info("9 continua riempimento modulo richiedente");
 		moduloRichiedente.setOggettoRichiestaId(jsonRichiestaSubmit.getString("oggetto"));
 		moduloRichiedente.setOggettoRichiestaDescrizione(OggettoRichiestaLocalServiceUtil
 				.getOggettoRichiesta(Long.parseLong(jsonRichiestaSubmit.getString("oggetto")))
 				.getDescrizione_oggetto());
 		moduloRichiedente.setNumeroBadge(jsonRichiestaSubmit.getString("numbadge"));
 		
-		
+		_log.info("10 set stato richiesta");
 		if(dirigente || delegatoBadge)
 			moduloRichiedente.setStato("APPROVATA DAL DIRIGENTE");
 		else
 			moduloRichiedente.setStato("NUOVA RICHIESTA");
-		
+		_log.info("11 stato richiesta = "+moduloRichiedente.getStato());
 		moduloRichiedente.setNote(actionRequest.getParameter("NoteRichiestaSubmit"));
 		boolean is_internal = false;
 
@@ -1290,7 +1299,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 			for (StatoRichiesta stato : StatoRichiestaLocalServiceUtil.getStatoRichiestas(QueryUtil.ALL_POS,
 					QueryUtil.ALL_POS)) {
-
+				_log.info("12 imposta stato");
 				if (("RICHIESTA DI PROROGA").equalsIgnoreCase(stato.getDescrizione_stato())) {
 					id_statoRichiestaProroga = stato.getId_stato();
 				}
@@ -1301,6 +1310,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 					}				
 				}else{				
 					if (("NUOVA RICHIESTA").equalsIgnoreCase(stato.getDescrizione_stato())) {
+						_log.info("13 imposta stato NUOVA RICHIESTA");
 						id_statoNuovaRichiesta = stato.getId_stato();
 					}
 				}
@@ -1308,8 +1318,12 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			long idStatoNew = id_statoNuovaRichiesta;
 
 			RichiestaBadge richiestaOld = RichiestaBadgeLocalServiceUtil.fetchRichiestaBadge(id_richiesta);
+			_log.info("14 id_richiesta ="+id_richiesta);
+			_log.info("15 richiesta con id = "+richiestaOld);
 			long idRichiesta;
+			
 			if (richiestaOld != null) {
+				
 				screename_richiedente = richiestaOld.getScreename_richiedente();
 				idRichiesta = richiestaOld.getId_richiesta();
 
@@ -1332,7 +1346,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			}
 
 			if (("interna").equalsIgnoreCase(actionRequest.getParameter("TipoRichiesta"))) {
-
+				
 				is_internal = true;
 
 				long siapId = 0L;
@@ -1383,7 +1397,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 				}
 
 			} else {
-
+				_log.info("16 se richiesta esterna");
 				strDataNascita = jsonRichiestaSubmit.getString("datanascitaest");
 
 				if (strDataNascita != null && !"".equals(strDataNascita)) {
@@ -1423,13 +1437,23 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 				json_richiesta_external.put("pianopos", jsonRichiestaSubmit.getString("pianopos"));
 				json_richiesta_external.put("corridoiopos", jsonRichiestaSubmit.getString("corridoiopos"));
 				json_richiesta_external.put("fuoriportapos", jsonRichiestaSubmit.getString("fuoriportapos"));
+				_log.info("17 dopo json_richiesta_external = "+json_richiesta_external);
+				_log.info("18 id_ufficio = "+id_ufficio);
+				
 				
 				
 				long siapId = 0L;
-				OrganizationChart orgChart = OrganizationChartLocalServiceUtil.getOrganizationChart(id_ufficio);
+				OrganizationChart orgChart = null;
+				try {
+				 orgChart = OrganizationChartLocalServiceUtil.getOrganizationChart(id_ufficio);
+				
+				}catch (Exception e) {
+					_log.error("errore orgChart");
+				}
+				_log.info("19 recupera con id_ufficio orgChart = "+orgChart);
 				if (orgChart != null)
 					siapId = orgChart.getLocationId();
-
+				_log.info("20 siapId = "+siapId);
 				if ("modificaRichiestaBadgePostSubmit".equalsIgnoreCase(flagModificaPostSubmit)) {
 					richiestaInserita = RichiestaBadgeLocalServiceUtil.aggiornaRichiestaBadge(id_richiesta,
 							screename_richiedente, id_ufficio, actionRequest.getParameter("DatiRichiedenteSubmit"),
@@ -1492,7 +1516,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 					idRichiestaNew = RichiestaBadgeLocalServiceUtil.getRichiestaBadge(richiestaInserita)
 							.getId_richiesta();
 				}
-
+				
 				String mailbody = actionRequest.getPreferences().getValue("richiestaTmpl",
 						_configuration.richiestaTmpl());
 				String smtpUser = PrefsPropsUtil.getString(PropsKeys.MAIL_SESSION_MAIL_SMTP_USER);
@@ -1511,28 +1535,32 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 				mailbody = StringUtil.replace(mailbody, new String[] { "[$OGGETTO$]", "[$DATI$]" },
 						new String[] { subject, datirichiesta });
 				EmailSender mail = new EmailSender();
-
+				_log.info("--- mail = "+mail);
 				// invia email a referente badge.dag@tesoro.it (da decommentare)
 				String emailReferente = actionRequest.getPreferences().getValue("emailReferente",
 						_configuration.emailReferente());
-
+				_log.info("--- emailReferente = "+emailReferente);
 				if (emailReferente != null && !("").equalsIgnoreCase(emailReferente)) {
+					_log.info("--- dentro if se emailReferente");
 					mail.sendMailMessage(subject, mailbody, sender, smtpUser, emailReferente);
+					_log.info("--- dopo sendMailMessage - if");
 				}
-
+				
 				// invia email a richiedente
 				mail.sendMailMessage(subject, mailbody, sender, smtpUser,
 						jsonRichiedenteSubmit.getString("emailrichiedente"));
-
+				_log.info("--- dopo sendMailMessage - sempre");
 				// recupera e invia email a dirigente (se l'utente non è
 				// dirigente!)
 				String emailDirigente = "";
 				String directorId = "";
-
+				
+				
 				if (user.getExpandoBridge() != null
 						&& (user.getExpandoBridge().getAttribute(_customFieldUserDirector) != null)) {
+					
 					directorId = (String) user.getExpandoBridge().getAttribute(_customFieldUserDirector);
-
+					_log.info("--- expando directorId = "+directorId);
 					if (directorId != null && !("0").equalsIgnoreCase(directorId)
 							&& !("").equalsIgnoreCase(directorId)) {
 						User cuser = getUsertByCustomField(themeDisplay.getCompanyId(), _customFieldUserPersonal,
@@ -1546,34 +1574,70 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 				}
 
 				if (!emailDirigente.equalsIgnoreCase(jsonRichiedenteSubmit.getString("emailrichiedente"))) {
+					
+					
+					try {
+						_log.info(" try se email dirigente diverso da richiedente");
+						
+						
+						
+						/* mof temp email dirigente */
+						
+						emailDirigente = "test@lieray.com";
+						/* fine mof temp email dirigente */
+						_log.info(" emailDirigente = "+emailDirigente);
+						
 					mail.sendMailMessage(subject, mailbody, sender, smtpUser, emailDirigente);
+					}catch (Exception e) {
+						_log.error("errore sendMailMessage dentro if dirigente");
+					}
+					_log.info("dopo sendMailMessage dentro if");
 				}
 
 				// invia email a delegati
 				if (!("").equalsIgnoreCase(directorId)) {
+					_log.info("1");
+					
+					
+					
+					/* mof temp delegatoBadgeRole */
+					
 					Role delegatoBadgeRole = RoleLocalServiceUtil.getRole(themeDisplay.getCompanyId(), "delegatoBadge");
+					
+				
+					//Role delegatoBadgeRole = null;
+					/* fine mof temp delegatoBadgeRole */
+					
+					
+					
+					_log.info("2");
 					List<User> users_list_by_delegatoBadgeRole = new ArrayList<User>(0);
 
 					if (delegatoBadgeRole != null) {
+						_log.info("3");
 						users_list_by_delegatoBadgeRole = UserLocalServiceUtil
 								.getRoleUsers(delegatoBadgeRole.getRoleId(), QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+						_log.info("4");
 					}
-
+					_log.info("5");
 					if (!users_list_by_delegatoBadgeRole.isEmpty()) {
+						_log.info("6");
 						for (User delegatoUser : users_list_by_delegatoBadgeRole) {
+							_log.info("7");
 							if (delegatoUser.getExpandoBridge() != null
 									&& (delegatoUser.getExpandoBridge().getAttribute(_customFieldUserDirector) != null)
 									&& ((String) delegatoUser.getExpandoBridge().getAttribute(_customFieldUserDirector))
 											.equalsIgnoreCase(directorId)) {
-
+								_log.info("8");
 								mail.sendMailMessage(subject, mailbody, sender, smtpUser,
 										delegatoUser.getEmailAddress());
+								_log.info("9");
 							}
 						}
 					}
 				}
 
-				
+				_log.info("dopo invia email a delegati");
 				
 				// cambio redirect a seconda del ruolo utente
 			
@@ -1627,6 +1691,10 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 		}
 
+		
+		_log.info("fine metodo premi INVIA");
+		
+		
 	}
 
 	public void richiestaBadge(ActionRequest request, ActionResponse response)
@@ -2866,6 +2934,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	public void cercaRichiesteInScadenza(ActionRequest actionRequest, ActionResponse actionResponse)
 			throws ParseException {
 
+		_log.info("dentro metodo cercaRichiesteInScadenza");
+		
 		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		User user = themeDisplay.getUser();
 
@@ -2945,7 +3015,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		// dynamic query per la ricerca dei badge in scadenza
 		List<RichiestaBadge> richieste_in_scadenza_list = RichiestaBadgeLocalServiceUtil.findRichiesteInScadenza(
 				data_begin, data_end, is_last, 4, screen_name_richiedente, id_uffici_competenza_list);
-
+		_log.info("richieste_in_scadenza_list = "+richieste_in_scadenza_list);
 		// logica per la conversione della lista dei badge in scadenza in
 		// JSONArray
 		JSONArray jsonarray_risultati_scadenza = JSONFactoryUtil.createJSONArray();
@@ -2980,6 +3050,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		actionRequest.setAttribute("dataInizioSelezionata", filtro_data_inizio);
 		actionRequest.setAttribute("dataFineSelezionata", filtro_data_fine);
 		actionRequest.setAttribute("navigation", "vaiAProrogaBadge");
+		
+		_log.info("fine metodo cercaRichiesteInScadenza");
 	}
 
 	/*
