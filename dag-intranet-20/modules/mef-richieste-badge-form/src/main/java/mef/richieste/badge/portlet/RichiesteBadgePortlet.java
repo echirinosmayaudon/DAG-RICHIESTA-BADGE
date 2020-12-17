@@ -231,17 +231,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 		if (navigation == null || (navigation != null && ("inserimentobadge").equalsIgnoreCase(navigation))) {
 			Richiedente richiedente = createRichiedenteByTheme(themeDisplay);
-			
-			
-			
-			/*Mod comboz temp per test in collaudo */
-			richiedente.setCognome("Chirinos");
-			richiedente.setNome("Edgar");
-			richiedente.setDipartimento("Informatica");
-			richiedente.setDirezione("Informatica");
-			richiedente.setUfficioRichiedente("Casal boccone");
-			
-			/**/
+
 			renderRequest.setAttribute("richiedente", richiedente);
 		}
 
@@ -1554,7 +1544,6 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 					if (delegatoBadgeRole != null) {
 						users_list_by_delegatoBadgeRole = UserLocalServiceUtil
 								.getRoleUsers(delegatoBadgeRole.getRoleId(), QueryUtil.ALL_POS, QueryUtil.ALL_POS);
-						
 					}
 					
 					if (!users_list_by_delegatoBadgeRole.isEmpty()) {
@@ -1574,12 +1563,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 					}
 				}
 
-				
-				
 				// cambio redirect a seconda del ruolo utente
 			
-				
-				
 				if(gestoreInterno || gestoreEsterno){
 					try {
 

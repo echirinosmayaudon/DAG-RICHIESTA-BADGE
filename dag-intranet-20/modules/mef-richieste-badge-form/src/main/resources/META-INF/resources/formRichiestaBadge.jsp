@@ -377,7 +377,7 @@
 				                                                </div>
 				                                                <div class="ama-col-md-12 ama-col-xs-12 mb-15-md mb-10-xs">
 				                                                    <label for="dipartimento" class="label-form margin-top"><liferay-ui:message key="badge-inserimento-dipartimento"/>*</label>
-							                                        <select id="<portlet:namespace/>dipartimento" name="<portlet:namespace/>dipartimento" class="option-select data-parsley-validated"
+							                                        <select data-parsley-required="true" id="<portlet:namespace/>dipartimento" name="<portlet:namespace/>dipartimento" class="option-select data-parsley-validated"
 				                                                    	 data-parsley-error-message="<liferay-ui:message key="error-mandatory"/>"
 							                                        	onchange="getStruttureInterne(this.value, '<portlet:namespace/>direzione');
 							                                        			  clearStrutturaInterna('<portlet:namespace/>ufficio')">
@@ -854,26 +854,26 @@
 				                                                <div class="ama-col-md-6 ama-col-xs-12 mb-15-md mb-10-xs">
 				                                                    <label for="sede" class="label-form margin-top"><liferay-ui:message key="badge-inserimento-sede"/>*</label>
 							                                       <select id="<portlet:namespace/>sede" name="<portlet:namespace/>sede" class="option-select data-parsley-validated"
-				                                                    	data-parsley-required="true" data-parsley-error-message="<liferay-ui:message key="error-mandatory"/>">
+				                                                    	 data-parsley-error-message="<liferay-ui:message key="error-mandatory"/>">
 							                                          
 							                                        </select>
 							                                       
 				                                                </div>
 				                                                <div class="ama-col-md-6 ama-col-xs-12 mb-15-md mb-10-xs">
-				                                                    <label for="piano" class="label-form margin-top"><liferay-ui:message key="badge-inserimento-piano"/></label>
-							                                        <select id="<portlet:namespace/>piano" name="<portlet:namespace/>piano">
+				                                                    <label for="piano" class="label-form margin-top"><liferay-ui:message key="badge-inserimento-piano"/>*</label>
+							                                        <select id="<portlet:namespace/>piano" name="<portlet:namespace/>piano" data-parsley-error-message="<liferay-ui:message key="error-mandatory"/>">
 							                                          
 							                                        </select>
 				                                                </div>
 				                                                <div class="ama-col-md-6 ama-col-xs-12 mb-15-md mb-10-xs">
-				                                                    <label for="corridoio" class="label-form margin-top"><liferay-ui:message key="badge-inserimento-corridoio"/></label>
-							                                        <select id="<portlet:namespace/>corridoio" name="<portlet:namespace/>corridoio">
+				                                                    <label for="corridoio" class="label-form margin-top"><liferay-ui:message key="badge-inserimento-corridoio"/>*</label>
+							                                        <select id="<portlet:namespace/>corridoio" name="<portlet:namespace/>corridoio" data-parsley-error-message="<liferay-ui:message key="error-mandatory"/>">
 							                                           
 							                                        </select>
 				                                                </div>
 				                                                <div class="ama-col-md-6 ama-col-xs-12 mb-15-md mb-10-xs">
-				                                                    <label for="fuoriPorta" class="label-form margin-top"><liferay-ui:message key="badge-inserimento-fuori-porta"/></label>
-							                                        <select id="<portlet:namespace/>fuoriPorta" name="<portlet:namespace/>fuoriPorta">
+				                                                    <label for="fuoriPorta" class="label-form margin-top"><liferay-ui:message key="badge-inserimento-fuori-porta"/>*</label>
+							                                        <select id="<portlet:namespace/>fuoriPorta" name="<portlet:namespace/>fuoriPorta" data-parsley-error-message="<liferay-ui:message key="error-mandatory"/>">
 							                                          
 							                                        </select>
 				                                                </div>
@@ -1219,6 +1219,12 @@
 		$("#<portlet:namespace/>argument5interna").attr("data-parsley-required", "true");
 		$("#<portlet:namespace/>argument3interna").attr("data-parsley-required", "true");
 		$("#<portlet:namespace/>argument4interna").attr("data-parsley-required", "true");
+		
+		/*Mod 2021*/
+		$("#<portlet:namespace/>sede").attr("data-parsley-required", "false");
+		$("#<portlet:namespace/>piano").attr("data-parsley-required", "false");
+		$("#<portlet:namespace/>corridoio").attr("data-parsley-required", "false");
+		$("#<portlet:namespace/>fuoriPorta").attr("data-parsley-required", "false");
 	}
 	
 	function showEsterna() {
@@ -1241,7 +1247,15 @@
 		$("#<portlet:namespace/>sediAbilitateExt").attr("data-parsley-required", "true");
 		$("#<portlet:namespace/>dataScadenzaBadgeExt").attr("data-parsley-required", "true");
 		$("#<portlet:namespace/>motivazioneExt").attr("data-parsley-required", "true");
+		
+		/*Mod 2021*/
+		$("#<portlet:namespace/>sede").attr("data-parsley-required", "true");
+		$("#<portlet:namespace/>piano").attr("data-parsley-required", "true");
+		$("#<portlet:namespace/>corridoio").attr("data-parsley-required", "true");
+		$("#<portlet:namespace/>fuoriPorta").attr("data-parsley-required", "true");
 	}
+	
+	
 	
 	function hideSpinner(){ $('#idSpinner').removeClass('visible'); }
 	function showSpinner(){ $('#idSpinner').addClass('visible'); }
@@ -2027,5 +2041,22 @@ $('#<portlet:namespace/>fuoriPorta').bind("change", function (event) {
 	$("#<portlet:namespace/>dipSocietaExt").val("Almaviva");
 	$("#<portlet:namespace/>dataScadenzaBadgeExt").val("01/01/2021");
 	$("#<portlet:namespace/>motivazioneExt").val("nuova richiesta badge esterno");
+	$("#<portlet:namespace/>nomeRichiedente").val("Edgar");
+	$("#<portlet:namespace/>cognomeRichiedente").val("Chirinos");
+	$("#<portlet:namespace/>dipRichiedente").val("Informatica");
+	$("#<portlet:namespace/>dirRichiedente").val("Informatica");
+	$("#<portlet:namespace/>uffRichiedente").val("Roma");
+	
+	
+var comboDipartimento= $("#<portlet:namespace/>dipartimento");
+	
+		comboDipartimento.removeAttr("disabled");
+		comboDipartimento.removeAttr("onchange");
+    	$optionTest = $("<option/>").attr("value", "dipartimeto_test").text("dipartimeto_test");
+    	comboDipartimento.append($optionTest);
+	
+	/*Mod comboz temp per test in collaudo */
+	
+	
  });
  </script>
