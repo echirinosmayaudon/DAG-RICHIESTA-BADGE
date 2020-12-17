@@ -2011,3 +2011,21 @@ $('#<portlet:namespace/>fuoriPorta').bind("change", function (event) {
 });
 
  </aui:script>
+ 
+  <script>
+ // mod temp auto riempimento campi form ext
+ $(document).ready(function(){
+	$("#<portlet:namespace/>telRichiedente").val(123456789);
+	$("#<portlet:namespace/>referenteMef").val("Almaviva");
+	$("#<portlet:namespace/>telReferenteMef").val(123456789);
+	$("#<portlet:namespace/>emailReferenteMef").val("Almaviva@almaviva.it");
+	$("#<portlet:namespace/>cognomeExt").val("Rossi"); 
+	$("#<portlet:namespace/>nomeExt").val("Paolo");
+	$("#<portlet:namespace/>cfExt").val("abcdef12g34h567i");
+	$("#<portlet:namespace/>luogoNascitaExt").val("Roma");
+	$("#<portlet:namespace/>dataNascitaExt").val("01/01/1990");
+	$("#<portlet:namespace/>dipSocietaExt").val("Almaviva");
+	$("#<portlet:namespace/>dataScadenzaBadgeExt").val("01/01/2021");
+	$("#<portlet:namespace/>motivazioneExt").val("nuova richiesta badge esterno");
+ });
+ </script>

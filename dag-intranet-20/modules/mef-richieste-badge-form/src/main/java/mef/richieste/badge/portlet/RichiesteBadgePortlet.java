@@ -176,6 +176,15 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 		_log.info("Dentro del doview");
 		
+		 /* mod temp - svuota richieste badges
+		List<RichiestaBadge> richiestaBadges = RichiestaBadgeLocalServiceUtil.getRichiestaBadges(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		for (RichiestaBadge richiestaBadge : richiestaBadges) {
+			RichiestaBadgeLocalServiceUtil.deleteRichiestaBadge(richiestaBadge);
+		}
+		*/		
+		
+		
+		
 		ThemeDisplay themeDisplay = (ThemeDisplay) renderRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		User user = themeDisplay.getUser();
 		String idOrgChart = (String) user.getExpandoBridge().getAttribute("idOrgChart");
@@ -431,19 +440,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		renderRequest.setAttribute("uffici", uffici_by_dirigente_list);
 
 		
-		// mod temp radio
-
-		/*
 		
-		long id = CounterLocalServiceUtil.increment(OggettoRichiesta.class.getName());
-		OggettoRichiesta oggettoRichiesta = OggettoRichiestaLocalServiceUtil.createOggettoRichiesta(-1);
-		oggettoRichiesta.setId_oggetto(id);
-		oggettoRichiesta.setDescrizione_oggetto("primo rilascio badge");
-		OggettoRichiestaLocalServiceUtil.addOggettoRichiesta(oggettoRichiesta);
-		
-		 //fine mod temp radio 
-		  * 
-		 */
 		
 		
 		List<OggettoRichiesta> oggettoRichiestaList = OggettoRichiestaLocalServiceUtil
@@ -451,22 +448,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		
 		
 		
-		
-		//* mod temp sedi ext 
 
-
-		/*
-		long id1 = CounterLocalServiceUtil.increment(SediEsterne.class.getName());
-		SediEsterne sedeEsterna = SediEsterneLocalServiceUtil.createSediEsterne(-1);
-		
-		sedeEsterna.setId_sede_esterna(id1);
-		sedeEsterna.setNome_sede_esterna("XX Settembre");
-		SediEsterneLocalServiceUtil.addSediEsterne(sedeEsterna);
-		
-		// fine mod temp sedi ext 
-		  
-		
-		*/
 		
 		List<SediEsterne> sediEsterneList = SediEsterneLocalServiceUtil.getSediEsternes(QueryUtil.ALL_POS,
 				QueryUtil.ALL_POS);
