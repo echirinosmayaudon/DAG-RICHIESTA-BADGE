@@ -19,7 +19,7 @@ import javax.mail.internet.InternetAddress;
 public class EmailSender {
 	  final Log _log = LogFactoryUtil.getLog(EmailSender.class);
 	  public boolean sendMailMessage(String mailSubject, String mailBody, String senderName, String senderMailAddress, String receiverMailAddress) {
-
+		  
       try{
             	MailMessage mailMessage=new MailMessage();
 				mailMessage.setBody(mailBody);
@@ -32,7 +32,7 @@ public class EmailSender {
 
       }
       catch (Exception e) {
-      	_log.error(e);
+        	_log.error(e);
       	return false;
 		  }
       	return true;

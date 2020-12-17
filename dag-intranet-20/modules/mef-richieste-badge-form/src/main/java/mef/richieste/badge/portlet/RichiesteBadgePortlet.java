@@ -176,13 +176,14 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 
 		
-		 /* mod temp - svuota richieste badges
-		List<RichiestaBadge> richiestaBadges = RichiestaBadgeLocalServiceUtil.getRichiestaBadges(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+		 // mod temp - svuota richieste badges
+	
+	/*	List<RichiestaBadge> richiestaBadges = RichiestaBadgeLocalServiceUtil.getRichiestaBadges(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 		for (RichiestaBadge richiestaBadge : richiestaBadges) {
 			RichiestaBadgeLocalServiceUtil.deleteRichiestaBadge(richiestaBadge);
 		}
-		*/		
-		
+			
+		*/
 		
 		
 		ThemeDisplay themeDisplay = (ThemeDisplay) renderRequest.getAttribute(WebKeys.THEME_DISPLAY);
@@ -190,8 +191,6 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 		
 		
 		String idOrgChart = (String) user.getExpandoBridge().getAttribute("idOrgChart");
-		
-		
 		
 		Long userId = (Long) user.getUserId();
 		String navigation = (String) renderRequest.getAttribute("navigation");
@@ -243,14 +242,6 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			richiedente.setUfficioRichiedente("Casal boccone");
 			
 			/**/
-			
-			
-			
-			
-			
-			
-			
-			
 			renderRequest.setAttribute("richiedente", richiedente);
 		}
 
@@ -443,16 +434,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 		renderRequest.setAttribute("uffici", uffici_by_dirigente_list);
 
-		
-		
-		
-		
 		List<OggettoRichiesta> oggettoRichiestaList = OggettoRichiestaLocalServiceUtil
 				.getOggettoRichiestas(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
-		
-		
-		
-
 		
 		List<SediEsterne> sediEsterneList = SediEsterneLocalServiceUtil.getSediEsternes(QueryUtil.ALL_POS,
 				QueryUtil.ALL_POS);
@@ -713,17 +696,14 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 	// get user fieldName = _customFieldUserPersonal fieldValue=directorId
 	private User getUsertByCustomField(long companyId, String fieldName, String fieldValue) throws PortalException {
-
 		List<ExpandoValue> values = ExpandoValueLocalServiceUtil.getColumnValues(companyId, User.class.getName(),
 				ExpandoTableConstants.DEFAULT_TABLE_NAME, fieldName, fieldValue, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
-
 		for (ExpandoValue value : values) {
 			User user = UserLocalServiceUtil.getUser(value.getClassPK());
 			return user;
 		}
 
 		return null;
-
 	}
 
 	private Folder getFolder(ThemeDisplay themeDisplay) {
@@ -1092,13 +1072,9 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	public void eventoRichiestaBadge(ActionRequest actionRequest, ActionResponse actionResponse)
 			throws ParseException, IOException, RichiesteBadgeException, PortalException {
 		
-
-
 		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		User user = themeDisplay.getUser();
 	
-		
-		
 		boolean dirigente = false;
 		boolean delegatoBadge = false;
 		boolean gestoreInterno = false;
@@ -1131,18 +1107,11 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			screename_richiedente = user.getScreenName();
 		}
 
-
-		
-		
-		
-		
 		if ((user != null) && (user.getExpandoBridge() != null)
 				&& (user.getExpandoBridge().getAttribute(_customFieldUserOrg) != null)) {
 			id_ufficio = Long.parseLong((String) user.getExpandoBridge().getAttribute(_customFieldUserOrg));
 		}
-	
-		
-		
+			
 		JSONObject jsonRichiedenteSubmit = JSONFactoryUtil
 				.createJSONObject(actionRequest.getParameter("DatiRichiedenteSubmit"));
 		JSONObject jsonRichiestaSubmit = JSONFactoryUtil
@@ -1435,9 +1404,6 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 				json_richiesta_external.put("corridoiopos", jsonRichiestaSubmit.getString("corridoiopos"));
 				json_richiesta_external.put("fuoriportapos", jsonRichiestaSubmit.getString("fuoriportapos"));
 				
-				
-				
-				
 				long siapId = 0L;
 				
 				// modifica 2021
@@ -1540,9 +1506,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 						_configuration.emailReferente());
 				
 				if (emailReferente != null && !("").equalsIgnoreCase(emailReferente)) {
-				
 					mail.sendMailMessage(subject, mailbody, sender, smtpUser, emailReferente);
-				
 				}
 				
 				// invia email a richiedente
@@ -1554,10 +1518,9 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 				String emailDirigente = "";
 				String directorId = "";
 				
-				
 				if (user.getExpandoBridge() != null
 						&& (user.getExpandoBridge().getAttribute(_customFieldUserDirector) != null)) {
-					
+			
 					directorId = (String) user.getExpandoBridge().getAttribute(_customFieldUserDirector);
 					
 					if (directorId != null && !("0").equalsIgnoreCase(directorId)
@@ -1573,34 +1536,22 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 				}
 
 				if (!emailDirigente.equalsIgnoreCase(jsonRichiedenteSubmit.getString("emailrichiedente"))) {
-					
-						
-						
 					mail.sendMailMessage(subject, mailbody, sender, smtpUser, emailDirigente);
-					
-			
 				}
 
 				// invia email a delegati
 				if (!("").equalsIgnoreCase(directorId)) {
-					
-					
-					
-					
+										
 					/* mof temp delegatoBadgeRole */
-					
-					
 					
 					Role delegatoBadgeRole = RoleLocalServiceUtil.getRole(themeDisplay.getCompanyId(), "delegatoBadge");
 					
-				
 					//Role delegatoBadgeRole = null;
 					/* fine mof temp delegatoBadgeRole */
 					
 					List<User> users_list_by_delegatoBadgeRole = new ArrayList<User>(0);
 
 					if (delegatoBadgeRole != null) {
-					
 						users_list_by_delegatoBadgeRole = UserLocalServiceUtil
 								.getRoleUsers(delegatoBadgeRole.getRoleId(), QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 						
@@ -1659,8 +1610,6 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 						_log.error(e);
 
 					}
-					
-					
 					
 				}
 				
@@ -3611,24 +3560,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 				
 				
 			}
-			
-			
-			
-
-//			try {
-//
-//				PortletURL urlRefresh = PortletURLFactoryUtil.create(actionRequest,
-//						themeDisplay.getPortletDisplay().getId(), themeDisplay.getPlid(), PortletRequest.ACTION_PHASE);
-//				urlRefresh.setParameter("javax.portlet.action", "vaiADettaglio");
-//				urlRefresh.setParameter("richiestaId", Long.toString(idRichiestaPKNew));
-//				urlRefresh.setParameter("jsonInputRicerca", jsonInputRicerca);
-//				actionResponse.sendRedirect(urlRefresh.toString());
-//
-//			} catch (Exception e) {
-//
-//				_log.error(e);
-//
-//			}
+		
 
 		} catch (Exception e) {
 			_log.error("Errore durante l'inserimento della segnalazione: " + e);
@@ -3642,12 +3574,6 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	@Override
 	public void serveResource(ResourceRequest resourceRequest, ResourceResponse resourceResponse)
 			throws IOException, PortletException {
-
-		
-		
-	
-		
-		
 		
 		if (ParamUtil.getString(resourceRequest, "btnAction") != null
 				&& !"".equalsIgnoreCase(ParamUtil.getString(resourceRequest, "btnAction"))) {
