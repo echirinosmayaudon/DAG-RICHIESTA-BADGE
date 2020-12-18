@@ -56,12 +56,14 @@ import com.liferay.portal.kernel.theme.ThemeDisplay;
 import com.liferay.portal.kernel.upload.UploadPortletRequest;
 import com.liferay.portal.kernel.util.FileUtil;
 import com.liferay.portal.kernel.util.HtmlUtil;
+import com.liferay.portal.kernel.util.ListUtil;
 import com.liferay.portal.kernel.util.ParamUtil;
 import com.liferay.portal.kernel.util.PortalUtil;
 import com.liferay.portal.kernel.util.PrefsPropsUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
+import com.liferay.portal.kernel.util.Validator;
 import com.liferay.portal.kernel.util.WebKeys;
 
 import java.io.File;
@@ -174,7 +176,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	public void doView(RenderRequest renderRequest, RenderResponse renderResponse)
 			throws IOException, PortletException {
 
-
+		_log.info("Dentro del doview");
 		
 		 // mod temp - svuota richieste badges
 	
@@ -547,8 +549,11 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	boolean gestoreEsterno = false;
 
 	private List<String> getRolesFromUser(ThemeDisplay themeDisplay) {
-
+		_log.info("Dentro del getRolesfromUser");
+		
+		
 		List<String> roles_list = new ArrayList<>();
+		
 		User user = themeDisplay.getUser();
 
 		List<Role> listaRuoli = user.getRoles();
@@ -583,24 +588,28 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 	// recupero gestori esterni
 	private List<String> getGestoriEsterniRoles(ThemeDisplay themeDisplay) {
-
+		_log.info("Dentro del getGestoriEsterniRoles");
+		
 		List<String> listaGestoriEsterni = new ArrayList<>();
+	
 		User user = themeDisplay.getUser();
 		List<Role> listaRuoli = user.getRoles();
-
+		//_log.info("Dentro user.getRoles(): "+user.getRoles().size());
+		
 		for (Role ruolo : listaRuoli) {
-			if (ruolo.getName().startsWith(_gestoreEsterno)) {
-				listaGestoriEsterni.add(ruolo.getName());
-			}
+			/*mod 2021 controllo dei ruoli null oppure empty*/
+				if (ruolo.getName().startsWith(_gestoreEsterno)) {
+					listaGestoriEsterni.add(ruolo.getName());
+				}
+			
 		}
-
+	
 		return listaGestoriEsterni;
-
 	}
 
 	// metodo creazione richiedente da themedisplay
 	private Richiedente createRichiedenteByTheme(ThemeDisplay themeDisplay) {
-
+		_log.info("Dentro del createRichiedenteByTheme");
 		User user = themeDisplay.getUser();
 		long companyId = themeDisplay.getCompanyId();
 		return createRichiedente(user, companyId);
@@ -609,7 +618,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 	// metodo creazione richiedente
 	private Richiedente createRichiedente(User user, long companyId) {
-
+		_log.info("Dentro del createRichiedente");
 		Richiedente richiedente = createStubRichiedente();
 		richiedente.setCodiceFiscale(user.getScreenName());
 		richiedente.setEmail(user.getEmailAddress());
@@ -686,6 +695,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 	// get user fieldName = _customFieldUserPersonal fieldValue=directorId
 	private User getUsertByCustomField(long companyId, String fieldName, String fieldValue) throws PortalException {
+		
+		_log.info("Dentro del getUsertByCustomField");
 		List<ExpandoValue> values = ExpandoValueLocalServiceUtil.getColumnValues(companyId, User.class.getName(),
 				ExpandoTableConstants.DEFAULT_TABLE_NAME, fieldName, fieldValue, QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 		for (ExpandoValue value : values) {
@@ -903,7 +914,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 	// metodo creazione bean Richiedente da idRichiesta
 	private Richiedente getRichiedenteByidRichiesta(long idRichiesta) {
-
+		_log.info("Dentro del getRichiedenteByIdRichiesta");
 		Richiedente richiedente = new Richiedente();
 		JSONObject jsonRichiedente;
 		RichiestaBadge richiesta = RichiestaBadgeLocalServiceUtil.fetchRichiestaBadge(idRichiesta);
@@ -930,7 +941,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	// metodo creazione bean ModuloRichiedente da idRichiesta
 	private ModuloRichiedente getModuloRichiedenteByidRichiesta(long idRichiesta, ThemeDisplay themeDisplay)
 			throws JSONException {
-
+		_log.info("Dentro del getModuloRichiedenteByIdRichiesta");
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		ModuloRichiedente moduloRichiedente = new ModuloRichiedente();
 		RichiestaBadge richiesta = RichiestaBadgeLocalServiceUtil.fetchRichiestaBadge(idRichiesta);
@@ -977,11 +988,11 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 				moduloRichiedente.setPostazione(HtmlUtil.escape(jsonRichiestaEsternaSubmit.getString("postazione")));
 				moduloRichiedente.setSediAbilitate(HtmlUtil.escape(richiesta.getArray_sedi_abilitate()));
 				
-				// modifica 2021
-				moduloRichiedente.setSedePostazione(HtmlUtil.escape(jsonRichiestaEsternaSubmit.getString("sedepos")));
-				moduloRichiedente.setPianoPostazione(HtmlUtil.escape(jsonRichiestaEsternaSubmit.getString("pianopos")));
-				moduloRichiedente.setCorridoioPostazione(HtmlUtil.escape(jsonRichiestaEsternaSubmit.getString("corridoiopos")));
-				moduloRichiedente.setFuoriPortaPostazione(HtmlUtil.escape(jsonRichiestaEsternaSubmit.getString("fuoriportapos")));
+				/*Modifica 2021*/
+				moduloRichiedente.setSedePostazione(Validator.isNull(jsonRichiestaEsternaSubmit.getString("sedepos"))?"":jsonRichiestaEsternaSubmit.getString("sedepos"));
+				moduloRichiedente.setPianoPostazione(Validator.isNull(jsonRichiestaEsternaSubmit.getString("pianopos"))?"":jsonRichiestaEsternaSubmit.getString("pianopos"));
+				moduloRichiedente.setCorridoioPostazione(Validator.isNull(jsonRichiestaEsternaSubmit.getString("corridoiopos"))?"":jsonRichiestaEsternaSubmit.getString("corridoiopos"));
+				moduloRichiedente.setFuoriPortaPostazione(Validator.isNull(jsonRichiestaEsternaSubmit.getString("fuoriportapos"))?"":jsonRichiestaEsternaSubmit.getString("fuoriportapos"));
 				
 				// fine 2021
 				if (richiesta.getData_scadenza() != null) {
@@ -1061,6 +1072,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	@ProcessAction(name = "eventoRichiestaBadge")
 	public void eventoRichiestaBadge(ActionRequest actionRequest, ActionResponse actionResponse)
 			throws ParseException, IOException, RichiesteBadgeException, PortalException {
+		
+		_log.info("Dentro del eventoRichiestaBadge");
 		
 		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		User user = themeDisplay.getUser();
@@ -1167,11 +1180,13 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			moduloRichiedente.setSediAbilitate(jsonRichiestaSubmit.getString("sedi").replace("_", " "));
 			moduloRichiedente.setDataScadenza(jsonRichiestaSubmit.getString("scadenza"));
 			moduloRichiedente.setMotivazione(jsonRichiestaSubmit.getString("motivazione"));
-			// modifica 2021
-			moduloRichiedente.setSedePostazione(jsonRichiestaSubmit.getString("sedepos"));
-			moduloRichiedente.setPianoPostazione(jsonRichiestaSubmit.getString("pianopos"));
-			moduloRichiedente.setCorridoioPostazione(jsonRichiestaSubmit.getString("corridoiopos"));
-			moduloRichiedente.setFuoriPortaPostazione(jsonRichiestaSubmit.getString("fuoriportapos"));
+		
+			/*Modifica 2021*/
+			moduloRichiedente.setSedePostazione(Validator.isNull(jsonRichiestaSubmit.getString("sedepos"))?"":jsonRichiestaSubmit.getString("sedepos"));
+			moduloRichiedente.setPianoPostazione(Validator.isNull(jsonRichiestaSubmit.getString("pianopos"))?"":jsonRichiestaSubmit.getString("pianopos"));
+			moduloRichiedente.setCorridoioPostazione(Validator.isNull(jsonRichiestaSubmit.getString("corridoiopos"))?"":jsonRichiestaSubmit.getString("corridoiopos"));
+			moduloRichiedente.setFuoriPortaPostazione(Validator.isNull(jsonRichiestaSubmit.getString("fuoriportapos"))?"":jsonRichiestaSubmit.getString("fuoriportapos"));
+			
 			
 		}
 		
@@ -1389,10 +1404,12 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 				json_richiesta_external.put("piano", jsonRichiestaSubmit.getString("contratto"));
 				json_richiesta_external.put("postazione", jsonRichiestaSubmit.getString("postazione"));
 				// modifica 2021
-				json_richiesta_external.put("sedepos", jsonRichiestaSubmit.getString("sedepos"));
-				json_richiesta_external.put("pianopos", jsonRichiestaSubmit.getString("pianopos"));
-				json_richiesta_external.put("corridoiopos", jsonRichiestaSubmit.getString("corridoiopos"));
-				json_richiesta_external.put("fuoriportapos", jsonRichiestaSubmit.getString("fuoriportapos"));
+				
+				/*Modifica 2021*/				
+				json_richiesta_external.put("sedepos",Validator.isNull(jsonRichiestaSubmit.getString("sedepos"))?"":jsonRichiestaSubmit.getString("sedepos"));
+				json_richiesta_external.put("pianopos",Validator.isNull(jsonRichiestaSubmit.getString("pianopos"))?"":jsonRichiestaSubmit.getString("pianopos"));
+				json_richiesta_external.put("corridoiopos", Validator.isNull(jsonRichiestaSubmit.getString("corridoiopos"))?"":jsonRichiestaSubmit.getString("corridoiopos"));
+				json_richiesta_external.put("fuoriportapos", Validator.isNull(jsonRichiestaSubmit.getString("fuoriportapos"))?"":jsonRichiestaSubmit.getString("fuoriportapos"));
 				
 				long siapId = 0L;
 				
@@ -1620,7 +1637,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	public void richiestaBadge(ActionRequest request, ActionResponse response)
 			throws NumberFormatException, PortalException {
 
-		
+		_log.info("Dentro del richiestaBadge");
 		
 		ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(WebKeys.THEME_DISPLAY);
 
@@ -1741,12 +1758,13 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			moduloRichiedente.setSediAbilitate(jsonRichiestaEsterna.getString("sedi").replace("_", " "));
 			moduloRichiedente.setDataScadenza(jsonRichiestaEsterna.getString("scadenza"));
 			moduloRichiedente.setMotivazione(jsonRichiestaEsterna.getString("motivazione"));
-			
+					
 			/*Modifica 2021*/
-			moduloRichiedente.setSedePostazione(jsonRichiestaEsterna.getString("sedepos"));
-			moduloRichiedente.setPianoPostazione(jsonRichiestaEsterna.getString("pianopos"));
-			moduloRichiedente.setCorridoioPostazione(jsonRichiestaEsterna.getString("corridoiopos"));
-			moduloRichiedente.setFuoriPortaPostazione(jsonRichiestaEsterna.getString("fuoriportapos"));
+			moduloRichiedente.setSedePostazione(Validator.isNull(jsonRichiestaEsterna.getString("sedepos"))?"":jsonRichiestaEsterna.getString("sedepos"));
+			moduloRichiedente.setPianoPostazione(Validator.isNull(jsonRichiestaEsterna.getString("pianopos"))?"":jsonRichiestaEsterna.getString("pianopos"));
+			moduloRichiedente.setCorridoioPostazione(Validator.isNull(jsonRichiestaEsterna.getString("corridoiopos"))?"":jsonRichiestaEsterna.getString("corridoiopos"));
+			moduloRichiedente.setFuoriPortaPostazione(Validator.isNull(jsonRichiestaEsterna.getString("fuoriportapos"))?"":jsonRichiestaEsterna.getString("fuoriportapos"));
+			
 			// fine 2021
 			
 			id_oggetto = jsonRichiestaEsterna.getString("oggetto");
@@ -1817,7 +1835,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	public void modificaRichiestaBadge(ActionRequest actionRequest, ActionResponse actionResponse)
 			throws ParseException, IOException, RichiesteBadgeException, PortalException {
 
-		
+		_log.info("Dentro del modificaRichiestaBadge");
 		Richiedente richiedente = new Richiedente();
 
 		JSONObject jsonRichiedenteSubmit = JSONFactoryUtil
@@ -1875,16 +1893,12 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			moduloRichiedente.setDataScadenza(HtmlUtil.escape(jsonRichiestaSubmit.getString("scadenza")));
 			moduloRichiedente.setMotivazione(HtmlUtil.escape(jsonRichiestaSubmit.getString("motivazione")));
 
-		
 			
 			/*Modifica 2021*/
-			moduloRichiedente.setSedePostazione(jsonRichiestaSubmit.getString("sedepos"));
-			moduloRichiedente.setPianoPostazione(jsonRichiestaSubmit.getString("pianopos"));
-			moduloRichiedente.setCorridoioPostazione(jsonRichiestaSubmit.getString("corridoiopos"));
-			moduloRichiedente.setFuoriPortaPostazione(jsonRichiestaSubmit.getString("fuoriportapos"));
-			
-			
-			
+			moduloRichiedente.setSedePostazione(Validator.isNull(jsonRichiestaSubmit.getString("sedepos"))?"":jsonRichiestaSubmit.getString("sedepos"));
+			moduloRichiedente.setPianoPostazione(Validator.isNull(jsonRichiestaSubmit.getString("pianopos"))?"":jsonRichiestaSubmit.getString("pianopos"));
+			moduloRichiedente.setCorridoioPostazione(Validator.isNull(jsonRichiestaSubmit.getString("corridoiopos"))?"":jsonRichiestaSubmit.getString("corridoiopos"));
+			moduloRichiedente.setFuoriPortaPostazione(Validator.isNull(jsonRichiestaSubmit.getString("fuoriportapos"))?"":jsonRichiestaSubmit.getString("fuoriportapos"));			
 			
 		}
 
@@ -1922,7 +1936,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	public void modificaRichiestaBadgePostSubmit(ActionRequest actionRequest, ActionResponse actionResponse)
 			throws JSONException {
 		
-		
+		_log.info("Dentro del modificaRichiestaBadgePostSubmit");
 
 		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		long id_richiesta_pk = 0L;
@@ -1943,7 +1957,6 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	}
 
 	private String getHtmlRichiesta(ModuloRichiedente richiesta) {
-
 		StringBuilder dati = new StringBuilder();
 		dati.append("<table border='0'>");
 		createHtmlForData(dati, "Nome intestatario", richiesta.getNome());
@@ -1966,7 +1979,6 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	}
 
 	private StringBuilder createHtmlForData(StringBuilder strportion, String title, String data) {
-
 		strportion.append("<tr>");
 		strportion.append("<td>");
 		strportion.append("<b>" + title + ":</b>");
@@ -1981,7 +1993,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 	@ProcessAction(name = "profiloGestore")
 	public void profiloGestore(ActionRequest actionRequest, ActionResponse actionResponse) {
-
+		_log.info("Dentro del profiloGestore");
+		
 		String navigation = "profiloGestore";
 		actionRequest.setAttribute("navigation", navigation);
 
@@ -1989,6 +2002,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 	@ProcessAction(name = "vaiARicerca")
 	public void vaiARicerca(ActionRequest actionRequest, ActionResponse actionResponse) {
+		_log.info("Dentro del vaiARicerca");
+		
 		PortletSession pSession = actionRequest.getPortletSession();
 		String navigation = "vaiARicerca";
 		actionRequest.setAttribute("navigation", navigation);
@@ -1999,7 +2014,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 	@ProcessAction(name = "vaiADettaglio")
 	public void vaiADettaglio(ActionRequest actionRequest, ActionResponse actionResponse) {
-
+		_log.info("Dentro del vaiADettaglio");
+		
 		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 
 		RichiestaBadge richiestaBadge;
@@ -2156,12 +2172,13 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 									.setPiano(HtmlUtil.escape(json_object_richiesta_esterna.getString("piano")));
 							moduloRichiedente.setPostazione(
 									HtmlUtil.escape(json_object_richiesta_esterna.getString("postazione")));
-							
-							// modifica 2021
-							moduloRichiedente.setSedePostazione(HtmlUtil.escape(json_object_richiesta_esterna.getString("sedepos")));
-							moduloRichiedente.setPianoPostazione(HtmlUtil.escape(json_object_richiesta_esterna.getString("pianopos")));
-							moduloRichiedente.setCorridoioPostazione(HtmlUtil.escape(json_object_richiesta_esterna.getString("corridoiopos")));
-							moduloRichiedente.setFuoriPortaPostazione(HtmlUtil.escape(json_object_richiesta_esterna.getString("fuoriportapos")));
+												
+							/*Modifica 2021*/
+							moduloRichiedente.setSedePostazione(Validator.isNull(json_object_richiesta_esterna.getString("sedepos"))?"":json_object_richiesta_esterna.getString("sedepos"));
+							moduloRichiedente.setPianoPostazione(Validator.isNull(json_object_richiesta_esterna.getString("pianopos"))?"":json_object_richiesta_esterna.getString("pianopos"));
+							moduloRichiedente.setCorridoioPostazione(Validator.isNull(json_object_richiesta_esterna.getString("corridoiopos"))?"":json_object_richiesta_esterna.getString("corridoiopos"));
+							moduloRichiedente.setFuoriPortaPostazione(Validator.isNull(json_object_richiesta_esterna.getString("fuoriportapos"))?"":json_object_richiesta_esterna.getString("fuoriportapos"));
+
 						}
 					}
 
@@ -2202,7 +2219,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 						moduloRichiedente.setAllegatoOpzionale(fileTmp);
 						moduloRichiedente.setAllegatoMimeTypeOpzionale(dlFileEntryModulo.getMimeType());
 						moduloRichiedente.setAllegatoNomeOpzionale(dlFileEntryModulo.getFileName());
-
+						
 						actionRequest.setAttribute("urlModuloSostituzione", urlModuloSostituzione);
 					}
 
@@ -2230,6 +2247,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	// metodo per ricerca delle richieste badge
 	@ProcessAction(name = "ricercaRichieste")
 	public void ricercaRichieste(ActionRequest actionRequest, ActionResponse actionResponse) throws PortalException {
+		_log.info("Dentro del ricercaRichieste");
+		
 		PortletSession session = actionRequest.getPortletSession();
 
 		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
@@ -2577,11 +2596,11 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 					risultato_richiesta_bean.setPostazione(json_richiesta_external.getString("postazione"));
 					risultato_richiesta_bean.setSedi(singola_richiesta.getArray_sedi_abilitate());
 					
-					// modifica 2021
-					risultato_richiesta_bean.setSedePostazione(json_richiesta_external.getString("sedepos"));
-					risultato_richiesta_bean.setPianoPostazione(json_richiesta_external.getString("pianopos"));
-					risultato_richiesta_bean.setCorridoioPostazione(json_richiesta_external.getString("corridoiopos"));
-					risultato_richiesta_bean.setFuoriPortaPostazione(json_richiesta_external.getString("fuoriportapos"));
+					// modifica 2021		
+					risultato_richiesta_bean.setSedePostazione(Validator.isNull(json_richiesta_external.getString("sedepos"))?"":json_richiesta_external.getString("sedepos"));
+					risultato_richiesta_bean.setPianoPostazione(Validator.isNull(json_richiesta_external.getString("pianopos"))?"":json_richiesta_external.getString("pianopos"));
+					risultato_richiesta_bean.setCorridoioPostazione(Validator.isNull(json_richiesta_external.getString("corridoiopos"))?"":json_richiesta_external.getString("corridoiopos"));
+					risultato_richiesta_bean.setFuoriPortaPostazione(Validator.isNull(json_richiesta_external.getString("fuoriportapos"))?"":json_richiesta_external.getString("fuoriportapos"));
 					
 					
 					
@@ -2743,6 +2762,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	public void richiediModificaRichiesta(ActionRequest actionRequest, ActionResponse actionResponse)
 			throws WindowStateException, PortletModeException, IOException, PortalException {
 
+		_log.info("Dentro del richiediModificaRichiesta");
+		
 		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		User user = themeDisplay.getUser();
 
@@ -2838,6 +2859,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	@ProcessAction(name = "vaiAProrogaBadge")
 	public void vaiAProrogaBadge(ActionRequest actionRequest, ActionResponse actionResponse) {
 
+		_log.info("Dentro del vaiAProrogaBadge");
+		
 		String navigation = "vaiAProrogaBadge";
 		actionRequest.setAttribute("navigation", navigation);
 
@@ -2850,7 +2873,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	@ProcessAction(name = "cercaRichiesteInScadenza")
 	public void cercaRichiesteInScadenza(ActionRequest actionRequest, ActionResponse actionResponse)
 			throws ParseException {
-
+		_log.info("Dentro del cercaRichiesteInScadenza");
 		
 		
 		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
@@ -2891,7 +2914,6 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			if (personIdDir != null && personIdDir != "") {
 				for (ManagerOfficesBind managerOfficesBind : ManagerOfficesBindLocalServiceUtil
 						.getManagerOfficesBindByPersonId(Long.parseLong(personIdDir))) {
-
 					try {
 						id_uffici_competenza_list.add(managerOfficesBind.getIdOrgChart());
 
@@ -2909,6 +2931,23 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 		}
 
+		// MOD 2021 TEMP da cancellare
+	
+		if(ListUtil.isEmpty(id_uffici_competenza_list)) {
+			id_uffici_competenza_list.add(25128l);
+			id_uffici_competenza_list.add(24917l);
+			id_uffici_competenza_list.add(10020l);
+			id_uffici_competenza_list.add(25025l);
+			id_uffici_competenza_list.add(24992l);
+			id_uffici_competenza_list.add(10000l);
+			id_uffici_competenza_list.add(25073l);
+			id_uffici_competenza_list.add(24975l);
+			id_uffici_competenza_list.add(25123l);
+		}
+		
+		// FINE MOD 2021 TEMP da cancellare
+		
+		
 		boolean is_last = true;
 
 		// recupera i parametri selezionati relativi alle date di inizio e fine
@@ -2929,9 +2968,35 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 			data_end = sdf.parse(filtro_data_fine);
 		}
 
+		
+		_log.info("screen_name_richiedente del richiedente "+screen_name_richiedente);
+	
 		// dynamic query per la ricerca dei badge in scadenza
 		List<RichiestaBadge> richieste_in_scadenza_list = RichiestaBadgeLocalServiceUtil.findRichiesteInScadenza(
 				data_begin, data_end, is_last, 4, screen_name_richiedente, id_uffici_competenza_list);
+		
+		_log.info("Size delle RichiestaBadge originale "+richieste_in_scadenza_list.size());
+		
+		List<RichiestaBadge> listaRichiestaBage= RichiestaBadgeLocalServiceUtil.getRichiestaBadges(-1, -1);
+		
+		_log.info("Inizio della ricerca all RichiestaBadge size "+listaRichiestaBage.size());
+	
+		
+		_log.info("Prima del for richieste all");
+		
+		for (RichiestaBadge richiestaBadge : listaRichiestaBage) {
+	
+			_log.info("Data:"+richiestaBadge.getData_scadenza()+" richiestaBadge: "+richiestaBadge.getScreename_richiedente()+" id_ufficio:"+richiestaBadge.getId_ufficio()+" stato:"+richiestaBadge.getId_stato());
+		
+			if(richiestaBadge.getScreename_richiedente().equals("mncgld63r56f839n")) {
+				
+				richiestaBadge.setData_scadenza(data_end);
+				RichiestaBadgeLocalServiceUtil.updateRichiestaBadge(richiestaBadge);
+			}
+		
+		
+		}
+		
 		
 		// logica per la conversione della lista dei badge in scadenza in
 		// JSONArray
@@ -2976,6 +3041,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	 */
 	@ProcessAction(name = "vaiARiepilogoProroga")
 	public void vaiARiepilogoProroga(ActionRequest actionRequest, ActionResponse actionResponse) {
+		_log.info("Dentro del vaiARiepilogoProroga");
 
 		// recupero array degli id delle richieste selezionate
 		String[] arrayIdRichiesteSelezionate = actionRequest.getParameterValues("idRichiestaSelezionata");
@@ -3044,7 +3110,9 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	 */
 	@ProcessAction(name = "modificaRichiesteBadgeProroga")
 	public void modificaRichiesteBadgeProroga(ActionRequest actionRequest, ActionResponse actionResponse) {
-
+		_log.info("Dentro del modificaRichiesteBadgeProroga");	
+		
+		
 		String nuovaDataScadenza = actionRequest.getParameter("nuovaDataScadenza");
 		String jsonScadenzaSelezionata = actionRequest.getParameter("jsonScadenzaSelezionata");
 		String dataInizioSelezionata = actionRequest.getParameter("dataInizioSelezionata");
@@ -3067,6 +3135,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	 */
 	@ProcessAction(name = "prorogaRichiesteBadge")
 	public void prorogaRichiesteBadge(ActionRequest actionRequest, ActionResponse actionResponse) {
+		
+		_log.info("Dentro del prorogaRichiesteBadge");
 
 		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		User user = themeDisplay.getUser();
@@ -3278,6 +3348,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	public void approvaRifiutaRichiesta(ActionRequest actionRequest, ActionResponse actionResponse)
 			throws ParseException, PortalException {
 
+		_log.info("Dentro del approvaRifiutaRichiesta");
+		
 		// recupero ruolo utente loggato
 		ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
 		long companyId = themeDisplay.getCompanyId();
@@ -3560,6 +3632,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	public void serveResource(ResourceRequest resourceRequest, ResourceResponse resourceResponse)
 			throws IOException, PortletException {
 		
+		_log.info("Dentro del serveResource");
+		
 		if (ParamUtil.getString(resourceRequest, "btnAction") != null
 				&& !"".equalsIgnoreCase(ParamUtil.getString(resourceRequest, "btnAction"))) {
 
@@ -3675,13 +3749,12 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 					beanExcel.setNumero_badge(arrayRicerca.getJSONObject(i).getString("numero_badge"));
 					beanExcel.setAllegati(arrayRicerca.getJSONObject(i).getString("allegati"));
 					beanExcel.setNote(arrayRicerca.getJSONObject(i).getString("note"));
-					// modifica 2021
-					beanExcel.setSedePostazione(arrayRicerca.getJSONObject(i).getString("sedepos"));
-					beanExcel.setPianoPostazione(arrayRicerca.getJSONObject(i).getString("pianopos"));
-					beanExcel.setCorridoioPostazione(arrayRicerca.getJSONObject(i).getString("corridoiopos"));
-					beanExcel.setFuoriPortaPostazione(arrayRicerca.getJSONObject(i).getString("fuoriporta"));
 					
-
+					// modifica 2021
+					beanExcel.setSedePostazione(Validator.isNull(arrayRicerca.getJSONObject(i).getString("sedepos"))?"":arrayRicerca.getJSONObject(i).getString("sedepos"));
+					beanExcel.setPianoPostazione(Validator.isNull(arrayRicerca.getJSONObject(i).getString("pianopos"))?"":arrayRicerca.getJSONObject(i).getString("pianopos"));
+					beanExcel.setCorridoioPostazione(Validator.isNull(arrayRicerca.getJSONObject(i).getString("corridoiopos"))?"":arrayRicerca.getJSONObject(i).getString("corridoiopos"));
+					beanExcel.setFuoriPortaPostazione(Validator.isNull(arrayRicerca.getJSONObject(i).getString("fuoriporta"))?"":arrayRicerca.getJSONObject(i).getString("fuoriporta"));
 					excelList.add(beanExcel);
 
 				}
@@ -3700,11 +3773,15 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 	@ProcessAction(name = "vaiAInserimento")
 	public void vaiAInserimento(ActionRequest request, ActionResponse response) {
+		_log.info("Dentro del vaiAInserimento");
+		
 		request.setAttribute("navigation", "inserimentobadge");
 	}
 
 	@ProcessAction(name = "vaiAGestioneUtenti")
 	public void vaiAGestioneUtenti(ActionRequest request, ActionResponse response) {
+		_log.info("Dentro del vaiAGestioneUtenti");
+		
 		PortletSession pSession = request.getPortletSession();
 		pSession.setAttribute("filtriRicerca", null, PortletSession.APPLICATION_SCOPE);
 		pSession.setAttribute("checkBoxArray", null, PortletSession.APPLICATION_SCOPE);
@@ -3717,6 +3794,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 	@ProcessAction(name = "cercaUtentiDaAbilitare")
 	public void cercaUtentiDaAbilitare(ActionRequest request, ActionResponse response) throws Exception {
+		_log.info("Dentro del cercaUtentiDaAbilitare");
+		
 		PortletSession session = request.getPortletSession();
 		ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(WebKeys.THEME_DISPLAY);
 		List<String> filtriRicerca = new ArrayList<String>();
@@ -3834,6 +3913,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 	@ProcessAction(name = "cercaUtentiAbilitati")
 	public void cercaUtentiAbilitati(ActionRequest request, ActionResponse response) throws Exception {
+		_log.info("Dentro del cercaUtentiAbilitati");
+		
 		PortletSession session = request.getPortletSession();
 		ThemeDisplay themeDisplay = (ThemeDisplay) request.getAttribute(WebKeys.THEME_DISPLAY);
 		List<String> filtriRicerca = new ArrayList<String>();
@@ -3980,6 +4061,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 
 	
 	private JSONArray createJSONListDaAbilitarePageFromIndexNumber(int index, List<List<User>> paginazione_utenti_da_abilitare){
+		_log.info("Dentro del createJSONListDaAbilitarePageFromIndexNumber");
+		
 		JSONArray jsonArrayUtentiDaAbilitare = JSONFactoryUtil.createJSONArray();
 		try{
 			
@@ -4009,6 +4092,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	
 	
 	private JSONArray createJSONListAbilitatiPageFromIndexNumber(String checkBoxArray, List<String> filtriRicerca, int index, List<List<User>> paginazione_utenti_abilitati, List<List<User>> paginazione_utenti_abilitati_delegati, List<List<User>> paginazione_utenti_abilitati_non_delegati){
+		_log.info("Dentro del createJSONListAbilitatiPageFromIndexNumber");
+		
 		
 		JSONArray jsonArrayUtentiAbilitati = JSONFactoryUtil.createJSONArray();
 		try{
@@ -4116,7 +4201,7 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	}
 	 
 	private List<List<User>> listPaginationUtenti(String itemPerPage, Set<User> set) {
-		
+		_log.info("Dentro del listPaginationUtenti");
 		
 		if (set == null)
 			return Collections.emptyList();
@@ -4154,7 +4239,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	
 	@ProcessAction(name = "paginaUtenti")
 	public void paginaUtenti(ActionRequest actionRequest, ActionResponse actionResponse) throws IOException {
-
+		_log.info("Dentro del paginaUtenti");
+		
 		try {
 			PortletSession pSession = actionRequest.getPortletSession();
 			// recupero da sessione i filtri della richiesta
@@ -4254,7 +4340,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	
 	@ProcessAction(name = "paginaRichieste")
 	public void paginaRichieste(ActionRequest actionRequest, ActionResponse actionResponse) throws IOException {
-
+		_log.info("Dentro del paginaRichieste");
+		
 		try {
 			PortletSession pSession = actionRequest.getPortletSession();
 			// recupero da sessione i filtri della richiesta
@@ -4382,6 +4469,8 @@ public class RichiesteBadgePortlet extends MVCPortlet {
 	private volatile MefRichiesteBadgeConfig _configuration;
 
 	public String getRichiestaTmpl(Map richiestaTmpl) {
+		_log.info("Dentro del getRichiestaImpl");
+		
 		return (String) richiestaTmpl.get(_configuration.richiestaTmpl());
 	}
 

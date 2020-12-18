@@ -408,19 +408,60 @@ if(request.getParameter("richiestaId")!=null || (request.getAttribute("richiesta
                                   <!-- modifica 2021 -->
                             <div class="ama-col-md-3 ama-col-sm-6">
                                 <span class="section-information"><liferay-ui:message key="badge-recap-sede"/>:</span>
-                                <p class="info"><%=moduloRichiedente.getSedePostazione().split("##")[1]%></p>
+                                
+                                <c:choose>
+								      <c:when test="<%=moduloRichiedente.getSedePostazione().split("##").length>1%>">
+								     		 <p class="info"><%=moduloRichiedente.getSedePostazione().split("##")[1]%></p>
+								      </c:when>
+
+								      <c:otherwise>
+								      <p class="info">N/A</p>
+								      </c:otherwise>
+								  </c:choose>
+								   
                             </div>
+                            
                             <div class="ama-col-md-3 ama-col-sm-6">
                                 <span class="section-information"><liferay-ui:message key="badge-recap-piano"/>:</span>
-                                <p class="info"><%=moduloRichiedente.getPianoPostazione().split("##")[1]%></p>
+                                
+                                  <c:choose>
+								      <c:when test="<%=moduloRichiedente.getPianoPostazione().split("##").length>1%>">
+								     		 <p class="info"><%=moduloRichiedente.getPianoPostazione().split("##")[1]%></p>
+								      </c:when>
+
+								      <c:otherwise>
+								      <p class="info">N/A</p>
+								      </c:otherwise>
+								  </c:choose>
+                                
                             </div>
                             <div class="ama-col-md-3 ama-col-sm-6">
                                 <span class="section-information"><liferay-ui:message key="badge-recap-corridoio"/>:</span>
-                                <p class="info"><%=moduloRichiedente.getCorridoioPostazione().split("##")[1]%></p>
+                               
+                               <c:choose>
+								      <c:when test="<%=moduloRichiedente.getCorridoioPostazione().split("##").length>1%>">
+								     		 <p class="info"><%=moduloRichiedente.getCorridoioPostazione().split("##")[1]%></p>
+								      </c:when>
+
+								      <c:otherwise>
+								      <p class="info">N/A</p>
+								      </c:otherwise>
+								  </c:choose>
+                               
                             </div>
                             <div class="ama-col-md-3 ama-col-sm-6">
                                 <span class="section-information"><liferay-ui:message key="badge-recap-fuori-porta"/>:</span>
-                                <p class="info"><%=moduloRichiedente.getFuoriPortaPostazione().split("##")[1]%></p>
+                                
+                                     <c:choose>
+									      <c:when test="<%=moduloRichiedente.getFuoriPortaPostazione().split("##").length>1%>">
+									     		 <p class="info"><%=moduloRichiedente.getFuoriPortaPostazione().split("##")[1]%></p>
+									      </c:when>
+
+								      <c:otherwise>
+								      <p class="info">N/A</p>
+								      </c:otherwise>
+								  </c:choose>
+         
                             </div>
                        
                             
@@ -677,6 +718,22 @@ if(request.getParameter("richiestaId")!=null || (request.getAttribute("richiesta
 							</button>
 						</div>
 					</c:if>
+					
+					
+					<!--Mod temp 2021 da cancellare dopo i test -->
+					
+					<div class="ama-col-sm-<%=col_sm%>">
+							<button href="#" type="reset" class="button button-secondary "
+								id="<portlet:namespace/>modificaRichiestaBadgePostSubmit">
+								<liferay-ui:message key="badge-recap-bnt-modifica" />
+							</button>
+						</div>
+					
+					
+					<!--fine Mod temp 2021 da cancellare dopo i test  -->
+					
+					
+					
 					<c:if
 						test="<%=(         (dirigente || delegatoBadge)
 								&& (
@@ -697,6 +754,20 @@ if(request.getParameter("richiestaId")!=null || (request.getAttribute("richiesta
 							</button>
 						</div>
 					</c:if>
+
+
+		<!--Mod temp 2021 da cancellare dopo i test -->
+					
+					<div class="ama-col-sm-<%=col_sm%>">
+							<button href="#" type="reset" class="button button-secondary "
+								id="<portlet:namespace/>richiediModificaRichiestaBadge">
+								<liferay-ui:message key="badge-recap-bnt-richiedi-modifica" />
+							</button>
+					</div>
+					
+					
+		<!--fine Mod temp 2021 da cancellare dopo i test  -->
+
 
 					<c:if
 						test="<%=(  ((delegatoBadge || dirigente)
